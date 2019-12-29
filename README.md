@@ -1,12 +1,15 @@
-# ETL Generation Metadata Interface
+# Generation Metadata Interface for Data Warehouse Automation
 
 #### Intent
 
-To provide a collaborative space to discuss an exchange format concerning ETL generation metadata. This adapter should contain all metadata necessary to generate ETL.
+To provide a collaborative space to discuss an exchange format concerning ETL generation metadata, supporting Data Warehouse Automation. This adapter should contain all metadata necessary to generate ETL.
 
 #### Links / structure
 
-The work-in-progress interface overview with examples is in the interface directory(https://github.com/RoelantVos/ETL_Generation_Metadata_Interface/blob/master/Generic%20interface/interfaceDataWarehouseAutomationMetadata.md/).
+The following directories have been set up:
+
+* Code examples, containing C# examples using the generic interface for various purposes.
+* Generic interface, containing the Json schema definition.
 
 #### Hypothesis
 

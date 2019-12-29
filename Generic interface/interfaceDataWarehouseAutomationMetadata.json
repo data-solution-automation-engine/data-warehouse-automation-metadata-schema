@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "",
+  "$id": "https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface",
   "title": "interfaceDataWarehouseAutomationMetadata",
   "description": "Standardardised format for the required metadata to generate ETL and DDL structures available for a Data Warehouse solution. The intent is to separate / decouple how individual software stores Data Warehouse Automation metadata and how this metadata can be exposed to other components, technologies and solutions for ETL and database structure generation.",
   //
