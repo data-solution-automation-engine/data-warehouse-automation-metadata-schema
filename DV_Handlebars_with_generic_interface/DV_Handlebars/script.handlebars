@@ -1,0 +1,41 @@
+{{#each sources }}
+USE {{stg_config.db}}
+GO
+IF NOT EXISTS (SELECT 1 FROM sys.tables where [object_id] = object_id('{{object_schema}}{{#if object_schema}}.{{/if}}STG_{{object_name}}'))
+BEGIN
+CREATE TABLE {{object_schema}}{{#if object_schema}}.{{/if}}STG_{{object_name}}(
+{{#each stg_config.sys_column_list}}     {{#if @index}},{{/if}}{{column_name}} {{dest_data_type}}
+{{/each}}
+{{#each column_list}}     ,{{column_name}} {{dest_data_type}}
+{{/each}}
+) ON [PRIMARY]
+END
+{{/each}}
+
+{{#each sources }}
+USE {{hstg_config.db}}
+GO
+IF NOT EXISTS (SELECT 1 FROM sys.tables where [object_id] = object_id('{{object_schema}}{{#if object_schema}}.{{/if}}HSTG_{{object_name}}'))
+BEGIN
+CREATE TABLE {{object_schema}}{{#if object_schema}}.{{/if}}HSTG_{{object_name}}(
+{{#each hstg_config.sys_column_list}}     {{#if @index}},{{/if}}{{column_name}} {{dest_data_type}}
+{{/each}}
+{{#each column_list}}     ,{{column_name}} {{dest_data_type}}
+{{/each}}
+,CONSTRAINT PK_{{hstg_config.db}}_{{object_name}} PRIMARY KEY NONCLUSTERED
+(
+     {{busines_key}} ASC,
+	 [OMD_INSERT_DATETIME] ASC,
+     [OMD_SOURCE_ROW_ID] ASC
+
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 80) ON [PRIMARY]
+) ON [PRIMARY]
+CREATE NONCLUSTERED INDEX [IX_HSTG{{object_name}}_{{busines_key}}] ON {{#if object_schema}}{{object_schema}}.{{/if}}HSTG_{{object_name}}
+(
+     {{busines_key}} ASC,
+	 [OMD_CHANGE_KEY] ASC
+)
+END
+{{/if}}
+GO
+{{/each}}

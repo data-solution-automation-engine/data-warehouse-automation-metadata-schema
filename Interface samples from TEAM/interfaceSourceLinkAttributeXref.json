@@ -1,0 +1,13 @@
+[
+  {
+    "sourceId": "7",
+    "sourceName": "STG_PROFILER_CUST_MEMBERSHIP",
+    "sourceSchemaName": "dbo",
+    "linkId": "4",
+    "linkName": "LNK_MEMBERSHIP",
+    "sourceAttributeId": "60",
+    "sourceAttributeName": "Status",
+    "linkAttributeId": "52",
+    "linkAttributeName": "SALES_CHANNEL"
+  }
+]

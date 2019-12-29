@@ -1,0 +1,9 @@
+{{#each sourceToTargetMappingList }}
+--
+-- Working on mapping to {{targetObject.mappingObjectName}} from source table {{sourceObject.mappingObjectName}}
+{{#if filterCriterion}}
+-- The following filter is defined: {{filterCriterion}}
+{{/if}}
+
+TRUNCATE TABLE {{hubTable}}
+{{/each}}

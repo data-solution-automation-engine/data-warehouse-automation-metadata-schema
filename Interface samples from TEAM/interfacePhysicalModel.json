@@ -1,0 +1,3372 @@
+[
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "OMD_INSERT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "OMD_EVENT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "OMD_RECORD_SOURCE",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "CustomerID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "Plan_Code",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "Start_Date",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "10"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "End_Date",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "11"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "Status",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "12"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "Comment",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "13"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_OFFER",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_OFFER",
+    "columnName": "OMD_INSERT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_OFFER",
+    "columnName": "OMD_EVENT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_OFFER",
+    "columnName": "OMD_RECORD_SOURCE",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_OFFER",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_OFFER",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_OFFER",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_OFFER",
+    "columnName": "CustomerID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_OFFER",
+    "columnName": "OfferID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "OMD_INSERT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "OMD_EVENT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "OMD_RECORD_SOURCE",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "CustomerID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "Given",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "Surname",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "10"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "Suburb",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "11"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "State",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "12"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "Postcode",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "13"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "Country",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "14"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "Gender",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "15"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "DOB",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "16"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "Contact_Number",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "17"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "Referee_Offer_Made",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "18"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "OMD_INSERT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "OMD_EVENT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "OMD_RECORD_SOURCE",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "Plan_Code",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "Date_effective",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "Value_Amount",
+    "characterMaximumLength": "numeric",
+    "numericPrecision": "17",
+    "ordinalPosition": "38",
+    "primaryKeyIndicator": "10"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_OFFER",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_OFFER",
+    "columnName": "OMD_INSERT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_OFFER",
+    "columnName": "OMD_EVENT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_OFFER",
+    "columnName": "OMD_RECORD_SOURCE",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_OFFER",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_OFFER",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_OFFER",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_OFFER",
+    "columnName": "OfferID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_OFFER",
+    "columnName": "Offer_Long_Description",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "OMD_INSERT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "OMD_EVENT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "OMD_RECORD_SOURCE",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "Member",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "Segment",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "Plan_Code",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "10"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "Date_effective",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "11"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "Monthly_Cost",
+    "characterMaximumLength": "numeric",
+    "numericPrecision": "17",
+    "ordinalPosition": "38",
+    "primaryKeyIndicator": "12"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PLAN",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PLAN",
+    "columnName": "OMD_INSERT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PLAN",
+    "columnName": "OMD_EVENT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PLAN",
+    "columnName": "OMD_RECORD_SOURCE",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PLAN",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PLAN",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PLAN",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PLAN",
+    "columnName": "Plan_Code",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PLAN",
+    "columnName": "Plan_Desc",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_PROFILER_PLAN",
+    "columnName": "Renewal_Plan_Code",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "10"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_USERMANAGED_SEGMENT",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_USERMANAGED_SEGMENT",
+    "columnName": "OMD_INSERT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_USERMANAGED_SEGMENT",
+    "columnName": "OMD_EVENT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_USERMANAGED_SEGMENT",
+    "columnName": "OMD_RECORD_SOURCE",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_USERMANAGED_SEGMENT",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_USERMANAGED_SEGMENT",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_USERMANAGED_SEGMENT",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_USERMANAGED_SEGMENT",
+    "columnName": "Demographic_Segment_Code",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HSTG_USERMANAGED_SEGMENT",
+    "columnName": "Demographic_Segment_Description",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_CUSTOMER",
+    "columnName": "CUSTOMER_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_CUSTOMER",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_CUSTOMER",
+    "columnName": "OMD_FIRST_SEEN_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_CUSTOMER",
+    "columnName": "OMD_RECORD_SOURCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_CUSTOMER",
+    "columnName": "CUSTOMER_ID",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_INCENTIVE_OFFER",
+    "columnName": "INCENTIVE_OFFER_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_INCENTIVE_OFFER",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_INCENTIVE_OFFER",
+    "columnName": "OMD_FIRST_SEEN_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_INCENTIVE_OFFER",
+    "columnName": "OMD_RECORD_SOURCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_INCENTIVE_OFFER",
+    "columnName": "OFFER_ID",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_MEMBERSHIP_PLAN",
+    "columnName": "MEMBERSHIP_PLAN_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_MEMBERSHIP_PLAN",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_MEMBERSHIP_PLAN",
+    "columnName": "OMD_FIRST_SEEN_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_MEMBERSHIP_PLAN",
+    "columnName": "OMD_RECORD_SOURCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_MEMBERSHIP_PLAN",
+    "columnName": "PLAN_CODE",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_MEMBERSHIP_PLAN",
+    "columnName": "PLAN_SUFFIX",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_SEGMENT",
+    "columnName": "SEGMENT_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_SEGMENT",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_SEGMENT",
+    "columnName": "OMD_FIRST_SEEN_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_SEGMENT",
+    "columnName": "OMD_RECORD_SOURCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "HUB_SEGMENT",
+    "columnName": "SEGMENT_CODE",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_CUSTOMER_COSTING",
+    "columnName": "CUSTOMER_COSTING_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_CUSTOMER_COSTING",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_CUSTOMER_COSTING",
+    "columnName": "OMD_FIRST_SEEN_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_CUSTOMER_COSTING",
+    "columnName": "OMD_RECORD_SOURCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_CUSTOMER_COSTING",
+    "columnName": "MEMBERSHIP_PLAN_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_CUSTOMER_COSTING",
+    "columnName": "CUSTOMER_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_CUSTOMER_COSTING",
+    "columnName": "SEGMENT_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_CUSTOMER_OFFER",
+    "columnName": "CUSTOMER_OFFER_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_CUSTOMER_OFFER",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_CUSTOMER_OFFER",
+    "columnName": "OMD_FIRST_SEEN_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_CUSTOMER_OFFER",
+    "columnName": "OMD_RECORD_SOURCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_CUSTOMER_OFFER",
+    "columnName": "CUSTOMER_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_CUSTOMER_OFFER",
+    "columnName": "INCENTIVE_OFFER_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_MEMBERSHIP",
+    "columnName": "MEMBERSHIP_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_MEMBERSHIP",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_MEMBERSHIP",
+    "columnName": "OMD_FIRST_SEEN_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_MEMBERSHIP",
+    "columnName": "OMD_RECORD_SOURCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_MEMBERSHIP",
+    "columnName": "CUSTOMER_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_MEMBERSHIP",
+    "columnName": "MEMBERSHIP_PLAN_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_MEMBERSHIP",
+    "columnName": "SALES_CHANNEL",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_RENEWAL_MEMBERSHIP",
+    "columnName": "RENEWAL_MEMBERSHIP_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_RENEWAL_MEMBERSHIP",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_RENEWAL_MEMBERSHIP",
+    "columnName": "OMD_FIRST_SEEN_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_RENEWAL_MEMBERSHIP",
+    "columnName": "OMD_RECORD_SOURCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_RENEWAL_MEMBERSHIP",
+    "columnName": "MEMBERSHIP_PLAN_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LNK_RENEWAL_MEMBERSHIP",
+    "columnName": "RENEWAL_PLAN_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_COSTING",
+    "columnName": "CUSTOMER_COSTING_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_COSTING",
+    "columnName": "COSTING_EFFECTIVE_DATE",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_COSTING",
+    "columnName": "OMD_EFFECTIVE_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_COSTING",
+    "columnName": "OMD_EXPIRY_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_COSTING",
+    "columnName": "OMD_CURRENT_RECORD_INDICATOR",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_COSTING",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_COSTING",
+    "columnName": "OMD_UPDATE_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_COSTING",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_COSTING",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_COSTING",
+    "columnName": "OMD_RECORD_SOURCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "10"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_COSTING",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "11"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_COSTING",
+    "columnName": "PERSONAL_MONTHLY_COST",
+    "characterMaximumLength": "numeric",
+    "numericPrecision": "17",
+    "ordinalPosition": "38",
+    "primaryKeyIndicator": "12"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_OFFER",
+    "columnName": "CUSTOMER_OFFER_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_OFFER",
+    "columnName": "OMD_EFFECTIVE_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_OFFER",
+    "columnName": "OMD_EXPIRY_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_OFFER",
+    "columnName": "OMD_CURRENT_RECORD_INDICATOR",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_OFFER",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_OFFER",
+    "columnName": "OMD_UPDATE_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_OFFER",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_OFFER",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_OFFER",
+    "columnName": "OMD_RECORD_SOURCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_CUSTOMER_OFFER",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "10"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_MEMBERSHIP",
+    "columnName": "MEMBERSHIP_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_MEMBERSHIP",
+    "columnName": "OMD_EFFECTIVE_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_MEMBERSHIP",
+    "columnName": "OMD_EXPIRY_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_MEMBERSHIP",
+    "columnName": "OMD_CURRENT_RECORD_INDICATOR",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_MEMBERSHIP",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_MEMBERSHIP",
+    "columnName": "OMD_UPDATE_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_MEMBERSHIP",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_MEMBERSHIP",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_MEMBERSHIP",
+    "columnName": "OMD_RECORD_SOURCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_MEMBERSHIP",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "10"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_MEMBERSHIP",
+    "columnName": "MEMBERSHIP_START_DATE",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "11"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_MEMBERSHIP",
+    "columnName": "MEMBERSHIP_END_DATE",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "12"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "LSAT_MEMBERSHIP",
+    "columnName": "MEMBERSHIP_STATUS",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "13"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER",
+    "columnName": "CUSTOMER_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER",
+    "columnName": "OMD_EFFECTIVE_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER",
+    "columnName": "OMD_EXPIRY_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER",
+    "columnName": "OMD_CURRENT_RECORD_INDICATOR",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER",
+    "columnName": "OMD_UPDATE_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER",
+    "columnName": "OMD_RECORD_SOURCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "10"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER",
+    "columnName": "GIVEN_NAME",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "11"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER",
+    "columnName": "SURNAME",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "12"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER",
+    "columnName": "SUBURB",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "13"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER",
+    "columnName": "POSTCODE",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "14"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER",
+    "columnName": "COUNTRY",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "15"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER",
+    "columnName": "GENDER",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "16"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER",
+    "columnName": "DATE_OF_BIRTH",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "17"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER",
+    "columnName": "REFERRAL_OFFER_MADE_INDICATOR",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "18"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER_ADDITIONAL_DETAILS",
+    "columnName": "CUSTOMER_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER_ADDITIONAL_DETAILS",
+    "columnName": "OMD_EFFECTIVE_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER_ADDITIONAL_DETAILS",
+    "columnName": "OMD_EXPIRY_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER_ADDITIONAL_DETAILS",
+    "columnName": "OMD_CURRENT_RECORD_INDICATOR",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER_ADDITIONAL_DETAILS",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER_ADDITIONAL_DETAILS",
+    "columnName": "OMD_UPDATE_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER_ADDITIONAL_DETAILS",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER_ADDITIONAL_DETAILS",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER_ADDITIONAL_DETAILS",
+    "columnName": "OMD_RECORD_SOURCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER_ADDITIONAL_DETAILS",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "10"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER_ADDITIONAL_DETAILS",
+    "columnName": "CONTACT_NUMBER",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "11"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_CUSTOMER_ADDITIONAL_DETAILS",
+    "columnName": "STATE",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "12"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_INCENTIVE_OFFER",
+    "columnName": "INCENTIVE_OFFER_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_INCENTIVE_OFFER",
+    "columnName": "OMD_EFFECTIVE_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_INCENTIVE_OFFER",
+    "columnName": "OMD_EXPIRY_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_INCENTIVE_OFFER",
+    "columnName": "OMD_CURRENT_RECORD_INDICATOR",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_INCENTIVE_OFFER",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_INCENTIVE_OFFER",
+    "columnName": "OMD_UPDATE_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_INCENTIVE_OFFER",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_INCENTIVE_OFFER",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_INCENTIVE_OFFER",
+    "columnName": "OMD_RECORD_SOURCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_INCENTIVE_OFFER",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "10"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_INCENTIVE_OFFER",
+    "columnName": "OFFER_DESCRIPTION",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "11"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_DETAIL",
+    "columnName": "MEMBERSHIP_PLAN_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_DETAIL",
+    "columnName": "OMD_EFFECTIVE_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_DETAIL",
+    "columnName": "OMD_EXPIRY_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_DETAIL",
+    "columnName": "OMD_CURRENT_RECORD_INDICATOR",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_DETAIL",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_DETAIL",
+    "columnName": "OMD_UPDATE_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_DETAIL",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_DETAIL",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_DETAIL",
+    "columnName": "OMD_RECORD_SOURCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_DETAIL",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "10"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_DETAIL",
+    "columnName": "PLAN_DESCRIPTION",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "11"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_VALUATION",
+    "columnName": "MEMBERSHIP_PLAN_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_VALUATION",
+    "columnName": "PLAN_VALUATION_DATE",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_VALUATION",
+    "columnName": "OMD_EFFECTIVE_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_VALUATION",
+    "columnName": "OMD_EXPIRY_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_VALUATION",
+    "columnName": "OMD_CURRENT_RECORD_INDICATOR",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_VALUATION",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_VALUATION",
+    "columnName": "OMD_UPDATE_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_VALUATION",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_VALUATION",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_VALUATION",
+    "columnName": "OMD_RECORD_SOURCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "10"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_VALUATION",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "11"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_MEMBERSHIP_PLAN_VALUATION",
+    "columnName": "PLAN_VALUATION_AMOUNT",
+    "characterMaximumLength": "numeric",
+    "numericPrecision": "17",
+    "ordinalPosition": "38",
+    "primaryKeyIndicator": "12"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_SEGMENT",
+    "columnName": "SEGMENT_SK",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_SEGMENT",
+    "columnName": "OMD_EFFECTIVE_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_SEGMENT",
+    "columnName": "OMD_EXPIRY_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_SEGMENT",
+    "columnName": "OMD_CURRENT_RECORD_INDICATOR",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_SEGMENT",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_SEGMENT",
+    "columnName": "OMD_UPDATE_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_SEGMENT",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_SEGMENT",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_SEGMENT",
+    "columnName": "OMD_RECORD_SOURCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_SEGMENT",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "10"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "SAT_SEGMENT",
+    "columnName": "SEGMENT_DESCRIPTION",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "11"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "OMD_INSERT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "OMD_EVENT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "OMD_RECORD_SOURCE",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "CustomerID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "Plan_Code",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "Start_Date",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "10"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "End_Date",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "11"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "Status",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "12"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUST_MEMBERSHIP",
+    "columnName": "Comment",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "13"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_OFFER",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_OFFER",
+    "columnName": "OMD_INSERT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_OFFER",
+    "columnName": "OMD_EVENT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_OFFER",
+    "columnName": "OMD_RECORD_SOURCE",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_OFFER",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_OFFER",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_OFFER",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_OFFER",
+    "columnName": "CustomerID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_OFFER",
+    "columnName": "OfferID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "OMD_INSERT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "OMD_EVENT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "OMD_RECORD_SOURCE",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "CustomerID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "Given",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "Surname",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "10"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "Suburb",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "11"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "State",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "12"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "Postcode",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "13"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "Country",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "14"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "Gender",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "15"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "DOB",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "16"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "Contact_Number",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "17"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_CUSTOMER_PERSONAL",
+    "columnName": "Referee_Offer_Made",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "18"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "OMD_INSERT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "OMD_EVENT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "OMD_RECORD_SOURCE",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "Plan_Code",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "Date_effective",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_ESTIMATED_WORTH",
+    "columnName": "Value_Amount",
+    "characterMaximumLength": "numeric",
+    "numericPrecision": "17",
+    "ordinalPosition": "38",
+    "primaryKeyIndicator": "10"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_OFFER",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_OFFER",
+    "columnName": "OMD_INSERT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_OFFER",
+    "columnName": "OMD_EVENT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_OFFER",
+    "columnName": "OMD_RECORD_SOURCE",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_OFFER",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_OFFER",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_OFFER",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_OFFER",
+    "columnName": "OfferID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_OFFER",
+    "columnName": "Offer_Long_Description",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "OMD_INSERT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "OMD_EVENT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "OMD_RECORD_SOURCE",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "Member",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "Segment",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "Plan_Code",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "10"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "Date_effective",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "11"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PERSONALISED_COSTING",
+    "columnName": "Monthly_Cost",
+    "characterMaximumLength": "numeric",
+    "numericPrecision": "17",
+    "ordinalPosition": "38",
+    "primaryKeyIndicator": "12"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PLAN",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PLAN",
+    "columnName": "OMD_INSERT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PLAN",
+    "columnName": "OMD_EVENT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PLAN",
+    "columnName": "OMD_RECORD_SOURCE",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PLAN",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PLAN",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PLAN",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PLAN",
+    "columnName": "Plan_Code",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PLAN",
+    "columnName": "Plan_Desc",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "9"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_PROFILER_PLAN",
+    "columnName": "Renewal_Plan_Code",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "10"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_USERMANAGED_SEGMENT",
+    "columnName": "OMD_INSERT_MODULE_INSTANCE_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "1"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_USERMANAGED_SEGMENT",
+    "columnName": "OMD_INSERT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "2"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_USERMANAGED_SEGMENT",
+    "columnName": "OMD_EVENT_DATETIME",
+    "characterMaximumLength": "datetime2",
+    "numericPrecision": "8",
+    "ordinalPosition": "27",
+    "primaryKeyIndicator": "3"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_USERMANAGED_SEGMENT",
+    "columnName": "OMD_RECORD_SOURCE",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "4"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_USERMANAGED_SEGMENT",
+    "columnName": "OMD_SOURCE_ROW_ID",
+    "characterMaximumLength": "int",
+    "numericPrecision": "4",
+    "ordinalPosition": "10",
+    "primaryKeyIndicator": "5"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_USERMANAGED_SEGMENT",
+    "columnName": "OMD_CDC_OPERATION",
+    "characterMaximumLength": "varchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "6"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_USERMANAGED_SEGMENT",
+    "columnName": "OMD_HASH_FULL_RECORD",
+    "characterMaximumLength": "binary",
+    "numericPrecision": "16",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "7"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_USERMANAGED_SEGMENT",
+    "columnName": "Demographic_Segment_Code",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "8"
+  },
+  {
+    "databaseName": "PDV_RV",
+    "schemaName": "dbo",
+    "tableName": "STG_USERMANAGED_SEGMENT",
+    "columnName": "Demographic_Segment_Description",
+    "characterMaximumLength": "nvarchar",
+    "numericPrecision": "100",
+    "ordinalPosition": "0",
+    "primaryKeyIndicator": "9"
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "linkId": "2",
+    "linkName": "LNK_CUSTOMER_COSTING",
+    "sourceId": "5",
+    "sourceName": "STG_PROFILER_PERSONALISED_COSTING",
+    "sourceSchemaName": "dbo",
+    "hubId": "3",
+    "hubName": "HUB_CUSTOMER",
+    "businessKeyDefinition": "2"
+  },
+  {
+    "linkId": "2",
+    "linkName": "LNK_CUSTOMER_COSTING",
+    "sourceId": "5",
+    "sourceName": "STG_PROFILER_PERSONALISED_COSTING",
+    "sourceSchemaName": "dbo",
+    "hubId": "4",
+    "hubName": "HUB_MEMBERSHIP_PLAN",
+    "businessKeyDefinition": "1"
+  },
+  {
+    "linkId": "2",
+    "linkName": "LNK_CUSTOMER_COSTING",
+    "sourceId": "5",
+    "sourceName": "STG_PROFILER_PERSONALISED_COSTING",
+    "sourceSchemaName": "dbo",
+    "hubId": "5",
+    "hubName": "HUB_SEGMENT",
+    "businessKeyDefinition": "3"
+  },
+  {
+    "linkId": "3",
+    "linkName": "LNK_CUSTOMER_OFFER",
+    "sourceId": "9",
+    "sourceName": "STG_PROFILER_CUSTOMER_OFFER",
+    "sourceSchemaName": "dbo",
+    "hubId": "2",
+    "hubName": "HUB_INCENTIVE_OFFER",
+    "businessKeyDefinition": "2"
+  },
+  {
+    "linkId": "3",
+    "linkName": "LNK_CUSTOMER_OFFER",
+    "sourceId": "9",
+    "sourceName": "STG_PROFILER_CUSTOMER_OFFER",
+    "sourceSchemaName": "dbo",
+    "hubId": "3",
+    "hubName": "HUB_CUSTOMER",
+    "businessKeyDefinition": "1"
+  },
+  {
+    "linkId": "4",
+    "linkName": "LNK_MEMBERSHIP",
+    "sourceId": "7",
+    "sourceName": "STG_PROFILER_CUST_MEMBERSHIP",
+    "sourceSchemaName": "dbo",
+    "hubId": "3",
+    "hubName": "HUB_CUSTOMER",
+    "businessKeyDefinition": "1"
+  },
+  {
+    "linkId": "4",
+    "linkName": "LNK_MEMBERSHIP",
+    "sourceId": "7",
+    "sourceName": "STG_PROFILER_CUST_MEMBERSHIP",
+    "sourceSchemaName": "dbo",
+    "hubId": "4",
+    "hubName": "HUB_MEMBERSHIP_PLAN",
+    "businessKeyDefinition": "2"
+  },
+  {
+    "linkId": "5",
+    "linkName": "LNK_RENEWAL_MEMBERSHIP",
+    "sourceId": "4",
+    "sourceName": "STG_PROFILER_PLAN",
+    "sourceSchemaName": "dbo",
+    "hubId": "4",
+    "hubName": "HUB_MEMBERSHIP_PLAN",
+    "businessKeyDefinition": "1"
+  },
+  {
+    "linkId": "5",
+    "linkName": "LNK_RENEWAL_MEMBERSHIP",
+    "sourceId": "4",
+    "sourceName": "STG_PROFILER_PLAN",
+    "sourceSchemaName": "dbo",
+    "hubId": "4",
+    "hubName": "HUB_MEMBERSHIP_PLAN",
+    "businessKeyDefinition": "2"
+  }
+]
