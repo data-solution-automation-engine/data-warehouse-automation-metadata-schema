@@ -1,0 +1,168 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface/GenericInterface/interfaceDataWarehouseAutomationMetadata.json",
+  "type": "object",
+  "title": "interfaceDataWarehouseAutomationMetadata",
+  "description": "Standardised format for the required metadata to generate ETL and DDL structures available for a Data Warehouse solution. The intent is to separate / decouple how individual software stores Data Warehouse Automation metadata and how this metadata can be exposed to other components, technologies and solutions for ETL and database structure generation.",
+  "required": [
+    "dataObjectMapping"
+  ],
+  "properties": {
+    "dataObjectMapping": {
+      "$ref": "#/definitions/dataObjectMapping"
+    }
+  },
+  "definitions": {
+    "dataObject": {
+      "$id": "#/definitions/dataObject",
+      "type": "object",
+      "title": "",
+      "description": "The generic table of file definition. Any kind of entity, i.e. data set, query, object, file or table.",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "dataObjectId": {
+          "$id": "#/definitions/dataObject/dataObjectId",
+          "type": "integer",
+          "title": "",
+          "description": "Optional unique identifier for a file/table."
+        },
+        "dataObjectName": {
+          "$id": "#/definitions/dataObject/dataObjectName",
+          "type": "string",
+          "title": "",
+          "description": "Mandatory unique name of the file/table."
+        },
+        "dataObjectType": {
+          "$id": "#/definitions/dataObject/dataObjectType",
+          "type": "string",
+          "title": "",
+          "description": "Optional classification of the object (query, file, table)."
+        },
+        "dataItems": {
+          "$id": "#/definitions/dataItems",
+          "type": "array",
+          "title": "",
+          "description": "Optional - collection of dataItems for a table or file. Elements that define the dataset.",
+          "items": {
+            "$ref": "#/definitions/dataItem"
+          }
+        }
+      }
+    },
+    "dataItem": {
+      "description": "The generic definition of a column. A column, attribute or item in a dataObject.",
+      "type": "object",
+      "required": [ "name" ],
+      "properties": {
+        "name": {
+          "description": "Unique name which identifies the column / attribute.",
+          "type": "string"
+        },
+        "dataType": {
+          "description": "Optional. Label of the data type",
+          "type": "string"
+        },
+        "characterLength": {
+          "description": "Optional. Length of the item in case it is text.",
+          "type": "integer"
+        },
+        "numericPrecision": {
+          "description": "The number of digits in a numeric value (number).",
+          "type": "integer"
+        },
+        "numericScale": {
+          "description": "The number of digits to the right of the decimal point.",
+          "type": "integer"
+        },
+        "ordinalPosition": {
+          "description": "Optional. The position of items in the data object.",
+          "type": "integer"
+        },
+        "isPrimaryKey": {
+          "description": "Boolean value indicating if the item is a Primary Key.",
+          "type": "boolean"
+        }
+      }
+    },
+    "businessKeyDefinition": {
+      "description": "The generic definition of business key.",
+      "required": [ "businessKeyComponents" ],
+      "type": "object",
+      "properties": {
+        "businessKeyComponentBehaviour": {
+          "description": "Specification of what to do with the Business Key. Supporting composition, concatenation.",
+          "type": "string"
+        },
+        "businessKeyComponents": {
+          "description": "Items that define the Business Key e.g. the collection of columns for a Business Key.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/dataItem"
+          }
+        }
+      }
+    },
+    "dataObjectMapping": {
+      "$id": "#/properties/dataObjectMapping",
+      "description": "A mapping between a source and a target",
+      "type": "object",
+      "required": [
+        "sourceDataObject",
+        "targetDataObject",
+        "dataItemMapping"
+      ],
+      "properties": {
+        "dataObjectMappingName": {
+          "description": "Unique name which identifies the mapping.",
+          "type": "string"
+        },
+        "dataObjectMappingClassification": {
+          "description": "Classification for the mapping (free form).",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "sourceDataObject": {
+          "description": "The source object of the mapping.",
+          "$ref": "#/definitions/dataObject"
+        },
+        "targetDataObject": {
+          "description": "The target object of the mapping.",
+          "$ref": "#/definitions/dataObject"
+        },
+        "enabled": {
+          "description": "The source object of the mapping.",
+          "type": "boolean"
+        },
+        "dataItemMapping": {
+          "description": "The collection of column-to-column mappings",
+          "type": "array",
+          "items": {
+            "description": "Individual item mappings",
+            "type": "object",
+            "oneOf": [
+              {
+                "properties": {
+                  "sourceDataItem": {
+                    "$ref": "#/definitions/dataItem"
+                  },
+                  "targetDataItem": {
+                    "$ref": "#/definitions/dataItem"
+                  }
+                },
+                "required": [ "sourceDataItem", "targetDataItem" ]
+              }
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+} 

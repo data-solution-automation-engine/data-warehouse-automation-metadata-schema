@@ -8,23 +8,24 @@ To provide a collaborative space to discuss an exchange format concerning ETL ge
 
 The following directories have been set up:
 
-* Code examples, containing C# examples using the generic interface for various purposes.
 * Generic interface, containing the Json schema definition.
+* Class Library containing the object model for deserialisation, as well as various utility classes such as validation of files against the Json schema definition.
+* Code examples, containing C# examples using the generic interface for various purposes.
 
 #### Hypothesis
 
 Across most, if not all, metadata models there is a core set of information that is required for any generation of ETL. If we can separate this from the UI / management of metadata we could have an exchange format that allows anyone to 'plug in' their own desired technology.
 
-As an example 'TEAM' has the intent to separate UI with a view of limiting data entry and validation, but does not focus on SQL generation. Rather, these functions are separated by an adapter that is accessible as JSON or database view.
+As an example '[TEAM](https://github.com/RoelantVos/TEAM)' has the intent to separate UI with a view of limiting data entry and validation, but does not focus on SQL generation. Rather, these functions are separated by an adapter that is accessible as JSON or database view.
 
 #### Requirements
 
 The fundamental requirements of the metadata adapter are:
 
 - Containing all metadata required to generate ETL output. This notably includes:
-  - the source-to-target mappings
-  - physical model metadata (columns and tabels, data types etc.)
-  - connectivity information
+  - source-to-target mappings
+  - physical model metadata (columns and tables, data types etc.)
+  - connectivity information, or proxy
 - Text-based to support version control
 
 #### Background
@@ -40,4 +41,3 @@ In a broader meritocracy sense it is worth pursuing if a common exchange format 
 #### Working guidelines
 
 For any change, create a new branch (no direct commits to master branch).
-
