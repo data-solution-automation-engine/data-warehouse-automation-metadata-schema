@@ -1,12 +1,12 @@
-{{#each metadataMapping }}
+{{#each dataObjectMappingList }}
 --
 -- Working on mapping to {{hubTable}} from source table {{sourceTable}}
 --
 
 INSERT INTO DVI_200_Integration_Layer.dbo.{{hubTable}}
 (
-  {{hubTableHashKey}},
-  {{businessKeyTarget}},
+{{hubTableHashKey}},
+{{businessKeyTarget}},
   LOAD_DATETIME,
   ETL_INSERT_RUN_ID,
   RECORD_SOURCE
@@ -15,7 +15,7 @@ SELECT
   HASHBYTES('MD5',
     ISNULL(RTRIM(CONVERT(NVARCHAR(100), {{businessKeySource}})), 'N/A') + '|'
   ) AS {{hubTableHashKey}},
- {{businessKeySource}} AS {{businessKeyTarget}},
+{{businessKeySource}} AS {{businessKeyTarget}},
  MIN(stg.LOAD_DATETIME) AS LOAD_DATETIME,
  -1 AS ETL_INSERT_RUN_ID,
  stg.RECORD_SOURCE

@@ -2,15 +2,6 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
-      "Handlebars.Net.1.8.0.Signed/1.8.0": {
-        "type": "package",
-        "compile": {
-          "lib/portable-net45+sl50+win+wpa81/Handlebars.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+sl50+win+wpa81/Handlebars.dll": {}
-        }
-      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -59,18 +50,6 @@
     }
   },
   "libraries": {
-    "Handlebars.Net.1.8.0.Signed/1.8.0": {
-      "sha512": "Z8ORjZPtEopsjWo5cIaEUBzLwhSgns29664L3pQ0AtUUj+fWBBEgzRCOlugqjcKNKckEyV0KRZcO+cgS5uoVbQ==",
-      "type": "package",
-      "path": "handlebars.net.1.8.0.signed/1.8.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "handlebars.net.1.8.0.signed.1.8.0.nupkg.sha512",
-        "handlebars.net.1.8.0.signed.nuspec",
-        "lib/portable-net45+sl50+win+wpa81/Handlebars.dll"
-      ]
-    },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
@@ -215,11 +194,10 @@
       ]
     },
     "Newtonsoft.Json/12.0.3": {
-      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "sha512": "aTRmXwR5xYu+mWxE8r8W1DWnL02SeV8LwdQMsLwTWP8OZgrCCyTqvOAe5hRb1VNQYXjln7qr0PKpSyO/pcc19Q==",
       "type": "package",
       "path": "newtonsoft.json/12.0.3",
       "files": [
-        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.md",
         "lib/net20/Newtonsoft.Json.dll",
@@ -246,11 +224,10 @@
       ]
     },
     "Newtonsoft.Json.Schema/3.0.11": {
-      "sha512": "wYT9dYZhDFSZceFSrKhNmqm5wHq0i40zgRNz1uHGsT2jol5tCymP8NCNb5xzlQfSNkCvVKQKfVD8eD1/hxUTyg==",
+      "sha512": "P6QZO7LIfsOWFv5f7D34Q1iE2sPkFOWkFDZfS6B48T+DEBcVQqJIHMY9v5ZUnzwYQjmyUJrAljFgN6hSFQsMSg==",
       "type": "package",
       "path": "newtonsoft.json.schema/3.0.11",
       "files": [
-        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.md",
         "lib/net35/Newtonsoft.Json.Schema.dll",
@@ -272,30 +249,29 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "Handlebars.Net.1.8.0.Signed >= 1.8.0",
       "NETStandard.Library >= 2.0.3",
       "Newtonsoft.Json >= 12.0.3",
       "Newtonsoft.Json.Schema >= 3.0.11"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\roela\\.nuget\\packages\\": {},
+    "C:\\Users\\rvos\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Git_Repositories\\Data_Warehouse_Automation_Metadata_Interface\\ClassLibrary\\DataWarehouseAutomation\\DataWarehouseAutomation\\DataWarehouseAutomation.csproj",
+      "projectUniqueName": "C:\\Users\\rvos\\dev\\Data_Warehouse_Automation_Metadata_Interface\\ClassLibrary\\DataWarehouseAutomation\\DataWarehouseAutomation\\DataWarehouseAutomation.csproj",
       "projectName": "DataWarehouseAutomation",
-      "projectPath": "D:\\Git_Repositories\\Data_Warehouse_Automation_Metadata_Interface\\ClassLibrary\\DataWarehouseAutomation\\DataWarehouseAutomation\\DataWarehouseAutomation.csproj",
-      "packagesPath": "C:\\Users\\roela\\.nuget\\packages\\",
-      "outputPath": "D:\\Git_Repositories\\Data_Warehouse_Automation_Metadata_Interface\\ClassLibrary\\DataWarehouseAutomation\\DataWarehouseAutomation\\obj\\",
+      "projectPath": "C:\\Users\\rvos\\dev\\Data_Warehouse_Automation_Metadata_Interface\\ClassLibrary\\DataWarehouseAutomation\\DataWarehouseAutomation\\DataWarehouseAutomation.csproj",
+      "packagesPath": "C:\\Users\\rvos\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\rvos\\dev\\Data_Warehouse_Automation_Metadata_Interface\\ClassLibrary\\DataWarehouseAutomation\\DataWarehouseAutomation\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\roela\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\rvos\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -319,10 +295,6 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
-          "Handlebars.Net.1.8.0.Signed": {
-            "target": "Package",
-            "version": "[1.8.0, )"
-          },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
@@ -345,17 +317,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Handlebars.Net.1.8.0.Signed 1.8.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Handlebars.Net.1.8.0.Signed",
-      "targetGraphs": [
-        ".NETStandard,Version=v2.0"
-      ]
-    }
-  ]
+  }
 }

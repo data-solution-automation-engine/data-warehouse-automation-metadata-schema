@@ -1,34 +1,10 @@
 ﻿{
-  "dataObjectMapping": [
+  "dataObjectMappingList": [
     {
-      // Source
-        "sourceDataObject": {
-        "mappingObjectId": 2,
-        "mappingObjectName": "STG_PROFILER_OFFER",
-        "mappingObjectColumns": [
-          {
-            "columnName": "OfferID",
-            "columnDataType": "int",
-            "columnCharacterMaximumLength": 4,
-            "columnNumericPrecision": 10,
-            "columnNumericScale": 0,
-            "columnOrdinalPosition": 8,
-            "isPrimaryKey": true
-          },
-          {
-            "columnName": "Offer_Long_Description",
-            "columnDataType": "nvarchar",
-            "columnCharacterMaximumLength": 100,
-            "columnNumericPrecision": 0,
-            "columnNumericScale": 0,
-            "columnOrdinalPosition": 9
-          }
-        ],
-        "mappingConnectionDetails": {
-          "mappingObjectSchema": "dbo",
-          "mappingObjectDatabase": "STAGING",
-          "mappingObjectEnvironment": "BISERVER"
-        },
+      //     "dataObjectMapping": {
+      "sourceDataObject": {
+        "dataObjectId": 2,
+        "dataObjectName": "STG_PROFILER_OFFER",
         "businessKey": {
           "businessKeyComponentBehaviour": "None",
           "businessKeyComponents": [
@@ -37,59 +13,86 @@
             }
           ]
         }
-        },
-      "targetObject": {
-        "mappingObjectId": 2,
-        "mappingObjectName": "HUB_INCENTIVE_OFFER",
+      },
+      "targetDataObject": {
+        "dataObjectId": 2,
+        "dataObjectName": "HUB_INCENTIVE_OFFER",
         "businessKey": {
+          "businessKeyComponents": [
+            {
+              "columnName": "INCENTIVE_OFFER_HSH"
+            }
+          ]
+        }
+      },
+      "columnMappingList": [
+        {
+          "sourceColumn": {
+            "columnName": "OfferId",
+            "columnDataType": "varchar"
+          },
+          "targetColumn": {
+            "columnName": "OFFER_ID",
+            "columnDataType": "varchar"
+          }
+        },
+        {
+          "sourceColumn": {
+            "columnName": "Bla"
+          },
+          "targetColumn": {
+            "columnName": "TargetBla"
+          }
+        }
+      ]
+      //   },
+    },
+    {
+      //// "dataObjectMapping" : {
+      "sourceDataObject": {
+        "dataObjectId": 2,
+        "dataObjectName": "STG2",
+        "businessKey": {
+          "businessKeyComponentBehaviour": "None",
           "businessKeyComponents": [
             {
               "columnName": "OfferID"
             }
           ]
-        },
-        "mappingObjectColumns": [
-          {
-            "columnName": "OFFER_ID",
-            "columnDataType": "nvarchar",
-            "columnCharacterMaximumLength": 100,
-            "columnOrdinalPosition": 1
-          },
-          {
-            "columnName": "OFFER_DESCRIPTION",
-            "columnDataType": "nvarchar",
-            "columnCharacterMaximumLength": 100,
-            "columnOrdinalPosition": 2
-          }
-        ],
-        "mappingConnectionDetails": {
-          "mappingObjectSchema": "dbo",
-          "mappingObjectDatabase": "INTEGRATION",
-          "mappingObjectEnvironment": "BISERVER"
-        },
-        "etlProcessControlColumns": [
-          {
-            "columnName": "ETL_PROCESS_CONTROL_ID",
-            "columnDataType": "int"
-          }
-        ]
+        }
       },
-      "filterCriterion": "3=3",
-      "classification": [ "Hub" ],
-      "loadVector": [ "Source-DataVault" ],
-      // Mappings
-      "columnMappings": [
+      "targetDataObject": {
+        "dataObjectId": 2,
+        "dataObjectName": "HUB_INCENTIVE_OFFER",
+        "businessKey": {
+          "businessKeyComponents": [
+            {
+              "columnName": "INCENTIVE_OFFER_HSH"
+            }
+          ]
+        }
+      },
+      "columnMappingList": [
         {
-          "sourceColumn": { "columnName": "OfferId" },
+          "sourceColumn": {
+            "columnName": "OfferId",
+            "columnDataType": "varchar"
+          },
           "targetColumn": {
-            "columnName": "OFFER_ID"
+            "columnName": "OFFER_ID",
+            "columnDataType": "varchar"
           }
         },
         {
-          "sourceColumn": { "columnName": "Offer_Long_Description" },
-          "targetColumn": { "columnName": "OFFER_DESCRIPTION" }
+          "sourceColumn": {
+            "columnName": "Bla"
+          },
+          "targetColumn": {
+            "columnName": "TargetBla"
+          }
         }
       ]
+      // }
     }
   ]
 }

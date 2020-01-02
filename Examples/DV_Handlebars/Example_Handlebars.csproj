@@ -51,17 +51,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Generic.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ObjectModel.cs" />
+    <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="HubTemplate_Modified.Handlebars" />
-    <None Include="HubTemplate_Original.Handlebars" />
-    <None Include="inputMapping.json" />
+    <None Include="HubTemplate.Handlebars" />
+    <None Include="sample2_withoutList.json" />
+    <None Include="sample.json" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ClassLibrary\DataWarehouseAutomation\DataWarehouseAutomation\DataWarehouseAutomation.csproj">
+      <Project>{f0458983-9646-42e6-9e18-90ad91288b40}</Project>
+      <Name>DataWarehouseAutomation</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

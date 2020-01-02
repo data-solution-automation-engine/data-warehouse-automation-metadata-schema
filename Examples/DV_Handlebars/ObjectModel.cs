@@ -1,58 +1,62 @@
 ﻿using System.Collections.Generic;
 
-class MappingList
+class DataObjectMappingList
 {
-    public List<IndividualMetadataMapping> sourceToTargetMappingList { get; set; }
+    public List<DataObjectMappingContainer> dataObjectMappingList { get; set; }
 }
 
-class IndividualMetadataMapping
+class DataObjectMappingContainer
 {
-    public SourceObject sourceObject { get; set; }
-    public TargetObject targetObject { get; set; }
-    public string filterCriterion { get; set; }
-    public List<ColumnMappingList> columnMappingList { get; set; }
-
+    public DataWarehouseAutomation.DataObjectMapping dataObjectMapping { get; set; }
 }
 
-class SourceObject
-{
-    public int mappingObjectId { get; set; }
-    public string mappingObjectName { get; set; }
-    public BusinessKey businessKey { get; set; }
-}
+//class dataObjectMapping
+//{
+//    public DataWarehouseAutomation.DataObject sourceObject { get; set; }
+//    public DataWarehouseAutomation.DataObject targetObject { get; set; }
+//    public string filterCriterion { get; set; }
+//    public List<DataWarehouseAutomation.ColumnMapping> columnMappingList { get; set; }
+//}
 
-class TargetObject
-{
-    public int mappingObjectId { get; set; }
-    public string mappingObjectName { get; set; }
-    public BusinessKey businessKey { get; set; }
-}
+//class SourceObject
+//{
+//    public int mappingObjectId { get; set; }
+//    public string mappingObjectName { get; set; }
+//    public BusinessKey businessKey { get; set; }
+//}
 
-class BusinessKey
-{
-    public string businessKeyComponentBehaviour { get; set; }
-    public List<BusinessKeyComponents> businessKeyComponents { get; set; }
-}
+//class TargetObject
+//{
+//    public int mappingObjectId { get; set; }
+//    public string mappingObjectName { get; set; }
+//    public BusinessKey businessKey { get; set; }
+//}
 
-class BusinessKeyComponents
-{
-    public string columnName { get; set; }
-}
+//class BusinessKey
+//{
+//    public string businessKeyComponentBehaviour { get; set; }
+//    public List<BusinessKeyComponents> businessKeyComponents { get; set; }
+//}
 
-class ColumnMappingList
-{
-    public SourceColumn sourceColumn { get; set; }
-    public TargetColumn targetColumn { get; set; }
-}
+//class BusinessKeyComponents
+//{
+//    public string columnName { get; set; }
+//}
 
-class SourceColumn
-{
-    public string columnName { get; set; }
-    public string columnDataType { get; set; }
-}
+//class ColumnMappingList
+//{
+//    public SourceColumn sourceColumn { get; set; }
+//    public TargetColumn targetColumn { get; set; }
+//}
 
-class TargetColumn
-{
-    public string columnName { get; set; }
-    public string columnDataType { get; set; }
-}
+//class SourceColumn
+//{
+//    public string columnName { get; set; }
+//    public string columnDataType { get; set; }
+//}
+
+//class TargetColumn
+//{
+//    public string columnName { get; set; }
+//    public string columnDataType { get; set; }
+//}

@@ -1,0 +1,20 @@
+{
+  "dataObjectMapping": {
+    "sourceDataObject": {
+      "name": "PSA_PROFILER_OFFER"
+    },
+    "targetDataObject": {
+      "name": "PSA_PROFILER_OFFER"
+    },
+    "dataItemMapping": [
+      {
+        "sourceDataItem": { "name": "OfferId" },
+        "targetDataItem": { "name": "OFFER_ID" }
+      },
+      {
+        "sourceDataItem": { "name": "Offer_Long_Description" },
+        "targetDataItem": { "name": "OFFER_DESCRIPTION" }
+      }
+    ]
+  }
+}

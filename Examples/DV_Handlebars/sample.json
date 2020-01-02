@@ -1,0 +1,98 @@
+{
+  "dataObjectMappingList": [
+    {
+      "dataObjectMapping": {
+        "sourceDataObject": {
+        "dataObjectId": 2,
+        "dataObjectName": "STG_PROFILER_OFFER",
+        "businessKey": {
+          "businessKeyComponentBehaviour": "None",
+          "businessKeyComponents": [
+            {
+              "columnName": "OfferID"
+            }
+          ]
+        }
+      },
+        "targetDataObject": {
+        "dataObjectId": 2,
+        "dataObjectName": "HUB_INCENTIVE_OFFER",
+        "businessKey": {
+          "businessKeyComponents": [
+            {
+              "columnName": "INCENTIVE_OFFER_HSH"
+            }
+          ]
+        }
+      },
+        "columnMappingList": [
+        {
+          "sourceColumn": {
+            "columnName": "OfferId",
+            "columnDataType": "varchar"
+          },
+          "targetColumn": {
+            "columnName": "OFFER_ID",
+            "columnDataType": "varchar"
+          }
+        },
+        {
+          "sourceColumn": {
+            "columnName": "Bla"
+          },
+          "targetColumn": {
+            "columnName": "TargetBla"
+          }
+        }
+      ]
+      }
+    },
+    {
+      "dataObjectMapping" : {
+        "sourceDataObject": {
+        "dataObjectId": 2,
+        "dataObjectName": "STG2",
+        "businessKey": {
+          "businessKeyComponentBehaviour": "None",
+          "businessKeyComponents": [
+            {
+              "columnName": "OfferID"
+            }
+          ]
+        }
+      },
+        "targetDataObject": {
+        "dataObjectId": 2,
+        "dataObjectName": "HUB_INCENTIVE_OFFER",
+        "businessKey": {
+          "businessKeyComponents": [
+            {
+              "columnName": "INCENTIVE_OFFER_HSH"
+            }
+          ]
+        }
+      },
+        "columnMappingList": [
+        {
+          "sourceColumn": {
+            "columnName": "OfferId",
+            "columnDataType": "varchar"
+          },
+          "targetColumn": {
+            "columnName": "OFFER_ID",
+            "columnDataType": "varchar"
+          }
+        },
+        {
+          "sourceColumn": {
+            "columnName": "Bla"
+          },
+          "targetColumn": {
+            "columnName": "TargetBla"
+          }
+        }
+      ]
+      }
+    }
+  ]
+ }
