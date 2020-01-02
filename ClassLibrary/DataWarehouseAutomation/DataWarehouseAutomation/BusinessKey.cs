@@ -9,7 +9,7 @@ namespace DataWarehouseAutomation
     public class BusinessKey
     {
         [JsonProperty]
-        public List<ColumnMapping> businessKeyComponentMapping { get; set; }
+        public List<DataItemMapping> businessKeyComponentMapping { get; set; }
         public string surrogateKey { get; set; }
     }
 }

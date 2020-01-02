@@ -1,98 +1,58 @@
 {
   "dataObjectMappingList": [
     {
-      "dataObjectMapping": {
-        "sourceDataObject": {
-        "dataObjectId": 2,
-        "dataObjectName": "STG_PROFILER_OFFER",
-        "businessKey": {
-          "businessKeyComponentBehaviour": "None",
-          "businessKeyComponents": [
-            {
-              "columnName": "OfferID"
-            }
-          ]
-        }
+      "mappingName": "Mapping1",
+      "sourceDataObject": {
+        "name": "TableOne"
       },
-        "targetDataObject": {
-        "dataObjectId": 2,
-        "dataObjectName": "HUB_INCENTIVE_OFFER",
-        "businessKey": {
-          "businessKeyComponents": [
-            {
-              "columnName": "INCENTIVE_OFFER_HSH"
-            }
-          ]
-        }
+      "targetDataObject": {
+        "name": "TableOneTarget"
       },
-        "columnMappingList": [
+      "dataItemMapping": [
         {
-          "sourceColumn": {
-            "columnName": "OfferId",
-            "columnDataType": "varchar"
+          "sourceDataItem": {
+            "name": "Column1"
           },
-          "targetColumn": {
-            "columnName": "OFFER_ID",
-            "columnDataType": "varchar"
+          "targetDataItem": {
+            "name": "Column1Target"
           }
         },
         {
-          "sourceColumn": {
-            "columnName": "Bla"
+          "sourceDataItem": {
+            "name": "Offer_Long_Description"
           },
-          "targetColumn": {
-            "columnName": "TargetBla"
+          "targetDataItem": {
+            "name": "OFFER_DESCRIPTION"
           }
         }
       ]
-      }
     },
     {
-      "dataObjectMapping" : {
-        "sourceDataObject": {
-        "dataObjectId": 2,
-        "dataObjectName": "STG2",
-        "businessKey": {
-          "businessKeyComponentBehaviour": "None",
-          "businessKeyComponents": [
-            {
-              "columnName": "OfferID"
-            }
-          ]
-        }
+      "mappingName": "Mapping2",
+      "sourceDataObject": {
+        "name": "PSA_PROFILER_OFFER"
       },
-        "targetDataObject": {
-        "dataObjectId": 2,
-        "dataObjectName": "HUB_INCENTIVE_OFFER",
-        "businessKey": {
-          "businessKeyComponents": [
-            {
-              "columnName": "INCENTIVE_OFFER_HSH"
-            }
-          ]
-        }
+      "targetDataObject": {
+        "name": "PSA_PROFILER_OFFER"
       },
-        "columnMappingList": [
+      "dataItemMapping": [
         {
-          "sourceColumn": {
-            "columnName": "OfferId",
-            "columnDataType": "varchar"
+          "sourceDataItem": {
+            "name": "OfferId"
           },
-          "targetColumn": {
-            "columnName": "OFFER_ID",
-            "columnDataType": "varchar"
+          "targetDataItem": {
+            "name": "OFFER_ID"
           }
         },
         {
-          "sourceColumn": {
-            "columnName": "Bla"
+          "sourceDataItem": {
+            "name": "Offer_Long_Description"
           },
-          "targetColumn": {
-            "columnName": "TargetBla"
+          "targetDataItem": {
+            "name": "OFFER_DESCRIPTION"
           }
         }
       ]
-      }
     }
   ]
- }
+}

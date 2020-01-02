@@ -12,9 +12,10 @@ namespace Test_Project
     {
         static void Main(string[] args)
         {
-            string jsonSchema = @"C:\Users\rvos\dev\Data_Warehouse_Automation_Metadata_Interface\ClassLibrary\DataWarehouseAutomation\DataWarehouseAutomation\interfaceDataWarehouseAutomationMetadata.json";
+            string jsonSchema = @"D:\Git_Repositories\Data_Warehouse_Automation_Metadata_Interface\ClassLibrary\DataWarehouseAutomation\DataWarehouseAutomation\interfaceDataWarehouseAutomationMetadata.json";
 
-            string jsonFile = @"C:\Users\rvos\dev\Data_Warehouse_Automation_Metadata_Interface\ClassLibrary\DataWarehouseAutomation\Test_Project\SampleFiles\sample2_withoutList.json ";
+            string jsonFile = @"D:\Git_Repositories\Data_Warehouse_Automation_Metadata_Interface\ClassLibrary\DataWarehouseAutomation\Test_Project\SampleFiles\sample.json";
+            //string jsonFile = @"D:\Git_Repositories\Data_Warehouse_Automation_Metadata_Interface\ClassLibrary\DataWarehouseAutomation\Test_Project\SampleFiles\sample2.json";
 
             //string jsonSchema = "";
             //string jsonFile = "";

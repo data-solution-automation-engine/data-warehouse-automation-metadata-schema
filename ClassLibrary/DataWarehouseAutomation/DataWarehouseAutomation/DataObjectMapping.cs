@@ -10,8 +10,8 @@ namespace DataWarehouseAutomation
     public class DataObjectMapping
     {
         [JsonProperty]
-        public string dataObjectMappingName { get; set; }
-        public string dataObjectMappingClassification { get; set; }
+        public string mappingName { get; set; }
+        public string classification { get; set; }
         public Boolean enabled { get; set; }
 
         //public string sourceTable { get; set; }
@@ -24,6 +24,6 @@ namespace DataWarehouseAutomation
 
         public List<BusinessKey> businessKey { get; set; }
         public string filterCriterion { get; set; }
-        public List<ColumnMapping> columnMapping { get; set; }
+        public List<DataItemMapping> dataItemMapping { get; set; }
     }
 }

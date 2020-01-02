@@ -5,10 +5,10 @@ namespace DataWarehouseAutomation
     /// <summary>
     /// And individual column
     /// </summary>
-    public class Column
+    public class DataItem
     {
         [JsonProperty] // Can be used to change the names of properties when they are serialized to JSON by for example [JsonProperty("column_name")]
-        public string columnName { get; set; }
-        public string columnType { get; set; }
+        public string name { get; set; }
+        public string dataType { get; set; }
     }
 }

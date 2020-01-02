@@ -67,14 +67,14 @@
     "Newtonsoft.Json/12.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-aTRmXwR5xYu+mWxE8r8W1DWnL02SeV8LwdQMsLwTWP8OZgrCCyTqvOAe5hRb1VNQYXjln7qr0PKpSyO/pcc19Q==",
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
       "path": "newtonsoft.json/12.0.3",
       "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
     },
     "Newtonsoft.Json.Schema/3.0.11": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-P6QZO7LIfsOWFv5f7D34Q1iE2sPkFOWkFDZfS6B48T+DEBcVQqJIHMY9v5ZUnzwYQjmyUJrAljFgN6hSFQsMSg==",
+      "sha512": "sha512-wYT9dYZhDFSZceFSrKhNmqm5wHq0i40zgRNz1uHGsT2jol5tCymP8NCNb5xzlQfSNkCvVKQKfVD8eD1/hxUTyg==",
       "path": "newtonsoft.json.schema/3.0.11",
       "hashPath": "newtonsoft.json.schema.3.0.11.nupkg.sha512"
     }

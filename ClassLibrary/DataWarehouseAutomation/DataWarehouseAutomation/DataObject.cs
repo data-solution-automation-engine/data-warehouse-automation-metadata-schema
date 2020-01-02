@@ -8,8 +8,8 @@ namespace DataWarehouseAutomation
     public class DataObject
     {
         [JsonProperty]
-        public int dataObjectid { get; set; }
-        public string dataObjectName { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
         public BusinessKey businessKey { get; set; }
     }
 }

@@ -1,57 +1,20 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface/GenericInterface/interfaceDataWarehouseAutomationMetadata.json",
-  "type": "object",
   "title": "interfaceDataWarehouseAutomationMetadata",
   "description": "Standardised format for the required metadata to generate ETL and DDL structures available for a Data Warehouse solution. The intent is to separate / decouple how individual software stores Data Warehouse Automation metadata and how this metadata can be exposed to other components, technologies and solutions for ETL and database structure generation.",
+  "type": "object",
   "required": [
-    "dataObjectMapping"
+    "dataObjectMappingList"
   ],
   "properties": {
-    "dataObjectMapping": {
-      "$ref": "#/definitions/dataObjectMapping"
+    "dataObjectMappingList": {
+      "$ref": "#/definitions/dataObjectMappingList"
     }
   },
   "definitions": {
-    "dataObject": {
-      "$id": "#/definitions/dataObject",
-      "type": "object",
-      "title": "",
-      "description": "The generic table of file definition. Any kind of entity, i.e. data set, query, object, file or table.",
-      "required": [
-        "name"
-      ],
-      "properties": {
-        "dataObjectId": {
-          "$id": "#/definitions/dataObject/dataObjectId",
-          "type": "integer",
-          "title": "",
-          "description": "Optional unique identifier for a file/table."
-        },
-        "dataObjectName": {
-          "$id": "#/definitions/dataObject/dataObjectName",
-          "type": "string",
-          "title": "",
-          "description": "Mandatory unique name of the file/table."
-        },
-        "dataObjectType": {
-          "$id": "#/definitions/dataObject/dataObjectType",
-          "type": "string",
-          "title": "",
-          "description": "Optional classification of the object (query, file, table)."
-        },
-        "dataItems": {
-          "$id": "#/definitions/dataItems",
-          "type": "array",
-          "title": "",
-          "description": "Optional - collection of dataItems for a table or file. Elements that define the dataset.",
-          "items": {
-            "$ref": "#/definitions/dataItem"
-          }
-        }
-      }
-    },
     "dataItem": {
+      "$id": "#/definitions/dataItem",
       "description": "The generic definition of a column. A column, attribute or item in a dataObject.",
       "type": "object",
       "required": [ "name" ],
@@ -86,6 +49,44 @@
         }
       }
     },
+    "dataObject": {
+      "$id": "#/definitions/dataObject",
+      "type": "object",
+      "title": "DataObject",
+      "description": "The generic table of file definition. Any kind of entity, i.e. data set, query, object, file or table.",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "$id": "#/definitions/dataObject/properties/dataObjectId",
+          "type": "integer",
+          "title": "",
+          "description": "Optional unique identifier for a file/table."
+        },
+        "name": {
+          "$id": "#/definitions/dataObject/properties/dataObjectName",
+          "type": "string",
+          "title": "",
+          "description": "Mandatory unique name of the file/table."
+        },
+        "type": {
+          "$id": "#/definitions/dataObject/properties/dataObjectType",
+          "type": "string",
+          "title": "",
+          "description": "Optional classification of the object (query, file, table)."
+        },
+        "dataItems": {
+          "$id": "#/definitions/dataObject/properties/dataItems",
+          "type": "array",
+          "title": "",
+          "description": "Optional - collection of dataItems for a table or file. Elements that define the dataset.",
+          "items": {
+            "$ref": "#/definitions/dataItem"
+          }
+        }
+      }
+    },
     "businessKeyDefinition": {
       "description": "The generic definition of business key.",
       "required": [ "businessKeyComponents" ],
@@ -105,7 +106,8 @@
       }
     },
     "dataObjectMapping": {
-      "$id": "#/properties/dataObjectMapping",
+      "$id": "#/definitions/dataObjectMapping",
+      "title": "The individual DataObject mappings",
       "description": "A mapping between a source and a target",
       "type": "object",
       "required": [
@@ -114,11 +116,13 @@
         "dataItemMapping"
       ],
       "properties": {
-        "dataObjectMappingName": {
+        "mappingName": {
+          "$id": "#/definitions/dataObjectMapping/properties/dataObjectMappingName",
           "description": "Unique name which identifies the mapping.",
           "type": "string"
         },
-        "dataObjectMappingClassification": {
+        "classification": {
+          "$id": "#/definitions/dataObjectMapping/properties/dataObjectMappingClassification",
           "description": "Classification for the mapping (free form).",
           "type": "array",
           "items": {
@@ -128,18 +132,17 @@
           "uniqueItems": true
         },
         "sourceDataObject": {
+          "$id": "#/definitions/dataObjectMapping/properties/sourceDataObject",
           "description": "The source object of the mapping.",
           "$ref": "#/definitions/dataObject"
         },
         "targetDataObject": {
+          "$id": "#/definitions/dataObjectMapping/properties/targetDataObject",
           "description": "The target object of the mapping.",
           "$ref": "#/definitions/dataObject"
         },
-        "enabled": {
-          "description": "The source object of the mapping.",
-          "type": "boolean"
-        },
         "dataItemMapping": {
+          "$id": "#/definitions/dataObjectMapping/properties/dataItemMapping",
           "description": "The collection of column-to-column mappings",
           "type": "array",
           "items": {
@@ -161,7 +164,21 @@
           },
           "minItems": 1,
           "uniqueItems": true
+        },
+        "enabled": {
+          "$id": "#/definitions/dataObjectMapping/properties/enabled",
+          "description": "The source object of the mapping.",
+          "type": "boolean"
         }
+      }
+    },
+    "dataObjectMappingList": {
+      "$id": "#/definitions/dataObjectMappingList",
+      "title": "List of DataObject mappings",
+      "description": "The list (array) of mappings between Data Objects.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/dataObjectMapping"
       }
     }
   }

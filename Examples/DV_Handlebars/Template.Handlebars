@@ -1,0 +1,18 @@
+{{#each dataObjectMappingList }}
+
+{{mappingName}}
+--
+-- Working on mapping to {{targetDataObject.name}} from source {{sourceDataObject.name}}
+--
+
+---
+-- The following items were provided
+--
+{{#each dataItemMapping}}
+-- Item {{sourceDataItem.name}} to {{targetDataItem.name}}
+{{/each}}
+
+
+
+{{/each}}
+

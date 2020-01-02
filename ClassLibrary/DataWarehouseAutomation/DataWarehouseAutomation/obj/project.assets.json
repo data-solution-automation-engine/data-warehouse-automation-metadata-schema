@@ -194,10 +194,11 @@
       ]
     },
     "Newtonsoft.Json/12.0.3": {
-      "sha512": "aTRmXwR5xYu+mWxE8r8W1DWnL02SeV8LwdQMsLwTWP8OZgrCCyTqvOAe5hRb1VNQYXjln7qr0PKpSyO/pcc19Q==",
+      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
       "type": "package",
       "path": "newtonsoft.json/12.0.3",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.md",
         "lib/net20/Newtonsoft.Json.dll",
@@ -224,10 +225,11 @@
       ]
     },
     "Newtonsoft.Json.Schema/3.0.11": {
-      "sha512": "P6QZO7LIfsOWFv5f7D34Q1iE2sPkFOWkFDZfS6B48T+DEBcVQqJIHMY9v5ZUnzwYQjmyUJrAljFgN6hSFQsMSg==",
+      "sha512": "wYT9dYZhDFSZceFSrKhNmqm5wHq0i40zgRNz1uHGsT2jol5tCymP8NCNb5xzlQfSNkCvVKQKfVD8eD1/hxUTyg==",
       "type": "package",
       "path": "newtonsoft.json.schema/3.0.11",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.md",
         "lib/net35/Newtonsoft.Json.Schema.dll",
@@ -255,23 +257,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rvos\\.nuget\\packages\\": {},
+    "C:\\Users\\roela\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rvos\\dev\\Data_Warehouse_Automation_Metadata_Interface\\ClassLibrary\\DataWarehouseAutomation\\DataWarehouseAutomation\\DataWarehouseAutomation.csproj",
+      "projectUniqueName": "D:\\Git_Repositories\\Data_Warehouse_Automation_Metadata_Interface\\ClassLibrary\\DataWarehouseAutomation\\DataWarehouseAutomation\\DataWarehouseAutomation.csproj",
       "projectName": "DataWarehouseAutomation",
-      "projectPath": "C:\\Users\\rvos\\dev\\Data_Warehouse_Automation_Metadata_Interface\\ClassLibrary\\DataWarehouseAutomation\\DataWarehouseAutomation\\DataWarehouseAutomation.csproj",
-      "packagesPath": "C:\\Users\\rvos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rvos\\dev\\Data_Warehouse_Automation_Metadata_Interface\\ClassLibrary\\DataWarehouseAutomation\\DataWarehouseAutomation\\obj\\",
+      "projectPath": "D:\\Git_Repositories\\Data_Warehouse_Automation_Metadata_Interface\\ClassLibrary\\DataWarehouseAutomation\\DataWarehouseAutomation\\DataWarehouseAutomation.csproj",
+      "packagesPath": "C:\\Users\\roela\\.nuget\\packages\\",
+      "outputPath": "D:\\Git_Repositories\\Data_Warehouse_Automation_Metadata_Interface\\ClassLibrary\\DataWarehouseAutomation\\DataWarehouseAutomation\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\rvos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\roela\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
