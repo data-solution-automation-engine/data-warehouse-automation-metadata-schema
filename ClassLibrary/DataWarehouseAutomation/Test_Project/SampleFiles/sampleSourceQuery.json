@@ -1,0 +1,23 @@
+﻿{
+  "dataObjectMappingList": [
+    {
+      "mappingName": "Mapping1",
+      "sourceDataObject": {
+        "dataQueryCode": "SELECT GETDATE()"
+      },
+      "targetDataObject": {
+        "name": "TableOneTarget"
+      },
+      "dataItemMapping": [
+        {
+          "sourceDataItem": {
+            "name": "CURRENTDATE"
+          },
+          "targetDataItem": {
+            "name": "CURRENTDATETIME"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -13,40 +13,13 @@
     }
   },
   "definitions": {
-    "dataItem": {
-      "$id": "#/definitions/dataItem",
-      "description": "The generic definition of a column. A column, attribute or item in a dataObject.",
-      "type": "object",
-      "required": [ "name" ],
-      "properties": {
-        "name": {
-          "description": "Unique name which identifies the column / attribute.",
-          "type": "string"
-        },
-        "dataType": {
-          "description": "Optional. Label of the data type",
-          "type": "string"
-        },
-        "characterLength": {
-          "description": "Optional. Length of the item in case it is text.",
-          "type": "integer"
-        },
-        "numericPrecision": {
-          "description": "The number of digits in a numeric value (number).",
-          "type": "integer"
-        },
-        "numericScale": {
-          "description": "The number of digits to the right of the decimal point.",
-          "type": "integer"
-        },
-        "ordinalPosition": {
-          "description": "Optional. The position of items in the data object.",
-          "type": "integer"
-        },
-        "isPrimaryKey": {
-          "description": "Boolean value indicating if the item is a Primary Key.",
-          "type": "boolean"
-        }
+    "dataObjectMappingList": {
+      "$id": "#/definitions/dataObjectMappingList",
+      "title": "List of DataObject mappings",
+      "description": "The list (array) of mappings between Data Objects.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/dataObjectMapping"
       }
     },
     "dataObject": {
@@ -149,6 +122,42 @@
         }
       }
     },
+    "dataItem": {
+      "$id": "#/definitions/dataItem",
+      "description": "The generic definition of a column. A column, attribute or item in a dataObject.",
+      "type": "object",
+      "required": [ "name" ],
+      "properties": {
+        "name": {
+          "description": "Unique name which identifies the column / attribute.",
+          "type": "string"
+        },
+        "dataType": {
+          "description": "Optional. Label of the data type",
+          "type": "string"
+        },
+        "characterLength": {
+          "description": "Optional. Length of the item in case it is text.",
+          "type": "integer"
+        },
+        "numericPrecision": {
+          "description": "The number of digits in a numeric value (number).",
+          "type": "integer"
+        },
+        "numericScale": {
+          "description": "The number of digits to the right of the decimal point.",
+          "type": "integer"
+        },
+        "ordinalPosition": {
+          "description": "Optional. The position of items in the data object.",
+          "type": "integer"
+        },
+        "isPrimaryKey": {
+          "description": "Boolean value indicating if the item is a Primary Key.",
+          "type": "boolean"
+        }
+      }
+    },
     "dataObjectMapping": {
       "$id": "#/definitions/dataObjectMapping",
       "title": "The individual DataObject mappings",
@@ -228,15 +237,6 @@
           "description": "The source object of the mapping.",
           "type": "boolean"
         }
-      }
-    },
-    "dataObjectMappingList": {
-      "$id": "#/definitions/dataObjectMappingList",
-      "title": "List of DataObject mappings",
-      "description": "The list (array) of mappings between Data Objects.",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/dataObjectMapping"
       }
     }
   }

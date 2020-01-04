@@ -16,6 +16,8 @@ namespace Test_Project
 
             List<string> fileList = new List<string>();
             fileList.Add(AppDomain.CurrentDomain.BaseDirectory + @"..\..\SampleFiles\sampleBasic.json"); // Most basic test
+            fileList.Add(AppDomain.CurrentDomain.BaseDirectory + @"..\..\SampleFiles\sampleSourceQuery.json"); // Simple test using a query as source
+            fileList.Add(AppDomain.CurrentDomain.BaseDirectory + @"..\..\SampleFiles\sampleCalculation.json"); // Simple test using one of the column mappings as calculation
 
             foreach (string jsonFile in fileList)
             {
@@ -28,8 +30,10 @@ namespace Test_Project
                 {
                     Console.Write($"   {error.Message} at line {error.LineNumber} position {error.LinePosition} of error type {error.ErrorType}. This is related to {error.Path}.");
                 }
+                Console.WriteLine();
             }
 
+            // Finish the application
             Console.ReadKey();
         }
     }

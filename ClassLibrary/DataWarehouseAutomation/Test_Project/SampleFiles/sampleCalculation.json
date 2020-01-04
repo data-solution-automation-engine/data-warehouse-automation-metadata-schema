@@ -1,0 +1,31 @@
+﻿{
+  "dataObjectMappingList": [
+    {
+      "mappingName": "Mapping1",
+      "sourceDataObject": {
+        "name": "SourceTable"
+      },
+      "targetDataObject": {
+        "name": "TargetTable"
+      },
+      "dataItemMapping": [
+        {
+          "sourceDataItem": {
+            "dataQueryCode": "SELECT 10/2"
+          },
+          "targetDataItem": {
+            "name": "TargetColumn"
+          }
+        },
+        {
+          "sourceDataItem": {
+            "name": "Column2Source"
+          },
+          "targetDataItem": {
+            "name": "Columns2Target"
+          }
+        }
+      ]
+    }
+  ]
+}
