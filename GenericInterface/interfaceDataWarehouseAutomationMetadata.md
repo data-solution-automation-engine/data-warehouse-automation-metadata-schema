@@ -17,7 +17,7 @@ The interface schema has the following requirements:
 
 ## **Schema**
 
-The proposed Json schema has standard components for table (DataObjects) and column () structures that are reused for sources and targets. At the mapping level only the classification, filter and load direction are added, the rest is generic reuse of definitions.
+The proposed Json schema has standard components for table (DataObjects) and column (DataItem) structures that are reused for sources and targets. At the mapping level only the classification, filter and load direction are added, the rest is generic reuse of definitions.
 
 The schema is available in the Github under:  https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface.
 
