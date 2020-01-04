@@ -12,8 +12,7 @@ namespace Test_Project
     {
         static void Main(string[] args)
         {
-            string jsonSchema = @"D:\Git_Repositories\Data_Warehouse_Automation_Metadata_Interface\ClassLibrary\DataWarehouseAutomation\DataWarehouseAutomation\interfaceDataWarehouseAutomationMetadata.json";
-
+            string jsonSchema = AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\..\..\GenericInterface\interfaceDataWarehouseAutomationMetadata.json";
 
             List<string> fileList = new List<string>();
             fileList.Add(AppDomain.CurrentDomain.BaseDirectory + @"..\..\SampleFiles\sampleBasic.json"); // Most basic test
@@ -22,7 +21,9 @@ namespace Test_Project
             {
                 var result = JsonHandling.ValidateJsonFileAgainstSchema(jsonSchema, jsonFile);
 
-                Console.Write($"The result for {jsonFile} was {result.Valid}");
+                var testOutput = result.Valid ? "OK" : "Failed";
+
+                Console.Write($"The result for {jsonFile} was {testOutput}.");
                 foreach (var error in result.Errors)
                 {
                     Console.Write($"   {error.Message} at line {error.LineNumber} position {error.LinePosition} of error type {error.ErrorType}. This is related to {error.Path}.");
