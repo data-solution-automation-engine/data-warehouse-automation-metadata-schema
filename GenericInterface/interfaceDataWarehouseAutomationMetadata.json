@@ -83,7 +83,51 @@
           "description": "Optional - collection of dataItems for a table or file. Elements that define the dataset.",
           "items": {
             "$ref": "#/definitions/dataItem"
+          },
+          "dataObjectConnection": {
+            "$ref": "#/definitions/dataConnection"
           }
+        }
+      }
+    },
+    "dataQuery": {
+      "description": "A query, which can act as a source for either a dataObject or dataItem.",
+      "required": [ "dataQueryCode" ],
+      "type": "object",
+      "properties": {
+        "dataQueryName": {
+          "$id": "#/definitions/dataQuery/properties/dataQueryName",
+          "type": "string",
+          "title": "",
+          "description": "An optional name for the query"
+        },
+        "dataQueryCode": {
+          "$id": "#/definitions/dataQuery/properties/dataQueryCode",
+          "type": "string",
+          "title": "",
+          "description": "The actual code that constitutes the query."
+        },
+        "dataQueryLanguage": {
+          "$id": "#/definitions/dataQuery/properties/dataQueryLanguage",
+          "type": "string",
+          "title": "",
+          "description": "The language that the code was written in (e.g. SQL)."
+        },
+        "dataQueryConnection": {
+          "$ref": "#/definitions/dataConnection"
+        }
+      }
+    },
+    "dataConnection": {
+      "description": "Optional connectivity information, that can be used for either a DataObject or DataQuery.",
+      "required": [ "dataConnectionString" ],
+      "type": "object",
+      "properties": {
+        "dataConnectionString": {
+          "$id": "#/definitions/dataConnection/properties/dataConnectionString",
+          "type": "string",
+          "title": "",
+          "description": "A connection token, key or string"
         }
       }
     },
@@ -133,8 +177,15 @@
         },
         "sourceDataObject": {
           "$id": "#/definitions/dataObjectMapping/properties/sourceDataObject",
-          "description": "The source object of the mapping.",
-          "$ref": "#/definitions/dataObject"
+          "description": "The source object of the mapping. This can either be an object or a query.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/dataObject"
+            },
+            {
+              "$ref": "#/definitions/dataQuery"
+            }
+          ]
         },
         "targetDataObject": {
           "$id": "#/definitions/dataObjectMapping/properties/targetDataObject",
@@ -152,7 +203,14 @@
               {
                 "properties": {
                   "sourceDataItem": {
-                    "$ref": "#/definitions/dataItem"
+                    "oneOf": [
+                      {
+                        "$ref": "#/definitions/dataItem"
+                      },
+                      {
+                        "$ref": "#/definitions/dataQuery"
+                      }
+                    ]
                   },
                   "targetDataItem": {
                     "$ref": "#/definitions/dataItem"
