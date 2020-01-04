@@ -14,19 +14,21 @@ namespace Test_Project
         {
             string jsonSchema = @"D:\Git_Repositories\Data_Warehouse_Automation_Metadata_Interface\ClassLibrary\DataWarehouseAutomation\DataWarehouseAutomation\interfaceDataWarehouseAutomationMetadata.json";
 
-            string jsonFile = @"D:\Git_Repositories\Data_Warehouse_Automation_Metadata_Interface\ClassLibrary\DataWarehouseAutomation\Test_Project\SampleFiles\sample.json";
-            //string jsonFile = @"D:\Git_Repositories\Data_Warehouse_Automation_Metadata_Interface\ClassLibrary\DataWarehouseAutomation\Test_Project\SampleFiles\sample2.json";
 
-            //string jsonSchema = "";
-            //string jsonFile = "";
+            List<string> fileList = new List<string>();
+            fileList.Add(AppDomain.CurrentDomain.BaseDirectory + @"..\..\SampleFiles\sampleBasic.json"); // Most basic test
 
-            var result = JsonHandling.ValidateJsonFileAgainstSchema(jsonSchema, jsonFile);
-
-            Console.Write($"The result was {result.Valid}");
-            foreach (var error in result.Errors)
+            foreach (string jsonFile in fileList)
             {
-                Console.Write($"   {error.Message} at line {error.LineNumber} position {error.LinePosition} of error type {error.ErrorType}. This is related to {error.Path}.");
+                var result = JsonHandling.ValidateJsonFileAgainstSchema(jsonSchema, jsonFile);
+
+                Console.Write($"The result for {jsonFile} was {result.Valid}");
+                foreach (var error in result.Errors)
+                {
+                    Console.Write($"   {error.Message} at line {error.LineNumber} position {error.LinePosition} of error type {error.ErrorType}. This is related to {error.Path}.");
+                }
             }
+
             Console.ReadKey();
         }
     }

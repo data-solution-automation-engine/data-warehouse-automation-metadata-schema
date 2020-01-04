@@ -58,7 +58,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="SampleFiles\sample.json" />
+    <None Include="SampleFiles\sampleBasic.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataWarehouseAutomation\DataWarehouseAutomation.csproj">
