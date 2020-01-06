@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.28307.421
+VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DV_Handlebars", "DV_Handlebars\DV_Handlebars.csproj", "{F77AC518-6300-4927-8775-B92CDF15CC8E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example_Handlebars", "Example_Handlebars.csproj", "{F77AC518-6300-4927-8775-B92CDF15CC8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {EEADA979-944A-4C2A-978B-158352FE14C0}
+		SolutionGuid = {76519E4A-DC5F-47E2-BCB4-81225C89CE14}
 	EndGlobalSection
 EndGlobal

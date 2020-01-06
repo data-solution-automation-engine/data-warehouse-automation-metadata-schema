@@ -263,11 +263,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Git_Repositories\\Data_Warehouse_Automation_Metadata_Interface\\ClassLibrary\\DataWarehouseAutomation\\DataWarehouseAutomation\\DataWarehouseAutomation.csproj",
+      "projectUniqueName": "D:\\Git_Repositories\\Data_Warehouse_Automation_Metadata_Interface_2\\ClassLibrary\\DataWarehouseAutomation\\DataWarehouseAutomation\\DataWarehouseAutomation.csproj",
       "projectName": "DataWarehouseAutomation",
-      "projectPath": "D:\\Git_Repositories\\Data_Warehouse_Automation_Metadata_Interface\\ClassLibrary\\DataWarehouseAutomation\\DataWarehouseAutomation\\DataWarehouseAutomation.csproj",
+      "projectPath": "D:\\Git_Repositories\\Data_Warehouse_Automation_Metadata_Interface_2\\ClassLibrary\\DataWarehouseAutomation\\DataWarehouseAutomation\\DataWarehouseAutomation.csproj",
       "packagesPath": "C:\\Users\\roela\\.nuget\\packages\\",
-      "outputPath": "D:\\Git_Repositories\\Data_Warehouse_Automation_Metadata_Interface\\ClassLibrary\\DataWarehouseAutomation\\DataWarehouseAutomation\\obj\\",
+      "outputPath": "D:\\Git_Repositories\\Data_Warehouse_Automation_Metadata_Interface_2\\ClassLibrary\\DataWarehouseAutomation\\DataWarehouseAutomation\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
