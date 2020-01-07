@@ -253,3 +253,6 @@ ClassLibrary/DataWarehouseAutomation/DataWarehouseAutomation/obj/Debug/netstanda
 ClassLibrary/DataWarehouseAutomation/DataWarehouseAutomation/obj/Debug/netstandard2.0/DataWarehouseAutomation.pdb
 ClassLibrary/DataWarehouseAutomation/Test_Project/bin/Debug/DataWarehouseAutomation.pdb
 *.cache   
+*.ide-wal
+ClassLibrary/DataWarehouseAutomation/.vs/DataWarehouseAutomation/DesignTimeBuild/.dtbcache
+ClassLibrary/DataWarehouseAutomation/.vs/DataWarehouseAutomation/v15/.suo
