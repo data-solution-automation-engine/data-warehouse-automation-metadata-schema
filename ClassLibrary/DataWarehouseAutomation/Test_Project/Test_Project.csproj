@@ -59,6 +59,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="SampleFiles\sampleCalculation.json" />
+    <None Include="SampleFiles\samplesSimpleDDL.json" />
     <None Include="SampleFiles\sampleSourceQuery.json" />
     <None Include="SampleFiles\sampleBasic.json" />
   </ItemGroup>

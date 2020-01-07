@@ -1,0 +1,12 @@
+{{#each dataObjectMappingList }}
+--
+-- Generating DDL for {{sourceDataObject.name}}
+--
+
+CREATE TABLE {{sourceDataObject.name}}
+{{#each sourceDataObject.dataItems}}
+  {{name}}
+{{/each}}
+
+{{/each}}
+

@@ -1,0 +1,30 @@
+﻿{
+  "dataObjectMappingList": [
+    {
+      "sourceDataObject": {
+        "name": "HUB_CUSTOMER",
+        "dataItems": [
+          {
+            "name": "Customer_ID"
+          },
+          {
+            "name": "Customer_Name"
+          }
+        ]
+      },
+      "targetDataObject": {
+        "name": "TableOneTarget"
+      },
+      "dataItemMapping": [
+        {
+          "sourceDataItem": {
+            "name": "Customer_ID"
+          },
+          "targetDataItem": {
+            "name": "CUSTOMER_ID"
+          }
+        }
+      ]
+    }
+  ]
+}

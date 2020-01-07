@@ -57,8 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="sampleSimpleDDL.json" />
+    <None Include="TemplateSimpleDDL.Handlebars" />
     <None Include="Template.Handlebars" />
-    <None Include="sample.json" />
+    <None Include="sampleBasic.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
