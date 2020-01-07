@@ -8,7 +8,7 @@ namespace DataWarehouseAutomation
     public class DataItemMapping
     {
         [JsonProperty]
-        public Column sourceDataItem { get; set; }
-        public Column targetDataItem { get; set; }
+        public DataItem sourceDataItem { get; set; }
+        public DataItem targetDataItem { get; set; }
     }
 }

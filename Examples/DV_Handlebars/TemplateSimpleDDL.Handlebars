@@ -3,10 +3,15 @@
 -- Generating DDL for {{sourceDataObject.name}}
 --
 
-CREATE TABLE {{sourceDataObject.name}}
+-- Drop table if exists
+IF OBJECT_ID (N'{{sourceDataObject.name}}', N'U') IS NOT NULL
+   DROP TABLE [{{sourceDataObject.name}}]
+
+-- Create table
+CREATE TABLE [{{sourceDataObject.name}}] (
 {{#each sourceDataObject.dataItems}}
-  {{name}}
-{{/each}}
+  [{{name}}] {{dataType}}({{characterLength}}) NOT NULL{{#unless @last}},{{/unless}}
+{{/each}})
 
 {{/each}}
 
