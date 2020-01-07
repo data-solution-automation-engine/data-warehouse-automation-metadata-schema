@@ -241,6 +241,7 @@ ModelManifest.xml
 .fake/
 *.cache
 *.pdb
+*.suo
 Examples/DV_Handlebars/obj/Debug/VEDW_Handlebars.exe
 Examples/DV_Handlebars/bin/Debug/VEDW_Handlebars.pdb
 ClassLibrary/DataWarehouseAutomation/Test_Project/bin/Debug/DataWarehouseAutomation.pdb
@@ -251,4 +252,4 @@ ClassLibrary/DataWarehouseAutomation/DataWarehouseAutomation/bin/Debug/netstanda
 ClassLibrary/DataWarehouseAutomation/DataWarehouseAutomation/obj/Debug/netstandard2.0/DataWarehouseAutomation.dll
 ClassLibrary/DataWarehouseAutomation/DataWarehouseAutomation/obj/Debug/netstandard2.0/DataWarehouseAutomation.pdb
 ClassLibrary/DataWarehouseAutomation/Test_Project/bin/Debug/DataWarehouseAutomation.pdb
-*.cache
+*.cache   
