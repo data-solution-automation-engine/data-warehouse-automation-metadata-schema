@@ -256,3 +256,17 @@ ClassLibrary/DataWarehouseAutomation/Test_Project/bin/Debug/DataWarehouseAutomat
 *.ide-wal
 ClassLibrary/DataWarehouseAutomation/.vs/DataWarehouseAutomation/DesignTimeBuild/.dtbcache
 ClassLibrary/DataWarehouseAutomation/.vs/DataWarehouseAutomation/v15/.suo
+ClassLibrary/DataWarehouseAutomation/.vs/DataWarehouseAutomation/v15/.suo
+ClassLibrary/DataWarehouseAutomation/.vs/DataWarehouseAutomation/v15/.suo
+ClassLibrary/DataWarehouseAutomation/.vs/DataWarehouseAutomation/v15/Server/sqlite3/storage.ide-shm
+ClassLibrary/DataWarehouseAutomation/.vs/DataWarehouseAutomation/v15/Server/sqlite3/storage.ide-wal
+ClassLibrary/DataWarehouseAutomation/DataWarehouseAutomation/obj/DataWarehouseAutomation.csproj.nuget.cache
+ClassLibrary/DataWarehouseAutomation/DataWarehouseAutomation/obj/DataWarehouseAutomation.csproj.nuget.g.props
+ClassLibrary/DataWarehouseAutomation/DataWarehouseAutomation/obj/Debug/netstandard2.0/DataWarehouseAutomation.assets.cache
+ClassLibrary/DataWarehouseAutomation/DataWarehouseAutomation/obj/Debug/netstandard2.0/DataWarehouseAutomation.csproj.CoreCompileInputs.cache
+ClassLibrary/DataWarehouseAutomation/DataWarehouseAutomation/obj/Debug/netstandard2.0/DataWarehouseAutomation.csprojAssemblyReference.cache
+ClassLibrary/DataWarehouseAutomation/DataWarehouseAutomation/obj/project.assets.json
+ClassLibrary/DataWarehouseAutomation/Test_Project/obj/Debug/Test_Project.csproj.CoreCompileInputs.cache
+ClassLibrary/DataWarehouseAutomation/Test_Project/obj/Debug/Test_Project.csprojAssemblyReference.cache
+Examples/DV_Handlebars/obj/Debug/Example_Handlebars.csproj.CoreCompileInputs.cache
+Examples/DV_Handlebars/obj/Debug/Example_Handlebars.csprojAssemblyReference.cache
