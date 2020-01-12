@@ -352,3 +352,5 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 *.pdb
+ClassLibrary/DataWarehouseAutomation/Test_Project/Test_Project.csproj
+ClassLibrary/DataWarehouseAutomation/DataWarehouseAutomation/obj/Debug/netstandard2.0/DataWarehouseAutomation.csproj.FileListAbsolute.txt

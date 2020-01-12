@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace DataWarehouseAutomation
 {
     public class DataObjectMappingList
     {
-        [JsonProperty]
+        [JsonProperty ("dataObjectMappingList")]
         public List<DataObjectMapping> dataObjectMappingList { get; set; }
     }
 }

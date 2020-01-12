@@ -1,0 +1,26 @@
+﻿{
+  "dataObjectMappingList": [
+    {
+      "mappingName": null,
+      "sourceDataObject": {
+        "id": 0,
+        "name": "CUST_MEMBERSHIP"
+      },
+      "targetDataObject": {
+        "id": 0,
+        "name": "STG_PROFILER_CUST_MEMBERSHIP"
+      },
+      "dataItemMapping": [
+        {
+          "sourceDataItem": {
+            "name": "Comment"
+          },
+          "targetDataItem": {
+            "name": "Comment"
+          }
+        }
+      ]
+    }
+  ],
+  "name" :  "test" 
+}

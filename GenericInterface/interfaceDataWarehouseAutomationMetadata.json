@@ -19,6 +19,7 @@
       "description": "The list (array) of mappings between Data Objects.",
       "type": "array",
       "items": {
+        "name": [ "string", "null" ],
         "$ref": "#/definitions/dataObjectMapping"
       }
     },
@@ -172,14 +173,14 @@
         "mappingName": {
           "$id": "#/definitions/dataObjectMapping/properties/dataObjectMappingName",
           "description": "Unique name which identifies the mapping.",
-          "type": "string"
+          "type": [ "string", "null" ]
         },
         "classification": {
           "$id": "#/definitions/dataObjectMapping/properties/dataObjectMappingClassification",
           "description": "Classification for the mapping (free form).",
           "type": "array",
           "items": {
-            "type": "string"
+            "type": [ "string", "null" ]
           },
           "minItems": 0,
           "uniqueItems": true
