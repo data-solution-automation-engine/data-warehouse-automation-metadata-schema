@@ -1,0 +1,207 @@
+﻿{
+  "dataObjectMappingList": [
+    {
+      "mappingName": null,
+      "classification": null,
+      "sourceDataObject": {
+        "id": 0,
+        "name": "CUST_MEMBERSHIP",
+        "dataItems": null
+      },
+      "targetDataObject": {
+        "id": 0,
+        "name": "STG_PROFILER_CUST_MEMBERSHIP",
+        "dataItems": null
+      },
+      "dataItemMapping": [
+        {
+          "sourceDataItem": {
+            "name": "Comment",
+            "dataType": null,
+            "characterLength": 0,
+            "numericPrecision": 0,
+            "numericScale": 0,
+            "ordinalPosition": 0,
+            "isPrimaryKey": false,
+            "isHardCodedValue": false
+          },
+          "targetDataItem": {
+            "name": "Comment",
+            "dataType": null,
+            "characterLength": 0,
+            "numericPrecision": 0,
+            "numericScale": 0,
+            "ordinalPosition": 0,
+            "isPrimaryKey": false,
+            "isHardCodedValue": false
+          }
+        },
+        {
+          "sourceDataItem": {
+            "name": "CustomerID",
+            "dataType": null,
+            "characterLength": 0,
+            "numericPrecision": 0,
+            "numericScale": 0,
+            "ordinalPosition": 0,
+            "isPrimaryKey": false,
+            "isHardCodedValue": false
+          },
+          "targetDataItem": {
+            "name": "CustomerID",
+            "dataType": null,
+            "characterLength": 0,
+            "numericPrecision": 0,
+            "numericScale": 0,
+            "ordinalPosition": 0,
+            "isPrimaryKey": false,
+            "isHardCodedValue": false
+          }
+        },
+        {
+          "sourceDataItem": {
+            "name": "End_Date",
+            "dataType": null,
+            "characterLength": 0,
+            "numericPrecision": 0,
+            "numericScale": 0,
+            "ordinalPosition": 0,
+            "isPrimaryKey": false,
+            "isHardCodedValue": false
+          },
+          "targetDataItem": {
+            "name": "End_Date",
+            "dataType": null,
+            "characterLength": 0,
+            "numericPrecision": 0,
+            "numericScale": 0,
+            "ordinalPosition": 0,
+            "isPrimaryKey": false,
+            "isHardCodedValue": false
+          }
+        },
+        {
+          "sourceDataItem": {
+            "name": "Plan_Code",
+            "dataType": null,
+            "characterLength": 0,
+            "numericPrecision": 0,
+            "numericScale": 0,
+            "ordinalPosition": 0,
+            "isPrimaryKey": false,
+            "isHardCodedValue": false
+          },
+          "targetDataItem": {
+            "name": "Plan_Code",
+            "dataType": null,
+            "characterLength": 0,
+            "numericPrecision": 0,
+            "numericScale": 0,
+            "ordinalPosition": 0,
+            "isPrimaryKey": false,
+            "isHardCodedValue": false
+          }
+        },
+        {
+          "sourceDataItem": {
+            "name": "Start_Date",
+            "dataType": null,
+            "characterLength": 0,
+            "numericPrecision": 0,
+            "numericScale": 0,
+            "ordinalPosition": 0,
+            "isPrimaryKey": false,
+            "isHardCodedValue": false
+          },
+          "targetDataItem": {
+            "name": "Start_Date",
+            "dataType": null,
+            "characterLength": 0,
+            "numericPrecision": 0,
+            "numericScale": 0,
+            "ordinalPosition": 0,
+            "isPrimaryKey": false,
+            "isHardCodedValue": false
+          }
+        },
+        {
+          "sourceDataItem": {
+            "name": "Status",
+            "dataType": null,
+            "characterLength": 0,
+            "numericPrecision": 0,
+            "numericScale": 0,
+            "ordinalPosition": 0,
+            "isPrimaryKey": false,
+            "isHardCodedValue": false
+          },
+          "targetDataItem": {
+            "name": "Status",
+            "dataType": null,
+            "characterLength": 0,
+            "numericPrecision": 0,
+            "numericScale": 0,
+            "ordinalPosition": 0,
+            "isPrimaryKey": false,
+            "isHardCodedValue": false
+          }
+        }
+      ],
+      "lookupTable": "PSA_PROFILER_CUST_MEMBERSHIP",
+      "targetTableHashKey": "Not applicable",
+      "businessKey": [
+        {
+          "businessKeyComponentMapping": [
+            {
+              "sourceDataItem": {
+                "name": "CustomerID",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              },
+              "targetDataItem": {
+                "name": "CustomerID",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              }
+            },
+            {
+              "sourceDataItem": {
+                "name": "Plan_Code",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              },
+              "targetDataItem": {
+                "name": "Plan_Code",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              }
+            }
+          ],
+          "surrogateKey": "Not applicable"
+        }
+      ],
+      "filterCriterion": "",
+      "enabled": true
+    }
+  ]
+}

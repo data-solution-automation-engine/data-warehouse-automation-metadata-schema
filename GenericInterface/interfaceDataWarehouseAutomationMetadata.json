@@ -17,7 +17,7 @@
       "$id": "#/definitions/dataObjectMappingList",
       "title": "List of DataObject mappings",
       "description": "The list (array) of mappings between Data Objects.",
-      "type": "array",
+      "type": [ "array", "null" ],
       "items": {
         "name": [ "string", "null" ],
         "$ref": "#/definitions/dataObjectMapping"
@@ -52,7 +52,7 @@
         },
         "dataItems": {
           "$id": "#/definitions/dataObject/properties/dataItems",
-          "type": "array",
+          "type": [ "array", "null" ],
           "title": "",
           "description": "Optional - collection of dataItems for a table or file. Elements that define the dataset.",
           "items": {
@@ -178,7 +178,7 @@
         "classification": {
           "$id": "#/definitions/dataObjectMapping/properties/dataObjectMappingClassification",
           "description": "Classification for the mapping (free form).",
-          "type": "array",
+          "type": [ "array", "null" ],
           "items": {
             "type": [ "string", "null" ]
           },
@@ -205,7 +205,7 @@
         "dataItemMapping": {
           "$id": "#/definitions/dataObjectMapping/properties/dataItemMapping",
           "description": "The collection of column-to-column mappings",
-          "type": "array",
+          "type": [ "array", "null" ],
           "items": {
             "description": "Individual item mappings",
             "type": "object",
