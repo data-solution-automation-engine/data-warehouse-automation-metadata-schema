@@ -15,5 +15,6 @@ namespace DataWarehouseAutomation
         public int numericScale { get; set; }
         public int ordinalPosition { get; set; }
         public bool isPrimaryKey { get; set; }
+        public bool isHardCodedValue { get; set; }
     }
 }
