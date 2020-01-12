@@ -1,7 +1,6 @@
 ﻿{
   "dataObjectMappingList": [
     {
-      "mappingName": null,
       "sourceDataObject": {
         "id": 0,
         "name": "CUST_MEMBERSHIP"
@@ -16,11 +15,17 @@
             "name": "Comment"
           },
           "targetDataItem": {
-            "name": "Comment"
+            "name": "Comment",
+            "dataType": null,
+            "characterLength": 0,
+            "numericPrecision": 0,
+            "numericScale": 0,
+            "ordinalPosition": 0,
+            "isPrimaryKey": false,
+            "isHardCodedValue": false
           }
         }
       ]
     }
-  ],
-  "name" :  "test" 
+  ]
 }

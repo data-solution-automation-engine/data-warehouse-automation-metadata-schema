@@ -135,27 +135,27 @@
         },
         "dataType": {
           "description": "Optional. Label of the data type",
-          "type": "string"
+          "type": [ "string", "null" ]
         },
         "characterLength": {
           "description": "Optional. Length of the item in case it is text.",
-          "type": "integer"
+          "type": [ "integer", "null" ]
         },
         "numericPrecision": {
           "description": "The number of digits in a numeric value (number).",
-          "type": "integer"
+          "type": [ "integer", "null" ]
         },
         "numericScale": {
           "description": "The number of digits to the right of the decimal point.",
-          "type": "integer"
+          "type": [ "integer", "null" ]
         },
         "ordinalPosition": {
           "description": "Optional. The position of items in the data object.",
-          "type": "integer"
+          "type": [ "integer", "null" ]
         },
         "isPrimaryKey": {
           "description": "Boolean value indicating if the item is a Primary Key.",
-          "type": "boolean"
+          "type": [ "boolean", "null" ]
         }
       }
     },
