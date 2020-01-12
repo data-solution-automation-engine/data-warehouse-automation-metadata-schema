@@ -42,7 +42,7 @@ namespace DataWarehouseAutomation
         /// <summary>
         /// The definition of the Business Key for the source-to-target mapping.
         /// </summary>
-        [JsonProperty("dataItemMapping")]
+        [JsonProperty("businessKey")]
         public List<BusinessKey> businessKey { get; set; }
 
         /// <summary>
