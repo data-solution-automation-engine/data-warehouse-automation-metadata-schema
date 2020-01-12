@@ -15,12 +15,83 @@
   "definitions": {
     "dataObjectMappingList": {
       "$id": "#/definitions/dataObjectMappingList",
-      "title": "List of DataObject mappings",
-      "description": "The list (array) of mappings between Data Objects.",
+      "title": "List of DataObject mappings.",
+      "description": "The list (array) of mappings between Data Objects (source-to-target mappings).",
       "type": [ "array", "null" ],
       "items": {
         "name": [ "string", "null" ],
         "$ref": "#/definitions/dataObjectMapping"
+      }
+    },
+    "dataObjectMapping": {
+      "$id": "#/definitions/dataObjectMapping",
+      "title": "The individual Data Object mappings.",
+      "description": "A mapping between a source and a target.",
+      "type": "object",
+      "required": [
+        "sourceDataObject",
+        "targetDataObject",
+        "dataItemMapping"
+      ],
+      "properties": {
+        "mappingName": {
+          "$id": "#/definitions/dataObjectMapping/properties/dataObjectMappingName",
+          "description": "Unique name which identifies the mapping.",
+          "type": [ "string", "null" ]
+        },
+        "classification": {
+          "$id": "#/definitions/dataObjectMapping/properties/dataObjectMappingClassification",
+          "description": "Classification for the mapping (free form).",
+          "type": [ "array", "null" ],
+          "items": {
+            "type": [ "string", "null" ]
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "sourceDataObject": {
+          "$id": "#/definitions/dataObjectMapping/properties/sourceDataObject",
+          "description": "The source object of the mapping. This can either be an object or a query.",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/dataObject"
+            },
+            {
+              "$ref": "#/definitions/dataQuery"
+            }
+          ]
+        },
+        "targetDataObject": {
+          "$id": "#/definitions/dataObjectMapping/properties/targetDataObject",
+          "description": "The target object of the mapping.",
+          "$ref": "#/definitions/dataObject"
+        },
+        "dataItemMapping": {
+          "$id": "#/definitions/dataObjectMapping/properties/dataItemMapping",
+          "description": "The collection of column-to-column mappings.",
+          "type": [ "array", "null" ],
+          "items": {
+            "$ref": "#/definitions/dataItemMapping"
+          }
+        },
+        "businessKey": {
+          "$id": "#/definitions/dataObjectMapping/properties/businessKey",
+          "description": "The Business Key definition for the mapping.",
+          "type": [ "array", "null" ],
+          "items": {
+            "$ref": "#/definitions/businessKeyDefinition"
+          }
+        },
+        "filterCriterion": {
+          "$id": "#/definitions/dataObjectMapping/properties/filterCriterion",
+          "description": "Any filtering that needs to be applied to the dataObjectMapping.",
+          "type": [ "string", "null" ]
+        },
+        "enabled": {
+          "$id": "#/definitions/dataObjectMapping/properties/enabled",
+          "description": "The source object of the mapping.",
+          "type": [ "boolean", "null" ]
+        }
       }
     },
     "dataObject": {
@@ -54,7 +125,7 @@
           "$id": "#/definitions/dataObject/properties/dataItems",
           "type": [ "array", "null" ],
           "title": "",
-          "description": "Optional - collection of dataItems for a table or file. Elements that define the dataset.",
+          "description": "Optional - collection of dataItems for a table or file. Elements that define the dat set.",
           "items": {
             "$ref": "#/definitions/dataItem"
           },
@@ -107,18 +178,18 @@
     },
     "businessKeyDefinition": {
       "description": "The generic definition of business key.",
-      "required": [ "businessKeyComponents" ],
+      "required": [ "businessKeyComponentMapping" ],
       "type": "object",
       "properties": {
         "businessKeyComponentBehaviour": {
           "description": "Specification of what to do with the Business Key. Supporting composition, concatenation.",
           "type": "string"
         },
-        "businessKeyComponents": {
+        "businessKeyComponentMapping": {
           "description": "Items that define the Business Key e.g. the collection of columns for a Business Key.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/dataItem"
+            "$ref": "#/definitions/dataItemMapping"
           }
         }
       }
@@ -159,84 +230,32 @@
         }
       }
     },
-    "dataObjectMapping": {
-      "$id": "#/definitions/dataObjectMapping",
-      "title": "The individual DataObject mappings",
-      "description": "A mapping between a source and a target",
+    "dataItemMapping": {
+      "$id": "#/definitions/dataItemMapping",
+      "title": "The individual mappings between Data Items",
+      "description": "A mapping between a source and a target columns or attributes",
       "type": "object",
       "required": [
-        "sourceDataObject",
-        "targetDataObject",
-        "dataItemMapping"
+        "sourceDataItem",
+        "targetDataItem"
       ],
       "properties": {
-        "mappingName": {
-          "$id": "#/definitions/dataObjectMapping/properties/dataObjectMappingName",
-          "description": "Unique name which identifies the mapping.",
-          "type": [ "string", "null" ]
-        },
-        "classification": {
-          "$id": "#/definitions/dataObjectMapping/properties/dataObjectMappingClassification",
-          "description": "Classification for the mapping (free form).",
-          "type": [ "array", "null" ],
-          "items": {
-            "type": [ "string", "null" ]
-          },
-          "minItems": 0,
-          "uniqueItems": true
-        },
-        "sourceDataObject": {
+        "sourceDataItem": {
           "$id": "#/definitions/dataObjectMapping/properties/sourceDataObject",
           "description": "The source object of the mapping. This can either be an object or a query.",
           "oneOf": [
             {
-              "$ref": "#/definitions/dataObject"
+              "$ref": "#/definitions/dataItem"
             },
             {
               "$ref": "#/definitions/dataQuery"
             }
           ]
         },
-        "targetDataObject": {
+        "targetDataItem": {
           "$id": "#/definitions/dataObjectMapping/properties/targetDataObject",
           "description": "The target object of the mapping.",
-          "$ref": "#/definitions/dataObject"
-        },
-        "dataItemMapping": {
-          "$id": "#/definitions/dataObjectMapping/properties/dataItemMapping",
-          "description": "The collection of column-to-column mappings",
-          "type": [ "array", "null" ],
-          "items": {
-            "description": "Individual item mappings",
-            "type": "object",
-            "oneOf": [
-              {
-                "properties": {
-                  "sourceDataItem": {
-                    "oneOf": [
-                      {
-                        "$ref": "#/definitions/dataItem"
-                      },
-                      {
-                        "$ref": "#/definitions/dataQuery"
-                      }
-                    ]
-                  },
-                  "targetDataItem": {
-                    "$ref": "#/definitions/dataItem"
-                  }
-                },
-                "required": [ "sourceDataItem", "targetDataItem" ]
-              }
-            ]
-          },
-          "minItems": 1,
-          "uniqueItems": true
-        },
-        "enabled": {
-          "$id": "#/definitions/dataObjectMapping/properties/enabled",
-          "description": "The source object of the mapping.",
-          "type": "boolean"
+          "$ref": "#/definitions/dataItem"
         }
       }
     }

@@ -9,22 +9,52 @@ namespace DataWarehouseAutomation
     /// </summary>
     public class DataObjectMapping
     {
-        [JsonProperty]
+        /// <summary>
+        /// The name of the source-to-target mapping. An optional unique name that identifies the individual mapping.
+        /// </summary>
+        [JsonProperty("mappingName")]
         public string mappingName { get; set; }
+
+        /// <summary>
+        /// Free-form and optional classification for the mapping for use in ETL generation logic (evaluation).
+        /// </summary>
+        [JsonProperty("classification")]
         public List<string> classification { get; set; }
 
-
+        /// <summary>
+        /// The source object of the mapping.
+        /// </summary>
+        [JsonProperty("sourceDataObject")]
         public DataObject sourceDataObject { get; set; }
+
+        /// <summary>
+        /// The target object of the mapping.
+        /// </summary>
+        [JsonProperty("targetDataObject")]
         public DataObject targetDataObject { get; set; }
 
+        /// <summary>
+        /// The collection of individual attribute (column) mappings.
+        /// </summary>
+        [JsonProperty("dataItemMapping")]
         public List<DataItemMapping> dataItemMapping { get; set; }
 
-        public string lookupTable { get; set; }
-        public string targetTableHashKey { get; set; }
-
+        /// <summary>
+        /// The definition of the Business Key for the source-to-target mapping.
+        /// </summary>
+        [JsonProperty("dataItemMapping")]
         public List<BusinessKey> businessKey { get; set; }
+
+        /// <summary>
+        /// Any filtering that needs to be applied to the source-to-target mapping.
+        /// </summary>
+        [JsonProperty("filterCriterion")]
         public string filterCriterion { get; set; }
 
-        public Boolean enabled { get; set; }
+        /// <summary>
+        /// An indicator (boolean) which can capture enabling / disabling of (the usage of) an individual source-to-target mappping.
+        /// </summary>
+        [JsonProperty("enabled")]
+        public bool enabled { get; set; }
     }
 }
