@@ -18,8 +18,8 @@ namespace DataWarehouseAutomation
         /// <summary>
         /// Free-form and optional classification for the mapping for use in ETL generation logic (evaluation).
         /// </summary>
-        [JsonProperty("classification")]
-        public List<string> classification { get; set; }
+        [JsonProperty("mappingClassification")]
+        public List<DataObjectMappingClassification> mappingClassification { get; set; }
 
         /// <summary>
         /// The source object of the mapping.

@@ -23,6 +23,27 @@
         "$ref": "#/definitions/dataObjectMapping"
       }
     },
+    "dataObjectMappingClassification": {
+      "$id": "#/definitions/dataObjectMappingClassification",
+      "title": "List of source-to-target mapping classifications.",
+      "description": "Classification for the source-to-target mapping (free form), used to add various tags and notes if required.",
+      "type": "object",
+      "required": [ "classification" ],
+      "properties": {
+        "classification": {
+          "$id": "#/definitions/dataObjectMappingClassification/properties/classification",
+          "type": "string",
+          "title": "Classification",
+          "description": "A connection token, key or string."
+        },
+        "notes": {
+          "$id": "#/definitions/dataObjectMappingClassification/properties/notes",
+          "type": "string",
+          "title": "Classification Notes",
+          "description": "Any additional information to be added to the classification."
+        }
+      }
+    },
     "dataObjectMapping": {
       "$id": "#/definitions/dataObjectMapping",
       "title": "The individual Data Object mappings.",
@@ -39,12 +60,12 @@
           "description": "Unique name which identifies the mapping.",
           "type": [ "string", "null" ]
         },
-        "classification": {
+        "mappingClassification": {
           "$id": "#/definitions/dataObjectMapping/properties/dataObjectMappingClassification",
-          "description": "Classification for the mapping (free form).",
+          "description": "Classification for the source-to-target mapping (free form).",
           "type": [ "array", "null" ],
           "items": {
-            "type": [ "string", "null" ]
+            "$ref": "#/definitions/dataObjectMappingClassification"
           },
           "minItems": 0,
           "uniqueItems": true

@@ -2,7 +2,7 @@
   "dataObjectMappingList": [
     {
       "mappingName": null,
-      "classification": null,
+      "classification": "",
       "sourceDataObject": {
         "id": 0,
         "name": "CUST_MEMBERSHIP",
