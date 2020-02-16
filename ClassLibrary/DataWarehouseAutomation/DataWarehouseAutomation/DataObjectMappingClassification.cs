@@ -11,6 +11,7 @@ namespace DataWarehouseAutomation
     public class DataObjectMappingClassification
     {
         [JsonProperty]
+        public int id { get; set; }
         public string classification { get; set; }
         public string notes { get; set; }
     }

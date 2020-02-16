@@ -30,11 +30,17 @@
       "type": "object",
       "required": [ "classification" ],
       "properties": {
+        "id": {
+          "$id": "#/definitions/dataObjectMappingClassification/properties/id",
+          "type": "integer",
+          "title": "ClassificationId",
+          "description": "An optional unique identifier for classification, for sorting or identification purposes."
+        },
         "classification": {
           "$id": "#/definitions/dataObjectMappingClassification/properties/classification",
           "type": "string",
           "title": "Classification",
-          "description": "A connection token, key or string."
+          "description": "A free-form name that adds documentation / classification to a mapping."
         },
         "notes": {
           "$id": "#/definitions/dataObjectMappingClassification/properties/notes",
@@ -144,15 +150,19 @@
         },
         "dataItems": {
           "$id": "#/definitions/dataObject/properties/dataItems",
-          "type": [ "array", "null" ],
+          "type": ["array", "null"],
           "title": "",
           "description": "Optional - collection of dataItems for a table or file. Elements that define the dat set.",
           "items": {
             "$ref": "#/definitions/dataItem"
-          },
-          "dataObjectConnection": {
-            "$ref": "#/definitions/dataConnection"
           }
+        },
+        "dataObjectConnection": {
+          "$id": "#/definitions/dataObject/properties/dataObjectConnection",
+          "type": [ "object", "null" ],
+          "title": "",
+          "description": "",
+          "$ref": "#/definitions/dataConnection"
         }
       }
     },
@@ -187,11 +197,11 @@
     "dataConnection": {
       "description": "Optional connectivity information, that can be used for either a DataObject or DataQuery.",
       "required": [ "dataConnectionString" ],
-      "type": "object",
+      "type": [ "object", "null" ],
       "properties": {
         "dataConnectionString": {
           "$id": "#/definitions/dataConnection/properties/dataConnectionString",
-          "type": "string",
+          "type": [ "string", "null" ],
           "title": "",
           "description": "A connection token, key or string"
         }

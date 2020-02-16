@@ -3,12 +3,12 @@
   },
   "generationSpecificMetadata": {
     "selectedDataObject": "HUB_SEGMENT",
-    "generationDateTime": "2020-02-16T18:49:28.1376103+10:00"
+    "generationDateTime": "2020-02-16T22:05:05.9827644+10:00"
   },
   "dataObjectMappingList": [
     {
       "lookupTable": "HUB_SEGMENT",
-      "targetTableHashKey": "SEGMENT_SK",
+      "targetTableHashKey": "SEGMENT_HSH",
       "mappingName": null,
       "mappingClassification": [
         {
@@ -18,13 +18,17 @@
       ],
       "sourceDataObject": {
         "id": 0,
-        "name": "HSTG_PROFILER_PERSONALISED_COSTING",
-        "dataItems": null
+        "name": "PSA_PROFILER_PERSONALISED_COSTING",
+        "dataItems": null,
+        "dataObjectConnection": null
       },
       "targetDataObject": {
         "id": 0,
         "name": "HUB_SEGMENT",
-        "dataItems": null
+        "dataItems": null,
+        "dataObjectConnection": {
+          "dataConnectionString": "PersistentStagingDatabase"
+        }
       },
       "dataItemMapping": null,
       "businessKey": [
@@ -53,63 +57,10 @@
               }
             }
           ],
-          "surrogateKey": "SEGMENT_SK"
+          "surrogateKey": "SEGMENT_HSH"
         }
       ],
       "filterCriterion": "",
-      "enabled": true
-    },
-    {
-      "lookupTable": "HUB_SEGMENT",
-      "targetTableHashKey": "SEGMENT_SK",
-      "mappingName": null,
-      "mappingClassification": [
-        {
-          "classification": "CoreBusinessConcept",
-          "notes": "The source-to-target mappings for a Hub entity type. The Hub entities define the business concept and integration point for the model. In the Virtual Data Warehouse, the generated views combine the metadata from the various source to target mappings to create a single integrated Hub query."
-        }
-      ],
-      "sourceDataObject": {
-        "id": 0,
-        "name": "HSTG_USERMANAGED_SEGMENT",
-        "dataItems": null
-      },
-      "targetDataObject": {
-        "id": 0,
-        "name": "HUB_SEGMENT",
-        "dataItems": null
-      },
-      "dataItemMapping": null,
-      "businessKey": [
-        {
-          "businessKeyComponentMapping": [
-            {
-              "sourceDataItem": {
-                "name": "Demographic_Segment_Code+'TEST'",
-                "dataType": null,
-                "characterLength": 0,
-                "numericPrecision": 0,
-                "numericScale": 0,
-                "ordinalPosition": 0,
-                "isPrimaryKey": false,
-                "isHardCodedValue": false
-              },
-              "targetDataItem": {
-                "name": "SEGMENT_CODE",
-                "dataType": null,
-                "characterLength": 0,
-                "numericPrecision": 0,
-                "numericScale": 0,
-                "ordinalPosition": 0,
-                "isPrimaryKey": false,
-                "isHardCodedValue": false
-              }
-            }
-          ],
-          "surrogateKey": "SEGMENT_SK"
-        }
-      ],
-      "filterCriterion": "8=8",
       "enabled": true
     }
   ]
