@@ -1,0 +1,204 @@
+﻿{
+  "dataObjectMappingList": [
+    {
+      "lookupTable": "HUB_CUSTOMER",
+      "targetTableHashKey": "CUSTOMER_SK",
+      "mappingName": null,
+      "classification": [
+        "CoreBusinessConcept"
+      ],
+      "sourceDataObject": {
+        "id": 0,
+        "name": "HSTG_PROFILER_CUST_MEMBERSHIP",
+        "dataItems": null
+      },
+      "targetDataObject": {
+        "id": 0,
+        "name": "HUB_CUSTOMER",
+        "dataItems": null
+      },
+      "dataItemMapping": null,
+      "businessKey": [
+        {
+          "businessKeyComponentMapping": [
+            {
+              "sourceDataItem": {
+                "name": "CustomerID",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              },
+              "targetDataItem": {
+                "name": "CUSTOMER_ID",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              }
+            }
+          ],
+          "surrogateKey": "CUSTOMER_SK"
+        }
+      ],
+      "filterCriterion": "15=15",
+      "enabled": true
+    },
+    {
+      "lookupTable": "HUB_CUSTOMER",
+      "targetTableHashKey": "CUSTOMER_SK",
+      "mappingName": null,
+      "classification": [
+        "CoreBusinessConcept"
+      ],
+      "sourceDataObject": {
+        "id": 0,
+        "name": "HSTG_PROFILER_CUSTOMER_OFFER",
+        "dataItems": null
+      },
+      "targetDataObject": {
+        "id": 0,
+        "name": "HUB_CUSTOMER",
+        "dataItems": null
+      },
+      "dataItemMapping": null,
+      "businessKey": [
+        {
+          "businessKeyComponentMapping": [
+            {
+              "sourceDataItem": {
+                "name": "CustomerID",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              },
+              "targetDataItem": {
+                "name": "CUSTOMER_ID",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              }
+            }
+          ],
+          "surrogateKey": "CUSTOMER_SK"
+        }
+      ],
+      "filterCriterion": "5=5",
+      "enabled": true
+    },
+    {
+      "lookupTable": "HUB_CUSTOMER",
+      "targetTableHashKey": "CUSTOMER_SK",
+      "mappingName": null,
+      "classification": [
+        "CoreBusinessConcept"
+      ],
+      "sourceDataObject": {
+        "id": 0,
+        "name": "HSTG_PROFILER_CUSTOMER_PERSONAL",
+        "dataItems": null
+      },
+      "targetDataObject": {
+        "id": 0,
+        "name": "HUB_CUSTOMER",
+        "dataItems": null
+      },
+      "dataItemMapping": null,
+      "businessKey": [
+        {
+          "businessKeyComponentMapping": [
+            {
+              "sourceDataItem": {
+                "name": "CustomerID",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              },
+              "targetDataItem": {
+                "name": "CUSTOMER_ID",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              }
+            }
+          ],
+          "surrogateKey": "CUSTOMER_SK"
+        }
+      ],
+      "filterCriterion": "1=1",
+      "enabled": true
+    },
+    {
+      "lookupTable": "HUB_CUSTOMER",
+      "targetTableHashKey": "CUSTOMER_SK",
+      "mappingName": null,
+      "classification": [
+        "CoreBusinessConcept"
+      ],
+      "sourceDataObject": {
+        "id": 0,
+        "name": "HSTG_PROFILER_PERSONALISED_COSTING",
+        "dataItems": null
+      },
+      "targetDataObject": {
+        "id": 0,
+        "name": "HUB_CUSTOMER",
+        "dataItems": null
+      },
+      "dataItemMapping": null,
+      "businessKey": [
+        {
+          "businessKeyComponentMapping": [
+            {
+              "sourceDataItem": {
+                "name": "Member",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              },
+              "targetDataItem": {
+                "name": "CUSTOMER_ID",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              }
+            }
+          ],
+          "surrogateKey": "CUSTOMER_SK"
+        }
+      ],
+      "filterCriterion": "",
+      "enabled": true
+    }
+  ]
+}
