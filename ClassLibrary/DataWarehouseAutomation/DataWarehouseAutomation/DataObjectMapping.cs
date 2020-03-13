@@ -16,6 +16,12 @@ namespace DataWarehouseAutomation
         public string mappingName { get; set; }
 
         /// <summary>
+        /// TEMPORARY - NEEDS REFACTORING IN RELATED DATA OBJECT CONCEPT
+        /// </summary>
+        [JsonProperty("lookupTable")]
+        public string lookupTable { get; set; }
+
+        /// <summary>
         /// Free-form and optional classification for the mapping for use in ETL generation logic (evaluation).
         /// </summary>
         [JsonProperty("mappingClassification")]

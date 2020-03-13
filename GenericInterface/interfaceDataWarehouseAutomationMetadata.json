@@ -76,6 +76,12 @@
           "minItems": 0,
           "uniqueItems": true
         },
+        "lookupTable": {
+          "$id": "#/definitions/dataObject/properties/lookupTable",
+          "type": "string",
+          "title": "",
+          "description": "TEMPORARY - needs to be replaced by linked Data Object concept!!!"
+        },
         "sourceDataObject": {
           "$id": "#/definitions/dataObjectMapping/properties/sourceDataObject",
           "description": "The source object of the mapping. This can either be an object or a query.",
