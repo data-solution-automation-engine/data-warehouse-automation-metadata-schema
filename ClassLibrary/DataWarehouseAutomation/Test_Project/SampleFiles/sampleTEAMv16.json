@@ -1,0 +1,150 @@
+﻿{
+  "dataObjectMappingList": [
+    {
+      "mappingName": "HUB_SEGMENT",
+      "mappingClassification": [
+        {
+          "id": 3,
+          "classification": "CoreBusinessConcept",
+          "notes": "The source-to-target mappings for a Hub entity type. The Hub entities define the business concept and integration point for the model. In the Virtual Data Warehouse, the generated views combine the metadata from the various source to target mappings to create a single integrated Hub query."
+        }
+      ],
+      "sourceDataObject": {
+        "id": 0,
+        "name": "PSA_PROFILER_PERSONALISED_COSTING",
+        "dataItems": null,
+        "dataObjectConnection": null,
+        "dataObjectClassification": null
+      },
+      "targetDataObject": {
+        "id": 0,
+        "name": "HUB_SEGMENT",
+        "dataItems": null,
+        "dataObjectConnection": {
+          "dataConnectionString": "PersistentStagingDatabase"
+        },
+        "dataObjectClassification": null
+      },
+      "relatedDataObject": [
+        {
+          "id": 0,
+          "name": "HUB_SEGMENT",
+          "dataItems": null,
+          "dataObjectConnection": null,
+          "dataObjectClassification": [
+            {
+              "id": 0,
+              "classification": "Lookup",
+              "notes": "Lookup table related to the source-to-target mapping"
+            }
+          ]
+        }
+      ],
+      "dataItemMapping": null,
+      "businessKey": [
+        {
+          "businessKeyComponentMapping": [
+            {
+              "sourceDataItem": {
+                "name": "Segment+'TEST'",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              },
+              "targetDataItem": {
+                "name": "SEGMENT_CODE",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              }
+            }
+          ],
+          "surrogateKey": "SEGMENT_HSH"
+        }
+      ],
+      "filterCriterion": "",
+      "enabled": true
+    },
+    {
+      "mappingName": "HUB_SEGMENT",
+      "mappingClassification": [
+        {
+          "id": 3,
+          "classification": "CoreBusinessConcept",
+          "notes": "The source-to-target mappings for a Hub entity type. The Hub entities define the business concept and integration point for the model. In the Virtual Data Warehouse, the generated views combine the metadata from the various source to target mappings to create a single integrated Hub query."
+        }
+      ],
+      "sourceDataObject": {
+        "id": 0,
+        "name": "PSA_USERMANAGED_SEGMENT",
+        "dataItems": null,
+        "dataObjectConnection": null,
+        "dataObjectClassification": null
+      },
+      "targetDataObject": {
+        "id": 0,
+        "name": "HUB_SEGMENT",
+        "dataItems": null,
+        "dataObjectConnection": {
+          "dataConnectionString": "PersistentStagingDatabase"
+        },
+        "dataObjectClassification": null
+      },
+      "relatedDataObject": [
+        {
+          "id": 0,
+          "name": "HUB_SEGMENT",
+          "dataItems": null,
+          "dataObjectConnection": null,
+          "dataObjectClassification": [
+            {
+              "id": 0,
+              "classification": "Lookup",
+              "notes": "Lookup table related to the source-to-target mapping"
+            }
+          ]
+        }
+      ],
+      "dataItemMapping": null,
+      "businessKey": [
+        {
+          "businessKeyComponentMapping": [
+            {
+              "sourceDataItem": {
+                "name": "Demographic_Segment_Code+'TEST'",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              },
+              "targetDataItem": {
+                "name": "SEGMENT_CODE",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              }
+            }
+          ],
+          "surrogateKey": "SEGMENT_HSH"
+        }
+      ],
+      "filterCriterion": "8=8",
+      "enabled": true
+    }
+  ]
+}

@@ -61,6 +61,8 @@
     <None Include="SampleFiles\sampleCalculation.json" />
     <None Include="SampleFiles\sampleTEAM_Hub.json" />
     <None Include="SampleFiles\sampleTEAM_LSAT.json" />
+    <None Include="SampleFiles\sampleTEAMv16.json" />
+    <None Include="SampleFiles\sampleVDW_HubWithLookup.json" />
     <None Include="SampleFiles\sampleVDW_StagingArea.json" />
     <None Include="SampleFiles\sampleVDW_Hub.json" />
     <None Include="SampleFiles\samplesSimpleDDL.json" />

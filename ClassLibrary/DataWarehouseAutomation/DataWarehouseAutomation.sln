@@ -1,11 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.779
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataWarehouseAutomation", "DataWarehouseAutomation\DataWarehouseAutomation.csproj", "{F0458983-9646-42E6-9E18-90AD91288B40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataWarehouseAutomation", "DataWarehouseAutomation\DataWarehouseAutomation.csproj", "{F0458983-9646-42E6-9E18-90AD91288B40}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D3FD1325-9F54-481B-8363-BC1CF463F589}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\GenericInterface\interfaceDataWarehouseAutomationMetadata.json = ..\..\GenericInterface\interfaceDataWarehouseAutomationMetadata.json
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example_Handlebars", "..\..\Examples\DV_Handlebars\Example_Handlebars.csproj", "{F77AC518-6300-4927-8775-B92CDF15CC8E}"
 EndProject

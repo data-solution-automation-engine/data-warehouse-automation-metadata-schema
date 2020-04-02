@@ -1,0 +1,207 @@
+﻿{
+  "dataObjectMappingList": [
+    {
+      "mappingName": null,
+      "classification": null,
+      "sourceDataObject": {
+        "id": 0,
+        "name": "PSA_PROFILER_CUST_MEMBERSHIP",
+        "dataItems": null
+      },
+      "targetDataObject": {
+        "id": 0,
+        "name": "HUB_CUSTOMER",
+        "dataItems": null
+      },
+      "relatedDataObject": [
+        {
+          "id": 0,
+          "name": "LookupTest",
+          "dataObjectClassification": [
+            {
+              "id": 1,
+              "classification": "Lookup"
+            }
+          ]
+        }
+      ],
+      "dataItemMapping": null,
+      "lookupTable": "HUB_CUSTOMER",
+      "targetTableHashKey": "CUSTOMER_HSH",
+      "businessKey": [
+        {
+          "businessKeyComponentMapping": [
+            {
+              "sourceDataItem": {
+                "name": "CustomerID",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              },
+              "targetDataItem": {
+                "name": "CUSTOMER_ID",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              }
+            }
+          ],
+          "surrogateKey": "CUSTOMER_HSH"
+        }
+      ],
+      "filterCriterion": "15=15",
+      "enabled": true
+    },
+    {
+      "mappingName": null,
+      "classification": null,
+      "sourceDataObject": {
+        "id": 0,
+        "name": "PSA_PROFILER_CUSTOMER_OFFER",
+        "dataItems": null
+      },
+      "targetDataObject": {
+        "id": 0,
+        "name": "HUB_CUSTOMER",
+        "dataItems": null
+      },
+      "dataItemMapping": null,
+      "targetTableHashKey": "CUSTOMER_HSH",
+      "businessKey": [
+        {
+          "businessKeyComponentMapping": [
+            {
+              "sourceDataItem": {
+                "name": "CustomerID",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              },
+              "targetDataItem": {
+                "name": "CUSTOMER_ID",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              }
+            }
+          ],
+          "surrogateKey": "CUSTOMER_HSH"
+        }
+      ],
+      "filterCriterion": "5=5",
+      "enabled": true
+    },
+    {
+      "mappingName": null,
+      "classification": null,
+      "sourceDataObject": {
+        "id": 0,
+        "name": "PSA_PROFILER_CUSTOMER_PERSONAL",
+        "dataItems": null
+      },
+      "targetDataObject": {
+        "id": 0,
+        "name": "HUB_CUSTOMER",
+        "dataItems": null
+      },
+      "dataItemMapping": null,
+      "lookupTable": "HUB_CUSTOMER",
+      "targetTableHashKey": "CUSTOMER_HSH",
+      "businessKey": [
+        {
+          "businessKeyComponentMapping": [
+            {
+              "sourceDataItem": {
+                "name": "CustomerID",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              },
+              "targetDataItem": {
+                "name": "CUSTOMER_ID",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              }
+            }
+          ],
+          "surrogateKey": "CUSTOMER_HSH"
+        }
+      ],
+      "filterCriterion": "1=1",
+      "enabled": true
+    },
+    {
+      "mappingName": null,
+      "classification": null,
+      "sourceDataObject": {
+        "id": 0,
+        "name": "PSA_PROFILER_PERSONALISED_COSTING",
+        "dataItems": null
+      },
+      "targetDataObject": {
+        "id": 0,
+        "name": "HUB_CUSTOMER",
+        "dataItems": null
+      },
+      "dataItemMapping": null,
+      "lookupTable": "HUB_CUSTOMER",
+      "targetTableHashKey": "CUSTOMER_HSH",
+      "businessKey": [
+        {
+          "businessKeyComponentMapping": [
+            {
+              "sourceDataItem": {
+                "name": "Member",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              },
+              "targetDataItem": {
+                "name": "CUSTOMER_ID",
+                "dataType": null,
+                "characterLength": 0,
+                "numericPrecision": 0,
+                "numericScale": 0,
+                "ordinalPosition": 0,
+                "isPrimaryKey": false,
+                "isHardCodedValue": false
+              }
+            }
+          ],
+          "surrogateKey": "CUSTOMER_HSH"
+        }
+      ],
+      "filterCriterion": "",
+      "enabled": true
+    }
+  ]
+}

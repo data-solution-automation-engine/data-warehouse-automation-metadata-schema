@@ -221,3 +221,4 @@ C:\Users\rvos\dev\Data_Warehouse_Automation_Metadata_Interface\ClassLibrary\Data
 C:\Users\rvos\dev\Data_Warehouse_Automation_Metadata_Interface\ClassLibrary\DataWarehouseAutomation\Test_Project\obj\Debug\Test_Project.csproj.CopyComplete
 C:\Users\rvos\dev\Data_Warehouse_Automation_Metadata_Interface\ClassLibrary\DataWarehouseAutomation\Test_Project\obj\Debug\Test_Project.exe
 C:\Users\rvos\dev\Data_Warehouse_Automation_Metadata_Interface\ClassLibrary\DataWarehouseAutomation\Test_Project\obj\Debug\Test_Project.pdb
+D:\Git_Repositories\Data_Warehouse_Automation_Metadata_Interface\ClassLibrary\DataWarehouseAutomation\Test_Project\obj\Debug\Test_Project.csproj.CoreCompileInputs.cache
