@@ -16,16 +16,10 @@ namespace DataWarehouseAutomation
         public string mappingName { get; set; }
 
         /// <summary>
-        /// TEMPORARY - NEEDS REFACTORING IN RELATED DATA OBJECT CONCEPT
-        /// </summary>
-        [JsonProperty("lookupTable")]
-        public string lookupTable { get; set; }
-
-        /// <summary>
         /// Free-form and optional classification for the mapping for use in ETL generation logic (evaluation).
         /// </summary>
         [JsonProperty("mappingClassification")]
-        public List<DataObjectMappingClassification> mappingClassification { get; set; }
+        public List<Classification> mappingClassification { get; set; }
 
         /// <summary>
         /// The source object of the mapping.
@@ -38,6 +32,13 @@ namespace DataWarehouseAutomation
         /// </summary>
         [JsonProperty("targetDataObject")]
         public DataObject targetDataObject { get; set; }
+
+        /// <summary>
+        /// Optional associated data object (collection) for purposes other than source- and target relationship.
+        /// For example Lookups, merge joins etc.
+        /// </summary>
+        [JsonProperty("relatedDataObject")]
+        public List<DataObject> relatedDataObject { get; set; }
 
         /// <summary>
         /// The collection of individual attribute (column) mappings.

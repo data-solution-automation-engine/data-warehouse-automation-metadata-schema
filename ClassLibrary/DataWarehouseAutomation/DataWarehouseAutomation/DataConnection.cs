@@ -10,7 +10,10 @@ namespace DataWarehouseAutomation
     /// </summary>
     public class DataConnection
     {
-        [JsonProperty]
+        /// <summary>
+        /// The connection information expressed in a key, token or (connection)string.
+        /// </summary>
+        [JsonProperty("dataConnectionString")]
         public string dataConnectionString { get; set; }
     }
 }

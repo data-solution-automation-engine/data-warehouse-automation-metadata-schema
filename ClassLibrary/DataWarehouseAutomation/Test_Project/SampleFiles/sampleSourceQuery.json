@@ -3,7 +3,10 @@
     {
       "mappingName": "Mapping1",
       "sourceDataObject": {
-        "dataQueryCode": "SELECT GETDATE()"
+        "dataQueryCode": "SELECT GETDATE()",
+        "dataQueryConnection": {
+          "dataConnectionString": "TestConnectionString"
+        }
       },
       "targetDataObject": {
         "name": "TableOneTarget"

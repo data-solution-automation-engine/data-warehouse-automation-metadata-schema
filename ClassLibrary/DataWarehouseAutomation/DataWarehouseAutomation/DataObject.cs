@@ -1,18 +1,38 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace DataWarehouseAutomation
 {
     public class DataObject
     {
-        [JsonProperty]
+        /// <summary>
+        /// An optional identifier for the Data Object.
+        /// </summary>
+        [JsonProperty("id")]
         public int id { get; set; }
+
+        /// <summary>
+        /// The name of the Data Object.
+        /// </summary>
+        [JsonProperty("name")]
         public string name { get; set; }
 
+        /// <summary>
+        /// The collection of Data Items associated with this Data Object.
+        /// </summary>
+        [JsonProperty("dataItems")]
         public List<DataItem> dataItems { get; set; }
 
+        /// <summary>
+        /// The connection information associated to the Data Object.
+        /// </summary>
+        [JsonProperty("dataObjectConnection")]
         public DataConnection dataObjectConnection { get; set; }
+
+        /// <summary>
+        /// Free-form and optional classification for the Data Object for use in ETL generation logic (evaluation).
+        /// </summary>
+        [JsonProperty("dataObjectClassification")]
+        public List<Classification> dataObjectClassification { get; set; }
     }
 }

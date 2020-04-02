@@ -23,33 +23,6 @@
         "$ref": "#/definitions/dataObjectMapping"
       }
     },
-    "dataObjectMappingClassification": {
-      "$id": "#/definitions/dataObjectMappingClassification",
-      "title": "List of source-to-target mapping classifications.",
-      "description": "Classification for the source-to-target mapping (free form), used to add various tags and notes if required.",
-      "type": "object",
-      "required": [ "classification" ],
-      "properties": {
-        "id": {
-          "$id": "#/definitions/dataObjectMappingClassification/properties/id",
-          "type": "integer",
-          "title": "ClassificationId",
-          "description": "An optional unique identifier for classification, for sorting or identification purposes."
-        },
-        "classification": {
-          "$id": "#/definitions/dataObjectMappingClassification/properties/classification",
-          "type": "string",
-          "title": "Classification",
-          "description": "A free-form name that adds documentation / classification to a mapping."
-        },
-        "notes": {
-          "$id": "#/definitions/dataObjectMappingClassification/properties/notes",
-          "type": "string",
-          "title": "Classification Notes",
-          "description": "Any additional information to be added to the classification."
-        }
-      }
-    },
     "dataObjectMapping": {
       "$id": "#/definitions/dataObjectMapping",
       "title": "The individual Data Object mappings.",
@@ -69,18 +42,12 @@
         "mappingClassification": {
           "$id": "#/definitions/dataObjectMapping/properties/dataObjectMappingClassification",
           "description": "Classification for the source-to-target mapping (free form).",
-          "type": [ "array", "null" ],
+          "type": ["array", "null"],
           "items": {
-            "$ref": "#/definitions/dataObjectMappingClassification"
+            "$ref": "#/definitions/classification"
           },
           "minItems": 0,
           "uniqueItems": true
-        },
-        "lookupTable": {
-          "$id": "#/definitions/dataObject/properties/lookupTable",
-          "type": "string",
-          "title": "",
-          "description": "TEMPORARY - needs to be replaced by linked Data Object concept!!!"
         },
         "sourceDataObject": {
           "$id": "#/definitions/dataObjectMapping/properties/sourceDataObject",
@@ -98,6 +65,14 @@
           "$id": "#/definitions/dataObjectMapping/properties/targetDataObject",
           "description": "The target object of the mapping.",
           "$ref": "#/definitions/dataObject"
+        },
+        "relatedDataObject": {
+          "$id": "#/definitions/dataObjectMapping/properties/relatedDataObject",
+          "description": "The collection of data objects with a different relationship than either source or target e.g. lookup.",
+          "type": [ "array", "null" ],
+          "items": {
+            "$ref": "#/definitions/dataObject"
+          }
         },
         "dataItemMapping": {
           "$id": "#/definitions/dataObjectMapping/properties/dataItemMapping",
@@ -127,6 +102,33 @@
         }
       }
     },
+    "classification": {
+      "$id": "#/definitions/dataObjectMappingClassification",
+      "title": "List of source-to-target mapping classifications.",
+      "description": "Classification for the source-to-target mapping (free form), used to add various tags and notes if required.",
+      "type": "object",
+      "required": [ "classification" ],
+      "properties": {
+        "id": {
+          "$id": "#/definitions/dataObjectMappingClassification/properties/id",
+          "type": "integer",
+          "title": "ClassificationId",
+          "description": "An optional unique identifier for classification, for sorting or identification purposes."
+        },
+        "classification": {
+          "$id": "#/definitions/dataObjectMappingClassification/properties/classification",
+          "type": "string",
+          "title": "Classification",
+          "description": "A free-form name that adds documentation / classification to an object."
+        },
+        "notes": {
+          "$id": "#/definitions/dataObjectMappingClassification/properties/notes",
+          "type": "string",
+          "title": "Classification Notes",
+          "description": "Any additional information to be added to the classification."
+        }
+      }
+    },
     "dataObject": {
       "$id": "#/definitions/dataObject",
       "type": "object",
@@ -148,15 +150,9 @@
           "title": "",
           "description": "Mandatory unique name of the file/table."
         },
-        "type": {
-          "$id": "#/definitions/dataObject/properties/dataObjectType",
-          "type": "string",
-          "title": "",
-          "description": "Optional classification of the object (query, file, table)."
-        },
         "dataItems": {
           "$id": "#/definitions/dataObject/properties/dataItems",
-          "type": ["array", "null"],
+          "type": [ "array", "null" ],
           "title": "",
           "description": "Optional - collection of dataItems for a table or file. Elements that define the dat set.",
           "items": {
@@ -169,12 +165,22 @@
           "title": "",
           "description": "",
           "$ref": "#/definitions/dataConnection"
+        },
+        "dataObjectClassification": {
+          "$id": "#/definitions/dataObject/properties/dataObjectClassification",
+          "description": "Classification for the dataObject (free form).",
+          "type": [ "array", "null" ],
+          "items": {
+            "$ref": "#/definitions/classification"
+          },
+          "minItems": 0,
+          "uniqueItems": true
         }
       }
     },
     "dataQuery": {
       "description": "A query, which can act as a source for either a dataObject or dataItem.",
-      "required": [ "dataQueryCode" ],
+      "required": [ "dataQueryCode"],
       "type": "object",
       "properties": {
         "dataQueryName": {
@@ -196,6 +202,8 @@
           "description": "The language that the code was written in (e.g. SQL)."
         },
         "dataQueryConnection": {
+          "$id": "#/definitions/dataQuery/properties/dataQueryConnection",
+          "description": "The connection for the query.",
           "$ref": "#/definitions/dataConnection"
         }
       }
@@ -218,9 +226,9 @@
       "required": [ "businessKeyComponentMapping" ],
       "type": "object",
       "properties": {
-        "businessKeyComponentBehaviour": {
-          "description": "Specification of what to do with the Business Key. Supporting composition, concatenation.",
-          "type": "string"
+        "surrogateKey": {
+          "description": "An optional label for the end result e.g. the target business key attribute.",
+          "type": [ "string", "null" ]
         },
         "businessKeyComponentMapping": {
           "description": "Items that define the Business Key e.g. the collection of columns for a Business Key.",

@@ -8,8 +8,16 @@ namespace DataWarehouseAutomation
     /// </summary>
     public class BusinessKey
     {
-        [JsonProperty]
+        /// <summary>
+        /// Items that define the Business Key e.g. the collection of columns for a Business Key.
+        /// </summary>
+        [JsonProperty("businessKeyComponentMapping")]
         public List<DataItemMapping> businessKeyComponentMapping { get; set; }
+
+        /// <summary>
+        /// An optional label for the end result e.g. the target business key attribute.
+        /// </summary>
+        [JsonProperty("surrogateKey")]
         public string surrogateKey { get; set; }
     }
 }
