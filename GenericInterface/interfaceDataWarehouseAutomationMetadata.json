@@ -246,6 +246,16 @@
           "items": {
             "$ref": "#/definitions/dataItemMapping"
           }
+        },
+        "businessKeyClassification": {
+          "$id": "#/definitions/dataObject/properties/dataObjectClassification",
+          "description": "Classification for the dataObject (free form).",
+          "type": [ "array", "null" ],
+          "items": {
+            "$ref": "#/definitions/classification"
+          },
+          "minItems": 0,
+          "uniqueItems": true
         }
       }
     },
