@@ -6,7 +6,13 @@
         "dataQueryCode": "SELECT GETDATE()",
         "dataQueryConnection": {
           "dataConnectionString": "TestConnectionString"
-        }
+        },
+        "dataQueryClassification": [
+          {
+            "id": 1,
+            "classification": "Example"
+          }
+        ]
       },
       "targetDataObject": {
         "name": "TableOneTarget"

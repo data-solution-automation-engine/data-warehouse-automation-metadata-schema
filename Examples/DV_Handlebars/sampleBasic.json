@@ -53,6 +53,33 @@
           }
         }
       ]
+    },
+    {
+      "mappingName": "Martin",
+      "sourceDataObject": {
+        "name": "Martin_Source"
+      },
+      "targetDataObject": {
+        "name": "Martin_Target"
+      },
+      "dataItemMapping": [
+        {
+          "sourceDataItem": {
+            "name": "OfferId"
+          },
+          "targetDataItem": {
+            "name": "OFFER_ID"
+          }
+        },
+        {
+          "sourceDataItem": {
+            "name": "Offer_Long_Description"
+          },
+          "targetDataItem": {
+            "name": "OFFER_DESCRIPTION"
+          }
+        }
+      ]
     }
   ]
 }

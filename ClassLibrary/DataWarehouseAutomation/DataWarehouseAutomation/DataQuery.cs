@@ -29,5 +29,11 @@ namespace DataWarehouseAutomation
         /// </summary>
         [JsonProperty("dataQueryConnection")]
         public DataConnection dataQueryConnection { get; set; }
+
+        /// <summary>
+        /// Free-form and optional classification for the Data Query for use in ETL generation logic (evaluation).
+        /// </summary>
+        [JsonProperty("dataQueryClassification")]
+        public List<Classification> dataQueryClassification { get; set; }
     }
 }

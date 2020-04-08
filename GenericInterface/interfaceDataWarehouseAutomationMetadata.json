@@ -205,6 +205,16 @@
           "$id": "#/definitions/dataQuery/properties/dataQueryConnection",
           "description": "The connection for the query.",
           "$ref": "#/definitions/dataConnection"
+        },
+        "dataQueryClassification": {
+          "$id": "#/definitions/dataObject/properties/dataObjectClassification",
+          "description": "Classification for the dataObject (free form).",
+          "type": [ "array", "null" ],
+          "items": {
+            "$ref": "#/definitions/classification"
+          },
+          "minItems": 0,
+          "uniqueItems": true
         }
       }
     },
@@ -272,6 +282,16 @@
         "isPrimaryKey": {
           "description": "Boolean value indicating if the item is a Primary Key.",
           "type": [ "boolean", "null" ]
+        },
+        "dataItemClassification": {
+          "$id": "#/definitions/dataObject/properties/dataObjectClassification",
+          "description": "Classification for the dataObject (free form).",
+          "type": [ "array", "null" ],
+          "items": {
+            "$ref": "#/definitions/classification"
+          },
+          "minItems": 0,
+          "uniqueItems": true
         }
       }
     },

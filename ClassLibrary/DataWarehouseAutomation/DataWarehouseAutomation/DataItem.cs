@@ -16,5 +16,11 @@ namespace DataWarehouseAutomation
         public int ordinalPosition { get; set; }
         public bool isPrimaryKey { get; set; }
         public bool isHardCodedValue { get; set; }
+
+        /// <summary>
+        /// Free-form and optional classification for the Data Item for use in generation logic (evaluation).
+        /// </summary>
+        [JsonProperty("dataItemClassification")]
+        public List<Classification> dataItemClassification { get; set; }
     }
 }
