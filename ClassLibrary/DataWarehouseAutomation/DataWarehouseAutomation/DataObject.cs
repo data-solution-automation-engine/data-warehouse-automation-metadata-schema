@@ -20,7 +20,7 @@ namespace DataWarehouseAutomation
         /// <summary>
         /// The collection of Data Items associated with this Data Object.
         /// </summary>
-        [JsonProperty("dateItems", NullValueHandling=NullValueHandling.Ignore)]
+        [JsonProperty("dataItems", NullValueHandling=NullValueHandling.Ignore)]
         public List<DataItem> dataItems { get; set; }
 
         /// <summary>
