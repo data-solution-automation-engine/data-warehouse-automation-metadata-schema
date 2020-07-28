@@ -333,3 +333,4 @@ D:\Git_Repositories\Data_Warehouse_Automation_Metadata_Interface_2\Examples\DV_H
 D:\Git_Repositories\Data_Warehouse_Automation_Metadata_Interface_2\Examples\DV_Handlebars\obj\Debug\Example_Handlebars.csproj.CopyComplete
 D:\Git_Repositories\Data_Warehouse_Automation_Metadata_Interface_2\Examples\DV_Handlebars\obj\Debug\VEDW_Handlebars.exe
 D:\Git_Repositories\Data_Warehouse_Automation_Metadata_Interface_2\Examples\DV_Handlebars\obj\Debug\VEDW_Handlebars.pdb
+D:\Git_Repositories\Data_Warehouse_Automation_Metadata_Interface\Examples\DV_Handlebars\obj\Debug\Example_Handlebars.csproj.CoreCompileInputs.cache

@@ -10,11 +10,11 @@ namespace DataWarehouseAutomation
         /// <summary>
         /// Optional identifier for the classification
         /// </summary>
-        [JsonProperty("id")]
+        [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public int id { get; set; }
 
         /// <summary>
-        /// Type description, usually a keyword used for automation purposes.
+        /// Type mandatory description, usually a keyword used for automation purposes.
         /// </summary>
         [JsonProperty("classification")]
         public string classification { get; set; }
@@ -22,7 +22,7 @@ namespace DataWarehouseAutomation
         /// <summary>
         /// Free-format notes on the classification.
         /// </summary>
-        [JsonProperty("notes")]
+        [JsonProperty("notes", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string notes { get; set; }
     }
 }

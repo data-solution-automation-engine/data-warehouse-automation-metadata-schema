@@ -19,5 +19,11 @@ namespace DataWarehouseAutomation
         /// </summary>
         [JsonProperty("surrogateKey")]
         public string surrogateKey { get; set; }
+
+        /// <summary>
+        /// Free-form and optional classification for the Business Key for use in generation logic (evaluation).
+        /// </summary>
+        [JsonProperty("businessKeyClassification", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public List<Classification> businessKeyClassification { get; set; }
     }
 }
