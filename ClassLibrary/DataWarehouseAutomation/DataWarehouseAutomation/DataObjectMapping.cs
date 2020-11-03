@@ -43,7 +43,7 @@ namespace DataWarehouseAutomation
         /// <summary>
         /// The collection of individual attribute (column) mappings.
         /// </summary>
-        [JsonProperty("dataItemMapping")]
+        [JsonProperty("dataItemMapping", NullValueHandling = NullValueHandling.Ignore)]
         public List<DataItemMapping> dataItemMapping { get; set; }
 
         /// <summary>
