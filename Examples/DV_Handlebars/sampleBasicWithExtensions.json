@@ -1,0 +1,43 @@
+{
+  "dataObjectMappings": [
+    {
+      "mappingName": "MappingOne",
+      "sourceDataObject": {
+        "name": "TableOneSource"
+      },
+      "targetDataObject": {
+        "name": "TableOneTarget",
+        "extensions": [
+          {
+            "key": "colour",
+            "value": "green",
+            "description": "The colour of the object."
+          },
+          {
+            "key": "taste",
+            "value": "questionable",
+            "description": "The taste of the object."
+          }
+        ]
+      },
+      "dataItemMapping": [
+        {
+          "sourceDataItem": {
+            "name": "ColumnOneSource"
+          },
+          "targetDataItem": {
+            "name": "ColumnOneTarget"
+          }
+        },
+        {
+          "sourceDataItem": {
+            "name": "ColumnTwoSource"
+          },
+          "targetDataItem": {
+            "name": "ColumnTwoTarget"
+          }
+        }
+      ]
+    }
+  ]
+}

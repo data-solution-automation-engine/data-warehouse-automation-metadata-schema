@@ -14,14 +14,19 @@ namespace VEDW_Handlebars
             
             // Uncomment out the difference examples
 
-            //var stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\Template.handlebars");
-            var stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\TemplateSimpleDDL.handlebars");
+            //var stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\TemplateSampleBasic.handlebars");
+            var stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\TemplateSampleBasicWithExtensions.handlebars");
+            //var stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\TemplateSampleSimpleDDL.handlebars");
+
 
             var template = Handlebars.Compile(stringTemplate);
 
-            // Retrieve metadata and store in a data table object
+
+            // Retrieve metadata from Json and store in a data table object
+
             //var jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\sampleBasic.json");
-            var jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\sampleSimpleDDL.json");
+            var jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\sampleBasicWithExtensions.json");
+            //var jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\sampleSimpleDDL.json");
 
 
 
