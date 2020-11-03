@@ -15,5 +15,11 @@ namespace DataWarehouseAutomation
         /// </summary>
         [JsonProperty("dataConnectionString")]
         public string dataConnectionString { get; set; }
+
+        /// <summary>
+        /// The collection of extension Key/Value pairs.
+        /// </summary>
+        [JsonProperty("extensions", NullValueHandling = NullValueHandling.Ignore)]
+        public List<Extension> extensions { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace DataWarehouseAutomation
 {
@@ -15,6 +16,12 @@ namespace DataWarehouseAutomation
 
         [JsonProperty]
         public DataItem targetDataItem { get; set; }
+
+        /// <summary>
+        /// The collection of extension Key/Value pairs.
+        /// </summary>
+        [JsonProperty("extensions", NullValueHandling = NullValueHandling.Ignore)]
+        public List<Extension> extensions { get; set; }
 
     }
 }

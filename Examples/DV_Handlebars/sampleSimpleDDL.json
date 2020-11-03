@@ -18,17 +18,7 @@
       },
       "targetDataObject": {
         "name": "TableOneTarget"
-      },
-      "dataItemMapping": [
-        {
-          "sourceDataItem": {
-            "name": "Customer_ID"
-          },
-          "targetDataItem": {
-            "name": "CUSTOMER_ID"
-          }
-        }
-      ]
+      }
     }
   ]
 }

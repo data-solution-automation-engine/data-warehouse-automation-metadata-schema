@@ -63,5 +63,11 @@ namespace DataWarehouseAutomation
         /// </summary>
         [JsonProperty("enabled")]
         public bool enabled { get; set; }
+
+        /// <summary>
+        /// The collection of extension Key/Value pairs.
+        /// </summary>
+        [JsonProperty("extensions", NullValueHandling = NullValueHandling.Ignore)]
+        public List<Extension> extensions { get; set; }
     }
 }

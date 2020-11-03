@@ -1,9 +1,9 @@
 ﻿{
   "dataObjectMappings": [
     {
-      "mappingName": "Mapping1",
+      "mappingName": "MappingOne",
       "sourceDataObject": {
-        "name": "TableOne"
+        "name": "TableOneSource"
       },
       "targetDataObject": {
         "name": "TableOneTarget"
@@ -11,45 +11,45 @@
       "dataItemMapping": [
         {
           "sourceDataItem": {
-            "name": "Column1"
+            "name": "ColumnOneSource"
           },
           "targetDataItem": {
-            "name": "Column1Target"
+            "name": "ColumnOneTarget"
           }
         },
         {
           "sourceDataItem": {
-            "name": "Offer_Long_Description"
+            "name": "ColumnTwoSource"
           },
           "targetDataItem": {
-            "name": "OFFER_DESCRIPTION"
+            "name": "ColumnTwoTarget"
           }
         }
       ]
     },
     {
-      "mappingName": "Mapping2",
+      "mappingName": "MappingTwo",
       "sourceDataObject": {
-        "name": "PSA_PROFILER_OFFER"
+        "name": "TableTwoSource"
       },
       "targetDataObject": {
-        "name": "PSA_PROFILER_OFFER"
+        "name": "TableTwoTarget"
       },
       "dataItemMapping": [
         {
           "sourceDataItem": {
-            "name": "OfferId"
+            "name": "ColumnOneSource"
           },
           "targetDataItem": {
-            "name": "OFFER_ID"
+            "name": "ColumnOneTarget"
           }
         },
         {
           "sourceDataItem": {
-            "name": "Offer_Long_Description"
+            "name": "ColumnTwoSource"
           },
           "targetDataItem": {
-            "name": "OFFER_DESCRIPTION"
+            "name": "ColumnTwoTarget"
           }
         }
       ]

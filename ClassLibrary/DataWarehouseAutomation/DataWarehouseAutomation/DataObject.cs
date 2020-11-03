@@ -34,5 +34,11 @@ namespace DataWarehouseAutomation
         /// </summary>
         [JsonProperty("dataObjectClassification", NullValueHandling = NullValueHandling.Ignore)]
         public List<Classification> dataObjectClassification { get; set; }
+
+        /// <summary>
+        /// The collection of extension Key/Value pairs.
+        /// </summary>
+        [JsonProperty("extensions", NullValueHandling = NullValueHandling.Ignore)]
+        public List<Extension> extensions { get; set; }
     }
 }
