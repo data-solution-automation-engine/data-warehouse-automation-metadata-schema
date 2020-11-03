@@ -5,17 +5,17 @@
   "description": "Standardised format for the required metadata to generate ETL and DDL structures available for a Data Warehouse solution. The intent is to separate / decouple how individual software stores Data Warehouse Automation metadata and how this metadata can be exposed to other components, technologies and solutions for ETL and database structure generation.",
   "type": "object",
   "required": [
-    "dataObjectMappingList"
+    "dataObjectMappings"
   ],
   "properties": {
-    "dataObjectMappingList": {
-      "$ref": "#/definitions/dataObjectMappingList"
+    "dataObjectMappings": {
+      "$ref": "#/definitions/dataObjectMappings"
     }
   },
   "definitions": {
-    "dataObjectMappingList": {
-      "$id": "#/definitions/dataObjectMappingList",
-      "title": "List of DataObject mappings.",
+    "dataObjectMappings": {
+      "$id": "#/definitions/dataObjectMappings",
+      "title": "List of Data Object mappings.",
       "description": "The list (array) of mappings between Data Objects (source-to-target mappings).",
       "type": [ "array", "null" ],
       "items": {
@@ -25,7 +25,7 @@
     },
     "dataObjectMapping": {
       "$id": "#/definitions/dataObjectMapping",
-      "title": "The individual Data Object mappings.",
+      "title": "The individual Data Object mapping.",
       "description": "A mapping between a source and a target.",
       "type": "object",
       "required": [

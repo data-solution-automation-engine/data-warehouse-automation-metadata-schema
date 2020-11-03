@@ -10,7 +10,11 @@ namespace DataWarehouseAutomation
         [JsonProperty]
         public DataItem sourceDataItem { get; set; }
 
+        [JsonProperty("sourceDataQuery", NullValueHandling = NullValueHandling.Ignore)]
+        public DataQuery sourceDataQuery { get; set; }
+
         [JsonProperty]
         public DataItem targetDataItem { get; set; }
+
     }
 }

@@ -20,7 +20,7 @@ namespace VEDW_Handlebars
             var jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\sampleBasic.json");
             //var jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\sampleSimpleDDL.json");
 
-            DataObjectMappingList deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappingList>(jsonInput);
+            DataObjectMappings deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappings>(jsonInput);
 
             // Return the result to the user
             var result = template(deserialisedMapping);

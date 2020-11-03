@@ -5,7 +5,7 @@
     "selectedDataObject": "LSAT_CUSTOMER_COSTING",
     "generationDateTime": "2020-02-16T22:05:06.0595597+10:00"
   },
-  "dataObjectMappingList": [
+  "dataObjectMappings": [
     {
       "lookupTable": "LSAT_CUSTOMER_COSTING",
       "targetTableHashKey": "CUSTOMER_COSTING_HSH",

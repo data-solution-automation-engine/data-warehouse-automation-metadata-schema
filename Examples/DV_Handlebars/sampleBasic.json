@@ -1,5 +1,5 @@
 {
-  "dataObjectMappingList": [
+  "dataObjectMappings": [
     {
       "mappingName": "Mapping1",
       "sourceDataObject": {

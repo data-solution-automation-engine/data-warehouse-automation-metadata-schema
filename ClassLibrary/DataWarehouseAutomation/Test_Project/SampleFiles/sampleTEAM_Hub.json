@@ -5,7 +5,7 @@
     "selectedDataObject": "HUB_SEGMENT",
     "generationDateTime": "2020-02-16T22:05:05.9827644+10:00"
   },
-  "dataObjectMappingList": [
+  "dataObjectMappings": [
     {
       "lookupTable": "HUB_SEGMENT",
       "targetTableHashKey": "SEGMENT_HSH",
