@@ -38,8 +38,8 @@
           "description": "Unique name which identifies the mapping.",
           "type": [ "string", "null" ]
         },
-        "mappingClassification": {
-          "$id": "#/definitions/dataObjectMapping/properties/dataObjectMappingClassification",
+        "mappingClassifications": {
+          "$id": "#/definitions/dataObjectMapping/properties/dataObjectMappingClassifications",
           "description": "Classification for the source-to-target mapping (free form).",
           "type": [ "array", "null" ],
           "items": {
@@ -48,8 +48,8 @@
           "minItems": 0,
           "uniqueItems": true
         },
-        "sourceDataObject": {
-          "$id": "#/definitions/dataObjectMapping/properties/sourceDataObject",
+        "sourceDataObjects": {
+          "$id": "#/definitions/dataObjectMapping/properties/sourceDataObjects",
           "description": "The source object of the mapping. This can either be an object or a query.",
           "oneOf": [
             {
@@ -71,24 +71,24 @@
           "description": "The target object of the mapping.",
           "$ref": "#/definitions/dataObject"
         },
-        "relatedDataObject": {
-          "$id": "#/definitions/dataObjectMapping/properties/relatedDataObject",
+        "relatedDataObjects": {
+          "$id": "#/definitions/dataObjectMapping/properties/relatedDataObjects",
           "description": "The collection of data objects with a different relationship than either source or target e.g. lookup.",
           "type": [ "array", "null" ],
           "items": {
             "$ref": "#/definitions/dataObject"
           }
         },
-        "dataItemMapping": {
-          "$id": "#/definitions/dataObjectMapping/properties/dataItemMapping",
+        "dataItemMappings": {
+          "$id": "#/definitions/dataObjectMapping/properties/dataItemMappings",
           "description": "The collection of column-to-column mappings.",
           "type": [ "array", "null" ],
           "items": {
             "$ref": "#/definitions/dataItemMapping"
           }
         },
-        "businessKey": {
-          "$id": "#/definitions/dataObjectMapping/properties/businessKey",
+        "businessKeys": {
+          "$id": "#/definitions/dataObjectMapping/properties/businessKeys",
           "description": "The Business Key definition for the mapping.",
           "type": [ "array", "null" ],
           "items": {

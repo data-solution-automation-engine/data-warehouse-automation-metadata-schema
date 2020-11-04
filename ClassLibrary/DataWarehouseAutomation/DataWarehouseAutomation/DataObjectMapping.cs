@@ -18,14 +18,14 @@ namespace DataWarehouseAutomation
         /// <summary>
         /// Free-form and optional classification for the mapping for use in ETL generation logic (evaluation).
         /// </summary>
-        [JsonProperty("mappingClassification")]
-        public List<Classification> mappingClassification { get; set; }
+        [JsonProperty("mappingClassifications")]
+        public List<Classification> mappingClassifications { get; set; }
 
         /// <summary>
         /// The source object of the mapping.
         /// </summary>
-        [JsonProperty("sourceDataObject")]
-        public DataObject sourceDataObject { get; set; }
+        [JsonProperty("sourceDataObjects")]
+        public List<DataObject> sourceDataObjects { get; set; }
 
         /// <summary>
         /// The target object of the mapping.
@@ -37,20 +37,20 @@ namespace DataWarehouseAutomation
         /// Optional associated data object (collection) for purposes other than source- and target relationship.
         /// For example Lookups, merge joins etc.
         /// </summary>
-        [JsonProperty("relatedDataObject")]
-        public List<DataObject> relatedDataObject { get; set; }
+        [JsonProperty("relatedDataObjects")]
+        public List<DataObject> relatedDataObjects { get; set; }
 
         /// <summary>
         /// The collection of individual attribute (column) mappings.
         /// </summary>
-        [JsonProperty("dataItemMapping", NullValueHandling = NullValueHandling.Ignore)]
-        public List<DataItemMapping> dataItemMapping { get; set; }
+        [JsonProperty("dataItemMappings", NullValueHandling = NullValueHandling.Ignore)]
+        public List<DataItemMapping> dataItemMappings { get; set; }
 
         /// <summary>
         /// The definition of the Business Key for the source-to-target mapping.
         /// </summary>
-        [JsonProperty("businessKey")]
-        public List<BusinessKey> businessKey { get; set; }
+        [JsonProperty("businessKeys")]
+        public List<BusinessKey> businessKeys { get; set; }
 
         /// <summary>
         /// Any filtering that needs to be applied to the source-to-target mapping.
