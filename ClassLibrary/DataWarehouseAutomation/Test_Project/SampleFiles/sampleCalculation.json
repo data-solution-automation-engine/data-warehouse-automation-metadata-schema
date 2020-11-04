@@ -2,9 +2,11 @@
   "dataObjectMappings": [
     {
       "mappingName": "Mapping1",
-      "sourceDataObject": {
-        "name": "SourceTable"
-      },
+      "sourceDataObject": [
+        {
+          "name": "SourceTable"
+        }
+      ],
       "targetDataObject": {
         "name": "TargetTable"
       },

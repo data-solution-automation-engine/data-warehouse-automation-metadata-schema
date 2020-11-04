@@ -53,10 +53,16 @@
           "description": "The source object of the mapping. This can either be an object or a query.",
           "oneOf": [
             {
-              "$ref": "#/definitions/dataObject"
+              "type": [ "array", "null" ],
+              "items": {
+                "$ref": "#/definitions/dataObject"
+              }
             },
             {
-              "$ref": "#/definitions/dataQuery"
+              "type": [ "array", "null" ],
+              "items": {
+                "$ref": "#/definitions/dataQuery"
+              }
             }
           ]
         },
@@ -166,7 +172,6 @@
       }
     },
     "dataObject": {
-      "$id": "#/definitions/dataObject",
       "title": "DataObject",
       "description": "The generic table of file definition. Any kind of entity, i.e. data set, query, object, file or table.",
       "type": "object",

@@ -2,18 +2,20 @@
   "dataObjectMappings": [
     {
       "mappingName": "Mapping1",
-      "sourceDataObject": {
-        "dataQueryCode": "SELECT GETDATE()",
-        "dataQueryConnection": {
-          "dataConnectionString": "TestConnectionString"
-        },
-        "dataQueryClassification": [
-          {
-            "id": 1,
-            "classification": "Example"
-          }
-        ]
-      },
+      "sourceDataObject": [
+        {
+          "dataQueryCode": "SELECT GETDATE()",
+          "dataQueryConnection": {
+            "dataConnectionString": "TestConnectionString"
+          },
+          "dataQueryClassification": [
+            {
+              "id": 1,
+              "classification": "Example"
+            }
+          ]
+        }
+      ],
       "targetDataObject": {
         "name": "TableOneTarget"
       },

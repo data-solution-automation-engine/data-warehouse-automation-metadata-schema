@@ -3,11 +3,13 @@
     {
       "mappingName": null,
       "classification": "",
-      "sourceDataObject": {
-        "id": 0,
-        "name": "CUST_MEMBERSHIP",
-        "dataItems": null
-      },
+      "sourceDataObject": [
+        {
+          "id": 0,
+          "name": "CUST_MEMBERSHIP",
+          "dataItems": null
+        }
+      ],
       "targetDataObject": {
         "id": 0,
         "name": "STG_PROFILER_CUST_MEMBERSHIP",

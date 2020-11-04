@@ -16,12 +16,14 @@
           "notes": "The source-to-target mappings for a Hub entity type. The Hub entities define the business concept and integration point for the model. In the Virtual Data Warehouse, the generated views combine the metadata from the various source to target mappings to create a single integrated Hub query."
         }
       ],
-      "sourceDataObject": {
-        "id": 0,
-        "name": "PSA_PROFILER_PERSONALISED_COSTING",
-        "dataItems": null,
-        "dataObjectConnection": null
-      },
+      "sourceDataObject": [
+        {
+          "id": 0,
+          "name": "PSA_PROFILER_PERSONALISED_COSTING",
+          "dataItems": null,
+          "dataObjectConnection": null
+        }
+      ],
       "targetDataObject": {
         "id": 0,
         "name": "HUB_SEGMENT",

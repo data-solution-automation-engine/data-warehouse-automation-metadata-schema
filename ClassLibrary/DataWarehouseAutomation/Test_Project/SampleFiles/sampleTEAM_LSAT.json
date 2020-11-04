@@ -17,12 +17,14 @@
           "notes": "The Link Satellites describe the changes over time for the relationships (Links). This pattern supports normal (historical) Link Satellites."
         }
       ],
-      "sourceDataObject": {
-        "id": 0,
-        "name": "PSA_PROFILER_PERSONALISED_COSTING",
-        "dataItems": null,
-        "dataObjectConnection": null
-      },
+      "sourceDataObject": [
+        {
+          "id": 0,
+          "name": "PSA_PROFILER_PERSONALISED_COSTING",
+          "dataItems": null,
+          "dataObjectConnection": null
+        }
+      ],
       "targetDataObject": {
         "id": 0,
         "name": "LSAT_CUSTOMER_COSTING",

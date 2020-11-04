@@ -3,11 +3,13 @@
     {
       "mappingName": null,
       "classification": null,
-      "sourceDataObject": {
-        "id": 0,
-        "name": "PSA_PROFILER_CUST_MEMBERSHIP",
-        "dataItems": null
-      },
+      "sourceDataObject": [
+        {
+          "id": 0,
+          "name": "PSA_PROFILER_CUST_MEMBERSHIP",
+          "dataItems": null
+        }
+      ],
       "targetDataObject": {
         "id": 0,
         "name": "HUB_CUSTOMER",
@@ -51,11 +53,13 @@
     {
       "mappingName": null,
       "classification": null,
-      "sourceDataObject": {
-        "id": 0,
-        "name": "PSA_PROFILER_CUSTOMER_OFFER",
-        "dataItems": null
-      },
+      "sourceDataObject": [
+        {
+          "id": 0,
+          "name": "PSA_PROFILER_CUSTOMER_OFFER",
+          "dataItems": null
+        }
+      ],
       "targetDataObject": {
         "id": 0,
         "name": "HUB_CUSTOMER",
@@ -99,11 +103,13 @@
     {
       "mappingName": null,
       "classification": null,
-      "sourceDataObject": {
-        "id": 0,
-        "name": "PSA_PROFILER_CUSTOMER_PERSONAL",
-        "dataItems": null
-      },
+      "sourceDataObject": [
+        {
+          "id": 0,
+          "name": "PSA_PROFILER_CUSTOMER_PERSONAL",
+          "dataItems": null
+        }
+      ],
       "targetDataObject": {
         "id": 0,
         "name": "HUB_CUSTOMER",
@@ -147,11 +153,13 @@
     {
       "mappingName": null,
       "classification": null,
-      "sourceDataObject": {
-        "id": 0,
-        "name": "PSA_PROFILER_PERSONALISED_COSTING",
-        "dataItems": null
-      },
+      "sourceDataObject": [
+        {
+          "id": 0,
+          "name": "PSA_PROFILER_PERSONALISED_COSTING",
+          "dataItems": null
+        }
+      ],
       "targetDataObject": {
         "id": 0,
         "name": "HUB_CUSTOMER",

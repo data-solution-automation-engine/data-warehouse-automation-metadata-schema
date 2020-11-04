@@ -65,7 +65,7 @@
     <None Include="SampleFiles\sampleVDW_HubWithLookup.json" />
     <None Include="SampleFiles\sampleVDW_StagingArea.json" />
     <None Include="SampleFiles\sampleVDW_Hub.json" />
-    <None Include="SampleFiles\samplesSimpleDDL.json" />
+    <None Include="SampleFiles\sampleSimpleDDL.json" />
     <None Include="SampleFiles\sampleSourceQuery.json" />
     <None Include="SampleFiles\sampleBasic.json" />
   </ItemGroup>
