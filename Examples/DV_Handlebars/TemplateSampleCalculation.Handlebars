@@ -1,0 +1,13 @@
+--Example using a query as a source rather than an attribute.
+{{#each dataObjectMappings }}
+
+--Working on {{mappingName}}.
+
+SELECT {{sourceDataObjects.0.dataQueryCode}}
+{{#each dataItemMappings}}
+  {{sourceDataItems.0.name}}{{sourceDataItems.0.dataQueryCode}} as {{targetDataItem.name}}{{#unless @last}},{{/unless}}
+{{/each}}
+FROM {{targetDataObject.name}}
+
+{{/each}}
+

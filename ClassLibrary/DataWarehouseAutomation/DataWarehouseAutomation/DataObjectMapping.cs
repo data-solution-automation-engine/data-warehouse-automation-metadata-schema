@@ -25,7 +25,7 @@ namespace DataWarehouseAutomation
         /// The source object of the mapping.
         /// </summary>
         [JsonProperty("sourceDataObjects")]
-        public List<DataObject> sourceDataObjects { get; set; }
+        public List<dynamic> sourceDataObjects { get; set; }
 
         /// <summary>
         /// The target object of the mapping.

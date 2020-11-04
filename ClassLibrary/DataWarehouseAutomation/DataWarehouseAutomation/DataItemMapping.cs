@@ -9,7 +9,7 @@ namespace DataWarehouseAutomation
     public class DataItemMapping
     {
         [JsonProperty]
-        public List<DataItem> sourceDataItems { get; set; }
+        public List<dynamic> sourceDataItems { get; set; }
 
         [JsonProperty]
         public DataItem targetDataItem { get; set; }

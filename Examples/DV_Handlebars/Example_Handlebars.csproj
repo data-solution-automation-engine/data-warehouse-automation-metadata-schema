@@ -57,9 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="sampleCalculation.json" />
     <None Include="sampleMultipleDataItemMappings.json" />
     <None Include="sampleBasicWithExtensions.json" />
     <None Include="sampleSimpleDDL.json" />
+    <None Include="TemplateSampleCalculation.Handlebars" />
     <None Include="TemplateSampleMultipleDataItemMappings.Handlebars" />
     <None Include="TemplateSampleBasicWithExtensions.Handlebars" />
     <None Include="TemplateSampleSimpleDDL.Handlebars" />
