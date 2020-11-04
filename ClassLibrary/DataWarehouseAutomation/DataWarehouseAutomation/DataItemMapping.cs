@@ -9,10 +9,7 @@ namespace DataWarehouseAutomation
     public class DataItemMapping
     {
         [JsonProperty]
-        public DataItem sourceDataItem { get; set; }
-
-        [JsonProperty("sourceDataQuery", NullValueHandling = NullValueHandling.Ignore)]
-        public DataQuery sourceDataQuery { get; set; }
+        public List<DataItem> sourceDataItems { get; set; }
 
         [JsonProperty]
         public DataItem targetDataItem { get; set; }

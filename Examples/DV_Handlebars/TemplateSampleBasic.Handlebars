@@ -1,10 +1,9 @@
+--Example using a templating engine for a simple select statement.
 {{#each dataObjectMappings }}
 
-{{mappingName}}
---
--- SELECT * FROM {{targetDataObject.name}} WHERE {{targetDataObject.name}}!=NULL
---
+--Working on {{mappingName}}.
 
+SELECT * FROM {{targetDataObject.name}} WHERE {{dataItemMappings.0.targetDataItem.name}}!=NULL
 
 {{/each}}
 

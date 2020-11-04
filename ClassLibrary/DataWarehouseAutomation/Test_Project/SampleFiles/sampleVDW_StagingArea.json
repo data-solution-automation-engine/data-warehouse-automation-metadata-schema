@@ -3,7 +3,7 @@
     {
       "mappingName": null,
       "classification": "",
-      "sourceDataObject": [
+      "sourceDataObjects": [
         {
           "id": 0,
           "name": "CUST_MEMBERSHIP",
@@ -15,18 +15,20 @@
         "name": "STG_PROFILER_CUST_MEMBERSHIP",
         "dataItems": null
       },
-      "dataItemMapping": [
+      "dataItemMappings": [
         {
-          "sourceDataItem": {
-            "name": "Comment",
-            "dataType": null,
-            "characterLength": 0,
-            "numericPrecision": 0,
-            "numericScale": 0,
-            "ordinalPosition": 0,
-            "isPrimaryKey": false,
-            "isHardCodedValue": false
-          },
+          "sourceDataItems": [
+            {
+              "name": "Comment",
+              "dataType": null,
+              "characterLength": 0,
+              "numericPrecision": 0,
+              "numericScale": 0,
+              "ordinalPosition": 0,
+              "isPrimaryKey": false,
+              "isHardCodedValue": false
+            }
+          ],
           "targetDataItem": {
             "name": "Comment",
             "dataType": null,
@@ -39,29 +41,44 @@
           }
         },
         {
-          "sourceDataItem": {
-            "name": "CustomerID",
-            "dataType": null,
-            "characterLength": 0,
-            "numericPrecision": 0,
-            "numericScale": 0,
-            "ordinalPosition": 0,
-            "isPrimaryKey": false,
-            "isHardCodedValue": false
-          },
-          "targetDataItem": {
-            "name": "CustomerID",
-            "dataType": null,
-            "characterLength": 0,
-            "numericPrecision": 0,
-            "numericScale": 0,
-            "ordinalPosition": 0,
-            "isPrimaryKey": false,
-            "isHardCodedValue": false
-          }
+          "sourceDataItems": [
+            {
+              "name": "CustomerID",
+              "dataType": null,
+              "characterLength": 0,
+              "numericPrecision": 0,
+              "numericScale": 0,
+              "ordinalPosition": 0,
+              "isPrimaryKey": false,
+              "isHardCodedValue": false
+            }
+          ],
+            "targetDataItem" :
+            {
+              "name": "CustomerID",
+              "dataType": null,
+              "characterLength": 0,
+              "numericPrecision": 0,
+              "numericScale": 0,
+              "ordinalPosition": 0,
+              "isPrimaryKey": false,
+              "isHardCodedValue": false
+            }
         },
         {
-          "sourceDataItem": {
+          "sourceDataItems": [
+            {
+              "name": "End_Date",
+              "dataType": null,
+              "characterLength": 0,
+              "numericPrecision": 0,
+              "numericScale": 0,
+              "ordinalPosition": 0,
+              "isPrimaryKey": false,
+              "isHardCodedValue": false
+            }
+          ],
+          "targetDataItem": {
             "name": "End_Date",
             "dataType": null,
             "characterLength": 0,
@@ -70,29 +87,21 @@
             "ordinalPosition": 0,
             "isPrimaryKey": false,
             "isHardCodedValue": false
-          },
-          "targetDataItem": {
-            "name": "End_Date",
-            "dataType": null,
-            "characterLength": 0,
-            "numericPrecision": 0,
-            "numericScale": 0,
-            "ordinalPosition": 0,
-            "isPrimaryKey": false,
-            "isHardCodedValue": false
           }
         },
         {
-          "sourceDataItem": {
-            "name": "Plan_Code",
-            "dataType": null,
-            "characterLength": 0,
-            "numericPrecision": 0,
-            "numericScale": 0,
-            "ordinalPosition": 0,
-            "isPrimaryKey": false,
-            "isHardCodedValue": false
-          },
+          "sourceDataItems": [
+            {
+              "name": "Plan_Code",
+              "dataType": null,
+              "characterLength": 0,
+              "numericPrecision": 0,
+              "numericScale": 0,
+              "ordinalPosition": 0,
+              "isPrimaryKey": false,
+              "isHardCodedValue": false
+            }
+          ],
           "targetDataItem": {
             "name": "Plan_Code",
             "dataType": null,
@@ -105,16 +114,18 @@
           }
         },
         {
-          "sourceDataItem": {
-            "name": "Start_Date",
-            "dataType": null,
-            "characterLength": 0,
-            "numericPrecision": 0,
-            "numericScale": 0,
-            "ordinalPosition": 0,
-            "isPrimaryKey": false,
-            "isHardCodedValue": false
-          },
+          "sourceDataItems": [
+            {
+              "name": "Start_Date",
+              "dataType": null,
+              "characterLength": 0,
+              "numericPrecision": 0,
+              "numericScale": 0,
+              "ordinalPosition": 0,
+              "isPrimaryKey": false,
+              "isHardCodedValue": false
+            }
+          ],
           "targetDataItem": {
             "name": "Start_Date",
             "dataType": null,
@@ -127,7 +138,8 @@
           }
         },
         {
-          "sourceDataItem": {
+          "sourceDataItems": [
+          {
             "name": "Status",
             "dataType": null,
             "characterLength": 0,
@@ -136,7 +148,8 @@
             "ordinalPosition": 0,
             "isPrimaryKey": false,
             "isHardCodedValue": false
-          },
+          }
+      ],
           "targetDataItem": {
             "name": "Status",
             "dataType": null,
@@ -155,7 +168,7 @@
         {
           "businessKeyComponentMapping": [
             {
-              "sourceDataItem": {
+              "sourceDataItems": {
                 "name": "CustomerID",
                 "dataType": null,
                 "characterLength": 0,
@@ -177,7 +190,7 @@
               }
             },
             {
-              "sourceDataItem": {
+              "sourceDataItems": {
                 "name": "Plan_Code",
                 "dataType": null,
                 "characterLength": 0,

@@ -3,7 +3,7 @@
     {
       "mappingName": null,
       "classification": null,
-      "sourceDataObject": [
+      "sourceDataObjects": [
         {
           "id": 0,
           "name": "PSA_PROFILER_CUST_MEMBERSHIP",
@@ -15,14 +15,13 @@
         "name": "HUB_CUSTOMER",
         "dataItems": null
       },
-      "dataItemMapping": null,
       "lookupTable": "HUB_CUSTOMER",
       "targetTableHashKey": "CUSTOMER_HSH",
       "businessKey": [
         {
           "businessKeyComponentMapping": [
             {
-              "sourceDataItem": {
+              "sourceDataItems": {
                 "name": "CustomerID",
                 "dataType": null,
                 "characterLength": 0,
@@ -53,7 +52,7 @@
     {
       "mappingName": null,
       "classification": null,
-      "sourceDataObject": [
+      "sourceDataObjects": [
         {
           "id": 0,
           "name": "PSA_PROFILER_CUSTOMER_OFFER",
@@ -65,14 +64,13 @@
         "name": "HUB_CUSTOMER",
         "dataItems": null
       },
-      "dataItemMapping": null,
       "lookupTable": "HUB_CUSTOMER",
       "targetTableHashKey": "CUSTOMER_HSH",
       "businessKey": [
         {
           "businessKeyComponentMapping": [
             {
-              "sourceDataItem": {
+              "sourceDataItems": {
                 "name": "CustomerID",
                 "dataType": null,
                 "characterLength": 0,
@@ -103,7 +101,7 @@
     {
       "mappingName": null,
       "classification": null,
-      "sourceDataObject": [
+      "sourceDataObjects": [
         {
           "id": 0,
           "name": "PSA_PROFILER_CUSTOMER_PERSONAL",
@@ -115,14 +113,13 @@
         "name": "HUB_CUSTOMER",
         "dataItems": null
       },
-      "dataItemMapping": null,
       "lookupTable": "HUB_CUSTOMER",
       "targetTableHashKey": "CUSTOMER_HSH",
       "businessKey": [
         {
           "businessKeyComponentMapping": [
             {
-              "sourceDataItem": {
+              "sourceDataItems": {
                 "name": "CustomerID",
                 "dataType": null,
                 "characterLength": 0,
@@ -153,7 +150,7 @@
     {
       "mappingName": null,
       "classification": null,
-      "sourceDataObject": [
+      "sourceDataObjects": [
         {
           "id": 0,
           "name": "PSA_PROFILER_PERSONALISED_COSTING",
@@ -165,14 +162,13 @@
         "name": "HUB_CUSTOMER",
         "dataItems": null
       },
-      "dataItemMapping": null,
       "lookupTable": "HUB_CUSTOMER",
       "targetTableHashKey": "CUSTOMER_HSH",
       "businessKey": [
         {
           "businessKeyComponentMapping": [
             {
-              "sourceDataItem": {
+              "sourceDataItems": {
                 "name": "Member",
                 "dataType": null,
                 "characterLength": 0,

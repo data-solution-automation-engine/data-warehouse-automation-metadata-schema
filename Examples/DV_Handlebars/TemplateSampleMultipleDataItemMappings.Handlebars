@@ -1,0 +1,23 @@
+--Example where multiple sources map to a single target.
+{{#each dataObjectMappings }}
+
+--Working on {{mappingName}}
+
+Explaining mappings of multiple sources to one target, in this case {{targetDataObject.name}}.
+
+The following source Data Objects map to a single target:
+{{#each sourceDataObjects}}
+- {{name}}
+{{/each}}
+
+Or, in other words {{sourceDataObjects.0.name}} and {{sourceDataObjects.1.name}} map to {{targetDataObject.name}}.
+
+The same applies at Data Item Mapping level, where the following Data Item mappings are defined:
+
+{{#each dataItemMappings}}
+{{#each sourceDataItems}} {{name}}{{#unless @last}} and{{/unless}}{{/each}} map(s) to {{targetDataItem.name}}.
+
+{{/each}}
+
+{{/each}}
+

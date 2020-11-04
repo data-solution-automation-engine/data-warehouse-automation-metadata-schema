@@ -1,7 +1,7 @@
 ﻿{
   "dataObjectMappings": [
     {
-      "sourceDataObject": [
+      "sourceDataObjects": [
         {
           "name": "HUB_CUSTOMER",
           "dataItems": [

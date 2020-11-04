@@ -2,27 +2,34 @@
   "dataObjectMappings": [
     {
       "mappingName": "MappingOne",
-      "sourceDataObject": [
+      "sourceDataObjects": [
         {
           "name": "TableOneSource"
+        },
+        {
+          "name": "TableTwoSource"
         }
       ],
       "targetDataObject": {
         "name": "TableOneTarget"
       },
-      "dataItemMapping": [
+      "dataItemMappings": [
         {
-          "sourceDataItem": {
-            "name": "ColumnOneSource"
-          },
+          "sourceDataItems": [
+            {
+              "name": "ColumnOneSource"
+            }
+          ],
           "targetDataItem": {
             "name": "ColumnOneTarget"
           }
         },
         {
-          "sourceDataItem": {
-            "name": "ColumnTwoSource"
-          },
+          "sourceDataItems": [
+            {
+              "name": "ColumnTwoSource"
+            }
+          ],
           "targetDataItem": {
             "name": "ColumnTwoTarget"
           }
@@ -31,25 +38,31 @@
     },
     {
       "mappingName": "MappingTwo",
-      "sourceDataObject": {
-        "name": "TableTwoSource"
-      },
+      "sourceDataObjects": [
+        {
+          "name": "TableTwoSource"
+        }
+      ],
       "targetDataObject": {
         "name": "TableTwoTarget"
       },
-      "dataItemMapping": [
+      "dataItemMappings": [
         {
-          "sourceDataItem": {
-            "name": "ColumnOneSource"
-          },
+          "sourceDataItems": [
+            {
+              "name": "ColumnOneSource"
+            }
+          ],
           "targetDataItem": {
             "name": "ColumnOneTarget"
           }
         },
         {
-          "sourceDataItem": {
-            "name": "ColumnTwoSource"
-          },
+          "sourceDataItems": [
+            {
+              "name": "ColumnTwoSource"
+            }
+          ],
           "targetDataItem": {
             "name": "ColumnTwoTarget"
           }

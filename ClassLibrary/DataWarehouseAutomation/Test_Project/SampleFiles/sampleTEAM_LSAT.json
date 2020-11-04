@@ -17,7 +17,7 @@
           "notes": "The Link Satellites describe the changes over time for the relationships (Links). This pattern supports normal (historical) Link Satellites."
         }
       ],
-      "sourceDataObject": [
+      "sourceDataObjects": [
         {
           "id": 0,
           "name": "PSA_PROFILER_PERSONALISED_COSTING",
@@ -33,18 +33,20 @@
           "dataConnectionString": "PersistentStagingDatabase"
         }
       },
-      "dataItemMapping": [
+      "dataItemMappings": [
         {
-          "sourceDataItem": {
-            "name": "Date_effective",
-            "dataType": null,
-            "characterLength": 0,
-            "numericPrecision": 0,
-            "numericScale": 0,
-            "ordinalPosition": 0,
-            "isPrimaryKey": false,
-            "isHardCodedValue": false
-          },
+          "sourceDataItems": [
+            {
+              "name": "Date_effective",
+              "dataType": null,
+              "characterLength": 0,
+              "numericPrecision": 0,
+              "numericScale": 0,
+              "ordinalPosition": 0,
+              "isPrimaryKey": false,
+              "isHardCodedValue": false
+            }
+          ],
           "targetDataItem": {
             "name": "COSTING_EFFECTIVE_DATE",
             "dataType": null,
@@ -57,16 +59,18 @@
           }
         },
         {
-          "sourceDataItem": {
-            "name": "Monthly_Cost",
-            "dataType": null,
-            "characterLength": 0,
-            "numericPrecision": 0,
-            "numericScale": 0,
-            "ordinalPosition": 0,
-            "isPrimaryKey": false,
-            "isHardCodedValue": false
-          },
+          "sourceDataItems": [
+            {
+              "name": "Monthly_Cost",
+              "dataType": null,
+              "characterLength": 0,
+              "numericPrecision": 0,
+              "numericScale": 0,
+              "ordinalPosition": 0,
+              "isPrimaryKey": false,
+              "isHardCodedValue": false
+            }
+          ],
           "targetDataItem": {
             "name": "PERSONAL_MONTHLY_COST",
             "dataType": null,
@@ -83,16 +87,18 @@
         {
           "businessKeyComponentMapping": [
             {
-              "sourceDataItem": {
-                "name": "Plan_Code",
-                "dataType": null,
-                "characterLength": 0,
-                "numericPrecision": 0,
-                "numericScale": 0,
-                "ordinalPosition": 0,
-                "isPrimaryKey": false,
-                "isHardCodedValue": false
-              },
+              "sourceDataItems": [
+                {
+                  "name": "Plan_Code",
+                  "dataType": null,
+                  "characterLength": 0,
+                  "numericPrecision": 0,
+                  "numericScale": 0,
+                  "ordinalPosition": 0,
+                  "isPrimaryKey": false,
+                  "isHardCodedValue": false
+                }
+              ],
               "targetDataItem": {
                 "name": "PLAN_CODE",
                 "dataType": null,
@@ -105,16 +111,18 @@
               }
             },
             {
-              "sourceDataItem": {
-                "name": "'XYZ'",
-                "dataType": null,
-                "characterLength": 0,
-                "numericPrecision": 0,
-                "numericScale": 0,
-                "ordinalPosition": 0,
-                "isPrimaryKey": false,
-                "isHardCodedValue": true
-              },
+              "sourceDataItems": [
+                {
+                  "name": "'XYZ'",
+                  "dataType": null,
+                  "characterLength": 0,
+                  "numericPrecision": 0,
+                  "numericScale": 0,
+                  "ordinalPosition": 0,
+                  "isPrimaryKey": false,
+                  "isHardCodedValue": true
+                }
+              ],
               "targetDataItem": {
                 "name": "PLAN_SUFFIX",
                 "dataType": null,
@@ -127,16 +135,18 @@
               }
             },
             {
-              "sourceDataItem": {
-                "name": "Member",
-                "dataType": null,
-                "characterLength": 0,
-                "numericPrecision": 0,
-                "numericScale": 0,
-                "ordinalPosition": 0,
-                "isPrimaryKey": false,
-                "isHardCodedValue": false
-              },
+              "sourceDataItems": [
+                {
+                  "name": "Member",
+                  "dataType": null,
+                  "characterLength": 0,
+                  "numericPrecision": 0,
+                  "numericScale": 0,
+                  "ordinalPosition": 0,
+                  "isPrimaryKey": false,
+                  "isHardCodedValue": false
+                }
+              ],
               "targetDataItem": {
                 "name": "CUSTOMER_ID",
                 "dataType": null,
@@ -149,16 +159,18 @@
               }
             },
             {
-              "sourceDataItem": {
-                "name": "Segment+'TEST'",
-                "dataType": null,
-                "characterLength": 0,
-                "numericPrecision": 0,
-                "numericScale": 0,
-                "ordinalPosition": 0,
-                "isPrimaryKey": false,
-                "isHardCodedValue": false
-              },
+              "sourceDataItems": [
+                {
+                  "name": "Segment+'TEST'",
+                  "dataType": null,
+                  "characterLength": 0,
+                  "numericPrecision": 0,
+                  "numericScale": 0,
+                  "ordinalPosition": 0,
+                  "isPrimaryKey": false,
+                  "isHardCodedValue": false
+                }
+              ],
               "targetDataItem": {
                 "name": "SEGMENT_CODE",
                 "dataType": null,

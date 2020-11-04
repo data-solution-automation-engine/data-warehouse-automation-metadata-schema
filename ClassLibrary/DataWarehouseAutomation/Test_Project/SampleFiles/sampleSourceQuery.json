@@ -2,7 +2,7 @@
   "dataObjectMappings": [
     {
       "mappingName": "Mapping1",
-      "sourceDataObject": [
+      "sourceDataObjects": [
         {
           "dataQueryCode": "SELECT GETDATE()",
           "dataQueryConnection": {
@@ -19,11 +19,13 @@
       "targetDataObject": {
         "name": "TableOneTarget"
       },
-      "dataItemMapping": [
+      "dataItemMappings": [
         {
-          "sourceDataItem": {
-            "name": "CURRENTDATE"
-          },
+          "sourceDataItems": [
+            {
+              "name": "CURRENTDATE"
+            }
+          ],
           "targetDataItem": {
             "name": "CURRENTDATETIME"
           }

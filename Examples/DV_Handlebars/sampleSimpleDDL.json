@@ -1,21 +1,23 @@
 {
   "dataObjectMappings": [
     {
-      "sourceDataObject": {
-        "name": "HUB_CUSTOMER",
-        "dataItems": [
-          {
-            "name": "Customer_ID",
-            "dataType": "VARCHAR",
-            "characterLength" :  "100"
-          },
-          {
-            "name": "Customer_Name",
-            "dataType": "VARCHAR",
-            "characterLength": "100"
-          }
-        ]
-      },
+      "sourceDataObjects": [
+        {
+          "name": "HUB_CUSTOMER",
+          "dataItems": [
+            {
+              "name": "Customer_ID",
+              "dataType": "VARCHAR",
+              "characterLength": "100"
+            },
+            {
+              "name": "Customer_Name",
+              "dataType": "VARCHAR",
+              "characterLength": "100"
+            }
+          ]
+        }
+      ],
       "targetDataObject": {
         "name": "TableOneTarget"
       }

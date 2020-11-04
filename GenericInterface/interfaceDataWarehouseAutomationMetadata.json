@@ -19,7 +19,6 @@
       "description": "The list (array) of mappings between Data Objects (source-to-target mappings).",
       "type": [ "array", "null" ],
       "items": {
-        "name": [ "string", "null" ],
         "$ref": "#/definitions/dataObjectMapping"
       }
     },
@@ -29,7 +28,7 @@
       "description": "A mapping between a source and a target.",
       "type": "object",
       "required": [
-        "sourceDataObject",
+        "sourceDataObjects",
         "targetDataObject"
       ],
       "properties": {
@@ -409,19 +408,25 @@
       "description": "A mapping between a source and a target columns or attributes",
       "type": "object",
       "required": [
-        "sourceDataItem",
+        "sourceDataItems",
         "targetDataItem"
       ],
       "properties": {
-        "sourceDataItem": {
-          "$id": "#/definitions/dataItemMapping/properties/sourceDataItem",
+        "sourceDataItems": {
+          "$id": "#/definitions/dataItemMapping/properties/sourceDataItems",
           "description": "The source item of the mapping. This can either be an column or a query.",
           "oneOf": [
             {
-              "$ref": "#/definitions/dataItem"
+              "type": [ "array", "null" ],
+              "items": {
+                "$ref": "#/definitions/dataItem"
+              }
             },
             {
-              "$ref": "#/definitions/dataQuery"
+              "type": [ "array", "null" ],
+              "items": {
+                "$ref": "#/definitions/dataQuery"
+              }
             }
           ]
         },

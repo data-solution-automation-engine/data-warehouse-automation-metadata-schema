@@ -10,31 +10,44 @@ namespace VEDW_Handlebars
     {
         static void Main(string[] args)
         {
-            // Compile the template
-            
-            // Uncomment out the difference examples
+            // Local variables
+            string stringTemplate = "" ;
+            string jsonInput = "";
+            string result = "";
+            DataObjectMappings deserialisedMapping = new DataObjectMappings();
 
-            //var stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\TemplateSampleBasic.handlebars");
-            var stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\TemplateSampleBasicWithExtensions.handlebars");
-            //var stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\TemplateSampleSimpleDDL.handlebars");
-
-
+            // Simple example template
+            stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\TemplateSampleBasic.handlebars");
             var template = Handlebars.Compile(stringTemplate);
-
-
-            // Retrieve metadata from Json and store in a data table object
-
-            //var jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\sampleBasic.json");
-            var jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\sampleBasicWithExtensions.json");
-            //var jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\sampleSimpleDDL.json");
-
-
-
-            DataObjectMappings deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappings>(jsonInput);
-
-            // Return the result to the user
-            var result = template(deserialisedMapping);
+            jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\sampleBasic.json");
+            deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappings>(jsonInput);
+            result = template(deserialisedMapping);
             Console.WriteLine(result);
+
+            // Example using extensions
+            stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\TemplateSampleBasicWithExtensions.handlebars");
+            template = Handlebars.Compile(stringTemplate);
+            jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\sampleBasicWithExtensions.json");
+            deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappings>(jsonInput);
+            result = template(deserialisedMapping);
+            Console.WriteLine(result);
+
+            // Example using more than one mapping at data item level
+            stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\TemplateSampleMultipleDataItemMappings.handlebars");
+            template = Handlebars.Compile(stringTemplate);
+            jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\sampleMultipleDataItemMappings.json");
+            deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappings>(jsonInput);
+            result = template(deserialisedMapping);
+            Console.WriteLine(result);
+
+            // Example generating DDL statements
+            stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\TemplateSampleSimpleDDL.handlebars");
+            template = Handlebars.Compile(stringTemplate);
+            jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\sampleSimpleDDL.json");
+            deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappings>(jsonInput);
+            result = template(deserialisedMapping);
+            Console.WriteLine(result);
+
             Console.ReadKey();
         }
     }

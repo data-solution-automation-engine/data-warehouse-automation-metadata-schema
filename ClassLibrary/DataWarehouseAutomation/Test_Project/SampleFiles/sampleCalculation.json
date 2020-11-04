@@ -2,7 +2,7 @@
   "dataObjectMappings": [
     {
       "mappingName": "Mapping1",
-      "sourceDataObject": [
+      "sourceDataObjects": [
         {
           "name": "SourceTable"
         }
@@ -10,19 +10,23 @@
       "targetDataObject": {
         "name": "TargetTable"
       },
-      "dataItemMapping": [
+      "dataItemMappings": [
         {
-          "sourceDataItem": {
-            "dataQueryCode": "SELECT 10/2"
-          },
+          "sourceDataItems": [
+            {
+              "dataQueryCode": "SELECT 10/2"
+            }
+          ],
           "targetDataItem": {
             "name": "TargetColumn"
           }
         },
         {
-          "sourceDataItem": {
-            "name": "Column2Source"
-          },
+          "sourceDataItems": [
+            {
+              "name": "Column2Source"
+            }
+          ],
           "targetDataItem": {
             "name": "Columns2Target"
           }
