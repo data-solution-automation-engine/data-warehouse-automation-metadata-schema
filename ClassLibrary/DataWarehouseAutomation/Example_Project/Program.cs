@@ -56,6 +56,14 @@ namespace Example_Handlebars
             result = template(deserialisedMapping);
             Console.WriteLine(result);
 
+            // Data Vault Satellite example
+            stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSatelliteView.handlebars");
+            template = Handlebars.Compile(stringTemplate);
+            jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampeVDW_Sat_Customer_v161.json");
+            deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappings>(jsonInput);
+            result = template(deserialisedMapping);
+            Console.WriteLine(result);
+
             Console.ReadKey();
         }
     }

@@ -17,11 +17,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Test_Project\Tes
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Metadata", "Sample Metadata", "{242F4BD0-68F9-4193-A329-826E755C6B08}"
 	ProjectSection(SolutionItems) = preProject
+		Sample_Metadata\sampeVDW_Sat_Customer_v161.json = Sample_Metadata\sampeVDW_Sat_Customer_v161.json
 		Sample_Metadata\sampleBasic.json = Sample_Metadata\sampleBasic.json
 		Sample_Metadata\sampleBasicWithExtensions.json = Sample_Metadata\sampleBasicWithExtensions.json
 		Sample_Metadata\sampleCalculation.json = Sample_Metadata\sampleCalculation.json
 		Sample_Metadata\sampleMultipleDataItemMappings.json = Sample_Metadata\sampleMultipleDataItemMappings.json
 		Sample_Metadata\sampleSimpleDDL.json = Sample_Metadata\sampleSimpleDDL.json
+		Sample_Metadata\sampleSourceQuery.json = Sample_Metadata\sampleSourceQuery.json
+		Sample_Metadata\sampleTEAM_Hub.json = Sample_Metadata\sampleTEAM_Hub.json
+		Sample_Metadata\sampleTEAM_Hub_v161.json = Sample_Metadata\sampleTEAM_Hub_v161.json
+		Sample_Metadata\sampleTEAM_LSAT.json = Sample_Metadata\sampleTEAM_LSAT.json
+		Sample_Metadata\sampleTEAMv16.json = Sample_Metadata\sampleTEAMv16.json
+		Sample_Metadata\sampleVDW_Hub.json = Sample_Metadata\sampleVDW_Hub.json
+		Sample_Metadata\sampleVDW_HubWithLookup.json = Sample_Metadata\sampleVDW_HubWithLookup.json
+		Sample_Metadata\sampleVDW_StagingArea.json = Sample_Metadata\sampleVDW_StagingArea.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Templates", "Sample Templates", "{968E4A48-A2A3-4F7E-B8D9-243D1F4CCE17}"
@@ -31,6 +40,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Templates", "Sample 
 		Sample_Templates\TemplateSampleCalculation.Handlebars = Sample_Templates\TemplateSampleCalculation.Handlebars
 		Sample_Templates\TemplateSampleMultipleDataItemMappings.Handlebars = Sample_Templates\TemplateSampleMultipleDataItemMappings.Handlebars
 		Sample_Templates\TemplateSampleSimpleDDL.Handlebars = Sample_Templates\TemplateSampleSimpleDDL.Handlebars
+		Sample_Templates\TemplateSatelliteView.Handlebars = Sample_Templates\TemplateSatelliteView.Handlebars
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples", "Example_Project\Examples.csproj", "{F77AC518-6300-4927-8775-B92CDF15CC8E}"
