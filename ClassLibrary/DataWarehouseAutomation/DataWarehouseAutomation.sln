@@ -10,12 +10,30 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\..\GenericInterface\interfaceDataWarehouseAutomationMetadata.json = ..\..\GenericInterface\interfaceDataWarehouseAutomationMetadata.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example_Handlebars", "..\..\Examples\DV_Handlebars\Example_Handlebars.csproj", "{F77AC518-6300-4927-8775-B92CDF15CC8E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_Project", "Test_Project\Test_Project.csproj", "{23CF4A46-B17F-4642-B949-02E061868BBC}"
 	ProjectSection(ProjectDependencies) = postProject
 		{F0458983-9646-42E6-9E18-90AD91288B40} = {F0458983-9646-42E6-9E18-90AD91288B40}
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Metadata", "Sample Metadata", "{242F4BD0-68F9-4193-A329-826E755C6B08}"
+	ProjectSection(SolutionItems) = preProject
+		Sample_Metadata\sampleBasic.json = Sample_Metadata\sampleBasic.json
+		Sample_Metadata\sampleBasicWithExtensions.json = Sample_Metadata\sampleBasicWithExtensions.json
+		Sample_Metadata\sampleCalculation.json = Sample_Metadata\sampleCalculation.json
+		Sample_Metadata\sampleMultipleDataItemMappings.json = Sample_Metadata\sampleMultipleDataItemMappings.json
+		Sample_Metadata\sampleSimpleDDL.json = Sample_Metadata\sampleSimpleDDL.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Templates", "Sample Templates", "{968E4A48-A2A3-4F7E-B8D9-243D1F4CCE17}"
+	ProjectSection(SolutionItems) = preProject
+		Sample_Templates\TemplateSampleBasic.Handlebars = Sample_Templates\TemplateSampleBasic.Handlebars
+		Sample_Templates\TemplateSampleBasicWithExtensions.Handlebars = Sample_Templates\TemplateSampleBasicWithExtensions.Handlebars
+		Sample_Templates\TemplateSampleCalculation.Handlebars = Sample_Templates\TemplateSampleCalculation.Handlebars
+		Sample_Templates\TemplateSampleMultipleDataItemMappings.Handlebars = Sample_Templates\TemplateSampleMultipleDataItemMappings.Handlebars
+		Sample_Templates\TemplateSampleSimpleDDL.Handlebars = Sample_Templates\TemplateSampleSimpleDDL.Handlebars
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example_Handlebars", "Example_Project\Example_Handlebars.csproj", "{F77AC518-6300-4927-8775-B92CDF15CC8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,14 +45,14 @@ Global
 		{F0458983-9646-42E6-9E18-90AD91288B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0458983-9646-42E6-9E18-90AD91288B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0458983-9646-42E6-9E18-90AD91288B40}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F77AC518-6300-4927-8775-B92CDF15CC8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F77AC518-6300-4927-8775-B92CDF15CC8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F77AC518-6300-4927-8775-B92CDF15CC8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F77AC518-6300-4927-8775-B92CDF15CC8E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{23CF4A46-B17F-4642-B949-02E061868BBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{23CF4A46-B17F-4642-B949-02E061868BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23CF4A46-B17F-4642-B949-02E061868BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23CF4A46-B17F-4642-B949-02E061868BBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F77AC518-6300-4927-8775-B92CDF15CC8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F77AC518-6300-4927-8775-B92CDF15CC8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F77AC518-6300-4927-8775-B92CDF15CC8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F77AC518-6300-4927-8775-B92CDF15CC8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
