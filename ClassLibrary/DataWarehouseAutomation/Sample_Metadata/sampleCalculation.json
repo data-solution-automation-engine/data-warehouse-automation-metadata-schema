@@ -30,8 +30,29 @@
           "targetDataItem": {
             "name": "Columns2Target"
           }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "name": "Column3Source"
+            }
+          ],
+          "targetDataItem": {
+            "name": "Columns3Target"
+          }
         }
       ]
+    },
+    {
+      "mappingName": "Mapping2",
+      "sourceDataObjects": [
+        {
+          "dataQueryCode": "MAX(amount) AS amount"
+        }
+      ],
+      "targetDataObject": {
+        "name": "TargetTable"
+      }
     }
   ]
 }
