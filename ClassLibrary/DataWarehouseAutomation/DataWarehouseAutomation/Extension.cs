@@ -19,7 +19,7 @@ namespace DataWarehouseAutomation
         /// <summary>
         /// The Value in a Key/Value pair.
         /// </summary>
-        [JsonProperty("value")]
+        [JsonProperty("value", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string value { get; set; }
 
         /// <summary>
