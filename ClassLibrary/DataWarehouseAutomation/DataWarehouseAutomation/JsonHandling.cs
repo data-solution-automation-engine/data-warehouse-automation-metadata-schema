@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
 
@@ -35,7 +34,7 @@ namespace DataWarehouseAutomation
                     jsonSchemaContent = sr.ReadToEnd();
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 // TBD
             }
@@ -49,7 +48,7 @@ namespace DataWarehouseAutomation
                     jsonFileContent = sr.ReadToEnd();
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 // TBD
             }

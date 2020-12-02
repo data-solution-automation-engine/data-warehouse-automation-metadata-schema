@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using HandlebarsDotNet;
 
 namespace RunDwhAutomation
 {
@@ -6,7 +8,7 @@ namespace RunDwhAutomation
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            HandleBarsHelpers.RegisterHandleBarsHelpers();
         }
     }
 }
