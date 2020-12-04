@@ -14,20 +14,32 @@ namespace RunDwhAutomation
             // An optimistic start.
             Environment.ExitCode = (int)ExitCode.Success;
 
+            #region unit testing
             // Unit testing only.
-            var testArgs = new string[]
-            {
-              //   "-i", @"C:\Github\Data-Warehouse-Automation-Metadata-Schema\ClassLibrary\DataWarehouseAutomation\Sample_Metadata\sampleBasic.json"
-                 "-i", @"C:\Github\Data-Warehouse-Automation-Metadata-Schema\ClassLibrary\DataWarehouseAutomation\Sample_Metadata\"
-                ,"-p", @"C:\Github\Data-Warehouse-Automation-Metadata-Schema\ClassLibrary\DataWarehouseAutomation\Sample_Templates\TemplateSampleBasic.Handlebars"
-                ,"-o"
-                ,"-d", @"C:\Files\"
-                ,"-e", "sql"
-                ,"-f", "roelant"
-                ,"-v"
-            };
+            //var testArgs = new string[]
+            //{
+            //  //   "-i", @"C:\Github\Data-Warehouse-Automation-Metadata-Schema\ClassLibrary\DataWarehouseAutomation\Sample_Metadata\sampleBasic.json"
+            //     "-i", @"C:\Github\Data-Warehouse-Automation-Metadata-Schema\ClassLibrary\DataWarehouseAutomation\Sample_Metadata\"
+            //    ,"-p", @"C:\Github\Data-Warehouse-Automation-Metadata-Schema\ClassLibrary\DataWarehouseAutomation\Sample_Templates\TemplateSampleBasic.Handlebars"
+            //    ,"-o"
+            //    ,"-d", @"C:\Files\"
+            //    ,"-e", "sql"
+            //    ,"-f", "roelant"
+            //    ,"-v"
+            //};
 
-            CommandLineArgumentHelper environmentHelper = new CommandLineArgumentHelper(testArgs);
+            //var testArgs = new string[]
+            //{
+            //       "-i", @"C:\Github\Data-Warehouse-Automation-Metadata-Schema\ClassLibrary\DataWarehouseAutomation\Sample_Metadata\sampleBasic.json"
+            //    "-i", @"C:\Files\Test\"
+            //    ,"-p", @"C:\Files\Test\TemplateSampleBasic.Handlebars"
+            //    ,"-o"
+            //    ,"-f", "roelant"
+            //    ,"-v"
+            //};
+            #endregion
+
+            CommandLineArgumentHelper environmentHelper = new CommandLineArgumentHelper();
             string[] localArgs = environmentHelper.args;
 
             Parser.Default.ParseArguments<Options>(localArgs).WithParsed(options =>
@@ -89,7 +101,7 @@ namespace RunDwhAutomation
                         Console.WriteLine($"The File Exension for output file(s) is {options.OutputFileExtension}");
                     }  
 
-                    Console.WriteLine();
+                    //Console.WriteLine();
                 }
 
                 #region Core
@@ -98,7 +110,7 @@ namespace RunDwhAutomation
                 
                 if (IsPath)
                 {
-                    var localFiles = Directory.GetFiles(options.Input);
+                    var localFiles = Directory.GetFiles(options.Input, "*.json");
 
                     foreach (var file in localFiles)
                     {
@@ -137,7 +149,7 @@ namespace RunDwhAutomation
             //Console.WriteLine(helpText);
 
  
-            Console.ReadKey();               
+            //Console.ReadKey();               
 
             return Environment.ExitCode;
         }
@@ -164,6 +176,8 @@ namespace RunDwhAutomation
                     {
                         outputFileName = deserialisedMapping.dataObjectMappings[0].mappingName;
                     }
+
+                    Console.WriteLine($"Generating {outputFileName}.{options.OutputFileExtension} to {options.OutputDirectory}.");
 
                     using (StreamWriter file = new StreamWriter($"{options.OutputDirectory}\\{outputFileName}.{options.OutputFileExtension}"))
                     {
@@ -196,7 +210,7 @@ namespace RunDwhAutomation
             public string Pattern { get; set; }
 
             // Outputs
-            [Option('o', "output", Required = false, HelpText = "Enable output to be spooled to disk.")]
+            [Option('o', "output", Required = false, HelpText = "Enable output to be spooled to disk (enable/disable) - default is disable.")]
             public bool Output { get; set; }
 
             [Option('d', "outputdirectory", Required = false, HelpText = "The directory where spool files (output) are placed. If not provided, the execution directory will be assumed.")]
