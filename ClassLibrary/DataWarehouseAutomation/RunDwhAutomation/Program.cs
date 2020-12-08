@@ -45,60 +45,49 @@ namespace RunDwhAutomation
             Parser.Default.ParseArguments<Options>(localArgs).WithParsed(options =>
             {
                 // Make sure there is a default directory set when output is enabled
-                if (options.Output)
+                if (options.output)
                 {
-                    if (options.OutputDirectory == null)
+                    if (options.outputDirectory == null)
                     {
-                        options.OutputDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                        options.outputDirectory = AppDomain.CurrentDomain.BaseDirectory;
                     }
 
-                    if (options.OutputFileExtension == null)
+                    if (options.outputFileExtension == null)
                     {
-                        options.OutputFileExtension = "txt";
+                        options.outputFileExtension = "txt";
                     }
                 }
 
                 // Determine if the output is a file or path
 
-                var path = Path.GetExtension(options.Input);
-                bool IsPath;
-                if (path == String.Empty)
-                {
-                    IsPath = true;
-                }
-                else
-                {
-                    IsPath = false;
-                }
+                var path = Path.GetExtension(options.input);
+                bool isPath;
+                isPath = path == String.Empty;
 
                 // Managing verbose information back to user
-                if (options.Verbose)
+                if (options.verbose)
                 {
                     Console.WriteLine("Verbose mode enabled.");
 
-                    if (options.Input != null && options.Input.Length > 0)
+                    if (!string.IsNullOrEmpty(options.input))
                     {
-                        Console.WriteLine($"The input (file or directory) provided is {options.Input}");
-                        if (IsPath)
-                        {
-                            Console.WriteLine($"{options.Input} is evaluated as a directory.");
-                        }
-                        else
-                        {
-                            Console.WriteLine($"{options.Input} is evaluated as a file.");
-                        }
+                        Console.WriteLine($"The input (file or directory) provided is {options.input}");
+
+                        Console.WriteLine(isPath
+                            ? $"{options.input} is evaluated as a directory."
+                            : $"{options.input} is evaluated as a file.");
                     }
 
-                    if (options.Pattern != null && options.Pattern.Length > 0)
+                    if (!string.IsNullOrEmpty(options.pattern))
                     {
-                        Console.WriteLine($"The pattern used is {options.Pattern}");
+                        Console.WriteLine($"The pattern used is {options.pattern}");
                     }
 
-                    if (options.Output)
+                    if (options.output)
                     {
                         Console.WriteLine($"Output is enabled.");
-                        Console.WriteLine($"The Output Directory is {options.OutputDirectory}.");
-                        Console.WriteLine($"The File Exension for output file(s) is {options.OutputFileExtension}");
+                        Console.WriteLine($"The Output Directory is {options.outputDirectory}.");
+                        Console.WriteLine($"The File Extension for output file(s) is {options.outputFileExtension}");
                     }  
 
                     //Console.WriteLine();
@@ -108,38 +97,38 @@ namespace RunDwhAutomation
                 // Do the main stuff
                 HandleBarsHelpers.RegisterHandleBarsHelpers();
                 
-                if (IsPath)
+                if (isPath)
                 {
-                    var localFiles = Directory.GetFiles(options.Input, "*.json");
+                    var localFiles = Directory.GetFiles(options.input, "*.json");
 
                     foreach (var file in localFiles)
                     {
-                        if (options.OutputFileName == null)
+                        if (options.outputFileName == null)
                         {
-                            RunAutomation(options, file, "");
+                            RunAutomation(options, file);
                         }
                         else
                         {
-                            RunAutomation(options, file, options.OutputFileName + Array.IndexOf(localFiles, file));
+                            RunAutomation(options, file, options.outputFileName + Array.IndexOf(localFiles, file));
                         }
                     }
                 }
                 else
                 {
-                    if (options.OutputFileName == null)
+                    if (options.outputFileName == null)
                     {
-                        RunAutomation(options, options.Input, "");
+                        RunAutomation(options, options.input);
                     }
                     else
                     {
-                        RunAutomation(options, options.Input, options.OutputFileName );
+                        RunAutomation(options, options.input, options.outputFileName );
                     }                    
                 }
                 #endregion
 
             }).WithNotParsed(e => {
                 Console.WriteLine($"An error was encountered while parsing the parameters/arguments. Please review the above possible options.");
-            }); ;
+            });
 
 
             //var result = Parser.Default.ParseArguments<Options>(args);
@@ -159,27 +148,27 @@ namespace RunDwhAutomation
             try
             {
                 var jsonInput = File.ReadAllText(inputFileName);
-                var stringTemplate = File.ReadAllText(options.Pattern);
+                var stringTemplate = File.ReadAllText(options.pattern);
                 var template = Handlebars.Compile(stringTemplate);
-                var deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappings>(jsonInput);
+                var deserialisedMapping = JsonConvert.DeserializeObject<VdwDataObjectMappings>(jsonInput);
 
                 var result = template(deserialisedMapping);
 
-                if (options.Verbose)
+                if (options.verbose)
                 {
                     Console.WriteLine(result);
                 }
 
-                if (options.Output)
+                if (options.output)
                 {
                     if (outputFileName == "")
                     {
                         outputFileName = deserialisedMapping.dataObjectMappings[0].mappingName;
                     }
 
-                    Console.WriteLine($"Generating {outputFileName}.{options.OutputFileExtension} to {options.OutputDirectory}.");
+                    Console.WriteLine($"Generating {outputFileName}.{options.outputFileExtension} to {options.outputDirectory}.");
 
-                    using (StreamWriter file = new StreamWriter($"{options.OutputDirectory}\\{outputFileName}.{options.OutputFileExtension}"))
+                    using (StreamWriter file = new StreamWriter($"{options.outputDirectory}\\{outputFileName}.{options.outputFileExtension}"))
                     {
                         file.WriteLine(result);
                     }
@@ -189,7 +178,7 @@ namespace RunDwhAutomation
             }
             catch (Exception ex)
             {
-                if (options.Verbose)
+                if (options.verbose)
                 {
                     Console.WriteLine($"An error has been encountered: {ex}");
                 }
@@ -204,27 +193,27 @@ namespace RunDwhAutomation
         {
             // Inputs
             [Option('i', "input", Required = true, HelpText = "The filename or directory of the (input) Json file(s) containing the automation metadata.")]
-            public string Input { get; set; }
+            public string input { get; set; }
 
             [Option('p', "pattern", Required = true, HelpText = "The filename for the (input) Handlebars pattern.")]
-            public string Pattern { get; set; }
+            public string pattern { get; set; }
 
             // Outputs
             [Option('o', "output", Required = false, HelpText = "Enable output to be spooled to disk (enable/disable) - default is disable.")]
-            public bool Output { get; set; }
+            public bool output { get; set; }
 
             [Option('d', "outputdirectory", Required = false, HelpText = "The directory where spool files (output) are placed. If not provided, the execution directory will be assumed.")]
-            public string OutputDirectory { get; set; }
+            public string outputDirectory { get; set; }
 
             [Option('e', "outputextension", Required = false, HelpText = "The extension used for the output file(s). This is defaulted to txt when left empty.")]
-            public string OutputFileExtension { get; set; }
+            public string outputFileExtension { get; set; }
 
             [Option('f', "outputfilename", Required = false, HelpText = "The name of the output file(s). This is defaulted to the mapping name in the metadata object when left empty.")]
-            public string OutputFileName { get; set; }
+            public string outputFileName { get; set; }
 
             // Other
             [Option('v', "verbose", Required = false, HelpText = "Set output to verbose messages.")]
-            public bool Verbose { get; set; }
+            public bool verbose { get; set; }
         }
 
         /// <summary>
