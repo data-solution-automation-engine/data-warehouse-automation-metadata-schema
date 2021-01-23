@@ -3,6 +3,7 @@ using System.IO;
 using HandlebarsDotNet;
 using CommandLine;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using DataWarehouseAutomation;
 
 namespace RunDwhAutomation
@@ -150,9 +151,10 @@ namespace RunDwhAutomation
                 var jsonInput = File.ReadAllText(inputFileName);
                 var stringTemplate = File.ReadAllText(options.pattern);
                 var template = Handlebars.Compile(stringTemplate);
-                var deserialisedMapping = JsonConvert.DeserializeObject<VdwDataObjectMappings>(jsonInput);
+                // var deserialisedMapping = JsonConvert.DeserializeObject<VdwDataObjectMappings>(jsonInput);
+                var freeFormMapping = JObject.Parse(jsonInput);
 
-                var result = template(deserialisedMapping);
+                var result = template(freeFormMapping);
 
                 if (options.verbose)
                 {
@@ -163,7 +165,8 @@ namespace RunDwhAutomation
                 {
                     if (outputFileName == "")
                     {
-                        outputFileName = deserialisedMapping.dataObjectMappings[0].mappingName;
+                        //outputFileName = deserialisedMapping.dataObjectMappings[0].mappingName; // you could read this from the free form mapping file, too
+                        outputFileName = (string)freeFormMapping["mappingName"]; // you could read this from the free form mapping file, too
                     }
 
                     Console.WriteLine($"Generating {outputFileName}.{options.outputFileExtension} to {options.outputDirectory}.");

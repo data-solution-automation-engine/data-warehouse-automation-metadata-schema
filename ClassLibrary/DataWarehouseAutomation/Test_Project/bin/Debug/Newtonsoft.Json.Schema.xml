@@ -789,6 +789,13 @@
             <param name="version">The <see cref="P:Newtonsoft.Json.Schema.JSchema.SchemaVersion"/> used to create JSON for this schema.</param>
             <returns>The JSON for this schema.</returns>
         </member>
+        <member name="M:Newtonsoft.Json.Schema.JSchema.ToString(Newtonsoft.Json.Schema.JSchemaWriterSettings)">
+            <summary>
+            Returns the JSON for this schema using the specified <see cref="T:Newtonsoft.Json.Schema.JSchemaWriterSettings"/>.
+            </summary>
+            <param name="settings">The settings used to write the schema.</param>
+            <returns>The JSON for this schema.</returns>
+        </member>
         <member name="P:Newtonsoft.Json.Schema.JSchema.Title">
             <summary>
             Gets or sets the title of the schema.

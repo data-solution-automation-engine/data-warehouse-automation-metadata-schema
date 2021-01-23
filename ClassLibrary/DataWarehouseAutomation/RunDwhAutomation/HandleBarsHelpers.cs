@@ -47,6 +47,26 @@ namespace RunDwhAutomation
 
             });
 
+            Handlebars.RegisterHelper("StringReplace", (writer, context, args) =>
+            {
+                if (args.Length < 3) throw new HandlebarsException("The {{StringReplace}} function requires at least three arguments.");
+
+                string expression = args[0] as string;
+
+                if (args[0] is Newtonsoft.Json.Linq.JValue)
+                {
+                    expression = ((Newtonsoft.Json.Linq.JValue)args[0]).Value.ToString();
+                }
+
+                string pattern = args[1] as string;
+                string replacement = args[2] as string;
+
+                expression = expression.Replace(pattern, replacement);
+                writer.WriteSafeString(expression);
+
+            });
+
+
             // BLOCK HELPER
             //_handlebars.RegisterHelper("if_kpi", (writer, options, context, parameters) =>
             //{

@@ -1,0 +1,10 @@
+﻿{
+  "sourceApp": {
+    "value": "abs-event-service",
+    "description": "name of source system."
+  },
+  "topicName": {
+    "value": "application-declined"
+  },
+  "mappingName": "sampleFreeFormMapping.json"
+}

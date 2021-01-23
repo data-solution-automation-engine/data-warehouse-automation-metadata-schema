@@ -31,6 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Metadata", "Sample M
 		Sample_Metadata\sampleVDW_Hub.json = Sample_Metadata\sampleVDW_Hub.json
 		Sample_Metadata\sampleVDW_HubWithLookup.json = Sample_Metadata\sampleVDW_HubWithLookup.json
 		Sample_Metadata\sampleVDW_StagingArea.json = Sample_Metadata\sampleVDW_StagingArea.json
+		Sample_Metadata\sampleFreeForm.json = Sample_Metadata\sampleFreeForm.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Templates", "Sample Templates", "{968E4A48-A2A3-4F7E-B8D9-243D1F4CCE17}"
@@ -41,6 +42,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Templates", "Sample 
 		Sample_Templates\TemplateSampleMultipleDataItemMappings.Handlebars = Sample_Templates\TemplateSampleMultipleDataItemMappings.Handlebars
 		Sample_Templates\TemplateSampleSimpleDDL.Handlebars = Sample_Templates\TemplateSampleSimpleDDL.Handlebars
 		Sample_Templates\TemplateSatelliteView.Handlebars = Sample_Templates\TemplateSatelliteView.Handlebars
+		Sample_Templates\TemplateSampleFreeForm.Handlebars = Sample_Templates\TemplateSampleFreeForm.Handlebars
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples", "Example_Project\Examples.csproj", "{F77AC518-6300-4927-8775-B92CDF15CC8E}"
