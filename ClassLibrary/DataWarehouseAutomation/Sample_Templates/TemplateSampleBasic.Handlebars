@@ -1,7 +1,8 @@
-  {
-    "bucketrelpath": "{{topicName.value}}",
-    "bucketrootpath": "kafka/topics",
-    "container": "{{StringReplace sourceApp.value '_' '-'}}",
-    "containerrootpath": "data",
-    "module_code": "m_050_kafka_{{StringReplace topicName.value '-' '_'}}"
-  }
+--Example using a templating engine for a simple select statement.
+{{#each dataObjectMappings }}
+
+--Working on {{mappingName}}.
+
+SELECT * FROM {{targetDataObject.name}} WHERE {{dataItemMappings.0.targetDataItem.name}}!=NULL
+
+{{/each}}

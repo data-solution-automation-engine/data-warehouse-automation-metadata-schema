@@ -2,9 +2,9 @@
 using System.IO;
 using HandlebarsDotNet;
 
-namespace RunDwhAutomation
+namespace DataWarehouseAutomation
 {
-    class HandleBarsHelpers
+    public class HandleBarsHelpers
     {
         public static void RegisterHandleBarsHelpers()
         {
@@ -115,10 +115,11 @@ namespace RunDwhAutomation
             //    }
             //})
 
+
             // Accept two values, and see if they are the same, use as block helper.
             // Usage {{#stringcompare string1 string2}} do something {{else}} do something else {{/stringcompare}}
             // Usage {{#stringcompare string1 string2}} do something {{/stringcompare}}
-            Handlebars.RegisterHelper("stringequal", (TextWriter output, HelperOptions options, dynamic context, object[] arguments) =>
+            Handlebars.RegisterHelper("stringequal", (output, options, context, arguments) =>
             {
                 if (arguments.Length != 2) throw new HandlebarsException("The {{stringcompare}} functions requires exactly two arguments.");
 
@@ -138,7 +139,7 @@ namespace RunDwhAutomation
             // Accept two values, and do something if they are the different.
             // Usage {{#stringdiff string1 string2}} do something {{else}} do something else {{/stringdiff}}
             // Usage {{#stringdiff string1 string2}} do something {{/strinstringdiffgcompare}}
-            Handlebars.RegisterHelper("stringdiff", (TextWriter output, HelperOptions options, dynamic context, object[] arguments) =>
+            Handlebars.RegisterHelper("stringdiff", (output, options, context, arguments) =>
             {
                 if (arguments.Length != 2) throw new HandlebarsException("The {{stringdiff}} functions requires exactly two arguments.");
 
