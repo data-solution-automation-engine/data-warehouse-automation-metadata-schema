@@ -32,7 +32,7 @@ namespace DataWarehouseAutomation
         /// <summary>
         /// Free-form and optional classification for the Data Object for use in ETL generation logic (evaluation).
         /// </summary>
-        [JsonProperty("dataObjectClassification", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("dataObjectClassifications", NullValueHandling = NullValueHandling.Ignore)]
         public List<Classification> dataObjectClassification { get; set; }
 
         /// <summary>
