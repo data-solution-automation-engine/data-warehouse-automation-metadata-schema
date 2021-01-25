@@ -21,7 +21,7 @@ namespace DataWarehouseAutomation
         /// The collection of Data Items associated with this Data Object.
         /// </summary>
         [JsonProperty("dataItems", NullValueHandling=NullValueHandling.Ignore)]
-        public List<DataItem> dataItems { get; set; }
+        public List<dynamic> dataItems { get; set; }
 
         /// <summary>
         /// The connection information associated to the Data Object.
