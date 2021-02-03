@@ -2,8 +2,8 @@ using System;
 using System.IO;
 using DataWarehouseAutomation;
 using HandlebarsDotNet;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+
 
 namespace Example_Handlebars
 {
@@ -11,87 +11,40 @@ namespace Example_Handlebars
     {
         static void Main(string[] args)
         {
-            HandleBarsHelpers.RegisterHandleBarsHelpers();;
+            HandleBarsHelpers.RegisterHandleBarsHelpers();
 
-            // Local variables, for reuse
-            string stringTemplate = "";
-            string jsonInput = "";
-            string result = "";
-            //DataObjectMappings deserialisedMapping = new DataObjectMappings();
-            var deserialisedMapping = new JObject();
-            var template = Handlebars.Compile("");
+            DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleBasic.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleBasic.json");
+            DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleBasicWithExtensions.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleBasicWithExtensions.json");
+            DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleMultipleDataItemMappings.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleMultipleDataItemMappings.json");
+            DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleSimpleDDL.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleSimpleDDL.json");
+            DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleCalculation.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleCalculation.json");
+            DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSatelliteView.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleVDW_Sat_Customer_v161.json");
+            DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleFreeForm.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleFreeForm.json");
 
-            // Simple example template
+            Console.ReadKey();
+        }
+
+        private static void DisplayPatternResult(string patternFile, string jsonMetadataFile)
+        {
             try
             {
-                stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleBasic.handlebars");
-                template = Handlebars.Compile(stringTemplate);
-                jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleBasic.json");
+                // Fetch and compile the template
+                string stringTemplate = File.ReadAllText(patternFile);
+                var template = Handlebars.Compile(stringTemplate);
+                
+                // Fetch the content of the Json files
+                string jsonInput = File.ReadAllText(jsonMetadataFile);
+                
                 //deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappings>(jsonInput);
-                deserialisedMapping = JObject.Parse(jsonInput);
-                result = template(deserialisedMapping);
+                var deserialisedMapping = JObject.Parse(jsonInput);
+                
+                var result = template(deserialisedMapping);
                 Console.WriteLine(result);
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"An issue was encountered: {ex}");
             }
-
-            // Example using extensions
-            stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleBasicWithExtensions.handlebars");
-            template = Handlebars.Compile(stringTemplate);
-            jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleBasicWithExtensions.json");
-            //deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappings>(jsonInput);
-            deserialisedMapping = JObject.Parse(jsonInput);
-            result = template(deserialisedMapping);
-            Console.WriteLine(result);
-
-            // Example using more than one mapping at data item level
-            stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleMultipleDataItemMappings.handlebars");
-            template = Handlebars.Compile(stringTemplate);
-            jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleMultipleDataItemMappings.json");
-            //deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappings>(jsonInput);
-            deserialisedMapping = JObject.Parse(jsonInput);
-            result = template(deserialisedMapping);
-            Console.WriteLine(result);
-
-            // Example generating DDL statements
-            stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleSimpleDDL.handlebars");
-            template = Handlebars.Compile(stringTemplate);
-            jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleSimpleDDL.json");
-            //deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappings>(jsonInput);
-            deserialisedMapping = JObject.Parse(jsonInput);
-            result = template(deserialisedMapping);
-            Console.WriteLine(result);
-
-            // Example using OneOf / swapping a source for a query
-            stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleCalculation.handlebars");
-            template = Handlebars.Compile(stringTemplate);
-            jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleCalculation.json");
-            //deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappings>(jsonInput);
-            deserialisedMapping = JObject.Parse(jsonInput);
-            result = template(deserialisedMapping);
-            Console.WriteLine(result);
-
-            // Data Vault Satellite example
-            stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSatelliteView.handlebars");
-            template = Handlebars.Compile(stringTemplate);
-            jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampeVDW_Sat_Customer_v161.json");
-            //deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappings>(jsonInput);
-            deserialisedMapping = JObject.Parse(jsonInput);
-            result = template(deserialisedMapping);
-            Console.WriteLine(result);
-
-            //Free form example
-            stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleFreeForm.handlebars");
-            template = Handlebars.Compile(stringTemplate);
-            jsonInput = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleFreeForm.json");
-            //deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappings>(jsonInput);
-            deserialisedMapping = JObject.Parse(jsonInput);
-            result = template(deserialisedMapping);
-            Console.WriteLine(result);
-
-            Console.ReadKey();
         }
     }
 }

@@ -61,7 +61,7 @@ namespace DataWarehouseAutomation
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error has occured. The error message is: "+ex);
+                Console.WriteLine("An error has occurred. The error message is: "+ex);
             }
             
             JToken jsonFileToken = "";
@@ -71,7 +71,7 @@ namespace DataWarehouseAutomation
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error has occured. The error message is: " + ex);
+                Console.WriteLine("An error has occurred. The error message is: " + ex);
             }
 
             // Validate the file against the schema
