@@ -1,0 +1,317 @@
+{
+  "metadataConfiguration": {
+    "vdwSchemaName": "vdw",
+    "changeDataCaptureAttribute": "CDC_OPERATION",
+    "recordSourceAttribute": "RECORD_SOURCE",
+    "loadDateTimeAttribute": "LOAD_DATETIME",
+    "expiryDateTimeAttribute": "LOAD_END_DATETIME",
+    "eventDateTimeAttribute": "EVENT_DATETIME",
+    "recordChecksumAttribute": "HASH_FULL_RECORD",
+    "etlProcessAttribute": "INSERT_MODULE_INSTANCE_ID",
+    "sourceRowIdAttribute": "SOURCE_ROW_ID"
+  },
+  "generationSpecificMetadata": {
+    "selectedDataObject": "infor.STG_tbcgct005",
+    "generationDateTime": "2021-01-26T14:22:09.2991051+01:00"
+  },
+  "metadataFileName": "D:\\Virtual Data Warehouse\\Virtual Data Warehouse1.6.4EDW\\EDW\\infor.STG_tbcgct005.json",
+  "dataObjectMappings": [
+    {
+      "mappingName": "STG_tbcgct005",
+      "mappingClassifications": [
+        {
+          "id": 1,
+          "classification": "StagingArea",
+          "notes": "The mappings from source to the landing (staging) area."
+        }
+      ],
+      "sourceDataObjects": [
+        {
+          "name": "tbcgct005101",
+          "dataObjectConnection": {
+            "dataConnectionString": "Source",
+            "extensions": [
+              {
+                "key": "database",
+                "value": "erplndb",
+                "description": "database name"
+              },
+              {
+                "key": "schema",
+                "value": "dbo",
+                "description": "schema name"
+              }
+            ]
+          }
+        }
+      ],
+      "targetDataObject": {
+        "name": "STG_tbcgct005",
+        "dataObjectConnection": {
+          "dataConnectionString": "Staging",
+          "extensions": [
+            {
+              "key": "database",
+              "value": "TEAM_100_Staging_Area",
+              "description": "database name"
+            },
+            {
+              "key": "schema",
+              "value": "infor",
+              "description": "schema name"
+            }
+          ]
+        }
+      },
+      "relatedDataObjects": [
+        {
+          "name": "PSA_tbcgct005",
+          "dataObjectConnection": {
+            "dataConnectionString": "PSA",
+            "extensions": [
+              {
+                "key": "database",
+                "value": "TEAM_150_Persistent_Staging_Area",
+                "description": "database name"
+              },
+              {
+                "key": "schema",
+                "value": "infor",
+                "description": "schema name"
+              }
+            ]
+          },
+          "dataObjectClassifications": [
+            {
+              "classification": "Lookup",
+              "notes": "Lookup table related to the source-to-target mapping"
+            }
+          ]
+        }
+      ],
+      "dataItemMappings": [
+        {
+          "sourceDataItems": [
+            {
+              "name": "Company"
+            }
+          ],
+          "targetDataItem": {
+            "name": "Company",
+            "dataType": "int",
+            "ordinalPosition": 8
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "name": "t_ccmp",
+              "dataType": "int",
+              "ordinalPosition": 9
+            }
+          ],
+          "targetDataItem": {
+            "name": "t_ccmp",
+            "dataType": "int",
+            "ordinalPosition": 17
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "name": "t_comp",
+              "dataType": "int",
+              "ordinalPosition": 3
+            }
+          ],
+          "targetDataItem": {
+            "name": "t_comp",
+            "dataType": "int",
+            "ordinalPosition": 11
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "name": "t_ctly",
+              "dataType": "int",
+              "ordinalPosition": 7
+            }
+          ],
+          "targetDataItem": {
+            "name": "t_ctly",
+            "dataType": "int",
+            "ordinalPosition": 15
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "name": "t_load",
+              "dataType": "int",
+              "ordinalPosition": 2
+            }
+          ],
+          "targetDataItem": {
+            "name": "t_load",
+            "dataType": "int",
+            "ordinalPosition": 10
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "name": "t_nofi",
+              "dataType": "int",
+              "ordinalPosition": 8
+            }
+          ],
+          "targetDataItem": {
+            "name": "t_nofi",
+            "dataType": "int",
+            "ordinalPosition": 16
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "name": "t_path",
+              "dataType": "nvarchar",
+              "characterLength": 250,
+              "ordinalPosition": 4
+            }
+          ],
+          "targetDataItem": {
+            "name": "t_path",
+            "dataType": "nvarchar",
+            "characterLength": 500,
+            "ordinalPosition": 12
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "name": "t_Refcntd",
+              "dataType": "int",
+              "ordinalPosition": 10
+            }
+          ],
+          "targetDataItem": {
+            "name": "t_Refcntd",
+            "dataType": "int",
+            "ordinalPosition": 18
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "name": "t_Refcntu",
+              "dataType": "int",
+              "ordinalPosition": 11
+            }
+          ],
+          "targetDataItem": {
+            "name": "t_Refcntu",
+            "dataType": "int",
+            "ordinalPosition": 19
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "name": "t_size",
+              "dataType": "int",
+              "ordinalPosition": 5
+            }
+          ],
+          "targetDataItem": {
+            "name": "t_size",
+            "dataType": "int",
+            "ordinalPosition": 13
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "name": "t_summ",
+              "dataType": "int",
+              "ordinalPosition": 6
+            }
+          ],
+          "targetDataItem": {
+            "name": "t_summ",
+            "dataType": "int",
+            "ordinalPosition": 14
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "name": "t_tabl",
+              "dataType": "nvarchar",
+              "characterLength": 8,
+              "ordinalPosition": 1
+            }
+          ],
+          "targetDataItem": {
+            "name": "t_tabl",
+            "dataType": "nvarchar",
+            "characterLength": 10,
+            "ordinalPosition": 9
+          }
+        }
+      ],
+      "businessKeys": [
+        {
+          "businessKeyComponentMapping": [
+            {
+              "sourceDataItems": [
+                {
+                  "name": "Company"
+                }
+              ],
+              "targetDataItem": {
+                "name": "Company",
+                "dataType": "int",
+                "ordinalPosition": 8
+              }
+            },
+            {
+              "sourceDataItems": [
+                {
+                  "name": "t_ccmp",
+                  "dataType": "int",
+                  "ordinalPosition": 9
+                }
+              ],
+              "targetDataItem": {
+                "name": "t_ccmp",
+                "dataType": "int",
+                "ordinalPosition": 17
+              }
+            },
+            {
+              "sourceDataItems": [
+                {
+                  "name": "t_tabl",
+                  "dataType": "nvarchar",
+                  "characterLength": 8,
+                  "ordinalPosition": 1
+                }
+              ],
+              "targetDataItem": {
+                "name": "t_tabl",
+                "dataType": "nvarchar",
+                "characterLength": 10,
+                "ordinalPosition": 9
+              }
+            }
+          ],
+          "surrogateKey": "Not applicable"
+        }
+      ],
+      "filterCriterion": "",
+      "enabled": true
+    }
+  ]
+}

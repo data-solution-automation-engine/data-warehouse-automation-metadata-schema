@@ -206,7 +206,7 @@
           "description": "",
           "$ref": "#/definitions/dataConnection"
         },
-        "dataObjectClassification": {
+        "dataObjectClassifications": {
           "$id": "#/definitions/dataObject/properties/dataObjectClassification",
           "description": "Classification for the dataObject (free form).",
           "type": [ "array", "null" ],

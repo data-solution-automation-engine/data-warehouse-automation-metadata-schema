@@ -39,7 +39,7 @@
       "relatedDataObjects": [
         {
           "name": "SAT_CUSTOMER",
-          "dataObjectClassification": [
+          "dataObjectClassifications": [
             {
               "classification": "Lookup",
               "notes": "Lookup table related to the source-to-target mapping"
