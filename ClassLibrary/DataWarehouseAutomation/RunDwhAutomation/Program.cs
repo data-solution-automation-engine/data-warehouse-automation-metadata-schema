@@ -17,14 +17,12 @@ namespace RunDwhAutomation
             #region unit testing
             // Unit testing only.
             //var testArgs = new string[]
-            //{
-            //  //   "-i", @"C:\Github\Data-Warehouse-Automation-Metadata-Schema\ClassLibrary\DataWarehouseAutomation\Sample_Metadata\sampleBasic.json"
-            //     "-i", @"C:\Github\Data-Warehouse-Automation-Metadata-Schema\ClassLibrary\DataWarehouseAutomation\Sample_Metadata\"
-            //    ,"-p", @"C:\Github\Data-Warehouse-Automation-Metadata-Schema\ClassLibrary\DataWarehouseAutomation\Sample_Templates\TemplateSampleBasic.Handlebars"
+            //{    "-i", @"D:\Git_Repos\TEAM\TEAM\bin\Debug\Output\"
+            //    ,"-p", @"D:\Git_Repos\Data_Warehouse_Automation_Metadata_Interface\ClassLibrary\DataWarehouseAutomation\Sample_Templates\TemplateSatelliteView.Handlebars"
             //    ,"-o"
-            //    ,"-d", @"C:\Files\"
+            //    ,"-d", @"D:\Workspace"
             //    ,"-e", "sql"
-            //    ,"-f", "roelant"
+            //    //,"-f", "roelant"
             //    ,"-v"
             //};
 
@@ -40,6 +38,7 @@ namespace RunDwhAutomation
             #endregion
 
             CommandLineArgumentHelper environmentHelper = new CommandLineArgumentHelper();
+            //CommandLineArgumentHelper environmentHelper = new CommandLineArgumentHelper(testArgs);
             string[] localArgs = environmentHelper.args;
 
             Parser.Default.ParseArguments<Options>(localArgs).WithParsed(options =>
@@ -105,10 +104,12 @@ namespace RunDwhAutomation
                     {
                         if (options.outputFileName == null)
                         {
+                            // The outputfilename will be derived from the Json input (mappingName), if available.
                             RunAutomation(options, file);
                         }
                         else
                         {
+                            // The output file name is concatenated as the specified file and a file number to ensure uniqueness.
                             RunAutomation(options, file, options.outputFileName + Array.IndexOf(localFiles, file));
                         }
                     }
@@ -165,7 +166,19 @@ namespace RunDwhAutomation
                     if (outputFileName == "")
                     {
                         //outputFileName = deserialisedMapping.dataObjectMappings[0].mappingName; // you could read this from the free form mapping file, too
-                        outputFileName = (string)freeFormMapping["mappingName"]; // you could read this from the free form mapping file, too
+                        try
+                        {
+                            outputFileName = (string) freeFormMapping["dataObjectMappings"][0]["mappingName"]; 
+                        }
+                        catch
+                        {
+                            outputFileName = Path.GetFileNameWithoutExtension(inputFileName) + '_' +DateTime.Now.ToString("yyyyMMddHHmmss");
+
+                            if (options.verbose)
+                            {
+                                Console.WriteLine($"The standard 'mappingName' segment was not found where expected, so the file name has been defaulted to {outputFileName}.");
+                            }
+                        }
                     }
 
                     Console.WriteLine($"Generating {outputFileName}.{options.outputFileExtension} to {options.outputDirectory}.");
