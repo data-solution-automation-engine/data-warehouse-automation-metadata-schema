@@ -14,6 +14,8 @@ namespace RunDwhAutomation
             // An optimistic start.
             Environment.ExitCode = (int)ExitCode.Success;
 
+            HandleBarsHelpers.RegisterHandleBarsHelpers();
+
             #region unit testing
             // Unit testing only.
             //var testArgs = new string[]
@@ -35,6 +37,16 @@ namespace RunDwhAutomation
             //    ,"-f", "roelant"
             //    ,"-v"
             //};
+
+            //var testArgs = new string[]
+            //{
+            //     "-i", @"D:\RunDwhAutomation\Input\dbo.SAT_DeliveryTypeSalesControl_InforLN.json"
+            //    ,"-p", @"D:\RunDwhAutomation\Pattern\test.handlebars"
+            //    ,"-o"
+            //    ,"-f", "tst"
+            //    ,"-v"
+            //};
+
             #endregion
 
             CommandLineArgumentHelper environmentHelper = new CommandLineArgumentHelper();
@@ -94,7 +106,7 @@ namespace RunDwhAutomation
 
                 #region Core
                 // Do the main stuff
-                HandleBarsHelpers.RegisterHandleBarsHelpers();
+                //HandleBarsHelpers.RegisterHandleBarsHelpers();
                 
                 if (isPath)
                 {
@@ -139,7 +151,7 @@ namespace RunDwhAutomation
             //Console.WriteLine(helpText);
 
  
-            //Console.ReadKey();               
+            Console.ReadKey();               
 
             return Environment.ExitCode;
         }
@@ -151,8 +163,9 @@ namespace RunDwhAutomation
                 var jsonInput = File.ReadAllText(inputFileName);
                 var stringTemplate = File.ReadAllText(options.pattern);
                 var template = Handlebars.Compile(stringTemplate);
-                // var deserialisedMapping = JsonConvert.DeserializeObject<VdwDataObjectMappings>(jsonInput);
-                var freeFormMapping = JObject.Parse(jsonInput);
+
+                 //var deserialisedMapping = JsonConvert.DeserializeObject<VdwDataObjectMappings>(jsonInput);
+                 var freeFormMapping = JObject.Parse(jsonInput);
 
                 var result = template(freeFormMapping);
 

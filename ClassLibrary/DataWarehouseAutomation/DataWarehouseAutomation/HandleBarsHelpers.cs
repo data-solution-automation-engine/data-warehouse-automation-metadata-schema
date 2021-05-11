@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Text;
 using HandlebarsDotNet;
 
@@ -31,10 +30,10 @@ namespace DataWarehouseAutomation
         public static void RegisterHandleBarsHelpers()
         {
             // Generation Date/Time functional helper
-            Handlebars.RegisterHelper("now", (writer, context, parameters) => { writer.WriteSafeString(DateTime.Now); });
+            Handlebars.RegisterHelper("now", (output, context, arguments) => { output.WriteSafeString(DateTime.Now); });
 
             // Generation random date, based on an integer input value
-            Handlebars.RegisterHelper("randomdate", (writer, context, arguments) =>
+            Handlebars.RegisterHelper("randomdate", (output, context, arguments) =>
             {
                 int length = 1995;
 
@@ -52,11 +51,11 @@ namespace DataWarehouseAutomation
                     }
                 }
 
-                writer.WriteSafeString(GetRandomDate(length).Date);
+                output.WriteSafeString(GetRandomDate(length).Date);
             });
 
             // Generation random string, based on an integer input value
-            Handlebars.RegisterHelper("randomnumber", (writer, context, arguments) =>
+            Handlebars.RegisterHelper("randomnumber", (output, context, arguments) =>
             {
                 int length = 10;
 
@@ -74,11 +73,11 @@ namespace DataWarehouseAutomation
                     }
                 }
 
-                writer.WriteSafeString(GetRandomNumber(length));
+                output.WriteSafeString(GetRandomNumber(length));
             });
 
             // Generation random string, based on an integer input value
-            Handlebars.RegisterHelper("randomstring", (writer, context, arguments) =>
+            Handlebars.RegisterHelper("randomstring", (output, context, arguments) =>
             {
                 int length = 10;
 
@@ -98,21 +97,21 @@ namespace DataWarehouseAutomation
 
                 var array = new[]
                 {
-                    "0","2","3","4","5","6","8","9",
+                    "0","1","2","3","4","5","6","8","9",
                     "a","b","c","d","e","f","g","h","j","k","m","n","p","q","r","s","t","u","v","w","x","y","z",
                     "A","B","C","D","E","F","G","H","J","K","L","M","N","P","R","S","T","U","V","W","X","Y","Z"
                 };
                 var sb = new StringBuilder();
                 for (var i = 0; i < length; i++) sb.Append(array[GetRandomNumber(53)]);
 
-                writer.WriteSafeString(sb.ToString());
+                output.WriteSafeString(sb.ToString());
             });
 
 
             // Accept two values, and see if they are the same, use as block helper.
             // Usage {{#stringcompare string1 string2}} do something {{else}} do something else {{/stringcompare}}
             // Usage {{#stringcompare string1 string2}} do something {{/stringcompare}}
-            Handlebars.RegisterHelper("stringcompare", (TextWriter output, HelperOptions options, dynamic context, object[] arguments) =>
+            Handlebars.RegisterHelper("stringcompare", (output, options, context, arguments) =>
             {
                 if (arguments.Length != 2) throw new HandlebarsException("The {{stringcompare}} functions requires exactly two arguments.");
 
@@ -121,18 +120,18 @@ namespace DataWarehouseAutomation
 
                 if (leftString == rightString)
                 {
-                    options.Template(output, (object)context);
+                    options.Template(output, context);
                 }
                 else
                 {
-                    options.Inverse(output, (object)context);
+                    options.Inverse(output, context);
                 }
             });
 
             // Accept two values, and do something if they are the different.
             // Usage {{#stringdiff string1 string2}} do something {{else}} do something else {{/stringdiff}}
-            // Usage {{#stringdiff string1 string2}} do something {{/strinstringdiffgcompare}}
-            Handlebars.RegisterHelper("stringdiff", (TextWriter output, HelperOptions options, dynamic context, object[] arguments) =>
+            // Usage {{#stringdiff string1 string2}} do something {{/stringdiff}}
+            Handlebars.RegisterHelper("stringdiff", (output, options, context, arguments) =>
             {
                 if (arguments.Length != 2) throw new HandlebarsException("The {{stringdiff}} functions requires exactly two arguments.");
 
@@ -149,9 +148,7 @@ namespace DataWarehouseAutomation
                 }
             });
 
-
-
-            Handlebars.RegisterHelper("replicate", (TextWriter output, HelperOptions options, dynamic context, object[] arguments) =>
+            Handlebars.RegisterHelper("replicate", (output, options, context, arguments) =>
             {
                 if (arguments.Length != 1) throw new HandlebarsException("The {{replicate}} functions requires a single integer value as input.");
 

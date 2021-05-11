@@ -179,6 +179,31 @@
             An 'else' error.
             </summary>
         </member>
+        <member name="F:Newtonsoft.Json.Schema.ErrorType.MaximumContains">
+            <summary>
+            A 'maxContains' error.
+            </summary>
+        </member>
+        <member name="F:Newtonsoft.Json.Schema.ErrorType.MinimumContains">
+            <summary>
+            A 'minContains' error.
+            </summary>
+        </member>
+        <member name="F:Newtonsoft.Json.Schema.ErrorType.UnevaluatedItems">
+            <summary>
+            An 'unevaluatedItems' error.
+            </summary>
+        </member>
+        <member name="F:Newtonsoft.Json.Schema.ErrorType.UnevaluatedProperties">
+            <summary>
+            An 'unevaluatedProperties' error.
+            </summary>
+        </member>
+        <member name="F:Newtonsoft.Json.Schema.ErrorType.Ref">
+            <summary>
+            A 'ref' error.
+            </summary>
+        </member>
         <member name="T:Newtonsoft.Json.Schema.ExternalSchema">
             <summary>
             Represents an external <see cref="T:Newtonsoft.Json.Schema.JSchema"/>.
@@ -491,13 +516,6 @@
             </summary>
             <typeparam name="T">The object type to create.</typeparam>
         </member>
-        <member name="M:Newtonsoft.Json.Schema.Infrastructure.ReflectionUtils.GetCollectionItemType(System.Type)">
-            <summary>
-            Gets the type of the typed collection's items.
-            </summary>
-            <param name="type">The type.</param>
-            <returns>The type of the typed collection's items.</returns>
-        </member>
         <member name="M:Newtonsoft.Json.Schema.Infrastructure.ReflectionUtils.CanReadMemberValue(System.Reflection.MemberInfo,System.Boolean)">
             <summary>
             Determines whether the specified MemberInfo can be read.
@@ -541,9 +559,29 @@
             Validating JSON with a schema that has a not null <see cref="P:Newtonsoft.Json.Schema.JSchema.Reference"/> value will error.
             </summary>
         </member>
+        <member name="P:Newtonsoft.Json.Schema.JSchema.Ref">
+            <summary>
+            Gets or sets the $ref schema.
+            </summary>
+        </member>
+        <member name="P:Newtonsoft.Json.Schema.JSchema.RecursiveReference">
+            <summary>
+            Gets or sets the $recursiveRef.
+            </summary>
+        </member>
+        <member name="P:Newtonsoft.Json.Schema.JSchema.RecursiveAnchor">
+            <summary>
+            Gets or sets the $recursiveAnchor.
+            </summary>
+        </member>
         <member name="P:Newtonsoft.Json.Schema.JSchema.Id">
             <summary>
             Gets or sets the schema ID.
+            </summary>
+        </member>
+        <member name="P:Newtonsoft.Json.Schema.JSchema.Anchor">
+            <summary>
+            Gets or sets the schema anchor.
             </summary>
         </member>
         <member name="P:Newtonsoft.Json.Schema.JSchema.Type">
@@ -716,6 +754,18 @@
             </summary>
             <value>The maximum number of object properties.</value>
         </member>
+        <member name="P:Newtonsoft.Json.Schema.JSchema.MinimumContains">
+            <summary>
+            Gets or sets the minimum number of contains matches.
+            </summary>
+            <value>The minimum number of contains matches.</value>
+        </member>
+        <member name="P:Newtonsoft.Json.Schema.JSchema.MaximumContains">
+            <summary>
+            Gets or sets the maximum number of contains matches.
+            </summary>
+            <value>The maximum number of contains matches.</value>
+        </member>
         <member name="P:Newtonsoft.Json.Schema.JSchema.ContentEncoding">
             <summary>
             Gets or sets the content encoding of a string.
@@ -822,11 +872,15 @@
             Gets the object property dependencies.
             </summary>
         </member>
-        <member name="P:Newtonsoft.Json.Schema.JSchema.AdditionalProperties">
+        <member name="P:Newtonsoft.Json.Schema.JSchema.DependentRequired">
             <summary>
-            Gets or sets the <see cref="T:Newtonsoft.Json.Schema.JSchema"/> for additional properties.
+            Gets the dependent required properties.
             </summary>
-            <value>The <see cref="T:Newtonsoft.Json.Schema.JSchema"/> for additional properties.</value>
+        </member>
+        <member name="P:Newtonsoft.Json.Schema.JSchema.DependentSchemas">
+            <summary>
+            Gets the dependent schemas.
+            </summary>
         </member>
         <member name="P:Newtonsoft.Json.Schema.JSchema.PatternProperties">
             <summary>
@@ -834,12 +888,38 @@
             </summary>
             <value>The object pattern properties.</value>
         </member>
+        <member name="P:Newtonsoft.Json.Schema.JSchema.AdditionalProperties">
+            <summary>
+            Gets or sets the <see cref="T:Newtonsoft.Json.Schema.JSchema"/> for additional properties.
+            </summary>
+            <value>The <see cref="T:Newtonsoft.Json.Schema.JSchema"/> for additional properties.</value>
+        </member>
         <member name="P:Newtonsoft.Json.Schema.JSchema.AllowAdditionalProperties">
             <summary>
             Gets or sets a value indicating whether additional properties are allowed.
             </summary>
             <value>
             	<c>true</c> if additional properties are allowed; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Newtonsoft.Json.Schema.JSchema.AllowAdditionalPropertiesSpecified">
+            <summary>
+            Gets or sets a flag indicating whether <see cref="P:Newtonsoft.Json.Schema.JSchema.AllowAdditionalProperties"/> has a value set.
+            Setting <see cref="P:Newtonsoft.Json.Schema.JSchema.AllowAdditionalPropertiesSpecified"/> to false will clear the set value.
+            </summary>
+        </member>
+        <member name="P:Newtonsoft.Json.Schema.JSchema.UnevaluatedProperties">
+            <summary>
+            Gets or sets the <see cref="T:Newtonsoft.Json.Schema.JSchema"/> for unevaluated properties.
+            </summary>
+            <value>The <see cref="T:Newtonsoft.Json.Schema.JSchema"/> for unevaluated properties.</value>
+        </member>
+        <member name="P:Newtonsoft.Json.Schema.JSchema.AllowUnevaluatedProperties">
+            <summary>
+            Gets or sets a value indicating whether unevaluated properties are allowed.
+            </summary>
+            <value>
+            	<c>true</c> if unevaluated properties are allowed; otherwise, <c>false</c>.
             </value>
         </member>
         <member name="P:Newtonsoft.Json.Schema.JSchema.AdditionalItems">
@@ -854,6 +934,26 @@
             </summary>
             <value>
             	<c>true</c> if additional items are allowed; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Newtonsoft.Json.Schema.JSchema.AllowAdditionalItemsSpecified">
+            <summary>
+            Gets or sets a flag indicating whether <see cref="P:Newtonsoft.Json.Schema.JSchema.AllowAdditionalItems"/> has a value set.
+            Setting <see cref="P:Newtonsoft.Json.Schema.JSchema.AllowAdditionalItemsSpecified"/> to false will clear the set value.
+            </summary>
+        </member>
+        <member name="P:Newtonsoft.Json.Schema.JSchema.UnevaluatedItems">
+            <summary>
+            Gets or sets the <see cref="T:Newtonsoft.Json.Schema.JSchema"/> for unevaluated items.
+            </summary>
+            <value>The <see cref="T:Newtonsoft.Json.Schema.JSchema"/> for unevaluated items.</value>
+        </member>
+        <member name="P:Newtonsoft.Json.Schema.JSchema.AllowUnevaluatedItems">
+            <summary>
+            Gets or sets a value indicating whether unevaluated items are allowed.
+            </summary>
+            <value>
+            	<c>true</c> if unevaluated items are allowed; otherwise, <c>false</c>.
             </value>
         </member>
         <member name="P:Newtonsoft.Json.Schema.JSchema.Format">
@@ -1744,6 +1844,12 @@
             </code>
             </example>
         </member>
+        <member name="M:Newtonsoft.Json.Schema.License.HasRegisteredLicense">
+            <summary>
+            Get a flag indicating whether license has been registered. A license is registered using <see cref="M:Newtonsoft.Json.Schema.License.RegisterLicense(System.String)"/>.
+            </summary>
+            <returns><c>true</c> if a license has been registered; otherwise <c>false</c>.</returns>
+        </member>
         <member name="T:Newtonsoft.Json.Schema.ResolveSchemaContext">
             <summary>
             Describes the schema ID and its context when resolving a schema.
@@ -1889,6 +1995,11 @@
             Draft 7. Schema URI <c>http://json-schema.org/draft-07/schema#</c>.
             </summary>
         </member>
+        <member name="F:Newtonsoft.Json.Schema.SchemaVersion.Draft2019_09">
+            <summary>
+            Draft 2019-09. Schema URI <c>https://json-schema.org/draft/2019-09/schema</c>.
+            </summary>
+        </member>
         <member name="T:Newtonsoft.Json.Schema.ValidationError">
             <summary>
             Represents a JSON Schema validation error.
@@ -1953,6 +2064,104 @@
             Gets the <see cref="T:Newtonsoft.Json.Schema.ValidationError"/>'s child errors.
             </summary>
             <value>The <see cref="T:Newtonsoft.Json.Schema.ValidationError"/>'s child errors.</value>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullAttribute">
+            <summary>Specifies that an output will not be null even if the corresponding type allows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute">
+            <summary>Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue"/>, the parameter will not be null even if the corresponding type allows it.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified return value condition.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute">
+            <summary>Specifies that the output will be non-null if the named parameter is non-null.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.#ctor(System.String)">
+            <summary>Initializes the attribute with the associated parameter name.</summary>
+            <param name="parameterName">
+            The associated parameter name.  The output will be non-null if the argument to the parameter specified is non-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.ParameterName">
+            <summary>Gets the associated parameter name.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullAttribute">
+            <summary>Specifies that an output may be null even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.AllowNullAttribute">
+            <summary>Specifies that null is allowed as an input even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute">
+            <summary>Applied to a method that will never return under any circumstance.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute">
+            <summary>
+            Specifies that the method will not return if the associated Boolean parameter is passed the specified value.
+            </summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute"/> class.
+            </summary>
+            <param name="parameterValue">
+            The condition parameter value. Code after the method will be considered unreachable by diagnostics if the argument to
+            the associated parameter matches this value.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.ParameterValue">
+            <summary>Gets the condition parameter value.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute">
+            <summary>Specifies that the method or property will ensure that the listed field and property members have not-null values.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String)">
+            <summary>Initializes the attribute with a field or property member.</summary>
+            <param name="member">
+            The field or property member that is promised to be not-null.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String[])">
+            <summary>Initializes the attribute with the list of field and property members.</summary>
+            <param name="members">
+            The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.Members">
+            <summary>Gets field or property member names.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute">
+            <summary>Specifies that the method or property will ensure that the listed field and property members have not-null values when returning with the specified return value condition.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String)">
+            <summary>Initializes the attribute with the specified return value condition and a field or property member.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+            <param name="member">
+            The field or property member that is promised to be not-null.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String[])">
+            <summary>Initializes the attribute with the specified return value condition and list of field and property members.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+            <param name="members">
+            The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.Members">
+            <summary>Gets field or property member names.</summary>
         </member>
     </members>
 </doc>

@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using DataWarehouseAutomation;
 using HandlebarsDotNet;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 
@@ -13,6 +14,7 @@ namespace Example_Handlebars
         {
             HandleBarsHelpers.RegisterHandleBarsHelpers();
 
+
             DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleBasic.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleBasic.json");
             DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleBasicWithExtensions.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleBasicWithExtensions.json");
             DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleMultipleDataItemMappings.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleMultipleDataItemMappings.json");
@@ -20,6 +22,7 @@ namespace Example_Handlebars
             DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleCalculation.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleCalculation.json");
             DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSatelliteView.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleVDW_Sat_Customer_v161.json");
             DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleFreeForm.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleFreeForm.json");
+
 
             Console.ReadKey();
         }
@@ -35,7 +38,7 @@ namespace Example_Handlebars
                 // Fetch the content of the Json files
                 string jsonInput = File.ReadAllText(jsonMetadataFile);
                 
-                //deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappings>(jsonInput);
+                //var deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappings>(jsonInput);
                 var deserialisedMapping = JObject.Parse(jsonInput);
                 
                 var result = template(deserialisedMapping);
