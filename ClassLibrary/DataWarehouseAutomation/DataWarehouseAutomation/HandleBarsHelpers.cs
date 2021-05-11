@@ -35,76 +35,72 @@ namespace DataWarehouseAutomation
             // Generation random date, based on an integer input value
             Handlebars.RegisterHelper("randomdate", (output, context, arguments) =>
             {
-                int length = 1995;
-
                 if (arguments.Length > 1)
                 {
-                    throw new HandlebarsException("The {{randomdate}} function requires either a single integer (year e.g. 1995) value or no parameters.");
+                    throw new HandlebarsException("The {{randomdate}} function requires a single integer (year e.g. 1995) value as input.");
                 }
 
                 if (arguments.Length == 1)
                 {
-                    bool evaluationResult = int.TryParse((string)arguments[0], out length);
+                    bool evaluationResult = Int32.TryParse(arguments[0].ToString(), out var localInteger);
                     if (evaluationResult == false)
                     {
                         throw new HandlebarsException($"The {{randomdate}} functions failed because {arguments[0]} could not be converted to an integer.");
                     }
+
+                    output.WriteSafeString(GetRandomDate(localInteger).Date);
                 }
 
-                output.WriteSafeString(GetRandomDate(length).Date);
+
             });
 
             // Generation random string, based on an integer input value
             Handlebars.RegisterHelper("randomnumber", (output, context, arguments) =>
             {
-                int length = 10;
-
                 if (arguments.Length > 1)
                 {
-                    throw new HandlebarsException("The {{randomnumber}} function requires either a single integer value or no parameters.");
+                    throw new HandlebarsException("The {{randomnumber}} function requires a single integer value as input.");
                 }
 
                 if (arguments.Length == 1)
                 {
-                    bool evaluationResult = int.TryParse((string)arguments[0], out length);
+                    bool evaluationResult = Int32.TryParse(arguments[0].ToString(), out var localInteger);
                     if (evaluationResult == false)
                     {
                         throw new HandlebarsException($"The {{randomnumber}} functions failed because {arguments[0]} could not be converted to an integer.");
                     }
+                    output.WriteSafeString(GetRandomNumber(localInteger));
                 }
-
-                output.WriteSafeString(GetRandomNumber(length));
             });
 
             // Generation random string, based on an integer input value
             Handlebars.RegisterHelper("randomstring", (output, context, arguments) =>
             {
-                int length = 10;
-
                 if (arguments.Length > 1)
                 {
-                    throw new HandlebarsException("The {{randomstring}} function requires either a single integer value or no parameters.");
+                    throw new HandlebarsException("The {{randomstring}} function requires a single integer value as input.");
                 }
 
                 if (arguments.Length == 1)
                 {
-                    bool evaluationResult = int.TryParse((string)arguments[0], out length);
+                    bool evaluationResult = Int32.TryParse(arguments[0].ToString(), out var localInteger);
+
                     if (evaluationResult == false)
                     {
                         throw new HandlebarsException($"The {{randomstring}} functions failed because {arguments[0]} could not be converted to an integer.");
                     }
+
+                    var array = new[]
+                    {
+                        "0","1","2","3","4","5","6","8","9",
+                        "a","b","c","d","e","f","g","h","j","k","m","n","p","q","r","s","t","u","v","w","x","y","z",
+                        "A","B","C","D","E","F","G","H","J","K","L","M","N","P","R","S","T","U","V","W","X","Y","Z"
+                    };
+                    var sb = new StringBuilder();
+                    for (var i = 0; i < localInteger; i++) sb.Append(array[GetRandomNumber(53)]);
+
+                    output.WriteSafeString(sb.ToString());
                 }
-
-                var array = new[]
-                {
-                    "0","1","2","3","4","5","6","8","9",
-                    "a","b","c","d","e","f","g","h","j","k","m","n","p","q","r","s","t","u","v","w","x","y","z",
-                    "A","B","C","D","E","F","G","H","J","K","L","M","N","P","R","S","T","U","V","W","X","Y","Z"
-                };
-                var sb = new StringBuilder();
-                for (var i = 0; i < length; i++) sb.Append(array[GetRandomNumber(53)]);
-
-                output.WriteSafeString(sb.ToString());
             });
 
 
@@ -150,37 +146,37 @@ namespace DataWarehouseAutomation
 
             Handlebars.RegisterHelper("replicate", (output, options, context, arguments) =>
             {
-                if (arguments.Length != 1) throw new HandlebarsException("The {{replicate}} functions requires a single integer value as input.");
-
-                int length = 10;
-
                 if (arguments.Length != 1)
                 {
-                    throw new HandlebarsException("The {{replicate}} function requires either a single integer value or no parameters.");
+                    throw new HandlebarsException("The {{replicate}} functions requires a single integer value as input.");
                 }
 
                 if (arguments.Length == 1)
                 {
-                    bool evaluationResult = int.TryParse((string)arguments[0], out length);
+                    bool evaluationResult = Int32.TryParse(arguments[0].ToString(), out var localInteger);
+
                     if (evaluationResult == false)
                     {
                         throw new HandlebarsException($"The {{replicate}} functions failed because {arguments[0]} could not be converted to an integer.");
                     }
+
+                    for (var i = 0; i < localInteger; ++i)
+                    {
+                        options.Template(output, (object)context);
+                    }
                 }
-
-
-                for (var i = 0; i < length; ++i)
-                {
-                    options.Template(output, (object)context);
-                }
-
             });
 
             // Character spacing not satisfactory? Do not panic, help is near! Make sure the character spacing is righteous using this Handlebars helper.
             // Usage {{space sourceDataObject.name}} will space out (!?) the name of the source to 30 characters and a few tabs for lots of white spaces.
-            Handlebars.RegisterHelper("space", (writer, context, args) =>
+            Handlebars.RegisterHelper("space", (writer, context, arguments) =>
             {
-                string outputString = args[0].ToString();
+                if (arguments.Length != 1)
+                {
+                    throw new HandlebarsException("The {{space}} functions requires an input string value to space out against.");
+                }
+
+                string outputString = arguments[0].ToString();
                 if (outputString.Length < 30)
                 {
                     outputString = outputString.PadRight(30);
@@ -188,6 +184,7 @@ namespace DataWarehouseAutomation
                 writer.WriteSafeString(outputString + "\t\t\t\t");
 
             });
+
 
             Handlebars.RegisterHelper("StringReplace", (writer, context, args) =>
             {

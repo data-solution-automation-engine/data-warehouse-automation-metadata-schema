@@ -1,0 +1,18 @@
+The time is {{now}}.
+
+{{#replicate 10}}
+This value is replicated 10 times!
+{{/replicate}}
+
+And here is a random string: {{randomstring 10}}.
+And a random date: {{randomdate 2020}}
+And a random number: {{randomnumber 10}}
+
+A and B {{#stringcompare "A" "B"}}are the same. {{else}}are not the same. {{/stringcompare}}
+
+A and B {{#stringdiff "A" "B"}}are different. {{else}}are not different. {{/stringdiff}}
+
+This is {{space "Roelant"}} spaced out.
+
+This replaces the a's in Roelant with an !: {{StringReplace "Roelant" "a" "!"}}
+
