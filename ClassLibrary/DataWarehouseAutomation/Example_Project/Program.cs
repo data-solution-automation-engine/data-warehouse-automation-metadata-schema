@@ -13,7 +13,6 @@ namespace Example_Handlebars
         {
             HandleBarsHelpers.RegisterHandleBarsHelpers();
 
-            /*
             DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleBasic.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleBasic.json");
             DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleBasicWithExtensions.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleBasicWithExtensions.json");
             DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleMultipleDataItemMappings.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleMultipleDataItemMappings.json");
@@ -21,7 +20,6 @@ namespace Example_Handlebars
             DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleCalculation.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleCalculation.json");
             DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSatelliteView.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleVDW_Sat_Customer_v161.json");
             DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleFreeForm.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleFreeForm.json");
-            */
             DisplayPatternResult(AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Templates\TemplateSampleCustomFunctions.handlebars", AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\Sample_Metadata\sampleCustomFunctions.json");
 
 
