@@ -151,7 +151,7 @@ namespace RunDwhAutomation
             //Console.WriteLine(helpText);
 
  
-            Console.ReadKey();               
+            //Console.ReadKey();               
 
             return Environment.ExitCode;
         }
