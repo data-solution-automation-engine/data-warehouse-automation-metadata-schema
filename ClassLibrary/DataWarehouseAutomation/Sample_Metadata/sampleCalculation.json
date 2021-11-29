@@ -14,7 +14,40 @@
         {
           "sourceDataItems": [
             {
-              "dataQueryCode": "SELECT 10/2"
+              "dataQueryCode": "10/2"
+            }
+          ],
+          "targetDataItem": {
+            "name": "DivisionResult"
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "dataQueryCode": "'HelloWorld'"
+            }
+          ],
+          "targetDataItem": {
+            "name": "FixedTextResult"
+          }
+        }
+      ]
+    },
+    {
+      "mappingName": "Mapping2",
+      "sourceDataObjects": [
+        {
+          "name": "SourceTable"
+        }
+      ],
+      "targetDataObject": {
+        "name": "TargetTable"
+      },
+      "dataItemMappings": [
+        {
+          "sourceDataItems": [
+            {
+              "dataQueryCode": "10/2"
             }
           ],
           "targetDataItem": {
@@ -30,29 +63,8 @@
           "targetDataItem": {
             "name": "Columns2Target"
           }
-        },
-        {
-          "sourceDataItems": [
-            {
-              "name": "Column3Source"
-            }
-          ],
-          "targetDataItem": {
-            "name": "Columns3Target"
-          }
         }
       ]
-    },
-    {
-      "mappingName": "Mapping2",
-      "sourceDataObjects": [
-        {
-          "dataQueryCode": "MAX(amount) AS amount"
-        }
-      ],
-      "targetDataObject": {
-        "name": "TargetTable"
-      }
     }
   ]
 }

@@ -3,11 +3,10 @@
 
 --Working on {{mappingName}}.
 
-SELECT {{sourceDataObjects.0.dataQueryCode}}
+SELECT
 {{#each dataItemMappings}}
-  {{sourceDataItems.0.name}}{{sourceDataItems.0.dataQueryCode}} as {{targetDataItem.name}}{{#unless @last}},{{/unless}}
+{{sourceDataItems.0.name}}{{sourceDataItems.0.dataQueryCode}} as {{targetDataItem.name}}{{#unless @last}},{{/unless}}
 {{/each}}
-FROM {{targetDataObject.name}}
+--FROM {{targetDataObject.name}}
 
 {{/each}}
-
