@@ -103,13 +103,31 @@ namespace DataWarehouseAutomation
                 }
             });
 
+            Handlebars.RegisterHelper("stringwrap", (writer, context, args) =>
+            {
+                if (args.Length != 3) throw new HandlebarsException("The {{stringwrap}} function requires exactly three arguments, an object and the string to wrap its value in.");
+
+                if (args[0].GetType().Name != "UndefinedBindingResult")
+                {
+                    try
+                    {
+                        writer.Write(
+                            string.Concat(args[1].ToString(), args[0].ToString(), args[2].ToString()));
+                    }
+                    catch (Exception ex)
+                    {
+                        writer.WriteSafeString("An issue has been encountered: " + ex.Message + ".");
+                    }
+                }
+            });
+
 
             // Accept two values, and see if they are the same, use as block helper.
             // Usage {{#stringcompare string1 string2}} do something {{else}} do something else {{/stringcompare}}
             // Usage {{#stringcompare string1 string2}} do something {{/stringcompare}}
             Handlebars.RegisterHelper("stringcompare", (output, options, context, arguments) =>
             {
-                if (arguments.Length != 2) throw new HandlebarsException("The {{stringcompare}} functions requires exactly two arguments.");
+                if (arguments.Length != 2) throw new HandlebarsException("The {{stringcompare}} function requires exactly two arguments.");
 
                 var leftString = arguments[0] == null ? "" : arguments[0].ToString();
                 var rightString = arguments[1] == null ? "" : arguments[1].ToString();

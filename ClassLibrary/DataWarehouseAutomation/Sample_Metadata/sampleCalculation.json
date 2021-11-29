@@ -1,39 +1,6 @@
 ﻿{
   "dataObjectMappings": [
     {
-      "mappingName": "Mapping1",
-      "sourceDataObjects": [
-        {
-          "name": "SourceTable"
-        }
-      ],
-      "targetDataObject": {
-        "name": "TargetTable"
-      },
-      "dataItemMappings": [
-        {
-          "sourceDataItems": [
-            {
-              "dataQueryCode": "10/2"
-            }
-          ],
-          "targetDataItem": {
-            "name": "DivisionResult"
-          }
-        },
-        {
-          "sourceDataItems": [
-            {
-              "dataQueryCode": "'HelloWorld'"
-            }
-          ],
-          "targetDataItem": {
-            "name": "FixedTextResult"
-          }
-        }
-      ]
-    },
-    {
       "mappingName": "Mapping2",
       "sourceDataObjects": [
         {

@@ -5,7 +5,9 @@
 
 SELECT
 {{#each dataItemMappings}}
-{{sourceDataItems.0.name}}{{sourceDataItems.0.dataQueryCode}} as {{targetDataItem.name}}{{#unless @last}},{{/unless}}
+{{#each sourceDataItems}}
+{{stringwrap name "[" "]"}}{{dataQueryCode}} as {{../targetDataItem.name}}{{#unless @last}},{{/unless}}
+{{/each}}
 {{/each}}
 --FROM {{targetDataObject.name}}
 
