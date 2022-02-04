@@ -1,7 +1,7 @@
 ﻿{
   "dataObjectMappings": [
     {
-      "mappingName": "Mapping2",
+      "mappingName": "CalculationExample",
       "sourceDataObjects": [
         {
           "name": "SourceTable"
