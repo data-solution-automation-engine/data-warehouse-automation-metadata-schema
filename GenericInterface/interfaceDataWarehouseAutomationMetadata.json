@@ -356,6 +356,12 @@
           "description": "Unique name which identifies the column / attribute.",
           "type": "string"
         },
+        "dataObject": {
+          "$id": "#/definitions/dataItem/properties/dataObject",
+          "description": "The data object of the data item, which may be required when the data item is used in a data item mapping context.",
+          "type": [ "object", "null" ],
+          "$ref": "#/definitions/dataObject"
+        },
         "dataType": {
           "description": "Optional. Label of the data type",
           "type": [ "string", "null" ]
