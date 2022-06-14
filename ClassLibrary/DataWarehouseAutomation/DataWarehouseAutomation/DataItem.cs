@@ -10,6 +10,12 @@ namespace DataWarehouseAutomation
         [JsonProperty]
         public string name { get; set; } // Mandatory
 
+        /// <summary>
+        /// The target object of the mapping.
+        /// </summary>
+        [JsonProperty("dataObject", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public DataObject dataObject { get; set; }
+
         [JsonProperty("dataType", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string dataType { get; set; }
 
