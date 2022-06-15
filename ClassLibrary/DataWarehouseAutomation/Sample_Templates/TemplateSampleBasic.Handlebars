@@ -3,6 +3,10 @@
 
 --Working on {{mappingName}}.
 
-SELECT * FROM {{targetDataObject.name}} WHERE {{dataItemMappings.0.targetDataItem.name}}!=NULL
-
+SELECT
+{{#each dataItemMappings}}
+  {{sourceDataItems.0.name}} AS {{targetDataItem.name}}{{#unless @last}},{{/unless}}
+{{/each}}
+FROM [{{targetDataObject.name}}]
+WHERE {{dataItemMappings.0.targetDataItem.name}}!=NULL
 {{/each}}
