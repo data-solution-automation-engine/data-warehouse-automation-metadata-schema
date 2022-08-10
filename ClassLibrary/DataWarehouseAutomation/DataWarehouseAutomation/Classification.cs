@@ -8,7 +8,7 @@ namespace DataWarehouseAutomation
     public class Classification
     {
         /// <summary>
-        /// Optional identifier for the classification
+        /// Optional identifier for the classification.
         /// </summary>
         [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public int id { get; set; }

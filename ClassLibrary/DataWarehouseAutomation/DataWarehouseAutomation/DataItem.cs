@@ -11,7 +11,7 @@ namespace DataWarehouseAutomation
         public string name { get; set; } // Mandatory
 
         /// <summary>
-        /// The target object of the mapping.
+        /// The data object to which the data item belongs. This can be used to construct fully qualified names.
         /// </summary>
         [JsonProperty("dataObject", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public DataObject dataObject { get; set; }
