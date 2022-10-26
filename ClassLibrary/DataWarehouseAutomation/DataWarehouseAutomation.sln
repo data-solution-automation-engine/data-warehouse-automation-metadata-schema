@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29920.165
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataWarehouseAutomation", "DataWarehouseAutomation\DataWarehouseAutomation.csproj", "{F0458983-9646-42E6-9E18-90AD91288B40}"
 EndProject
@@ -26,10 +26,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Metadata", "Sample M
 		Sample_Metadata\sampleMultipleDataItemMappings.json = Sample_Metadata\sampleMultipleDataItemMappings.json
 		Sample_Metadata\sampleSimpleDDL.json = Sample_Metadata\sampleSimpleDDL.json
 		Sample_Metadata\sampleSourceQuery.json = Sample_Metadata\sampleSourceQuery.json
+		Sample_Metadata\sampleTEAMv16.json = Sample_Metadata\sampleTEAMv16.json
 		Sample_Metadata\sampleTEAM_Hub.json = Sample_Metadata\sampleTEAM_Hub.json
 		Sample_Metadata\sampleTEAM_Hub_v161.json = Sample_Metadata\sampleTEAM_Hub_v161.json
 		Sample_Metadata\sampleTEAM_LSAT.json = Sample_Metadata\sampleTEAM_LSAT.json
-		Sample_Metadata\sampleTEAMv16.json = Sample_Metadata\sampleTEAMv16.json
 		Sample_Metadata\sampleVDW_Hub.json = Sample_Metadata\sampleVDW_Hub.json
 		Sample_Metadata\sampleVDW_HubWithLookup.json = Sample_Metadata\sampleVDW_HubWithLookup.json
 		Sample_Metadata\sampleVDW_Sat_Customer_v161.json = Sample_Metadata\sampleVDW_Sat_Customer_v161.json
@@ -51,6 +51,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples", "Example_Project\Examples.csproj", "{F77AC518-6300-4927-8775-B92CDF15CC8E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunDwhAutomation", "RunDwhAutomation\RunDwhAutomation.csproj", "{62C992C6-370D-4591-B54E-2F61E2D8B638}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{1482BB6E-A931-494F-9D09-93F9E12F6DEB}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Images\Ravos-logo-small_transparant.ico = ..\..\Images\Ravos-logo-small_transparant.ico
+		..\..\Images\Ravos-logo.png = ..\..\Images\Ravos-logo.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

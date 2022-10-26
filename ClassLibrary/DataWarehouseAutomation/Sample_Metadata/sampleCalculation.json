@@ -14,21 +14,21 @@
         {
           "sourceDataItems": [
             {
-              "dataQueryCode": "10/2"
+              "dataQueryCode": "SUBSTRING([Customer_Full_Name],1,INSTR(' '))"
             }
           ],
           "targetDataItem": {
-            "name": "TargetColumn"
+            "name": "CustomerFirstName"
           }
         },
         {
           "sourceDataItems": [
             {
-              "name": "Column2Source"
+              "dataQueryCode": "SUBSTRING([Customer_Full_Name],INSTR(' '),LEN([Customer_Full_Name)])"
             }
           ],
           "targetDataItem": {
-            "name": "Columns2Target"
+            "name": "Customer_Last_Name"
           }
         }
       ]

@@ -2,8 +2,7 @@ using System;
 using System.IO;
 using DataWarehouseAutomation;
 using HandlebarsDotNet;
-using Newtonsoft.Json.Linq;
-
+using Newtonsoft.Json;
 
 namespace Example_Handlebars
 {
@@ -36,8 +35,8 @@ namespace Example_Handlebars
                 // Fetch the content of the Json files
                 string jsonInput = File.ReadAllText(jsonMetadataFile);
                 
-                //var deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappings>(jsonInput);
-                var deserialisedMapping = JObject.Parse(jsonInput);
+                var deserialisedMapping = JsonConvert.DeserializeObject<DataObjectMappings>(jsonInput);
+                //var deserialisedMapping = JObject.Parse(jsonInput);
                 
                 var result = template(deserialisedMapping);
                 Console.WriteLine(result);

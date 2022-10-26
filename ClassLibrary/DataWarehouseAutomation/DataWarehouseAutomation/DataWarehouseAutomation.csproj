@@ -4,7 +4,30 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Version>1.2.0</Version>
     <Authors>Roelant Vos</Authors>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Data Warehouse Automation</Title>
+    <PackageProjectUrl>https://roelantvos.com/blog/interface-for-data-warehouse-automation/</PackageProjectUrl>
+    <PackageIcon>Ravos-logo.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/RoelantVos/data-warehouse-automation-metadata-schema</RepositoryUrl>
+    <PackageTags>data warehouse; etl; data integration; data warehouse automation</PackageTags>
+    <Description>The generic schema for Data Warehouse Automation covers the efforts towards defining a standard interface to exchange Data Warehouse Automation and ETL generation metadata.
+
+The schema provides a generic API / information exchange format for source-to-target mapping information. The schema definition covers the metadata that is needed to generate Data Warehouse structures and processes, such as ETL.
+
+The interface itself is a Json schema definition (JSDL) with examples on how to use, as well as libraries for validation and code snippets.</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\Images\Ravos-logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Handlebars.Net" Version="2.0.7" />

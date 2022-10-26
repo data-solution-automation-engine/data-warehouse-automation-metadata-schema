@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace DataWarehouseAutomation
 {
@@ -20,16 +19,16 @@ namespace DataWarehouseAutomation
         public string dataType { get; set; }
 
         [JsonProperty("characterLength", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public int characterLength { get; set; }
+        public int? characterLength { get; set; }
 
         [JsonProperty("numericPrecision", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public int numericPrecision { get; set; }
+        public int? numericPrecision { get; set; }
 
         [JsonProperty("numericScale", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public int numericScale { get; set; }
+        public int? numericScale { get; set; }
 
         [JsonProperty("ordinalPosition", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public int ordinalPosition { get; set; }
+        public int? ordinalPosition { get; set; }
 
         [JsonProperty("isPrimaryKey", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public bool isPrimaryKey { get; set; }

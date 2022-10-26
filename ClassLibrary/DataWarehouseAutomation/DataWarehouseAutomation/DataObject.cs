@@ -9,7 +9,7 @@ namespace DataWarehouseAutomation
         /// An optional identifier for the Data Object.
         /// </summary>
         [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public int id { get; set; }
+        public int? id { get; set; }
 
         /// <summary>
         /// The mandatory name of the Data Object.
@@ -33,7 +33,7 @@ namespace DataWarehouseAutomation
         /// Free-form and optional classification for the Data Object for use in ETL generation logic (evaluation).
         /// </summary>
         [JsonProperty("dataObjectClassifications", NullValueHandling = NullValueHandling.Ignore)]
-        public List<Classification> dataObjectClassification { get; set; }
+        public List<Classification> dataObjectClassifications { get; set; }
 
         /// <summary>
         /// The collection of extension Key/Value pairs.
