@@ -31,10 +31,10 @@ namespace DataWarehouseAutomation
         public int? ordinalPosition { get; set; }
 
         [JsonProperty("isPrimaryKey", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool isPrimaryKey { get; set; }
+        public bool? isPrimaryKey { get; set; }
 
         [JsonProperty("isHardCodedValue", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public bool isHardCodedValue { get; set; }
+        public bool? isHardCodedValue { get; set; }
 
         /// <summary>
         /// Free-form and optional classification for the Data Item for use in generation logic (evaluation).
