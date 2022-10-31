@@ -9,11 +9,11 @@ namespace DataWarehouseAutomation
         /// <summary>
         /// An optional name for the query.
         /// </summary>
-        [JsonProperty("dataQueryName")]
+        [JsonProperty("dataQueryName", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string dataQueryName { get; set; }
 
         /// <summary>
-        /// The actual code that constitutes the query.
+        /// The actual code that constitutes the query. This is a mandatory field.
         /// </summary>
         [JsonProperty("dataQueryCode")]
         public string dataQueryCode { get; set; }
@@ -21,19 +21,19 @@ namespace DataWarehouseAutomation
         /// <summary>
         /// The language that the code was written in (e.g. SQL).
         /// </summary>
-        [JsonProperty("dataQueryLanguage")]
+        [JsonProperty("dataQueryLanguage", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string dataQueryLanguage { get; set; }
 
         /// <summary>
         /// The connection for the query.
         /// </summary>
-        [JsonProperty("dataQueryConnection")]
+        [JsonProperty("dataQueryConnection", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public DataConnection dataQueryConnection { get; set; }
 
         /// <summary>
         /// Free-form and optional classification for the Data Query for use in generation logic (evaluation).
         /// </summary>
-        [JsonProperty("dataQueryClassification")]
+        [JsonProperty("dataQueryClassification", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public List<Classification> dataQueryClassification { get; set; }
 
         /// <summary>
