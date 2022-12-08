@@ -31,7 +31,7 @@ The interface itself is a Json schema definition (JSDL) with examples on how to 
 
   <ItemGroup>
     <PackageReference Include="Handlebars.Net" Version="2.0.7" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.14" />
   </ItemGroup>
 
