@@ -164,8 +164,8 @@ namespace RunDwhAutomation
                 var stringTemplate = File.ReadAllText(options.pattern);
                 var template = Handlebars.Compile(stringTemplate);
 
-                 //var deserialisedMapping = JsonConvert.DeserializeObject<VdwDataObjectMappings>(jsonInput);
-                 var freeFormMapping = JObject.Parse(jsonInput);
+                //var deserialisedMapping = JsonConvert.DeserializeObject<VdwDataObjectMappings>(jsonInput);
+                var freeFormMapping = JObject.Parse(jsonInput);
 
                 var result = template(freeFormMapping);
 
