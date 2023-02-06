@@ -207,18 +207,28 @@ namespace DataWarehouseAutomation
             {
                 if (args.Length < 3) throw new HandlebarsException("The {{StringReplace}} function requires at least three arguments.");
 
-                string expression = args[0] as string;
-
-                if (args[0] is Newtonsoft.Json.Linq.JValue)
+                if (args[0].GetType().Name != "UndefinedBindingResult")
                 {
-                    expression = ((Newtonsoft.Json.Linq.JValue)args[0]).Value.ToString();
+                    try
+                    {
+                        string expression = args[0] as string;
+
+                        if (args[0] is Newtonsoft.Json.Linq.JValue)
+                        {
+                            expression = ((Newtonsoft.Json.Linq.JValue)args[0]).Value.ToString();
+                        }
+
+                        string pattern = args[1] as string;
+                        string replacement = args[2] as string;
+
+                        expression = expression.Replace(pattern, replacement);
+                        writer.WriteSafeString(expression);
+                    }
+                    catch (Exception exception)
+                    {
+                        writer.WriteSafeString("An issue has been encountered: "+ exception.Message+".");
+                    }
                 }
-
-                string pattern = args[1] as string;
-                string replacement = args[2] as string;
-
-                expression = expression.Replace(pattern, replacement);
-                writer.WriteSafeString(expression);
             });
         }
     }
