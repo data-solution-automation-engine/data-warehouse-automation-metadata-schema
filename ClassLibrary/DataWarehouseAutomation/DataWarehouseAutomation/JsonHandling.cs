@@ -34,9 +34,9 @@ namespace DataWarehouseAutomation
                     jsonSchemaContent = sr.ReadToEnd();
                 }
             }
-            catch
+            catch (Exception exception)
             {
-                // TBD
+                Console.WriteLine("An error has occurred: " + exception.Message);
             }
 
             // Read the Json file
@@ -48,9 +48,9 @@ namespace DataWarehouseAutomation
                     jsonFileContent = sr.ReadToEnd();
                 }
             }
-            catch
+            catch (Exception exception)
             {
-                // TBD
+                Console.WriteLine("An error has occurred: " + exception.Message);
             }
 
             // Parse the content
@@ -59,9 +59,9 @@ namespace DataWarehouseAutomation
             {
                 jsonSchema = JSchema.Parse(jsonSchemaContent);
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                Console.WriteLine("An error has occurred. The error message is: "+ex);
+                Console.WriteLine("An error has occurred. The error message is: "+exception);
             }
             
             JToken jsonFileToken = "";
@@ -69,9 +69,9 @@ namespace DataWarehouseAutomation
             {
                 jsonFileToken = JToken.Parse(jsonFileContent);
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                Console.WriteLine("An error has occurred. The error message is: " + ex);
+                Console.WriteLine("An error has occurred. The error message is: " + exception);
             }
 
             // Validate the file against the schema

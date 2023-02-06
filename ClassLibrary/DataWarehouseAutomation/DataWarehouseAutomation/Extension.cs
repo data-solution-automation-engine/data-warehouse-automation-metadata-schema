@@ -10,6 +10,8 @@ namespace DataWarehouseAutomation
     /// </summary>
     public class Extension
     {
+        #nullable enable
+
         /// <summary>
         /// The Key in a Key/Value pair.
         /// </summary>
@@ -20,12 +22,12 @@ namespace DataWarehouseAutomation
         /// The Value in a Key/Value pair.
         /// </summary>
         [JsonProperty("value", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string value { get; set; }
+        public string? value { get; set; }
 
         /// <summary>
         /// Any additional information to explain the intent of extension key/value pair.
         /// </summary>
         [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string description { get; set; }
+        public string? description { get; set; }
     }
 }

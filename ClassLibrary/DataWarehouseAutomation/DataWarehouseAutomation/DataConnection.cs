@@ -8,6 +8,8 @@ namespace DataWarehouseAutomation
     /// </summary>
     public class DataConnection
     {
+        #nullable enable
+
         /// <summary>
         /// The connection information expressed in a key, token or (connection)string.
         /// </summary>
@@ -18,6 +20,6 @@ namespace DataWarehouseAutomation
         /// The collection of extension Key/Value pairs.
         /// </summary>
         [JsonProperty("extensions", NullValueHandling = NullValueHandling.Ignore)]
-        public List<Extension> extensions { get; set; }
+        public List<Extension>? extensions { get; set; }
     }
 }

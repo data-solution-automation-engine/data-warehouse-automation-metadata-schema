@@ -5,6 +5,8 @@ namespace DataWarehouseAutomation
 {
     public class DataItem
     {
+        #nullable enable
+
         [JsonProperty]
         public string name { get; set; } // Mandatory
 
@@ -12,10 +14,10 @@ namespace DataWarehouseAutomation
         /// The data object to which the data item belongs. This can be used to construct fully qualified names.
         /// </summary>
         [JsonProperty("dataObject", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public DataObject dataObject { get; set; }
+        public DataObject? dataObject { get; set; }
 
         [JsonProperty("dataType", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string dataType { get; set; }
+        public string? dataType { get; set; }
 
         [JsonProperty("characterLength", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public int? characterLength { get; set; }
@@ -39,12 +41,12 @@ namespace DataWarehouseAutomation
         /// Free-form and optional classification for the Data Item for use in generation logic (evaluation).
         /// </summary>
         [JsonProperty("dataItemClassification", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public List<Classification> dataItemClassification { get; set; }
+        public List<Classification>? dataItemClassification { get; set; }
 
         /// <summary>
         /// The collection of extension Key/Value pairs.
         /// </summary>
         [JsonProperty("extensions", NullValueHandling = NullValueHandling.Ignore)]
-        public List<Extension> extensions { get; set; }
+        public List<Extension>? extensions { get; set; }
     }
 }

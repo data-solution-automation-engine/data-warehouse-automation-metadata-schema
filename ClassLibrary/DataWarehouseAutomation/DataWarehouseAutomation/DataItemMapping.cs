@@ -8,6 +8,8 @@ namespace DataWarehouseAutomation
     /// </summary>
     public class DataItemMapping
     {
+        #nullable enable
+
         [JsonProperty]
         public List<dynamic> sourceDataItems { get; set; }
 
@@ -18,7 +20,7 @@ namespace DataWarehouseAutomation
         /// The collection of extension Key/Value pairs.
         /// </summary>
         [JsonProperty("extensions", NullValueHandling = NullValueHandling.Ignore)]
-        public List<Extension> extensions { get; set; }
+        public List<Extension>? extensions { get; set; }
 
     }
 }

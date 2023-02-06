@@ -7,11 +7,13 @@ namespace DataWarehouseAutomation
     /// </summary>
     public class Classification
     {
+        #nullable enable
+
         /// <summary>
         /// Optional identifier for the classification.
         /// </summary>
         [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public int id { get; set; }
+        public int? id { get; set; }
 
         /// <summary>
         /// Type mandatory description, usually a keyword used for automation purposes.
@@ -23,6 +25,6 @@ namespace DataWarehouseAutomation
         /// Free-format notes on the classification.
         /// </summary>
         [JsonProperty("notes", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string notes { get; set; }
+        public string? notes { get; set; }
     }
 }
