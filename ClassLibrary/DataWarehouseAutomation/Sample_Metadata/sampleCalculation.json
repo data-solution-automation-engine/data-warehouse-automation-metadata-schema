@@ -14,21 +14,21 @@
         {
           "sourceDataItems": [
             {
-              "dataQueryCode": "SUBSTRING([Customer_Full_Name],1,INSTR(' '))"
-            }
-          ],
-          "targetDataItem": {
-            "name": "CustomerFirstName"
-          }
-        },
-        {
-          "sourceDataItems": [
-            {
               "dataQueryCode": "SUBSTRING([Customer_Full_Name],INSTR(' '),LEN([Customer_Full_Name)])"
             }
           ],
           "targetDataItem": {
             "name": "Customer_Last_Name"
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "name": "ColumnOneSource"
+            }
+          ],
+          "targetDataItem": {
+            "name": "CustomerId"
           }
         }
       ]
