@@ -10,6 +10,7 @@ namespace DataWarehouseAutomation
         {
             if (maxNumber < 1)
                 throw new Exception("The maxNumber value should be greater than 1");
+
             var b = new byte[4];
             new System.Security.Cryptography.RNGCryptoServiceProvider().GetBytes(b);
             var seed = (b[0] & 0x7f) << 24 | b[1] << 16 | b[2] << 8 | b[3];
@@ -121,7 +122,6 @@ namespace DataWarehouseAutomation
                 }
             });
 
-
             // Accept two values, and see if they are the same, use as block helper.
             // Usage {{#stringcompare string1 string2}} do something {{else}} do something else {{/stringcompare}}
             // Usage {{#stringcompare string1 string2}} do something {{/stringcompare}}
@@ -203,7 +203,6 @@ namespace DataWarehouseAutomation
 
             });
 
-
             Handlebars.RegisterHelper("StringReplace", (writer, context, args) =>
             {
                 if (args.Length < 3) throw new HandlebarsException("The {{StringReplace}} function requires at least three arguments.");
@@ -220,10 +219,7 @@ namespace DataWarehouseAutomation
 
                 expression = expression.Replace(pattern, replacement);
                 writer.WriteSafeString(expression);
-
             });
-
         }
-
     }
 }
