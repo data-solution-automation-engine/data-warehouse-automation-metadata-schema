@@ -14,12 +14,12 @@ namespace DataWarehouseAutomation
         /// The connection information expressed in a key, token or (connection)string.
         /// </summary>
         [JsonProperty("dataConnectionString")]
-        public string dataConnectionString { get; set; }
+        public string DataConnectionString { get; set; } = "NewConnection";
 
         /// <summary>
         /// The collection of extension Key/Value pairs.
         /// </summary>
         [JsonProperty("extensions", NullValueHandling = NullValueHandling.Ignore)]
-        public List<Extension>? extensions { get; set; }
+        public List<Extension>? Extensions { get; set; }
     }
 }

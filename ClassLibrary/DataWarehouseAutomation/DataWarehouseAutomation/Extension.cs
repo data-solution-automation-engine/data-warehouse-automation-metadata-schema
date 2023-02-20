@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace DataWarehouseAutomation
 {
@@ -16,18 +13,18 @@ namespace DataWarehouseAutomation
         /// The Key in a Key/Value pair.
         /// </summary>
         [JsonProperty("key", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string key { get; set; }
+        public string Key { get; set; } = "NewExtension";
 
         /// <summary>
         /// The Value in a Key/Value pair.
         /// </summary>
         [JsonProperty("value", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string? value { get; set; }
+        public string? Value { get; set; }
 
         /// <summary>
         /// Any additional information to explain the intent of extension key/value pair.
         /// </summary>
         [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string? description { get; set; }
+        public string? Description { get; set; }
     }
 }

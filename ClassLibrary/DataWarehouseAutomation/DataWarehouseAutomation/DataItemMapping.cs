@@ -10,17 +10,17 @@ namespace DataWarehouseAutomation
     {
         #nullable enable
 
-        [JsonProperty]
-        public List<dynamic> sourceDataItems { get; set; }
+        [JsonProperty("sourceDataItems")]
+        public List<dynamic> SourceDataItems { get; set; } = new();
 
-        [JsonProperty]
-        public DataItem targetDataItem { get; set; }
+        [JsonProperty("targetDataItem")] 
+        public DataItem TargetDataItem { get; set; } = new() {Name = "NewTargetDataItem"};
 
         /// <summary>
         /// The collection of extension Key/Value pairs.
         /// </summary>
         [JsonProperty("extensions", NullValueHandling = NullValueHandling.Ignore)]
-        public List<Extension>? extensions { get; set; }
+        public List<Extension>? Extensions { get; set; }
 
     }
 }
