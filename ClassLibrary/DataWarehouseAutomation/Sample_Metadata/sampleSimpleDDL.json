@@ -6,10 +6,14 @@
           "name": "HUB_CUSTOMER",
           "dataItems": [
             {
-              "name": "Customer_ID"
+              "name": "Customer_ID",
+              "dataType": "VARCHAR",
+              "characterLength" : 10 
             },
             {
-              "name": "Customer_Name"
+              "name": "Customer_Name",
+              "dataType": "VARCHAR",
+              "characterLength": 10
             }
           ]
         }

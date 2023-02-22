@@ -1,24 +1,25 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace DataWarehouseAutomation
+namespace DataWarehouseAutomation;
+
+/// <summary>
+/// The individual column-to-column mapping.
+/// </summary>
+public class DataItemMapping
 {
+#nullable enable
+
+    [JsonProperty("sourceDataItems")]
+    public List<dynamic> SourceDataItems { get; set; } = new();
+
+    [JsonProperty("targetDataItem")]
+    public DataItem TargetDataItem { get; set; } = new() { Name = "NewTargetDataItem" };
+
     /// <summary>
-    /// The individual column-to-column mapping.
+    /// The collection of extension Key/Value pairs.
     /// </summary>
-    public class DataItemMapping
-    {
-        [JsonProperty]
-        public List<dynamic> sourceDataItems { get; set; }
+    [JsonProperty("extensions", NullValueHandling = NullValueHandling.Ignore)]
+    public List<Extension>? Extensions { get; set; }
 
-        [JsonProperty]
-        public DataItem targetDataItem { get; set; }
-
-        /// <summary>
-        /// The collection of extension Key/Value pairs.
-        /// </summary>
-        [JsonProperty("extensions", NullValueHandling = NullValueHandling.Ignore)]
-        public List<Extension> extensions { get; set; }
-
-    }
 }

@@ -1,229 +1,238 @@
 ﻿using System;
+using System.Security.Cryptography;
 using System.Text;
 using HandlebarsDotNet;
 
-namespace DataWarehouseAutomation
+namespace DataWarehouseAutomation;
+
+public class HandleBarsHelpers
 {
-    public class HandleBarsHelpers
+    public static int GetRandomNumber(int maxNumber)
     {
-        public static int GetRandomNumber(int maxNumber)
+        if (maxNumber < 1)
+            throw new Exception("The maxNumber value should be greater than 1");
+
+        var b = new byte[4];
+        var rng = RandomNumberGenerator.Create();
+        rng.GetBytes(b);
+        var seed = (b[0] & 0x7f) << 24 | b[1] << 16 | b[2] << 8 | b[3];
+        var r = new Random(seed);
+        return r.Next(1, maxNumber);
+    }
+
+    public static DateTime GetRandomDate(int startYear = 1995)
+    {
+        var start = new DateTime(startYear, 1, 1);
+        var range = (DateTime.Today - start).Days;
+        var b = new byte[4];
+        var rng = RandomNumberGenerator.Create();
+        rng.GetBytes(b);
+
+        var seed = (b[0] & 0x7f) << 24 | b[1] << 16 | b[2] << 8 | b[3];
+        return start.AddDays(new Random(seed).Next(1, range)).AddSeconds(new Random(seed).Next(1, 86400));
+    }
+
+    public static void RegisterHandleBarsHelpers()
+    {
+        // Generation Date/Time functional helper
+        Handlebars.RegisterHelper("now", (output, context, arguments) => { output.WriteSafeString(DateTime.Now); });
+
+        // Generation random date, based on an integer input value
+        Handlebars.RegisterHelper("randomdate", (output, context, arguments) =>
         {
-            if (maxNumber < 1)
-                throw new Exception("The maxNumber value should be greater than 1");
-            var b = new byte[4];
-            new System.Security.Cryptography.RNGCryptoServiceProvider().GetBytes(b);
-            var seed = (b[0] & 0x7f) << 24 | b[1] << 16 | b[2] << 8 | b[3];
-            var r = new Random(seed);
-            return r.Next(1, maxNumber);
-        }
+            if (arguments.Length > 1)
+            {
+                throw new HandlebarsException("The {{randomdate}} function requires a single integer (year e.g. 1995) value as input.");
+            }
 
-        public static DateTime GetRandomDate(int startYear = 1995)
+            if (arguments.Length == 1)
+            {
+                bool evaluationResult = Int32.TryParse(arguments[0].ToString(), out var localInteger);
+                if (evaluationResult == false)
+                {
+                    throw new HandlebarsException($"The {{randomdate}} functions failed because {arguments[0]} could not be converted to an integer.");
+                }
+
+                output.WriteSafeString(GetRandomDate(localInteger).Date);
+            }
+
+
+        });
+
+        // Generation random string, based on an integer input value
+        Handlebars.RegisterHelper("randomnumber", (output, context, arguments) =>
         {
-            var start = new DateTime(startYear, 1, 1);
-            var range = (DateTime.Today - start).Days;
-            var b = new byte[4];
-            new System.Security.Cryptography.RNGCryptoServiceProvider().GetBytes(b);
-            var seed = (b[0] & 0x7f) << 24 | b[1] << 16 | b[2] << 8 | b[3];
-            return start.AddDays(new Random(seed).Next(1, range)).AddSeconds(new Random(seed).Next(1, 86400));
-        }
+            if (arguments.Length > 1)
+            {
+                throw new HandlebarsException("The {{randomnumber}} function requires a single integer value as input.");
+            }
 
-        public static void RegisterHandleBarsHelpers()
+            if (arguments.Length == 1)
+            {
+                bool evaluationResult = Int32.TryParse(arguments[0].ToString(), out var localInteger);
+                if (evaluationResult == false)
+                {
+                    throw new HandlebarsException($"The {{randomnumber}} functions failed because {arguments[0]} could not be converted to an integer.");
+                }
+                output.WriteSafeString(GetRandomNumber(localInteger));
+            }
+        });
+
+        // Generation random string, based on an integer input value
+        Handlebars.RegisterHelper("randomstring", (output, context, arguments) =>
         {
-            // Generation Date/Time functional helper
-            Handlebars.RegisterHelper("now", (output, context, arguments) => { output.WriteSafeString(DateTime.Now); });
-
-            // Generation random date, based on an integer input value
-            Handlebars.RegisterHelper("randomdate", (output, context, arguments) =>
+            if (arguments.Length > 1)
             {
-                if (arguments.Length > 1)
-                {
-                    throw new HandlebarsException("The {{randomdate}} function requires a single integer (year e.g. 1995) value as input.");
-                }
+                throw new HandlebarsException("The {{randomstring}} function requires a single integer value as input.");
+            }
 
-                if (arguments.Length == 1)
-                {
-                    bool evaluationResult = Int32.TryParse(arguments[0].ToString(), out var localInteger);
-                    if (evaluationResult == false)
-                    {
-                        throw new HandlebarsException($"The {{randomdate}} functions failed because {arguments[0]} could not be converted to an integer.");
-                    }
-
-                    output.WriteSafeString(GetRandomDate(localInteger).Date);
-                }
-
-
-            });
-
-            // Generation random string, based on an integer input value
-            Handlebars.RegisterHelper("randomnumber", (output, context, arguments) =>
+            if (arguments.Length == 1)
             {
-                if (arguments.Length > 1)
+                bool evaluationResult = Int32.TryParse(arguments[0].ToString(), out var localInteger);
+
+                if (evaluationResult == false)
                 {
-                    throw new HandlebarsException("The {{randomnumber}} function requires a single integer value as input.");
+                    throw new HandlebarsException($"The {{randomstring}} functions failed because {arguments[0]} could not be converted to an integer.");
                 }
 
-                if (arguments.Length == 1)
+                var array = new[]
                 {
-                    bool evaluationResult = Int32.TryParse(arguments[0].ToString(), out var localInteger);
-                    if (evaluationResult == false)
-                    {
-                        throw new HandlebarsException($"The {{randomnumber}} functions failed because {arguments[0]} could not be converted to an integer.");
-                    }
-                    output.WriteSafeString(GetRandomNumber(localInteger));
-                }
-            });
+                    "0","1","2","3","4","5","6","8","9",
+                    "a","b","c","d","e","f","g","h","j","k","m","n","p","q","r","s","t","u","v","w","x","y","z",
+                    "A","B","C","D","E","F","G","H","J","K","L","M","N","P","R","S","T","U","V","W","X","Y","Z"
+                };
+                var sb = new StringBuilder();
+                for (var i = 0; i < localInteger; i++) sb.Append(array[GetRandomNumber(53)]);
 
-            // Generation random string, based on an integer input value
-            Handlebars.RegisterHelper("randomstring", (output, context, arguments) =>
+                output.WriteSafeString(sb.ToString());
+            }
+        });
+
+        Handlebars.RegisterHelper("stringwrap", (writer, context, args) =>
+        {
+            if (args.Length != 3) throw new HandlebarsException("The {{stringwrap}} function requires exactly three arguments, an object and the string to wrap its value in.");
+
+            if (args[0].GetType().Name != "UndefinedBindingResult")
             {
-                if (arguments.Length > 1)
+                try
                 {
-                    throw new HandlebarsException("The {{randomstring}} function requires a single integer value as input.");
+                    writer.Write(
+                        string.Concat(args[1].ToString(), args[0].ToString(), args[2].ToString()));
                 }
-
-                if (arguments.Length == 1)
+                catch (Exception ex)
                 {
-                    bool evaluationResult = Int32.TryParse(arguments[0].ToString(), out var localInteger);
-
-                    if (evaluationResult == false)
-                    {
-                        throw new HandlebarsException($"The {{randomstring}} functions failed because {arguments[0]} could not be converted to an integer.");
-                    }
-
-                    var array = new[]
-                    {
-                        "0","1","2","3","4","5","6","8","9",
-                        "a","b","c","d","e","f","g","h","j","k","m","n","p","q","r","s","t","u","v","w","x","y","z",
-                        "A","B","C","D","E","F","G","H","J","K","L","M","N","P","R","S","T","U","V","W","X","Y","Z"
-                    };
-                    var sb = new StringBuilder();
-                    for (var i = 0; i < localInteger; i++) sb.Append(array[GetRandomNumber(53)]);
-
-                    output.WriteSafeString(sb.ToString());
+                    writer.WriteSafeString("An issue has been encountered: " + ex.Message + ".");
                 }
-            });
+            }
+        });
 
-            Handlebars.RegisterHelper("stringwrap", (writer, context, args) =>
+        // Accept two values, and see if they are the same, use as block helper.
+        // Usage {{#stringcompare string1 string2}} do something {{else}} do something else {{/stringcompare}}
+        // Usage {{#stringcompare string1 string2}} do something {{/stringcompare}}
+        Handlebars.RegisterHelper("stringcompare", (output, options, context, arguments) =>
+        {
+            if (arguments.Length != 2) throw new HandlebarsException("The {{stringcompare}} function requires exactly two arguments.");
+
+            var leftString = arguments[0] == null ? "" : arguments[0].ToString();
+            var rightString = arguments[1] == null ? "" : arguments[1].ToString();
+
+            if (leftString == rightString)
             {
-                if (args.Length != 3) throw new HandlebarsException("The {{stringwrap}} function requires exactly three arguments, an object and the string to wrap its value in.");
-
-                if (args[0].GetType().Name != "UndefinedBindingResult")
-                {
-                    try
-                    {
-                        writer.Write(
-                            string.Concat(args[1].ToString(), args[0].ToString(), args[2].ToString()));
-                    }
-                    catch (Exception ex)
-                    {
-                        writer.WriteSafeString("An issue has been encountered: " + ex.Message + ".");
-                    }
-                }
-            });
-
-
-            // Accept two values, and see if they are the same, use as block helper.
-            // Usage {{#stringcompare string1 string2}} do something {{else}} do something else {{/stringcompare}}
-            // Usage {{#stringcompare string1 string2}} do something {{/stringcompare}}
-            Handlebars.RegisterHelper("stringcompare", (output, options, context, arguments) =>
+                options.Template(output, context);
+            }
+            else
             {
-                if (arguments.Length != 2) throw new HandlebarsException("The {{stringcompare}} function requires exactly two arguments.");
+                options.Inverse(output, context);
+            }
+        });
 
-                var leftString = arguments[0] == null ? "" : arguments[0].ToString();
-                var rightString = arguments[1] == null ? "" : arguments[1].ToString();
+        // Accept two values, and do something if they are the different.
+        // Usage {{#stringdiff string1 string2}} do something {{else}} do something else {{/stringdiff}}
+        // Usage {{#stringdiff string1 string2}} do something {{/stringdiff}}
+        Handlebars.RegisterHelper("stringdiff", (output, options, context, arguments) =>
+        {
+            if (arguments.Length != 2) throw new HandlebarsException("The {{stringdiff}} functions requires exactly two arguments.");
 
-                if (leftString == rightString)
-                {
-                    options.Template(output, context);
-                }
-                else
-                {
-                    options.Inverse(output, context);
-                }
-            });
+            var leftString = arguments[0] == null ? "" : arguments[0].ToString();
+            var rightString = arguments[1] == null ? "" : arguments[1].ToString();
 
-            // Accept two values, and do something if they are the different.
-            // Usage {{#stringdiff string1 string2}} do something {{else}} do something else {{/stringdiff}}
-            // Usage {{#stringdiff string1 string2}} do something {{/stringdiff}}
-            Handlebars.RegisterHelper("stringdiff", (output, options, context, arguments) =>
+            if (leftString != rightString)
             {
-                if (arguments.Length != 2) throw new HandlebarsException("The {{stringdiff}} functions requires exactly two arguments.");
+                options.Template(output, (object)context);
+            }
+            else
+            {
+                options.Inverse(output, (object)context);
+            }
+        });
 
-                var leftString = arguments[0] == null ? "" : arguments[0].ToString();
-                var rightString = arguments[1] == null ? "" : arguments[1].ToString();
+        Handlebars.RegisterHelper("replicate", (output, options, context, arguments) =>
+        {
+            if (arguments.Length != 1)
+            {
+                throw new HandlebarsException("The {{replicate}} functions requires a single integer value as input.");
+            }
 
-                if (leftString != rightString)
+            if (arguments.Length == 1)
+            {
+                bool evaluationResult = Int32.TryParse(arguments[0].ToString(), out var localInteger);
+
+                if (evaluationResult == false)
+                {
+                    throw new HandlebarsException($"The {{replicate}} functions failed because {arguments[0]} could not be converted to an integer.");
+                }
+
+                for (var i = 0; i < localInteger; ++i)
                 {
                     options.Template(output, (object)context);
                 }
-                else
-                {
-                    options.Inverse(output, (object)context);
-                }
-            });
+            }
+        });
 
-            Handlebars.RegisterHelper("replicate", (output, options, context, arguments) =>
+        // Character spacing not satisfactory? Do not panic, help is near! Make sure the character spacing is righteous using this Handlebars helper.
+        // Usage {{space sourceDataObject.name}} will space out (!?) the name of the source to 30 characters and a few tabs for lots of white spaces.
+        Handlebars.RegisterHelper("space", (writer, context, arguments) =>
+        {
+            if (arguments.Length != 1)
             {
-                if (arguments.Length != 1)
-                {
-                    throw new HandlebarsException("The {{replicate}} functions requires a single integer value as input.");
-                }
+                throw new HandlebarsException("The {{space}} functions requires an input string value to space out against.");
+            }
 
-                if (arguments.Length == 1)
-                {
-                    bool evaluationResult = Int32.TryParse(arguments[0].ToString(), out var localInteger);
+            string outputString = arguments[0].ToString();
+            if (outputString.Length < 30)
+            {
+                outputString = outputString.PadRight(30);
+            }
+            writer.WriteSafeString(outputString + "\t\t\t\t");
 
-                    if (evaluationResult == false)
+        });
+
+        Handlebars.RegisterHelper("StringReplace", (writer, context, args) =>
+        {
+            if (args.Length < 3) throw new HandlebarsException("The {{StringReplace}} function requires at least three arguments.");
+
+            if (args[0].GetType().Name != "UndefinedBindingResult")
+            {
+                try
+                {
+                    string expression = args[0] as string;
+
+                    if (args[0] is Newtonsoft.Json.Linq.JValue value)
                     {
-                        throw new HandlebarsException($"The {{replicate}} functions failed because {arguments[0]} could not be converted to an integer.");
+                        expression = value.Value.ToString();
                     }
 
-                    for (var i = 0; i < localInteger; ++i)
-                    {
-                        options.Template(output, (object)context);
-                    }
-                }
-            });
+                    string pattern = args[1] as string;
+                    string replacement = args[2] as string;
 
-            // Character spacing not satisfactory? Do not panic, help is near! Make sure the character spacing is righteous using this Handlebars helper.
-            // Usage {{space sourceDataObject.name}} will space out (!?) the name of the source to 30 characters and a few tabs for lots of white spaces.
-            Handlebars.RegisterHelper("space", (writer, context, arguments) =>
-            {
-                if (arguments.Length != 1)
+                    expression = expression.Replace(pattern, replacement);
+                    writer.WriteSafeString(expression);
+                }
+                catch (Exception exception)
                 {
-                    throw new HandlebarsException("The {{space}} functions requires an input string value to space out against.");
+                    writer.WriteSafeString("An issue has been encountered: " + exception.Message + ".");
                 }
-
-                string outputString = arguments[0].ToString();
-                if (outputString.Length < 30)
-                {
-                    outputString = outputString.PadRight(30);
-                }
-                writer.WriteSafeString(outputString + "\t\t\t\t");
-
-            });
-
-
-            Handlebars.RegisterHelper("StringReplace", (writer, context, args) =>
-            {
-                if (args.Length < 3) throw new HandlebarsException("The {{StringReplace}} function requires at least three arguments.");
-
-                string expression = args[0] as string;
-
-                if (args[0] is Newtonsoft.Json.Linq.JValue)
-                {
-                    expression = ((Newtonsoft.Json.Linq.JValue)args[0]).Value.ToString();
-                }
-
-                string pattern = args[1] as string;
-                string replacement = args[2] as string;
-
-                expression = expression.Replace(pattern, replacement);
-                writer.WriteSafeString(expression);
-
-            });
-
-        }
-
+            }
+        });
     }
 }
