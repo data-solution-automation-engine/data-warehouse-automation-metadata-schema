@@ -3,7 +3,8 @@
 namespace DataWarehouseAutomation;
 
 /// <summary>
-/// A free form list of classifications (labels) and notes to add to a source-to-target mapping
+/// A free form list of classifications (labels) and notes to add to a data object mapping.
+/// A classification can be used to identify a certain type of data object mapping.
 /// </summary>
 public class DataClassification
 {

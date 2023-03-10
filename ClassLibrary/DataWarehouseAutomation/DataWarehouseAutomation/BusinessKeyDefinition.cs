@@ -5,6 +5,7 @@ namespace DataWarehouseAutomation;
 
 /// <summary>
 /// A Business Key, which consists of one or more components (column mappings) and has its own surrogate key.
+/// A Business Key is a special column, or combination of columns, that is defined separately outside of regular data item mappings.
 /// </summary>
 public class BusinessKeyDefinition
 {
