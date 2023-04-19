@@ -32,39 +32,6 @@
           }
         }
       ]
-    },
-    {
-      "mappingName": "MappingTwo",
-      "sourceDataObjects": [
-        {
-          "name": "TableOneSource"
-        }
-      ],
-      "targetDataObject": {
-        "name": "HelloWorldExampleTableTwo"
-      },
-      "dataItemMappings": [
-        {
-          "sourceDataItems": [
-            {
-              "name": "ColumnOneSource"
-            }
-          ],
-          "targetDataItem": {
-            "name": "CustomerId"
-          }
-        },
-        {
-          "sourceDataItems": [
-            {
-              "name": "ColumnTwoSource"
-            }
-          ],
-          "targetDataItem": {
-            "name": "CustomerName"
-          }
-        }
-      ]
     }
   ]
 }
