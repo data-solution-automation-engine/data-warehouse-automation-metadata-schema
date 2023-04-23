@@ -1,0 +1,12 @@
+--Example using a templating engine for a simple select statement.
+{{#each dataObjectMappings }}
+
+--Working on {{mappingName}}.
+
+SELECT
+{{#each dataItemMappings}}
+{{sourceDataItems.0.name}} AS {{targetDataItem.name}}{{#unless @last}},{{/unless}}
+{{/each}}
+FROM [{{targetDataObject.name}}]
+WHERE {{dataItemMappings.0.targetDataItem.name}}!=NULL
+{{/each}}
