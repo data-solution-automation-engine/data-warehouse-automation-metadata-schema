@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace DataWarehouseAutomation;
 
@@ -10,36 +10,41 @@ public class DataQuery
     /// <summary>
     /// The name for the query.
     /// </summary>
-    [JsonProperty("dataQueryName", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("dataQueryName")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string DataQueryName { get; set; } = "NewDataQuery";
 
     /// <summary>
     /// The actual code that constitutes the query.
     /// </summary>
-    [JsonProperty("dataQueryCode")]
+    [JsonPropertyName("dataQueryCode")]
     public string? DataQueryCode { get; set; }
 
     /// <summary>
     /// The language that the code was written in (e.g. SQL).
     /// </summary>
-    [JsonProperty("dataQueryLanguage", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("dataQueryLanguage")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string? DataQueryLanguage { get; set; }
 
     /// <summary>
     /// The connection for the query.
     /// </summary>
-    [JsonProperty("dataQueryConnection", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("dataQueryConnection")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public DataConnection? DataQueryConnection { get; set; }
 
     /// <summary>
     /// Free-form and optional classification for the Data Query for use in generation logic (evaluation).
     /// </summary>
-    [JsonProperty("dataQueryClassification", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("dataQueryClassification")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<DataClassification>? DataQueryClassification { get; set; }
 
     /// <summary>
     /// The collection of extension Key/Value pairs.
     /// </summary>
-    [JsonProperty("extensions", NullValueHandling = NullValueHandling.Ignore)]
+    [JsonPropertyName("extensions")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<Extension>? Extensions { get; set; }
 }

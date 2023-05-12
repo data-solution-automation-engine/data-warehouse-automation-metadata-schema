@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace DataWarehouseAutomation;
 
@@ -10,16 +10,17 @@ public class DataItemMapping
 {
 #nullable enable
 
-    [JsonProperty("sourceDataItems")]
+    [JsonPropertyName("sourceDataItems")]
     public List<dynamic> SourceDataItems { get; set; } = new();
 
-    [JsonProperty("targetDataItem")]
+    [JsonPropertyName("targetDataItem")]
     public DataItem TargetDataItem { get; set; } = new() { Name = "NewTargetDataItem" };
 
     /// <summary>
     /// The collection of extension Key/Value pairs.
     /// </summary>
-    [JsonProperty("extensions", NullValueHandling = NullValueHandling.Ignore)]
+    [JsonPropertyName("extensions")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<Extension>? Extensions { get; set; }
 
 }

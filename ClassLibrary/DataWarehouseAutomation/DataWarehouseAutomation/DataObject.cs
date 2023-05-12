@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace DataWarehouseAutomation;
 
@@ -10,36 +10,41 @@ public class DataObject
     /// <summary>
     /// An optional identifier for the Data Object.
     /// </summary>
-    [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("id")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public int? Id { get; set; }
 
     /// <summary>
     /// The mandatory name of the Data Object.
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; } = "NewDataObject";
 
     /// <summary>
     /// The collection of Data Items associated with this Data Object.
     /// </summary>
-    [JsonProperty("dataItems", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("dataItems")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<dynamic>? DataItems { get; set; }
 
     /// <summary>
     /// The connection information associated to the Data Object.
     /// </summary>
-    [JsonProperty("dataObjectConnection", NullValueHandling = NullValueHandling.Ignore)]
+    [JsonPropertyName("dataObjectConnection")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public DataConnection? DataObjectConnection { get; set; }
 
     /// <summary>
     /// Free-form and optional classification for the Data Object for use in ETL generation logic (evaluation).
     /// </summary>
-    [JsonProperty("dataObjectClassifications", NullValueHandling = NullValueHandling.Ignore)]
+    [JsonPropertyName("dataObjectClassifications")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<DataClassification>? DataObjectClassifications { get; set; }
 
     /// <summary>
     /// The collection of extension Key/Value pairs.
     /// </summary>
-    [JsonProperty("extensions", NullValueHandling = NullValueHandling.Ignore)]
+    [JsonPropertyName("extensions")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<Extension>? Extensions { get; set; }
 }

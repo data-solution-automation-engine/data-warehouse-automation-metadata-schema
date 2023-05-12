@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json;
 using HandlebarsDotNet;
 
 namespace DataWarehouseAutomation;
@@ -217,9 +218,9 @@ public class HandleBarsHelpers
                 {
                     string expression = args[0] as string;
 
-                    if (args[0] is Newtonsoft.Json.Linq.JValue value)
+                    if (args[0] is System.Text.Json.JsonElement value)
                     {
-                        expression = value.Value.ToString();
+                        expression = value.GetString().ToString();
                     }
 
                     string pattern = args[1] as string;

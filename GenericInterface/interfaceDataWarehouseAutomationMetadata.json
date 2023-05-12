@@ -125,8 +125,8 @@
       "properties": {
         "id": {
           "$id": "#/definitions/classification/properties/id",
-          "title": "ClassificationId",
-          "description": "An optional unique identifier for classification, for sorting or identification purposes.",
+          "title": "Classification Id",
+          "description": "An optional unique identifier for the classification, for sorting or identification purposes.",
           "type": "integer"
         },
         "classification": {
@@ -312,6 +312,12 @@
       "type": "object",
       "required": [ "businessKeyComponentMapping" ],
       "properties": {
+        "id": {
+          "$id": "#/definitions/businessKeyDefinition/properties/id",
+          "title": "Business key Definition Id",
+          "description": "An optional identifier.",
+          "type": "string"
+        },
         "surrogateKey": {
           "description": "An optional label for the end result e.g. the target business key attribute.",
           "type": [ "string", "null" ]
