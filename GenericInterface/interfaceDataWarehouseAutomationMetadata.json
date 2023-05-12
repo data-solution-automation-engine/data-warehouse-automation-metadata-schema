@@ -130,7 +130,7 @@
       "required": [ "classification" ],
       "properties": {
         "id": {
-          "$id": "#/definitions/classification/properties/id",
+          "$id": "#/definitions/classification/properties/classificationId",
           "title": "Classification Id",
           "description": "An optional unique identifier for the classification, for sorting or identification purposes.",
           "type": [ "string", "null" ]
@@ -248,7 +248,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$id": "#/definitions/dataQuery/properties/dataQueryMappingId",
+          "$id": "#/definitions/dataQuery/properties/dataQueryId",
           "title": "Data Query Id",
           "description": "Optional unique identifier for a Data Query",
           "type": [ "string", "null" ]
@@ -300,14 +300,14 @@
     },
     "dataConnection": {
       "$id": "#/definitions/dataConnection",
-      "title": "Connection details",
+      "title": "Data connection details",
       "description": "Optional connectivity information, that can be used for either a DataObject or DataQuery.",
       "required": [ "dataConnectionString" ],
       "type": [ "object", "null" ],
       "properties": {
         "id": {
-          "$id": "#/definitions/dataConnection/properties/id",
-          "title": "Connection Id",
+          "$id": "#/definitions/dataConnection/properties/dataConnectionId",
+          "title": "Data Connection Id",
           "description": "An optional identifier.",
           "type": [ "string", "null" ]
         },
@@ -337,7 +337,7 @@
       "required": [ "businessKeyComponentMapping" ],
       "properties": {
         "id": {
-          "$id": "#/definitions/businessKeyDefinition/properties/id",
+          "$id": "#/definitions/businessKeyDefinition/properties/businessKeyDefinitionId",
           "title": "Business key Definition Id",
           "description": "An optional identifier.",
           "type": [ "string", "null" ]
@@ -383,8 +383,8 @@
       "required": [ "name" ],
       "properties": {
         "id": {
-          "$id": "#/definitions/dataItem/properties/id",
-          "title": "Id",
+          "$id": "#/definitions/dataItem/properties/dataItemId",
+          "title": "Data Item Id",
           "description": "An optional identifier.",
           "type": [ "string", "null" ]
         },
@@ -455,8 +455,8 @@
       ],
       "properties": {
         "id": {
-          "$id": "#/definitions/dataItem/properties/id",
-          "title": "Id",
+          "$id": "#/definitions/dataItem/properties/dataItemMappingId",
+          "title": "Data Item Mapping Id",
           "description": "An optional identifier.",
           "type": [ "string", "null" ]
         },
