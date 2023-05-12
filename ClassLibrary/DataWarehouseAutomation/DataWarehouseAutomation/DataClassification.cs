@@ -10,10 +10,12 @@ public class DataClassification
 {
     #nullable enable
 
+    /// <summary>
+    /// Optional identifier as a string value to allow various identifier approaches.
+    /// </summary>
     [JsonPropertyName("id")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string Id { get; set; } = string.Empty;
-
 
     /// <summary>
     /// The mandatory classification description, usually a keyword used for automation purposes.
