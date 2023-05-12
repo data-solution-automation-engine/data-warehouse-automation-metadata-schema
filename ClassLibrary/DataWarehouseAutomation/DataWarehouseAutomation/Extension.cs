@@ -7,7 +7,14 @@ namespace DataWarehouseAutomation;
 /// </summary>
 public class Extension
 {
-#nullable enable
+    #nullable enable
+
+    /// <summary>
+    /// An optional identifier for the Data Object.
+    /// </summary>
+    [JsonPropertyName("id")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public string Id { get; set; } = string.Empty;
 
     /// <summary>
     /// The Key in a Key/Value pair.

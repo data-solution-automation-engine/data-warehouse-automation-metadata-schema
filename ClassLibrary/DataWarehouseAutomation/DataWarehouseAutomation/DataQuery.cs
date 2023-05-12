@@ -5,7 +5,14 @@ namespace DataWarehouseAutomation;
 
 public class DataQuery
 {
-#nullable enable
+    #nullable enable
+
+    /// <summary>
+    /// An optional identifier for the Data Object.
+    /// </summary>
+    [JsonPropertyName("id")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public string Id { get; set; } = string.Empty;
 
     /// <summary>
     /// The name for the query.

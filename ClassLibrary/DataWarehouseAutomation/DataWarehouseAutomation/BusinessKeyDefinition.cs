@@ -9,6 +9,8 @@ namespace DataWarehouseAutomation;
 /// </summary>
 public class BusinessKeyDefinition
 {
+    #nullable enable
+
     /// <summary>
     /// Optional identifier as a string value to allow various identifier approaches.
     /// </summary>
@@ -21,8 +23,6 @@ public class BusinessKeyDefinition
     /// </summary>
     [JsonPropertyName("businessKeyComponentMapping")]
     public List<DataItemMapping> BusinessKeyComponentMapping { get; set; } = new();
-
-#nullable enable
 
     /// <summary>
     /// An optional label for the end result e.g. the target business key attribute.

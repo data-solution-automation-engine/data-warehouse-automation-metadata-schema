@@ -156,6 +156,12 @@
       "type": "object",
       "required": [ "key" ],
       "properties": {
+        "id": {
+          "$id": "#/definitions/extension/properties/extensionId",
+          "title": "Extension Id",
+          "description": "Optional unique identifier for an extension",
+          "type": [ "string", "null" ]
+        },
         "key": {
           "$id": "#/definitions/extension/properties/key",
           "title": "Extension key",
@@ -241,6 +247,12 @@
       "required": [ "dataQueryCode" ],
       "type": "object",
       "properties": {
+        "id": {
+          "$id": "#/definitions/dataQuery/properties/dataQueryMappingId",
+          "title": "Data Query Id",
+          "description": "Optional unique identifier for a Data Query",
+          "type": [ "string", "null" ]
+        },
         "dataQueryName": {
           "$id": "#/definitions/dataQuery/properties/dataQueryName",
           "type": "string",

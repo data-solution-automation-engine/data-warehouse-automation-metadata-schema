@@ -8,7 +8,7 @@ namespace DataWarehouseAutomation;
 /// </summary>
 public class DataConnection
 {
-#nullable enable
+    #nullable enable
 
     /// <summary>
     /// Optional identifier as a string value to allow various identifier approaches.

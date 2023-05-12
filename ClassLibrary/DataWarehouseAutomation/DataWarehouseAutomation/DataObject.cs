@@ -5,7 +5,7 @@ namespace DataWarehouseAutomation;
 
 public class DataObject
 {
-#nullable enable
+    #nullable enable
 
     /// <summary>
     /// An optional identifier for the Data Object.
