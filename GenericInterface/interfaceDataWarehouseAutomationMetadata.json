@@ -117,7 +117,7 @@
       }
     },
     "classification": {
-      "$id": "#/definitions/classification",
+      "$id": "#/definitions/classification/properties/classificationId",
       "title": "List of source-to-target mapping classifications.",
       "description": "Classification for the source-to-target mapping (free form), used to add various tags and notes if required.",
       "type": "object",
@@ -180,9 +180,9 @@
       "properties": {
         "id": {
           "$id": "#/definitions/dataObject/properties/dataObjectId",
-          "title": "",
+          "title": "Data Object Id",
           "description": "Optional unique identifier for a file/table.",
-          "type": "integer"
+          "type": [ "string", "null" ]
         },
         "name": {
           "$id": "#/definitions/dataObject/properties/dataObjectName",
