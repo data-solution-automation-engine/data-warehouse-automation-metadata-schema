@@ -436,6 +436,12 @@
         "targetDataItem"
       ],
       "properties": {
+        "id": {
+          "$id": "#/definitions/dataItem/properties/id",
+          "title": "Id",
+          "description": "An optional identifier.",
+          "type": [ "string", "null" ]
+        },
         "sourceDataItems": {
           "$id": "#/definitions/dataItemMapping/properties/sourceDataItems",
           "description": "The source item of the mapping. This can either be an column or a query.",
