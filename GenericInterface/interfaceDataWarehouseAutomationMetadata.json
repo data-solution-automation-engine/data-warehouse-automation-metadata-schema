@@ -364,6 +364,12 @@
       "type": "object",
       "required": [ "name" ],
       "properties": {
+        "id": {
+          "$id": "#/definitions/dataItem/properties/id",
+          "title": "Id",
+          "description": "An optional identifier.",
+          "type": [ "string", "null" ]
+        },
         "name": {
           "description": "Unique name which identifies the column / attribute.",
           "type": "string"
