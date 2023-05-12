@@ -32,6 +32,12 @@
         "targetDataObject"
       ],
       "properties": {
+        "id": {
+          "$id": "#/definitions/dataObjectMapping/properties/dataObjectMappingId",
+          "title": "Data Object Mapping Id",
+          "description": "Optional unique identifier for a Data Object Mapping",
+          "type": [ "string", "null" ]
+        },
         "mappingName": {
           "$id": "#/definitions/dataObjectMapping/properties/dataObjectMappingName",
           "description": "Unique name which identifies the mapping.",

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using System.Xml.Linq;
 
 namespace DataWarehouseAutomation;
 
@@ -9,6 +10,13 @@ namespace DataWarehouseAutomation;
 public class DataObjectMapping
 {
     #nullable enable
+
+    /// <summary>
+    /// An optional identifier for the Data Object.
+    /// </summary>
+    [JsonPropertyName("id")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public string Id { get; set; } = string.Empty;
 
     /// <summary>
     /// The name of the source-to-target mapping. An optional unique name that identifies the individual mapping.
@@ -80,4 +88,33 @@ public class DataObjectMapping
     [JsonPropertyName("extensions")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<Extension>? Extensions { get; set; }
+
+    #region Methods
+    /// <summary>
+    /// Use this method to assert an object as a Data Object Mapping (or not).
+    /// </summary>
+    /// <param name="o"></param>
+    /// <returns></returns>
+    public override bool Equals(object? o)
+    {
+        var other = o as DataObjectMapping;
+        return other?.Id == Id;
+    }
+
+    /// <summary>
+    /// Override to get a hash value that represents the identifier. 
+    /// </summary>
+    /// <returns></returns>
+    public override int GetHashCode() => Id.GetHashCode();
+
+    /// <summary>
+    /// String override so that the object returns its value ('MappingName').
+    /// When an instance of this class is passed to a method that expects a string, the ToString() method will be called implicitly to convert the object to a string, and the value of the "MappingName" property will be returned.
+    /// </summary>
+    /// <returns></returns>
+    public override string ToString()
+    {
+        return MappingName;
+    }
+    #endregion
 }
