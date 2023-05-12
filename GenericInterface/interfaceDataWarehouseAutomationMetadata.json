@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface/GenericInterface/interfaceDataWarehouseAutomationMetadata.json",
   "title": "interfaceDataWarehouseAutomationMetadata",
-  "description": "Standardised format for the required metadata to generate ETL and DDL structures available for a Data Warehouse solution. The intent is to separate / decouple how individual software stores Data Warehouse Automation metadata and how this metadata can be exposed to other components, technologies and solutions for ETL and database structure generation.",
+  "description": "Standardized format for the required metadata to generate ETL and DDL structures available for a Data Warehouse solution. The intent is to separate / decouple how individual software stores Data Warehouse Automation metadata and how this metadata can be exposed to other components, technologies and solutions for ETL and database structure generation.",
   "type": "object",
   "required": [
     "dataObjectMappings"
@@ -127,7 +127,7 @@
           "$id": "#/definitions/classification/properties/id",
           "title": "Classification Id",
           "description": "An optional unique identifier for the classification, for sorting or identification purposes.",
-          "type": "integer"
+          "type": [ "string", "null" ]
         },
         "classification": {
           "$id": "#/definitions/classification/properties/classification",
@@ -287,6 +287,12 @@
       "required": [ "dataConnectionString" ],
       "type": [ "object", "null" ],
       "properties": {
+        "id": {
+          "$id": "#/definitions/dataConnection/properties/id",
+          "title": "Connection Id",
+          "description": "An optional identifier.",
+          "type": [ "string", "null" ]
+        },
         "dataConnectionString": {
           "$id": "#/definitions/dataConnection/properties/dataConnectionString",
           "type": [ "string", "null" ],
@@ -316,7 +322,7 @@
           "$id": "#/definitions/businessKeyDefinition/properties/id",
           "title": "Business key Definition Id",
           "description": "An optional identifier.",
-          "type": "string"
+          "type": [ "string", "null" ]
         },
         "surrogateKey": {
           "description": "An optional label for the end result e.g. the target business key attribute.",
