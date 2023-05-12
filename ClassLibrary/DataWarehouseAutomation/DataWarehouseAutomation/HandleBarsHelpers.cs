@@ -216,9 +216,11 @@ public class HandleBarsHelpers
             {
                 try
                 {
-                    string expression = args[0] as string;
+                    var expression = args[0];
 
-                    if (args[0] is System.Text.Json.JsonElement value)
+                    var bla = "";
+
+                    if (!String.IsNullOrEmpty(expression.ToString()) && args[0] is System.Text.Json.JsonElement value)
                     {
                         expression = value.GetString();
                     }
@@ -226,7 +228,7 @@ public class HandleBarsHelpers
                     string pattern = args[1] as string;
                     string replacement = args[2] as string;
 
-                    expression = expression.Replace(pattern, replacement);
+                    expression = expression.ToString().Replace(pattern, replacement);
                     writer.WriteSafeString(expression);
                 }
                 catch (Exception exception)

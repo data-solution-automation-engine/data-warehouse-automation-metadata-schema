@@ -14,6 +14,7 @@ namespace RunDwhAutomation
             // An optimistic start.
             Environment.ExitCode = (int)ExitCode.Success;
 
+            // Get the handlebars extensions from the DataWarehouseAutomation class library.
             HandleBarsHelpers.RegisterHandleBarsHelpers();
 
             #region unit testing
@@ -116,7 +117,7 @@ namespace RunDwhAutomation
                     {
                         if (options.outputFileName == null)
                         {
-                            // The outputfilename will be derived from the Json input (mappingName), if available.
+                            // The output filename will be derived from the Json input (mappingName), if available.
                             RunAutomation(options, file);
                         }
                         else
