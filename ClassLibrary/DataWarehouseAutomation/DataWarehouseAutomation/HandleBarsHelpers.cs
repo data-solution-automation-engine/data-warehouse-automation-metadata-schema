@@ -220,7 +220,7 @@ public class HandleBarsHelpers
 
                     if (args[0] is System.Text.Json.JsonElement value)
                     {
-                        expression = value.GetString().ToString();
+                        expression = value.GetString();
                     }
 
                     string pattern = args[1] as string;
