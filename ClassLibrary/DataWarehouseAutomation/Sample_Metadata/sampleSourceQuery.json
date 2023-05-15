@@ -1,17 +1,20 @@
 ﻿{
   "dataObjectMappings": [
     {
-      "mappingName": "Mapping1",
+      "mappingName": "MyDataObjectMapping",
       "sourceDataObjects": [
         {
-          "dataQueryCode": "SELECT GETDATE()",
+          "name": "ExampleSourceDataObject"
+        },
+        {
+          "dataQueryCode": "SELECT GETDATE() AS CURRENTDATE",
           "dataQueryConnection": {
-            "dataConnectionString": "TestConnectionString"
+            "dataConnectionString": "ExampleConnectionString"
           },
           "dataQueryClassification": [
             {
               "id": 1,
-              "classification": "Example"
+              "classification": "Example Query"
             }
           ]
         }

@@ -218,9 +218,7 @@ public class HandleBarsHelpers
                 {
                     var expression = args[0];
 
-                    var bla = "";
-
-                    if (!String.IsNullOrEmpty(expression.ToString()) && args[0] is System.Text.Json.JsonElement value)
+                    if (!String.IsNullOrEmpty(expression.ToString()) && args[0] is JsonElement value)
                     {
                         expression = value.GetString();
                     }

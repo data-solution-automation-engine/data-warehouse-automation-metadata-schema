@@ -47,6 +47,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Templates", "Sample 
 		Sample_Templates\TemplateSampleFreeForm.Handlebars = Sample_Templates\TemplateSampleFreeForm.Handlebars
 		Sample_Templates\TemplateSampleMultipleDataItemMappings.Handlebars = Sample_Templates\TemplateSampleMultipleDataItemMappings.Handlebars
 		Sample_Templates\TemplateSampleSimpleDDL.Handlebars = Sample_Templates\TemplateSampleSimpleDDL.Handlebars
+		Sample_Templates\TemplateSampleSourceQuery.Handlebars = Sample_Templates\TemplateSampleSourceQuery.Handlebars
 		Sample_Templates\TemplateSatelliteView.Handlebars = Sample_Templates\TemplateSatelliteView.Handlebars
 	EndProjectSection
 EndProject

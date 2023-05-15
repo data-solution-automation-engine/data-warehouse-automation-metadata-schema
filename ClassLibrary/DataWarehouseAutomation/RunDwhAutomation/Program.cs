@@ -164,10 +164,10 @@ namespace RunDwhAutomation
                 var stringTemplate = File.ReadAllText(options.pattern);
                 var template = Handlebars.Compile(stringTemplate);
 
-                //var deserialisedMapping = JsonConvert.DeserializeObject<VdwDataObjectMappings>(jsonInput);
-                var deserialisedMapping = JObject.Parse(jsonInput);
+                //var deserializedMapping = JsonConvert.DeserializeObject<VdwDataObjectMappings>(jsonInput);
+                var deserializedMapping = JObject.Parse(jsonInput);
 
-                var result = template(deserialisedMapping);
+                var result = template(deserializedMapping);
 
                 if (options.verbose)
                 {
@@ -178,10 +178,10 @@ namespace RunDwhAutomation
                 {
                     if (outputFileName == "")
                     {
-                        //outputFileName = deserialisedMapping.dataObjectMappings[0].mappingName; // you could read this from the free form mapping file, too
+                        //outputFileName = deserializedMapping.dataObjectMappings[0].mappingName; // you could read this from the free form mapping file, too
                         try
                         {
-                            outputFileName = (string) deserialisedMapping["dataObjectMappings"][0]["mappingName"]; 
+                            outputFileName = (string) deserializedMapping["dataObjectMappings"][0]["mappingName"]; 
                         }
                         catch
                         {
