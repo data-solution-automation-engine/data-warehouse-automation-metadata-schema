@@ -178,7 +178,6 @@ namespace RunDwhAutomation
                 {
                     if (outputFileName == "")
                     {
-                        //outputFileName = deserializedMapping.dataObjectMappings[0].mappingName; // you could read this from the free form mapping file, too
                         try
                         {
                             outputFileName = (string) deserializedMapping["dataObjectMappings"][0]["mappingName"]; 

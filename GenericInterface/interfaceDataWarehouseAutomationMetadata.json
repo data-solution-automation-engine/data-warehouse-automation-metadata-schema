@@ -263,7 +263,7 @@
           "$id": "#/definitions/dataQuery/properties/dataQueryCode",
           "type": "string",
           "title": "",
-          "description": "The actual code that constitutes the query."
+          "description": "The code that constitutes the query."
         },
         "dataQueryLanguage": {
           "$id": "#/definitions/dataQuery/properties/dataQueryLanguage",

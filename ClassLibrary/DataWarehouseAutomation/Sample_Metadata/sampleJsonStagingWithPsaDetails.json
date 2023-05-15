@@ -14,13 +14,13 @@
     "selectedDataObject": "infor.STG_tbcgct005",
     "generationDateTime": "2021-01-26T14:22:09.2991051+01:00"
   },
-  "metadataFileName": "D:\\Virtual Data Warehouse\\Virtual Data Warehouse1.6.4EDW\\EDW\\infor.STG_tbcgct005.json",
+  "metadataFileName": "tbcgct00.json",
   "dataObjectMappings": [
     {
       "mappingName": "STG_tbcgct005",
       "mappingClassifications": [
         {
-          "id": 1,
+          "id": "1",
           "classification": "StagingArea",
           "notes": "The mappings from source to the landing (staging) area."
         }

@@ -4,19 +4,10 @@
       "mappingName": "MyDataObjectMapping",
       "sourceDataObjects": [
         {
-          "name": "ExampleSourceDataObject"
+          "dataQueryCode": "SELECT GETDATE()"
         },
         {
-          "dataQueryCode": "SELECT GETDATE() AS CURRENTDATE",
-          "dataQueryConnection": {
-            "dataConnectionString": "ExampleConnectionString"
-          },
-          "dataQueryClassification": [
-            {
-              "id": 1,
-              "classification": "Example Query"
-            }
-          ]
+          "dataQueryCode": "SELECT SYSDATETIMESTAMP()"
         }
       ],
       "targetDataObject": {

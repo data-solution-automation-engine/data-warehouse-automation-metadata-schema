@@ -18,14 +18,14 @@
       ],
       "sourceDataObjects": [
         {
-          "id": 0,
+          "id": "0",
           "name": "PSA_PROFILER_PERSONALISED_COSTING",
           "dataItems": null,
           "dataObjectConnection": null
         }
       ],
       "targetDataObject": {
-        "id": 0,
+        "id": "0",
         "name": "HUB_SEGMENT",
         "dataItems": null,
         "dataObjectConnection": {

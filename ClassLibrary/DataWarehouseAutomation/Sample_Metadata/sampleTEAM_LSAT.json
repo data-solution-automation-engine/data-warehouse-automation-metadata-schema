@@ -12,21 +12,21 @@
       "mappingName": "LSAT_CUSTOMER_COSTING",
       "mappingClassification": [
         {
-          "id": 6,
+          "id": "6",
           "classification": "NaturalBusinessRelationshipContext",
           "notes": "The Link Satellites describe the changes over time for the relationships (Links). This pattern supports normal (historical) Link Satellites."
         }
       ],
       "sourceDataObjects": [
         {
-          "id": 0,
+          "id": "0",
           "name": "PSA_PROFILER_PERSONALISED_COSTING",
           "dataItems": null,
           "dataObjectConnection": null
         }
       ],
       "targetDataObject": {
-        "id": 0,
+        "id": "0",
         "name": "LSAT_CUSTOMER_COSTING",
         "dataItems": null,
         "dataObjectConnection": {
