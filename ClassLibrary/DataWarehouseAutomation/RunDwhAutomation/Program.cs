@@ -136,7 +136,7 @@ namespace RunDwhAutomation
                     else
                     {
                         RunAutomation(options, options.input, options.outputFileName );
-                    }                    
+                    }
                 }
                 #endregion
 
@@ -150,9 +150,8 @@ namespace RunDwhAutomation
             //                                h => CommandLine.Text.HelpText.DefaultParsingErrorsHandler(result, h),
             //                                e => e);
             //Console.WriteLine(helpText);
-
  
-            //Console.ReadKey();               
+            //Console.ReadKey();
 
             return Environment.ExitCode;
         }
@@ -166,9 +165,9 @@ namespace RunDwhAutomation
                 var template = Handlebars.Compile(stringTemplate);
 
                 //var deserialisedMapping = JsonConvert.DeserializeObject<VdwDataObjectMappings>(jsonInput);
-                var freeFormMapping = JObject.Parse(jsonInput);
+                var deserialisedMapping = JObject.Parse(jsonInput);
 
-                var result = template(freeFormMapping);
+                var result = template(deserialisedMapping);
 
                 if (options.verbose)
                 {
@@ -182,7 +181,7 @@ namespace RunDwhAutomation
                         //outputFileName = deserialisedMapping.dataObjectMappings[0].mappingName; // you could read this from the free form mapping file, too
                         try
                         {
-                            outputFileName = (string) freeFormMapping["dataObjectMappings"][0]["mappingName"]; 
+                            outputFileName = (string) deserialisedMapping["dataObjectMappings"][0]["mappingName"]; 
                         }
                         catch
                         {
@@ -197,10 +196,8 @@ namespace RunDwhAutomation
 
                     Console.WriteLine($"Generating {outputFileName}.{options.outputFileExtension} to {options.outputDirectory}.");
 
-                    using (StreamWriter file = new StreamWriter($"{options.outputDirectory}\\{outputFileName}.{options.outputFileExtension}"))
-                    {
-                        file.WriteLine(result);
-                    }
+                    using StreamWriter file = new StreamWriter($"{options.outputDirectory}\\{outputFileName}.{options.outputFileExtension}");
+                    file.WriteLine(result);
                 }
 
                 Environment.ExitCode = (int)ExitCode.Success;
