@@ -4,12 +4,12 @@ using System.IO;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
 
-namespace DataWarehouseAutomation;
+namespace Test_Project;
 
-public class JsonHandling
+public class JsonValidation
 {
     /// <summary>
-    /// Struct to contain a Json.Net validation result with the collection of errors (if any)
+    /// Struct to contain a Json.Net validation result with the collection of errors (if any).
     /// </summary>
     public struct ValidationResult
     {

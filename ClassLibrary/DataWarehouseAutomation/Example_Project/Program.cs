@@ -1,10 +1,8 @@
 using System;
-using System.Dynamic;
 using System.IO;
 using DataWarehouseAutomation;
 using HandlebarsDotNet;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Nodes;
 
 namespace Example_Handlebars
 {
@@ -20,6 +18,7 @@ namespace Example_Handlebars
             DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleBasic.handlebars", sampleMetadataDirectory + @"sampleBasic.json");
             DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleBasicWithExtensions.handlebars", sampleMetadataDirectory + @"sampleBasicWithExtensions.json");
             DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleMultipleDataItemMappings.handlebars", sampleMetadataDirectory + @"sampleMultipleDataItemMappings.json");
+            DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleSourceQuery.handlebars", sampleMetadataDirectory + @"sampleSourceQuery.json");
             DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleSimpleDDL.handlebars", sampleMetadataDirectory + @"sampleSimpleDDL.json");
             DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleCalculation.handlebars", sampleMetadataDirectory + @"sampleCalculation.json");
             DisplayPatternResult(sampleTemplateDirectory + @"TemplateSatelliteView.handlebars", sampleMetadataDirectory + @"sampleVDW_Sat_Customer_v161.json");
@@ -40,9 +39,12 @@ namespace Example_Handlebars
                 // Fetch the content of the Json files
                 string jsonInput = File.ReadAllText(jsonMetadataFile);
 
-                var deserialisedMapping = JsonConvert.DeserializeObject<ExpandoObject>(jsonInput, new ExpandoObjectConverter());
+                //ar deserializedMapping = JsonConvert.DeserializeObject<ExpandoObject>(jsonInput, new ExpandoObjectConverter()); -- This is the old Newtonsoft expando object approach
+                //var deserializedMapping = System.Text.Json.JsonSerializer.Deserialize<ExpandoObject>(jsonInput);
 
-                var result = template(deserialisedMapping);
+                JsonNode deserializedMapping = System.Text.Json.JsonSerializer.Deserialize<JsonNode>(jsonInput);
+
+                var result = template(deserializedMapping);
                 Console.WriteLine(result);
                 Console.ReadKey();
             }

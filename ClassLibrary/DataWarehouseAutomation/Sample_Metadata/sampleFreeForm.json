@@ -1,7 +1,7 @@
 ﻿{
   "sourceApp": {
-    "value": "abs-event-service",
-    "description": "name of source system."
+    "value": "event-service",
+    "description": "name of system"
   },
   "topicName": {
     "value": "application-declined"

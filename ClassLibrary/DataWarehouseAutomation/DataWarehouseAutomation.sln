@@ -21,7 +21,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Metadata", "Sample M
 		Sample_Metadata\sampleBasic.json = Sample_Metadata\sampleBasic.json
 		Sample_Metadata\sampleBasicWithExtensions.json = Sample_Metadata\sampleBasicWithExtensions.json
 		Sample_Metadata\sampleCalculation.json = Sample_Metadata\sampleCalculation.json
-		Sample_Metadata\sampleCustomFunctions.json = Sample_Metadata\sampleCustomFunctions.json
 		Sample_Metadata\sampleFreeForm.json = Sample_Metadata\sampleFreeForm.json
 		Sample_Metadata\sampleJsonStagingWithPsaDetails.json = Sample_Metadata\sampleJsonStagingWithPsaDetails.json
 		Sample_Metadata\sampleMultipleDataItemMappings.json = Sample_Metadata\sampleMultipleDataItemMappings.json
@@ -47,6 +46,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Templates", "Sample 
 		Sample_Templates\TemplateSampleFreeForm.Handlebars = Sample_Templates\TemplateSampleFreeForm.Handlebars
 		Sample_Templates\TemplateSampleMultipleDataItemMappings.Handlebars = Sample_Templates\TemplateSampleMultipleDataItemMappings.Handlebars
 		Sample_Templates\TemplateSampleSimpleDDL.Handlebars = Sample_Templates\TemplateSampleSimpleDDL.Handlebars
+		Sample_Templates\TemplateSampleSourceQuery.Handlebars = Sample_Templates\TemplateSampleSourceQuery.Handlebars
 		Sample_Templates\TemplateSatelliteView.Handlebars = Sample_Templates\TemplateSatelliteView.Handlebars
 	EndProjectSection
 EndProject

@@ -17,7 +17,7 @@
       "mappingName": "SAT_CUSTOMER",
       "mappingClassifications": [
         {
-          "id": 5,
+          "id": "5",
           "classification": "Context",
           "notes": "The Satellite type entities capture (historical / time-variant) context about the Business Keys in the Hub entities. A Satellite is typically sourced from a single Staging Area table."
         }

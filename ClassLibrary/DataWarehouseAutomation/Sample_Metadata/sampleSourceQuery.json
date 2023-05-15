@@ -1,19 +1,13 @@
 ﻿{
   "dataObjectMappings": [
     {
-      "mappingName": "Mapping1",
+      "mappingName": "MyDataObjectMapping",
       "sourceDataObjects": [
         {
-          "dataQueryCode": "SELECT GETDATE()",
-          "dataQueryConnection": {
-            "dataConnectionString": "TestConnectionString"
-          },
-          "dataQueryClassification": [
-            {
-              "id": 1,
-              "classification": "Example"
-            }
-          ]
+          "dataQueryCode": "SELECT GETDATE()"
+        },
+        {
+          "dataQueryCode": "SELECT SYSDATETIMESTAMP()"
         }
       ],
       "targetDataObject": {

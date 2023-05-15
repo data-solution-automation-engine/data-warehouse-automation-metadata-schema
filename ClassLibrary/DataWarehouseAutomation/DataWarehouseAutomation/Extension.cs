@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace DataWarehouseAutomation;
 
@@ -7,23 +7,33 @@ namespace DataWarehouseAutomation;
 /// </summary>
 public class Extension
 {
-#nullable enable
+    #nullable enable
+
+    /// <summary>
+    /// An optional identifier for the Data Object.
+    /// </summary>
+    [JsonPropertyName("id")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public string Id { get; set; } = string.Empty;
 
     /// <summary>
     /// The Key in a Key/Value pair.
     /// </summary>
-    [JsonProperty("key", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("key")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string Key { get; set; } = "NewExtension";
 
     /// <summary>
     /// The Value in a Key/Value pair.
     /// </summary>
-    [JsonProperty("value", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("value")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string? Value { get; set; }
 
     /// <summary>
     /// Any additional, optional, information to explain the intent of extension key/value pair.
     /// </summary>
-    [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("description")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string? Description { get; set; }
 }

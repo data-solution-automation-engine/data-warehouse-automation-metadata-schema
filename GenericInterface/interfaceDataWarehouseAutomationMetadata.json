@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface/GenericInterface/interfaceDataWarehouseAutomationMetadata.json",
   "title": "interfaceDataWarehouseAutomationMetadata",
-  "description": "Standardised format for the required metadata to generate ETL and DDL structures available for a Data Warehouse solution. The intent is to separate / decouple how individual software stores Data Warehouse Automation metadata and how this metadata can be exposed to other components, technologies and solutions for ETL and database structure generation.",
+  "description": "Standardized format for the required metadata to generate ETL and DDL structures available for a Data Warehouse solution. The intent is to separate / decouple how individual software stores Data Warehouse Automation metadata and how this metadata can be exposed to other components, technologies and solutions for ETL and database structure generation.",
   "type": "object",
   "required": [
     "dataObjectMappings"
@@ -32,6 +32,12 @@
         "targetDataObject"
       ],
       "properties": {
+        "id": {
+          "$id": "#/definitions/dataObjectMapping/properties/dataObjectMappingId",
+          "title": "Data Object Mapping Id",
+          "description": "Optional unique identifier for a Data Object Mapping",
+          "type": [ "string", "null" ]
+        },
         "mappingName": {
           "$id": "#/definitions/dataObjectMapping/properties/dataObjectMappingName",
           "description": "Unique name which identifies the mapping.",
@@ -117,17 +123,17 @@
       }
     },
     "classification": {
-      "$id": "#/definitions/classification",
+      "$id": "#/definitions/classification/properties/classificationId",
       "title": "List of source-to-target mapping classifications.",
       "description": "Classification for the source-to-target mapping (free form), used to add various tags and notes if required.",
       "type": "object",
       "required": [ "classification" ],
       "properties": {
         "id": {
-          "$id": "#/definitions/classification/properties/id",
-          "title": "ClassificationId",
-          "description": "An optional unique identifier for classification, for sorting or identification purposes.",
-          "type": "integer"
+          "$id": "#/definitions/classification/properties/classificationId",
+          "title": "Classification Id",
+          "description": "An optional unique identifier for the classification, for sorting or identification purposes.",
+          "type": [ "string", "null" ]
         },
         "classification": {
           "$id": "#/definitions/classification/properties/classification",
@@ -150,6 +156,12 @@
       "type": "object",
       "required": [ "key" ],
       "properties": {
+        "id": {
+          "$id": "#/definitions/extension/properties/extensionId",
+          "title": "Extension Id",
+          "description": "Optional unique identifier for an extension",
+          "type": [ "string", "null" ]
+        },
         "key": {
           "$id": "#/definitions/extension/properties/key",
           "title": "Extension key",
@@ -180,9 +192,9 @@
       "properties": {
         "id": {
           "$id": "#/definitions/dataObject/properties/dataObjectId",
-          "title": "",
+          "title": "Data Object Id",
           "description": "Optional unique identifier for a file/table.",
-          "type": "integer"
+          "type": [ "string", "null" ]
         },
         "name": {
           "$id": "#/definitions/dataObject/properties/dataObjectName",
@@ -235,6 +247,12 @@
       "required": [ "dataQueryCode" ],
       "type": "object",
       "properties": {
+        "id": {
+          "$id": "#/definitions/dataQuery/properties/dataQueryId",
+          "title": "Data Query Id",
+          "description": "Optional unique identifier for a Data Query",
+          "type": [ "string", "null" ]
+        },
         "dataQueryName": {
           "$id": "#/definitions/dataQuery/properties/dataQueryName",
           "type": "string",
@@ -245,7 +263,7 @@
           "$id": "#/definitions/dataQuery/properties/dataQueryCode",
           "type": "string",
           "title": "",
-          "description": "The actual code that constitutes the query."
+          "description": "The code that constitutes the query."
         },
         "dataQueryLanguage": {
           "$id": "#/definitions/dataQuery/properties/dataQueryLanguage",
@@ -282,11 +300,17 @@
     },
     "dataConnection": {
       "$id": "#/definitions/dataConnection",
-      "title": "Connection details",
+      "title": "Data connection details",
       "description": "Optional connectivity information, that can be used for either a DataObject or DataQuery.",
       "required": [ "dataConnectionString" ],
       "type": [ "object", "null" ],
       "properties": {
+        "id": {
+          "$id": "#/definitions/dataConnection/properties/dataConnectionId",
+          "title": "Data Connection Id",
+          "description": "An optional identifier.",
+          "type": [ "string", "null" ]
+        },
         "dataConnectionString": {
           "$id": "#/definitions/dataConnection/properties/dataConnectionString",
           "type": [ "string", "null" ],
@@ -312,6 +336,12 @@
       "type": "object",
       "required": [ "businessKeyComponentMapping" ],
       "properties": {
+        "id": {
+          "$id": "#/definitions/businessKeyDefinition/properties/businessKeyDefinitionId",
+          "title": "Business key Definition Id",
+          "description": "An optional identifier.",
+          "type": [ "string", "null" ]
+        },
         "surrogateKey": {
           "description": "An optional label for the end result e.g. the target business key attribute.",
           "type": [ "string", "null" ]
@@ -352,6 +382,12 @@
       "type": "object",
       "required": [ "name" ],
       "properties": {
+        "id": {
+          "$id": "#/definitions/dataItem/properties/dataItemId",
+          "title": "Data Item Id",
+          "description": "An optional identifier.",
+          "type": [ "string", "null" ]
+        },
         "name": {
           "description": "Unique name which identifies the column / attribute.",
           "type": "string"
@@ -418,6 +454,12 @@
         "targetDataItem"
       ],
       "properties": {
+        "id": {
+          "$id": "#/definitions/dataItem/properties/dataItemMappingId",
+          "title": "Data Item Mapping Id",
+          "description": "An optional identifier.",
+          "type": [ "string", "null" ]
+        },
         "sourceDataItems": {
           "$id": "#/definitions/dataItemMapping/properties/sourceDataItems",
           "description": "The source item of the mapping. This can either be an column or a query.",

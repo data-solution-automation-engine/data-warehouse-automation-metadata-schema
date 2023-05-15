@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace DataWarehouseAutomation;
 
@@ -9,29 +9,39 @@ namespace DataWarehouseAutomation;
 /// </summary>
 public class BusinessKeyDefinition
 {
+    #nullable enable
+
+    /// <summary>
+    /// Optional identifier as a string value to allow various identifier approaches.
+    /// </summary>
+    [JsonPropertyName("id")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public string Id { get; set; } = string.Empty;
+
     /// <summary>
     /// Items that define the Business Key e.g. the collection of columns for a Business Key.
     /// </summary>
-    [JsonProperty("businessKeyComponentMapping")]
+    [JsonPropertyName("businessKeyComponentMapping")]
     public List<DataItemMapping> BusinessKeyComponentMapping { get; set; } = new();
-
-#nullable enable
 
     /// <summary>
     /// An optional label for the end result e.g. the target business key attribute.
     /// </summary>
-    [JsonProperty("surrogateKey", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("surrogateKey")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string? SurrogateKey { get; set; }
 
     /// <summary>
     /// Free-form and optional classification for the Business Key for use in generation logic (evaluation).
     /// </summary>
-    [JsonProperty("businessKeyClassification", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("businessKeyClassification")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<DataClassification>? BusinessKeyClassification { get; set; }
 
     /// <summary>
     /// The collection of extension Key/Value pairs.
     /// </summary>
-    [JsonProperty("extensions", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("extensions")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<Extension>? Extensions { get; set; }
 }

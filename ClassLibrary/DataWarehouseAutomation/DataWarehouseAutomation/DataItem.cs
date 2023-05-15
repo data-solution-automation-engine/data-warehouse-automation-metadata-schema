@@ -1,51 +1,98 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace DataWarehouseAutomation;
 
+
 public class DataItem
 {
-#nullable enable
+    #nullable enable
 
-    [JsonProperty("name")]
+    /// <summary>
+    /// Optional identifier as a string value to allow various identifier approaches.
+    /// </summary>
+    [JsonPropertyName("id")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public string Id { get; set; } = string.Empty;
+
+    [JsonPropertyName("name")]
     public string Name { get; set; } = "NewDataItemName"; // Mandatory
 
     /// <summary>
     /// The data object to which the data item belongs. This can be used to construct fully qualified names.
     /// </summary>
-    [JsonProperty("dataObject", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("dataObject")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public DataObject? DataObject { get; set; }
 
-    [JsonProperty("dataType", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("dataType")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string? DataType { get; set; }
 
-    [JsonProperty("characterLength", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("characterLength")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public int? CharacterLength { get; set; }
 
-    [JsonProperty("numericPrecision", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("numericPrecision")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public int? NumericPrecision { get; set; }
 
-    [JsonProperty("numericScale", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("numericScale")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public int? NumericScale { get; set; }
 
-    [JsonProperty("ordinalPosition", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("ordinalPosition")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public int? OrdinalPosition { get; set; }
 
-    [JsonProperty("isPrimaryKey", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("isPrimaryKey")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public bool? IsPrimaryKey { get; set; }
 
-    [JsonProperty("isHardCodedValue", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("isHardCodedValue")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public bool? IsHardCodedValue { get; set; }
 
     /// <summary>
     /// Free-form and optional classification for the Data Item for use in generation logic (evaluation).
     /// </summary>
-    [JsonProperty("dataItemClassification", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+    [JsonPropertyName("dataItemClassification")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<DataClassification>? DataItemClassification { get; set; }
 
     /// <summary>
     /// The collection of extension Key/Value pairs.
     /// </summary>
-    [JsonProperty("extensions", NullValueHandling = NullValueHandling.Ignore)]
+    [JsonPropertyName("extensions")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<Extension>? Extensions { get; set; }
+
+    #region Methods
+    /// <summary>
+    /// Use this method to assert an object as a DataItem (or not).
+    /// </summary>
+    /// <param name="o"></param>
+    /// <returns></returns>
+    public override bool Equals(object? o)
+    {
+        var other = o as DataItem;
+        return other?.Id == Id;
+    }
+
+    /// <summary>
+    /// Override to get a hash value that represents the identifier. 
+    /// </summary>
+    /// <returns></returns>
+    public override int GetHashCode() => Id.GetHashCode();
+
+    /// <summary>
+    /// String override so that the object returns its value ('name').
+    /// When an instance of this class is passed to a method that expects a string, the ToString() method will be called implicitly to convert the object to a string, and the value of the "Name" property will be returned.
+    /// </summary>
+    /// <returns></returns>
+    public override string ToString()
+    {
+        return Name;
+    }
+    #endregion
 }

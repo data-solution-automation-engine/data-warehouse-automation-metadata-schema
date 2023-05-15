@@ -14,6 +14,7 @@ namespace RunDwhAutomation
             // An optimistic start.
             Environment.ExitCode = (int)ExitCode.Success;
 
+            // Get the handlebars extensions from the DataWarehouseAutomation class library.
             HandleBarsHelpers.RegisterHandleBarsHelpers();
 
             #region unit testing
@@ -116,7 +117,7 @@ namespace RunDwhAutomation
                     {
                         if (options.outputFileName == null)
                         {
-                            // The outputfilename will be derived from the Json input (mappingName), if available.
+                            // The output filename will be derived from the Json input (mappingName), if available.
                             RunAutomation(options, file);
                         }
                         else
@@ -135,7 +136,7 @@ namespace RunDwhAutomation
                     else
                     {
                         RunAutomation(options, options.input, options.outputFileName );
-                    }                    
+                    }
                 }
                 #endregion
 
@@ -149,9 +150,8 @@ namespace RunDwhAutomation
             //                                h => CommandLine.Text.HelpText.DefaultParsingErrorsHandler(result, h),
             //                                e => e);
             //Console.WriteLine(helpText);
-
  
-            //Console.ReadKey();               
+            //Console.ReadKey();
 
             return Environment.ExitCode;
         }
@@ -164,10 +164,10 @@ namespace RunDwhAutomation
                 var stringTemplate = File.ReadAllText(options.pattern);
                 var template = Handlebars.Compile(stringTemplate);
 
-                //var deserialisedMapping = JsonConvert.DeserializeObject<VdwDataObjectMappings>(jsonInput);
-                var freeFormMapping = JObject.Parse(jsonInput);
+                //var deserializedMapping = JsonConvert.DeserializeObject<VdwDataObjectMappings>(jsonInput);
+                var deserializedMapping = JObject.Parse(jsonInput);
 
-                var result = template(freeFormMapping);
+                var result = template(deserializedMapping);
 
                 if (options.verbose)
                 {
@@ -178,10 +178,9 @@ namespace RunDwhAutomation
                 {
                     if (outputFileName == "")
                     {
-                        //outputFileName = deserialisedMapping.dataObjectMappings[0].mappingName; // you could read this from the free form mapping file, too
                         try
                         {
-                            outputFileName = (string) freeFormMapping["dataObjectMappings"][0]["mappingName"]; 
+                            outputFileName = (string) deserializedMapping["dataObjectMappings"][0]["mappingName"]; 
                         }
                         catch
                         {
@@ -196,10 +195,8 @@ namespace RunDwhAutomation
 
                     Console.WriteLine($"Generating {outputFileName}.{options.outputFileExtension} to {options.outputDirectory}.");
 
-                    using (StreamWriter file = new StreamWriter($"{options.outputDirectory}\\{outputFileName}.{options.outputFileExtension}"))
-                    {
-                        file.WriteLine(result);
-                    }
+                    using StreamWriter file = new StreamWriter($"{options.outputDirectory}\\{outputFileName}.{options.outputFileExtension}");
+                    file.WriteLine(result);
                 }
 
                 Environment.ExitCode = (int)ExitCode.Success;

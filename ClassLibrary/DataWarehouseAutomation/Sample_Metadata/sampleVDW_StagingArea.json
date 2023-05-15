@@ -5,13 +5,13 @@
       "classification": "",
       "sourceDataObjects": [
         {
-          "id": 0,
+          "id": "0",
           "name": "CUST_MEMBERSHIP",
           "dataItems": null
         }
       ],
       "targetDataObject": {
-        "id": 0,
+        "id": "0",
         "name": "STG_PROFILER_CUST_MEMBERSHIP",
         "dataItems": null
       },
