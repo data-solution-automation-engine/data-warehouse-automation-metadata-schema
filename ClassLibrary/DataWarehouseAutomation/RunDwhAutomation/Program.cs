@@ -52,6 +52,7 @@ namespace RunDwhAutomation
 
             CommandLineArgumentHelper environmentHelper = new CommandLineArgumentHelper();
             //CommandLineArgumentHelper environmentHelper = new CommandLineArgumentHelper(testArgs);
+
             string[] localArgs = environmentHelper.args;
 
             Parser.Default.ParseArguments<Options>(localArgs).WithParsed(options =>

@@ -9,11 +9,11 @@
       ],
       "sourceDataObjects": [
         {
-          "name": "TableOneSource"
+          "name": "MyFirstMappingSource"
         }
       ],
       "targetDataObject": {
-        "name": "HelloWorldExampleTableOne"
+        "name": "SomeCustomerTable"
       },
       "dataItemMappings": [
         {
