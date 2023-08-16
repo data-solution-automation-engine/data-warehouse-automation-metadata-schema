@@ -4,7 +4,8 @@ using System.IO;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
 
-namespace Test_Project;
+namespace DataWarehouseAutomation;
+
 
 public class JsonValidation
 {
