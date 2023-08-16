@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
@@ -250,7 +248,6 @@ public class HandleBarsHelpers
             }
         });
 
-
         Handlebars.RegisterHelper("targetDataItemExists", (output, options, context, arguments) =>
         {
             if (arguments.Length != 1) throw new HandlebarsException("The {{targetDataItemExists}} function requires only one argument.");
@@ -261,17 +258,6 @@ public class HandleBarsHelpers
                 DataObjectMapping dataObjectMapping = JsonSerializer.Deserialize<DataObjectMapping>(context.Value.ToString());
 
                 var dataItemExists = dataObjectMapping.DataItemMappings.Select(x => x.TargetDataItem.Name == searchString).FirstOrDefault();
-
-                //foreach (var targetDataItem in context.dataItemMappings)
-                //{
-
-                //}
-
-                //var bla = arguments[1].
-
-
-                //var leftString = arguments[0] == null ? "" : arguments[0].ToString();
-                //var rightString = arguments[1] == null ? "" : arguments[1].ToString();
 
                 if (dataItemExists)
                 {
@@ -289,6 +275,5 @@ public class HandleBarsHelpers
                 throw new HandlebarsException($"The {{targetDataItemExists}} helper reported a conversion error, and was unable to deserialize the context into a DataObjectMapping. The reported error is " + exception.Message);
             }
         });
-
     }
 }
