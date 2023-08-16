@@ -12,7 +12,19 @@ A and B {{#stringcompare "A" "B"}}are the same. {{else}}are not the same. {{/str
 
 A and B {{#stringdiff "A" "B"}}are different. {{else}}are not different. {{/stringdiff}}
 
-This is {{space "Roelant"}} spaced out.
+This is {{space "Roelant"}} ...spaced out.
 
 This replaces the a's in Roelant with an !: {{StringReplace "Roelant" "a" "!"}}
 
+{{!-- Demonstrating the array lookup --}}
+{{#each dataObjectMappings}}
+Working on mapping {{mappingName}}
+{{#each dataItemMappings}}
+Found a data item mapping from {{sourceDataItems.0.name}} to {{targetDataItem.name}}
+{{/each}}
+
+{{#targetDataItemExists "FIRST_NAME"}}FIRST_NAME exists{{else}}FIRST_NAME does not exist{{/targetDataItemExists}}
+{{#targetDataItemExists "NAME"}}NAME exists{{else}}NAME does not exist{{/targetDataItemExists}}
+
+-- End of mapping
+{{/each}}

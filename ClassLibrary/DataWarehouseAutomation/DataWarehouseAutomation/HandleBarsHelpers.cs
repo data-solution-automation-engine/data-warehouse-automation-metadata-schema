@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
@@ -8,10 +11,16 @@ namespace DataWarehouseAutomation;
 
 public class HandleBarsHelpers
 {
+    /// <summary>
+    /// Generate a random integer value, capped by an input (maximum) value.
+    /// </summary>
+    /// <param name="maxNumber"></param>
+    /// <returns></returns>
+    /// <exception cref="Exception"></exception>
     public static int GetRandomNumber(int maxNumber)
     {
         if (maxNumber < 1)
-            throw new Exception("The maxNumber value should be greater than 1");
+            throw new Exception("The maximum number value should be greater than 1");
 
         var b = new byte[4];
         var rng = RandomNumberGenerator.Create();
@@ -21,6 +30,11 @@ public class HandleBarsHelpers
         return r.Next(1, maxNumber);
     }
 
+    /// <summary>
+    /// Generate a random date (no time component), higher than the input year number (four-digit integer).
+    /// </summary>
+    /// <param name="startYear"></param>
+    /// <returns></returns>
     public static DateTime GetRandomDate(int startYear = 1995)
     {
         var start = new DateTime(startYear, 1, 1);
@@ -35,10 +49,10 @@ public class HandleBarsHelpers
 
     public static void RegisterHandleBarsHelpers()
     {
-        // Generation Date/Time functional helper
+        // Display the current date and time.
         Handlebars.RegisterHelper("now", (output, context, arguments) => { output.WriteSafeString(DateTime.Now); });
 
-        // Generation random date, based on an integer input value
+        // Generation random date, based on an integer input year value.
         Handlebars.RegisterHelper("randomdate", (output, context, arguments) =>
         {
             if (arguments.Length > 1)
@@ -60,7 +74,7 @@ public class HandleBarsHelpers
 
         });
 
-        // Generation random string, based on an integer input value
+        // Generation random string, based on an integer input value cap.
         Handlebars.RegisterHelper("randomnumber", (output, context, arguments) =>
         {
             if (arguments.Length > 1)
@@ -208,7 +222,7 @@ public class HandleBarsHelpers
 
         });
 
-        Handlebars.RegisterHelper("StringReplace", (writer, context, args) =>
+        Handlebars.RegisterHelper("stringReplace", (writer, context, args) =>
         {
             if (args.Length < 3) throw new HandlebarsException("The {{StringReplace}} function requires at least three arguments.");
 
@@ -235,5 +249,46 @@ public class HandleBarsHelpers
                 }
             }
         });
+
+
+        Handlebars.RegisterHelper("targetDataItemExists", (output, options, context, arguments) =>
+        {
+            if (arguments.Length != 1) throw new HandlebarsException("The {{targetDataItemExists}} function requires only one argument.");
+
+            try
+            {
+                var searchString = arguments[0] == null ? "" : arguments[0].ToString();
+                DataObjectMapping dataObjectMapping = JsonSerializer.Deserialize<DataObjectMapping>(context.Value.ToString());
+
+                var dataItemExists = dataObjectMapping.DataItemMappings.Select(x => x.TargetDataItem.Name == searchString).FirstOrDefault();
+
+                //foreach (var targetDataItem in context.dataItemMappings)
+                //{
+
+                //}
+
+                //var bla = arguments[1].
+
+
+                //var leftString = arguments[0] == null ? "" : arguments[0].ToString();
+                //var rightString = arguments[1] == null ? "" : arguments[1].ToString();
+
+                if (dataItemExists)
+                {
+                    // Regular block
+                    options.Template(output, context);
+                }
+                else
+                {
+                    // Else block
+                    options.Inverse(output, context);
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new HandlebarsException($"The {{targetDataItemExists}} helper reported a conversion error, and was unable to deserialize the context into a DataObjectMapping. The reported error is " + exception.Message);
+            }
+        });
+
     }
 }

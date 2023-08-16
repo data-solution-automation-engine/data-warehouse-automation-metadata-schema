@@ -1,1 +1,67 @@
-﻿{}
+﻿{
+  "dataObjectMappings": [
+    {
+      "mappingName": "Example",
+      "sourceDataObjects": [
+        {
+          "name": "DL_NCIN_QUESTION"
+        }
+      ],
+      "targetDataObject": {
+        "name": "STG_NCIN_QUESTION"
+      },
+      "dataItemMappings": [
+        {
+          "sourceDataItems": [
+            {
+              "name": "NAME"
+            }
+          ],
+          "targetDataItem": {
+            "name": "FIRST_NAME"
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "name": "LAST_NAME"
+            }
+          ],
+          "targetDataItem": {
+            "name": "LAST_NAME"
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "name": "DOB"
+            }
+          ],
+          "targetDataItem": {
+            "name": "DATE_OF_BIRTH"
+          }
+        }
+      ],
+      "businessKeys": [
+        {
+          "businessKeyComponentMapping": [
+            {
+              "sourceDataItems": [
+                {
+                  "name": "ID",
+                  "isHardCodedValue": false
+                }
+              ],
+              "targetDataItem": {
+                "name": "ID"
+              }
+            }
+          ],
+          "surrogateKey": "Example_SK"
+        }
+      ],
+      "filterCriterion": "",
+      "enabled": true
+    }
+  ]
+}
