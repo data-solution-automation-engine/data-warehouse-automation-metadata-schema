@@ -257,9 +257,9 @@ public class HandleBarsHelpers
                 var searchString = arguments[0] == null ? "" : arguments[0].ToString();
                 DataObjectMapping dataObjectMapping = JsonSerializer.Deserialize<DataObjectMapping>(context.Value.ToString());
 
-                var dataItemExists = dataObjectMapping.DataItemMappings.Select(x => x.TargetDataItem.Name == searchString).FirstOrDefault();
+                var dataItemExists = dataObjectMapping.DataItemMappings.Where(x => x.TargetDataItem.Name == searchString).FirstOrDefault();
 
-                if (dataItemExists)
+                if (dataItemExists != null)
                 {
                     // Regular block
                     options.Template(output, context);
