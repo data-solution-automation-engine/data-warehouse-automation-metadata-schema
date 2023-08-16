@@ -4,11 +4,11 @@
       "mappingName": "Example",
       "sourceDataObjects": [
         {
-          "name": "DL_NCIN_QUESTION"
+          "name": "ExampleSourceDataObject"
         }
       ],
       "targetDataObject": {
-        "name": "STG_NCIN_QUESTION"
+        "name": "ExampleTargetDataObject"
       },
       "dataItemMappings": [
         {
