@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -248,6 +249,7 @@ public class HandleBarsHelpers
             }
         });
 
+        // Run at data object mapping level.
         Handlebars.RegisterHelper("targetDataItemExists", (output, options, context, arguments) =>
         {
             if (arguments.Length != 1) throw new HandlebarsException("The {{targetDataItemExists}} function requires only one argument.");
@@ -273,6 +275,74 @@ public class HandleBarsHelpers
             catch (Exception exception)
             {
                 throw new HandlebarsException($"The {{targetDataItemExists}} helper reported a conversion error, and was unable to deserialize the context into a DataObjectMapping. The reported error is " + exception.Message);
+            }
+        });
+
+        // Run at data object mapping level.
+        Handlebars.RegisterHelper("exists", (output, options, context, arguments) =>
+        {
+            if (arguments.Length != 1) throw new HandlebarsException("The {{exists}} function must have a single argument, which must be a property of a data object mapping.");
+
+            var property = arguments[0] == null ? "" : arguments[0].ToString();
+
+            // Supported:
+            // - targetDataItemClassification
+            // - targetDataItem
+
+            try
+            {
+                DataObjectMapping dataObjectMapping = JsonSerializer.Deserialize<DataObjectMapping>(context.Value.ToString());
+
+                var outcome = false;
+
+                if (property == "multiActiveKey")
+                {
+                    var targetDataItemsWithClassifications = dataObjectMapping?.DataItemMappings?.Where(x => x.TargetDataItem.DataItemClassification != null).ToList();
+
+                    if (targetDataItemsWithClassifications != null)
+                    {
+                        var dataItemClassifications = targetDataItemsWithClassifications.SelectMany(x => x.TargetDataItem.DataItemClassification).ToList();
+
+                        if (dataItemClassifications != null && dataItemClassifications.Any())
+                        {
+                            foreach (var classification in dataItemClassifications)
+                            {
+                                if (classification.Classification == "MultiActiveKey")
+                                {
+                                    outcome = true;
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (property == "targetDataItem")
+                {
+                    var targetDataItem = dataObjectMapping?.DataItemMappings?.Where(x => x.TargetDataItem != null).FirstOrDefault();
+
+                    if (targetDataItem != null)
+                    {
+                        outcome = true;
+                    }
+                }
+                else
+                {
+                    throw new HandlebarsException($"The {{{property}}} used is not supported by the exist function. Only multiActiveKey and targetDataItem are currently supported.");
+                }
+
+                if (outcome)
+                {
+                    // Regular block
+                    options.Template(output, context);
+                }
+                else
+                {
+                    // Else block
+                    options.Inverse(output, context);
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new HandlebarsException($"The exists helper using the property {{{property}}} reported a conversion error, and was unable to deserialize the context into a DataObjectMapping. The reported error is " + exception.Message);
             }
         });
     }

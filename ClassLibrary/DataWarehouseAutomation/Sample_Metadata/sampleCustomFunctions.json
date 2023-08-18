@@ -38,7 +38,12 @@
             }
           ],
           "targetDataItem": {
-            "name": "DATE_OF_BIRTH"
+            "name": "DATE_OF_BIRTH",
+            "dataItemClassification": [
+              {
+                "classification": "MultiActiveKey"
+              }
+            ]
           }
         }
       ],
