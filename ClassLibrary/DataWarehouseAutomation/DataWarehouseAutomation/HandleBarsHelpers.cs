@@ -281,12 +281,18 @@ public class HandleBarsHelpers
         // Run at data object mapping level.
         Handlebars.RegisterHelper("exists", (output, options, context, arguments) =>
         {
-            if (arguments.Length != 1) throw new HandlebarsException("The {{exists}} function must have a single argument, which must be a property of a data object mapping.");
+            if (arguments.Length == 0 || arguments.Length>2) throw new HandlebarsException("The {{exists}} function must have one or two arguments, which must be a property of a data object mapping which is mandatory and an optional exception value.");
 
             var property = arguments[0] == null ? "" : arguments[0].ToString();
 
+            var propertyValue = String.Empty;
+            if (arguments.Length == 2)
+            {
+                propertyValue = arguments[1]?.ToString();
+            }
+
             // Supported:
-            // - targetDataItemClassification
+            // - multiActiveKey
             // - targetDataItem
 
             try
@@ -297,7 +303,15 @@ public class HandleBarsHelpers
 
                 if (property == "multiActiveKey")
                 {
-                    var targetDataItemsWithClassifications = dataObjectMapping?.DataItemMappings?.Where(x => x.TargetDataItem.DataItemClassification != null).ToList();
+                    var targetDataItemsWithClassifications = new List<DataItemMapping>();
+                    if (String.IsNullOrEmpty(propertyValue))
+                    {
+                        targetDataItemsWithClassifications = dataObjectMapping?.DataItemMappings?.Where(x => x.TargetDataItem.DataItemClassification != null).ToList();
+                    }
+                    else
+                    {
+                        targetDataItemsWithClassifications = dataObjectMapping?.DataItemMappings?.Where(x => x.TargetDataItem.DataItemClassification != null && x.TargetDataItem.Name != propertyValue).ToList();
+                    }
 
                     if (targetDataItemsWithClassifications != null)
                     {
