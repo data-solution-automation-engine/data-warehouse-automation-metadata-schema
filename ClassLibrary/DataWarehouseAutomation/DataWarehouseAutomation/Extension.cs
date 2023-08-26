@@ -1,14 +1,10 @@
-﻿using System.Text.Json.Serialization;
-
-namespace DataWarehouseAutomation;
+﻿namespace DataWarehouseAutomation;
 
 /// <summary>
 /// A free form key/value pair addition that can contain additional context.
 /// </summary>
 public class Extension
 {
-    #nullable enable
-
     /// <summary>
     /// An optional identifier for the Data Object.
     /// </summary>
@@ -33,7 +29,7 @@ public class Extension
     /// <summary>
     /// Any additional, optional, information to explain the intent of extension key/value pair.
     /// </summary>
-    [JsonPropertyName("description")]
+    [JsonPropertyName("notes")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public string? Description { get; set; }
+    public string? Notes { get; set; }
 }

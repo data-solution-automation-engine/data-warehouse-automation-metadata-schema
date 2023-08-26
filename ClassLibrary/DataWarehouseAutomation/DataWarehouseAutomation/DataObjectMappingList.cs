@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Text.Json.Serialization;
-
-namespace DataWarehouseAutomation;
+﻿namespace DataWarehouseAutomation;
 
 public class DataObjectMappingList
 {

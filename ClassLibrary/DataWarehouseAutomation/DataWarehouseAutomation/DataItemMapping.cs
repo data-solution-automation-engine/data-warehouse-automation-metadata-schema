@@ -9,8 +9,6 @@ namespace DataWarehouseAutomation;
 /// </summary>
 public class DataItemMapping
 {
-    #nullable enable
-
     /// <summary>
     /// Optional identifier as a string value to allow various identifier approaches.
     /// </summary>
@@ -19,7 +17,7 @@ public class DataItemMapping
     public string Id { get; set; } = string.Empty;
 
     [JsonPropertyName("sourceDataItems")]
-    public List<dynamic> SourceDataItems { get; set; } = new();
+    public List<IDataItem> SourceDataItems { get; set; } = new();
 
     [JsonPropertyName("targetDataItem")]
     public DataItem TargetDataItem { get; set; } = new() { Name = "NewTargetDataItem" };

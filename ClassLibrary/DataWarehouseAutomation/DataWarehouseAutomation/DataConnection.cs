@@ -1,15 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Text.Json.Serialization;
-
-namespace DataWarehouseAutomation;
+﻿namespace DataWarehouseAutomation;
 
 /// <summary>
 /// Optional connectivity information, that can be used for either a DataObject or DataQuery. Can be anything (e.g. key, token, string)
 /// </summary>
-public class DataConnection
+public class DataConnection : IMetadata
 {
-    #nullable enable
-
     /// <summary>
     /// Optional identifier as a string value to allow various identifier approaches.
     /// </summary>
@@ -20,8 +15,8 @@ public class DataConnection
     /// <summary>
     /// The connection information expressed in a key, token or (connection)string.
     /// </summary>
-    [JsonPropertyName("dataConnectionString")]
-    public string DataConnectionString { get; set; } = "NewConnection";
+    [JsonPropertyName("name")]
+    public string Name { get; set; } = "NewConnection";
 
     /// <summary>
     /// The collection of extension Key/Value pairs.
@@ -29,6 +24,20 @@ public class DataConnection
     [JsonPropertyName("extensions")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<Extension>? Extensions { get; set; }
+
+    /// <summary>
+    /// Free-form and optional classification for the Data Item for use in generation logic (evaluation).
+    /// </summary>
+    [JsonPropertyName("classifications")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public List<DataClassification>? Classifications { get; set; }
+
+    /// <summary>
+    /// Free-format notes.
+    /// </summary>
+    [JsonPropertyName("notes")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public string? Notes { get; set; }
 
     #region Methods
     /// <summary>
@@ -55,7 +64,7 @@ public class DataConnection
     /// <returns></returns>
     public override string ToString()
     {
-        return DataConnectionString;
+        return Name;
     }
     #endregion
 }

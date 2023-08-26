@@ -306,16 +306,16 @@ public class HandleBarsHelpers
                     var targetDataItemsWithClassifications = new List<DataItemMapping>();
                     if (String.IsNullOrEmpty(propertyValue))
                     {
-                        targetDataItemsWithClassifications = dataObjectMapping?.DataItemMappings?.Where(x => x.TargetDataItem.DataItemClassification != null).ToList();
+                        targetDataItemsWithClassifications = dataObjectMapping?.DataItemMappings?.Where(x => x.TargetDataItem.Classifications != null).ToList();
                     }
                     else
                     {
-                        targetDataItemsWithClassifications = dataObjectMapping?.DataItemMappings?.Where(x => x.TargetDataItem.DataItemClassification != null && x.TargetDataItem.Name != propertyValue).ToList();
+                        targetDataItemsWithClassifications = dataObjectMapping?.DataItemMappings?.Where(x => x.TargetDataItem.Classifications != null && x.TargetDataItem.Name != propertyValue).ToList();
                     }
 
                     if (targetDataItemsWithClassifications != null)
                     {
-                        var dataItemClassifications = targetDataItemsWithClassifications.SelectMany(x => x.TargetDataItem.DataItemClassification).ToList();
+                        var dataItemClassifications = targetDataItemsWithClassifications.SelectMany(x => x.TargetDataItem.Classifications).ToList();
 
                         if (dataItemClassifications != null && dataItemClassifications.Any())
                         {
@@ -358,6 +358,22 @@ public class HandleBarsHelpers
             {
                 throw new HandlebarsException($"The exists helper using the property {{{property}}} reported a conversion error, and was unable to deserialize the context into a DataObjectMapping. The reported error is " + exception.Message);
             }
+        });
+
+        // lookupExtension allows a lookup of an extension value by key value. Pass in the Extensions list and the string key value.
+        Handlebars.RegisterHelper("lookupExtension", (writer, context, parameters) =>
+        {
+            // Check if the parameters are valid
+            if (parameters.Length != 2 || parameters[0] is not List<Extension> || parameters[1] is not string)
+            {
+                throw new HandlebarsException("{{lookupExtension}} helper expects an Extension list and a string lookup key");
+            }
+
+            var extensionList = (List<Extension>)parameters[0];
+            var key = (string)parameters[1];
+            var result = extensionList.Find(i => i.Key.Equals(key, StringComparison.OrdinalIgnoreCase))?.Value ?? "";
+
+            writer.WriteSafeString($"{result}");
         });
     }
 }

@@ -1,16 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Text.Json.Serialization;
-using System.Xml.Linq;
-
-namespace DataWarehouseAutomation;
+﻿namespace DataWarehouseAutomation;
 
 /// <summary>
 /// The mapping between a source and target data set / table / file.
 /// </summary>
-public class DataObjectMapping
+public class DataObjectMapping : IMetadata
 {
-    #nullable enable
-
     /// <summary>
     /// An optional identifier for the Data Object.
     /// </summary>
@@ -21,22 +15,22 @@ public class DataObjectMapping
     /// <summary>
     /// The name of the source-to-target mapping. An optional unique name that identifies the individual mapping.
     /// </summary>
-    [JsonPropertyName("mappingName")]
+    [JsonPropertyName("name")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public string? MappingName { get; set; }
+    public string? Name { get; set; }
 
     /// <summary>
     /// Free-form and optional classification for the mapping for use in ETL generation logic (evaluation).
     /// </summary>
-    [JsonPropertyName("mappingClassifications")]
+    [JsonPropertyName("classifications")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public List<DataClassification>? MappingClassifications { get; set; }
+    public List<DataClassification>? Classifications { get; set; }
 
     /// <summary>
     /// The source object of the mapping.
     /// </summary>
     [JsonPropertyName("sourceDataObjects")]
-    public List<dynamic> SourceDataObjects { get; set; } = new();
+    public List<IDataObject> SourceDataObjects { get; set; } = new();
 
     /// <summary>
     /// The target object of the mapping.
@@ -62,9 +56,9 @@ public class DataObjectMapping
     /// <summary>
     /// The definition of the Business Key for the source-to-target mapping.
     /// </summary>
-    [JsonPropertyName("businessKeys")]
+    [JsonPropertyName("businessKeyDefinitions")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public List<BusinessKeyDefinition>? BusinessKeys { get; set; }
+    public List<BusinessKeyDefinition>? BusinessKeyDefinitions { get; set; }
 
     /// <summary>
     /// Any filtering that needs to be applied to the source-to-target mapping.
@@ -88,6 +82,13 @@ public class DataObjectMapping
     [JsonPropertyName("extensions")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<Extension>? Extensions { get; set; }
+
+    /// <summary>
+    /// Free-format notes on the classification.
+    /// </summary>
+    [JsonPropertyName("notes")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public string? Notes { get; set; }
 
     #region Methods
     /// <summary>
@@ -114,7 +115,7 @@ public class DataObjectMapping
     /// <returns></returns>
     public override string ToString()
     {
-        return MappingName;
+        return Name;
     }
     #endregion
 }

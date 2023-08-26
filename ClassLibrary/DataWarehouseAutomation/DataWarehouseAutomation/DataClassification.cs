@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace DataWarehouseAutomation;
+﻿namespace DataWarehouseAutomation;
 
 /// <summary>
 /// Used to define a list of classifications (labels) and notes to add to a data object mapping.
@@ -8,8 +6,6 @@ namespace DataWarehouseAutomation;
 /// </summary>
 public class DataClassification
 {
-    #nullable enable
-
     /// <summary>
     /// Optional identifier as a string value to allow various identifier approaches.
     /// </summary>

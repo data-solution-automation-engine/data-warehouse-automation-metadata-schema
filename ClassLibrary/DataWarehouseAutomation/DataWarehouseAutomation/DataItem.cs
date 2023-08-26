@@ -1,22 +1,16 @@
-﻿using System.Collections.Generic;
-using System.Text.Json.Serialization;
+﻿namespace DataWarehouseAutomation;
 
-namespace DataWarehouseAutomation;
-
-
-public class DataItem
+public class DataItem : IMetadata
 {
-    #nullable enable
-
     /// <summary>
-    /// Optional identifier as a string value to allow various identifier approaches.
+    /// Identifier as a string value to allow various identifier approaches.
     /// </summary>
     [JsonPropertyName("id")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string Id { get; set; } = string.Empty;
 
     [JsonPropertyName("name")]
-    public string Name { get; set; } = "NewDataItemName"; // Mandatory
+    public string Name { get; set; } = "NewDataItemName"; // Mandatory.
 
     /// <summary>
     /// The data object to which the data item belongs. This can be used to construct fully qualified names.
@@ -49,16 +43,12 @@ public class DataItem
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public bool? IsPrimaryKey { get; set; }
 
-    [JsonPropertyName("isHardCodedValue")]
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public bool? IsHardCodedValue { get; set; }
-
     /// <summary>
     /// Free-form and optional classification for the Data Item for use in generation logic (evaluation).
     /// </summary>
-    [JsonPropertyName("dataItemClassification")]
+    [JsonPropertyName("classifications")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public List<DataClassification>? DataItemClassification { get; set; }
+    public List<DataClassification>? Classifications { get; set; }
 
     /// <summary>
     /// The collection of extension Key/Value pairs.
@@ -66,6 +56,13 @@ public class DataItem
     [JsonPropertyName("extensions")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<Extension>? Extensions { get; set; }
+
+    /// <summary>
+    /// Free-format notes.
+    /// </summary>
+    [JsonPropertyName("notes")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public string? Notes { get; set; }
 
     #region Methods
     /// <summary>

@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Text.Json.Serialization;
+﻿namespace DataWarehouseAutomation;
 
-namespace DataWarehouseAutomation;
-
-public class DataObject
+public class DataObject : IMetadata
 {
     #nullable enable
 
@@ -25,21 +22,21 @@ public class DataObject
     /// </summary>
     [JsonPropertyName("dataItems")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public List<dynamic>? DataItems { get; set; }
+    public List<IDataItem>? DataItems { get; set; }
 
     /// <summary>
     /// The connection information associated to the Data Object.
     /// </summary>
-    [JsonPropertyName("dataObjectConnection")]
+    [JsonPropertyName("dataConnection")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public DataConnection? DataObjectConnection { get; set; }
+    public DataConnection? DataConnection { get; set; }
 
     /// <summary>
     /// Free-form and optional classification for the Data Object for use in ETL generation logic (evaluation).
     /// </summary>
-    [JsonPropertyName("dataObjectClassifications")]
+    [JsonPropertyName("classifications")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public List<DataClassification>? DataObjectClassifications { get; set; }
+    public List<DataClassification>? Classifications { get; set; }
 
     /// <summary>
     /// The collection of extension Key/Value pairs.
@@ -47,6 +44,13 @@ public class DataObject
     [JsonPropertyName("extensions")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<Extension>? Extensions { get; set; }
+
+    /// <summary>
+    /// Free-format notes on the classification.
+    /// </summary>
+    [JsonPropertyName("notes")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public string? Notes { get; set; }
 
     #region Methods
     /// <summary>
