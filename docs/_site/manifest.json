@@ -1,0 +1,282 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/Git_Repos/Data_Warehouse_Automation_Metadata_Interface/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataWarehouseAutomation.BusinessKeyDefinition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataWarehouseAutomation.BusinessKeyDefinition.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataWarehouseAutomation.DataClassification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataWarehouseAutomation.DataClassification.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataWarehouseAutomation.DataConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataWarehouseAutomation.DataConnection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataWarehouseAutomation.DataItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataWarehouseAutomation.DataItem.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataWarehouseAutomation.DataItemMapping.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataWarehouseAutomation.DataItemMapping.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataWarehouseAutomation.DataItemQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataWarehouseAutomation.DataItemQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataWarehouseAutomation.DataObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataWarehouseAutomation.DataObject.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataWarehouseAutomation.DataObjectMapping.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataWarehouseAutomation.DataObjectMapping.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataWarehouseAutomation.DataObjectMappingList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataWarehouseAutomation.DataObjectMappingList.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataWarehouseAutomation.DataObjectQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataWarehouseAutomation.DataObjectQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataWarehouseAutomation.Extension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataWarehouseAutomation.Extension.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataWarehouseAutomation.HandleBarsHelpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataWarehouseAutomation.HandleBarsHelpers.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataWarehouseAutomation.IDataItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataWarehouseAutomation.IDataItem.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataWarehouseAutomation.IDataObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataWarehouseAutomation.IDataObject.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataWarehouseAutomation.IMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataWarehouseAutomation.IMetadata.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataWarehouseAutomation.JsonValidation.ValidationResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataWarehouseAutomation.JsonValidation.ValidationResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataWarehouseAutomation.JsonValidation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataWarehouseAutomation.JsonValidation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DataWarehouseAutomation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DataWarehouseAutomation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "faq/faq.md",
+      "output": {
+        ".html": {
+          "relative_path": "faq/faq.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "faq/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "faq/toc.html"
+        },
+        ".json": {
+          "relative_path": "faq/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/logo-small_transparant.ico",
+      "output": {
+        "resource": {
+          "relative_path": "images/logo-small_transparant.ico"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/logo.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

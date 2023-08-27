@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Generation Metadata Schema for Data Warehouse Automation | Schema for Data Warehouse Automation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Generation Metadata Schema for Data Warehouse Automation | Schema for Data Warehouse Automation ">
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      <meta name="docfx:disabletocfilter" content="true">
+      <meta name="docfx:docurl" content="https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/dev/docs/index.md/#L1">
+  </head>
+
+  <script type="module">
+    import options from './public/main.js'
+    import { init } from './public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="." alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="generation-metadata-schema-for-data-warehouse-automation">Generation Metadata Schema for Data Warehouse Automation</h1>
+
+<h2 id="intent">Intent</h2>
+<p>To provide a collaborative space to discuss an exchange format concerning ETL generation metadata, supporting Data Warehouse Automation. This adapter should contain all metadata necessary to generate the transformation logic for a Data Warehouse solution.</p>
+<h3 id="links--structure">Links / structure</h3>
+<p>The following directories have been set up:</p>
+<ul>
+<li>Generic interface, containing the JSON schema definition.</li>
+<li>Class Library (DataWarehouseAutomation) containing the object model for deserialization, as well as various utility classes such as validation of files against the JSON schema definition.</li>
+<li>Code examples (examples_handlebars), containing C# examples using the generic interface for various purposes.</li>
+<li>Regression test project (test_project)</li>
+</ul>
+<h3 id="hypothesis">Hypothesis</h3>
+<p>Across most, if not all, metadata models there is a core set of information that is required for any generation of ETL. If we can separate this from the UI / management of metadata we could have an exchange format that allows anyone to 'plug in' their own desired technology.</p>
+<p>As an example '<a href="https://github.com/RoelantVos/TEAM">TEAM</a>' has the intent to separate UI with a view of limiting data entry and validation, but does not focus on SQL generation. Rather, these functions are separated by an adapter that is accessible as JSON or database view.</p>
+<h4 id="requirements">Requirements</h4>
+<p>The fundamental requirements of the metadata adapter are:</p>
+<ul>
+<li>Containing all metadata required to generate ETL output. This notably includes:
+<ul>
+<li>source-to-target mappings</li>
+<li>physical model metadata (columns and tables, data types etc.)</li>
+<li>connectivity information, or proxy</li>
+</ul>
+</li>
+<li>Text-based to support version control</li>
+</ul>
+<h4 id="background">Background</h4>
+<p>In the Data Warehouse Automation (DWA) domain there are many specialists (i.e. ETL developers, Data Warehouse and Data Architects, BI analysts etc.) who have been, or are working on, proprietary meta models to support forward-engineering of code and designs.</p>
+<p>Some of these are built inside existing tools (i.e. ERwin, Powerdesigner) using SDKs or macros. Others use different development frameworks (.net, Java) and most use differently modelled repositories or file formats to persist data on disk.</p>
+<p>This is in addition to the many off-the-shelf DWA platforms, each of which has their own repository and format as well.</p>
+<p>In the broader sense of meritocracy, it is worth pursuing if a common exchange format for metadata can be defined in a way that any developer can develop to in whatever technology or way their passion drives them.</p>
+<h4 id="working-guidelines">Working guidelines</h4>
+<p>For any change, create a new branch (no direct commits to master branch).</p>
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Schema for Data Solution Automation</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
