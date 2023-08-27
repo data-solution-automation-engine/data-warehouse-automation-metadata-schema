@@ -21,9 +21,6 @@ public class DataItemQuery : IDataItem
     [JsonIgnore(Condition = JsonIgnoreCondition.Always)]
     public IDataObject? DataObject { get; set; }
 
-    public bool? IsPrimaryKey { get; set; }
-    public int? OrdinalPosition { get; set; }
-
     /// <summary>
     /// The actual code that constitutes the query.
     /// </summary>
@@ -53,6 +50,13 @@ public class DataItemQuery : IDataItem
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public int? NumericScale { get; set; }
 
+    [JsonPropertyName("ordinalPosition")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public int? OrdinalPosition { get; set; }
+
+    [JsonPropertyName("isPrimaryKey")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public bool? IsPrimaryKey { get; set; }
 
     /// <summary>
     /// Free-form and optional classification for the Data Query for use in generation logic (evaluation).
