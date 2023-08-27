@@ -1,3 +1,10 @@
+---
+**NOTE**
+
+The formal [Data Warehouse Automation Schema documentation]([https://link-url-here.org](https://data-solution-automation-engine.github.io/data-warehouse-automation-metadata-schema/)) is now available on Github pages.
+
+---
+
 # Generation Metadata Schema for Data Warehouse Automation
 
 #### Intent
