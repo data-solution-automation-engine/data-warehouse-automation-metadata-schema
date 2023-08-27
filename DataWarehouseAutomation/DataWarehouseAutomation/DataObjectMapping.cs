@@ -2,6 +2,11 @@
 
 /// <summary>
 /// The mapping between a source and target data set / table / file.
+/// The DataObjectMapping is the element that defines an individual source-to-target mapping / ETL process. It is a mapping between a source and target object - referred to as DataObjects. The DataObject is in fact a reusable definition in the Json schema.
+/// This definition is used twice in the DataObjectMapping: as the* SourceDataObject* and as the* TargetDataObject* - both instances of the DataObject class / type.
+///
+/// The other key component of a DataObjectMapping is the* DataItemMapping*, which describes the column-to-column(or transformation-to-column).
+/// The SourceDataObject, TargetDataObject and DataItemMapping are the mandatory components of a DataObjectMapping.There are many other attributes that can be set, and there are mandatory items within the DataObjects and DataItems.These are all described in the Json schema.
 /// </summary>
 public class DataObjectMapping : IMetadata
 {

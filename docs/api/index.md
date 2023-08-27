@@ -1,15 +1,19 @@
-# An interface schema definition Data Warehouse Automation
+# Interface specification - Data Solution Automation Metadata
 
-This schema definition, aims to facilitate greater interoperability between various DWH automation and ETL generation approaches, tools and ecosystems. The intent is to define a sufficiently generic format that can be used to record and share information about Data Warehouse (DWH) automation metadata. 
+The **interface for data solution automation metadata** provides an agreed (canonical) format for the exchange of relevant metadata for data solution/warehouse automation. The intent is to define a *sufficiently generic* format, that can be used to record and share information about data solution automation metadata, so that more time can be spent on concepts, patterns, and solution ideas - instead of reinventing the wheel on what exactly is required to automate a data solution.
 
-The schema definition can be directly viewed [here](https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface/blob/master/GenericInterface/interfaceDataWarehouseAutomationMetadata.json), and is part of [this Github repository](https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface). The repository contains various supporting components such as:
+This in itself aims to facilitate greater interoperability between various data solution / data warehouse automation and data logistics generations approaches and ecosystems.
 
-- A simple Class Library (DLL) that has implemented the schema structure, as well as a validation function to test Json files / messages against the schema.
+The schema definition can be directly viewed [here](https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface/blob/master/GenericInterface/interfaceDataWarehouseAutomationMetadata.json), and is part of [this GitHub repository](https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface). The repository contains various supporting components such as:
+
+- A simple Class Library (DLL) that has implemented the schema structure, as well as a validation function to test JSON files / messages against the schema
 - Starter documentation.
-- A sample implementation that generates code using [Handlebars.Net](http://roelantvos.com/blog/using-handlebars-to-generate-data-vault-hub-load-processes/). The example that uses the Handlebars generates code using a sample Json file that conforms to the interface schema.
+- A sample implementation that generates code using [Handlebars.Net](http://roelantvos.com/blog/using-handlebars-to-generate-data-vault-hub-load-processes/). The example that uses the Handlebars generates code using a sample JSON file that conforms to the interface schema.
 - A simple regression test application that demonstrates different usages of the schema.
 
-In principle, the schema can be used to generate an entire Data Warehouse.
+The schema is and examples are validated / extended using <https://www.jsonschemavalidator.net/>. Standards are followed from http://json-schema.org/.  Also see http://json-schema.org/learn/miscellaneous-examples.html.
+
+In principle, the schema can be used to generate an entire Data Warehouse, Data Lake and equivalent and/or similar.
 
 ## Why is this relevant?
 
