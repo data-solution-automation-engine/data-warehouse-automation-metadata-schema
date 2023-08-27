@@ -79,9 +79,7 @@ public class DataItemQuery : IDataItem
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string? Notes { get; set; }
 
-
-
-
+    #region Methods
     public override bool Equals(object? obj)
     {
         var other = obj as DataItemQuery;
@@ -93,4 +91,5 @@ public class DataItemQuery : IDataItem
     {
         return Name;
     }
+    #endregion
 }
