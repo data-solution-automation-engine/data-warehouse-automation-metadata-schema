@@ -1,5 +1,7 @@
 - name: Home
   href: index.md
-- name: Documentation
+- name: Frequently Asked Questions
+  href: faq/faq.md
+- name: Schema Documentation
   href: api/
   homepage: api/index.md
