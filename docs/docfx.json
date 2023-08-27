@@ -1,0 +1,59 @@
+
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [
+            "**/DataWarehouseAutomation/DataWarehouseAutomation.csproj"
+          ],
+          "src": "..",
+          "exclude": [ "**/obj/**", "**/bin/**" ]
+        }
+      ],
+      "dest": "api",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false
+    }
+  ],  
+  "build": {
+    "content": [
+      {
+        "files": [
+          "api/**.yml",
+          "api/index.md"
+        ]
+      },
+      {
+        "files": [
+          "articles/**.md",
+          "articles/**/toc.yml",
+          "toc.yml",
+          "*.md"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "_site",
+    "globalMetadata": {
+      "_appLogoPath": "..",
+      "_appTitle": "Schema for Data Warehouse Automation",
+      "_enableSearch": "true"
+    },
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "template": [
+      "default",
+      "modern"
+    ],
+    "postProcessors": [],
+    "keepFileLink": false,
+    "disableGitFeatures": false
+  }
+}
