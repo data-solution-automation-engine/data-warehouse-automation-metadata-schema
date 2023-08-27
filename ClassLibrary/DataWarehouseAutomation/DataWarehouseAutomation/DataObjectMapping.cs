@@ -65,8 +65,6 @@ public class DataObjectMapping : IMetadata
     /// </summary>
     [JsonPropertyName("filterCriterion")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-
-    #nullable enable
     public string? FilterCriterion { get; set; }
 
     /// <summary>

@@ -1,9 +1,7 @@
 ﻿namespace DataWarehouseAutomation;
 
-public class DataObject : IMetadata
+public class DataObject : IMetadata, IDataObject
 {
-    #nullable enable
-
     /// <summary>
     /// An optional identifier for the Data Object.
     /// </summary>
@@ -46,7 +44,7 @@ public class DataObject : IMetadata
     public List<Extension>? Extensions { get; set; }
 
     /// <summary>
-    /// Free-format notes on the classification.
+    /// Free-format notes.
     /// </summary>
     [JsonPropertyName("notes")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]

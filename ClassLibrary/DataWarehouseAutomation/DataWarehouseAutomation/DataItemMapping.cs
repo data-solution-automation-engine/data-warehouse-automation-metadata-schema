@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Text.Json.Serialization;
-using System.Xml.Linq;
-
-namespace DataWarehouseAutomation;
+﻿namespace DataWarehouseAutomation;
 
 /// <summary>
 /// The individual column-to-column mapping.

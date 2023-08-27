@@ -1,21 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿namespace DataWarehouseAutomation;
 
-namespace DataWarehouseAutomation
+/// <summary>
+/// IDataObject can be either a <see cref="DataObject"/> or <see cref="DataObjectQuery"/>.
+/// </summary>
+[JsonPolymorphic(TypeDiscriminatorPropertyName = "dataObjectType")]
+[JsonDerivedType(typeof(DataObject), typeDiscriminator: "dataObject")]
+[JsonDerivedType(typeof(DataObjectQuery), typeDiscriminator: "dataObjectQuery")]
+public interface IDataObject
 {
-    public interface IDataObject
-    {
-        /// <summary>
-        /// Optional identifier as a string value to allow various identifier approaches.
-        /// </summary>
-        [JsonPropertyName("id")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-        public string Id { get; set; }
+    /// <summary>
+    /// Optional identifier as a string value to allow various identifier approaches.
+    /// </summary>
+    string Id { get; set; }
 
-        public string Name { get; set; }
-    }
+    /// <summary>
+    /// DataObject Name
+    /// </summary>
+    string Name { get; set; }
+    DataConnection? DataConnection { get; set; }
 }

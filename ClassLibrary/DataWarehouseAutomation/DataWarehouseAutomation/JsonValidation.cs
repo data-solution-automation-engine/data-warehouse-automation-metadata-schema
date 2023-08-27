@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
 
 namespace DataWarehouseAutomation;
-
 
 public class JsonValidation
 {

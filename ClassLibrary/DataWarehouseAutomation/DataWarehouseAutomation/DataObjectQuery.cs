@@ -1,50 +1,43 @@
 ﻿namespace DataWarehouseAutomation;
 
-public class DataItem : IDataItem
+public class DataObjectQuery : IDataObject
 {
     /// <summary>
-    /// Identifier as a string value to allow various identifier approaches.
+    /// Identifier for the Data Query.
     /// </summary>
     [JsonPropertyName("id")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string Id { get; set; } = string.Empty;
 
-    [JsonPropertyName("name")]
-    public string Name { get; set; } = "NewDataItemName"; // Mandatory.
-
     /// <summary>
-    /// The data object to which the data item belongs. This can be used to construct fully qualified names.
+    /// The name for the query.
     /// </summary>
-    [JsonPropertyName("dataObject")]
+    [JsonPropertyName("name")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public IDataObject? DataObject { get; set; }
-
-    [JsonPropertyName("dataType")]
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public string? DataType { get; set; }
-
-    [JsonPropertyName("characterLength")]
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public int? CharacterLength { get; set; }
-
-    [JsonPropertyName("numericPrecision")]
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public int? NumericPrecision { get; set; }
-
-    [JsonPropertyName("numericScale")]
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public int? NumericScale { get; set; }
-
-    [JsonPropertyName("ordinalPosition")]
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public int? OrdinalPosition { get; set; }
-
-    [JsonPropertyName("isPrimaryKey")]
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public bool? IsPrimaryKey { get; set; }
+    public string Name { get; set; } = "NewDataQuery";
 
     /// <summary>
-    /// Free-form and optional classification for the Data Item for use in generation logic (evaluation).
+    /// The actual code that constitutes the query.
+    /// </summary>
+    [JsonPropertyName("queryCode")]
+    public string? QueryCode { get; set; }
+
+    /// <summary>
+    /// The language that the code was written in (e.g. SQL).
+    /// </summary>
+    [JsonPropertyName("queryLanguage")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public string? QueryLanguage { get; set; }
+
+    /// <summary>
+    /// The connection for the query.
+    /// </summary>
+    [JsonPropertyName("dataConnection")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public DataConnection? DataConnection { get; set; }
+
+    /// <summary>
+    /// Free-form and optional classification for the Data Query for use in generation logic (evaluation).
     /// </summary>
     [JsonPropertyName("classifications")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
@@ -72,7 +65,7 @@ public class DataItem : IDataItem
     /// <returns></returns>
     public override bool Equals(object? o)
     {
-        var other = o as DataItem;
+        var other = o as DataObjectQuery;
         return other?.Id == Id;
     }
 

@@ -1,9 +1,9 @@
 ﻿namespace DataWarehouseAutomation;
 
-public class DataQuery : IMetadata
+public class DataItemQuery : IDataItem
 {
     /// <summary>
-    /// Identifier for the Data Query.
+    /// An identifier for the Data Query.
     /// </summary>
     [JsonPropertyName("id")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
@@ -14,7 +14,15 @@ public class DataQuery : IMetadata
     /// </summary>
     [JsonPropertyName("name")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public string Name { get; set; } = "NewDataQuery";
+    public string Name { get; set; } = string.Empty;
+
+    // convenience property for parent, derived on json load, never stored in the json file
+    // Can be either a DataObject or a DataQuery when the DataQuery is a DataItem level thing
+    [JsonIgnore(Condition = JsonIgnoreCondition.Always)]
+    public IDataObject? DataObject { get; set; }
+
+    public bool? IsPrimaryKey { get; set; }
+    public int? OrdinalPosition { get; set; }
 
     /// <summary>
     /// The actual code that constitutes the query.
@@ -29,12 +37,22 @@ public class DataQuery : IMetadata
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string? QueryLanguage { get; set; }
 
-    /// <summary>
-    /// The connection for the query.
-    /// </summary>
-    [JsonPropertyName("dataConnection")]
+    [JsonPropertyName("dataType")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public DataConnection? DataConnection { get; set; }
+    public string? DataType { get; set; }
+
+    [JsonPropertyName("characterLength")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public int? CharacterLength { get; set; }
+
+    [JsonPropertyName("numericPrecision")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public int? NumericPrecision { get; set; }
+
+    [JsonPropertyName("numericScale")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public int? NumericScale { get; set; }
+
 
     /// <summary>
     /// Free-form and optional classification for the Data Query for use in generation logic (evaluation).
@@ -57,32 +75,18 @@ public class DataQuery : IMetadata
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string? Notes { get; set; }
 
-    #region Methods
-    /// <summary>
-    /// Use this method to assert an object as a DataItem (or not).
-    /// </summary>
-    /// <param name="o"></param>
-    /// <returns></returns>
-    public override bool Equals(object? o)
+
+
+
+    public override bool Equals(object? obj)
     {
-        var other = o as DataQuery;
+        var other = obj as DataItemQuery;
         return other?.Id == Id;
     }
 
-    /// <summary>
-    /// Override to get a hash value that represents the identifier. 
-    /// </summary>
-    /// <returns></returns>
     public override int GetHashCode() => Id.GetHashCode();
-
-    /// <summary>
-    /// String override so that the object returns its value ('name').
-    /// When an instance of this class is passed to a method that expects a string, the ToString() method will be called implicitly to convert the object to a string, and the value of the "Name" property will be returned.
-    /// </summary>
-    /// <returns></returns>
     public override string ToString()
     {
         return Name;
     }
-    #endregion
 }

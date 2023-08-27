@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
-using System.Text.Json;
-using HandlebarsDotNet;
 
 namespace DataWarehouseAutomation;
 
-public class HandleBarsHelpers
+public static class HandleBarsHelpers
 {
     /// <summary>
     /// Generate a random integer value, capped by an input (maximum) value.
