@@ -8,6 +8,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D3FD1325-9F54-481B-8363-BC1CF463F589}"
 	ProjectSection(SolutionItems) = preProject
 		..\..\GenericInterface\interfaceDataWarehouseAutomationMetadata.json = ..\..\GenericInterface\interfaceDataWarehouseAutomationMetadata.json
+		Images\Ravos-logo-small_transparant.ico = Images\Ravos-logo-small_transparant.ico
+		Images\Ravos-logo.png = Images\Ravos-logo.png
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testing", "Test_Project\Testing.csproj", "{23CF4A46-B17F-4642-B949-02E061868BBC}"
@@ -54,12 +56,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Examples", "Example_Project\Examples.csproj", "{F77AC518-6300-4927-8775-B92CDF15CC8E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunDwhAutomation", "RunDwhAutomation\RunDwhAutomation.csproj", "{62C992C6-370D-4591-B54E-2F61E2D8B638}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{1482BB6E-A931-494F-9D09-93F9E12F6DEB}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\Images\Ravos-logo-small_transparant.ico = ..\..\Images\Ravos-logo-small_transparant.ico
-		..\..\Images\Ravos-logo.png = ..\..\Images\Ravos-logo.png
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

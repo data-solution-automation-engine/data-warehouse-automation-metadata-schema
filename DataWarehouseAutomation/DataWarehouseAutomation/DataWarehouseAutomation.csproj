@@ -10,7 +10,7 @@
     <Title>Data Warehouse Automation</Title>
     <PackageProjectUrl>https://roelantvos.com/blog/interface-for-data-warehouse-automation/</PackageProjectUrl>
     <PackageIcon>Ravos-logo.png</PackageIcon>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile>index.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/RoelantVos/data-warehouse-automation-metadata-schema</RepositoryUrl>
     <PackageTags>data warehouse; etl; data integration; data warehouse automation</PackageTags>
     <Description>The generic schema for Data Warehouse Automation covers the efforts towards defining a standard interface to exchange Data Warehouse Automation and ETL generation metadata.
@@ -21,11 +21,11 @@ The interface itself is a Json schema definition (JSDL) with examples on how to 
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\Images\Ravos-logo.png">
+    <None Include="..\..\docs\index.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Include="..\..\..\README.md">
+    <None Include="..\Images\Ravos-logo.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
