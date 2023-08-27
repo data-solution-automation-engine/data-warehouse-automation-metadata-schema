@@ -11,21 +11,19 @@ The schema definition can be directly viewed [here](https://github.com/RoelantVo
 - A sample implementation that generates code using [Handlebars.Net](http://roelantvos.com/blog/using-handlebars-to-generate-data-vault-hub-load-processes/). The example that uses the Handlebars generates code using a sample JSON file that conforms to the interface schema.
 - A simple regression test application that demonstrates different usages of the schema.
 
-The schema is and examples are validated / extended using <https://www.jsonschemavalidator.net/>. Standards are followed from http://json-schema.org/.  Also see http://json-schema.org/learn/miscellaneous-examples.html.
+The schema is and examples are validated / extended using <https://www.jsonschemavalidator.net/>. Standards are followed from [json-schema.org](http://json-schema.org/).  Also see [some miscellaneous examples](http://json-schema.org/learn/miscellaneous-examples.html).
 
 In principle, the schema can be used to generate an entire Data Warehouse, Data Lake and equivalent and/or similar.
 
-## Why is this relevant?
+## **Schema**
 
-I believe defining the schema has been a worthwhile effort, because I have met many people who have developed their own Data Warehouse automation and /or code generation solution to suit their specific needs. These tools often reinvent the wheel to a certain extent. I can include myself in this too, of course.
+The proposed Json schema has standard components for table (DataObjects) and column (DataItem) structures that are reused for sources and targets. At the mapping level only the classification, filter and load direction are added, the rest is generic reuse of definitions.
 
-Rather than focusing on which solution is ‘best’, I felt it made sense to find a way where everyone can use different tools and technologies while still collaborating on an DWH automation ecosystem.
+The schema is available in the Github under:  https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface.
 
-This means that various functions in this ecosystem need to be decoupled. The interface schema could potentially be used for this – as an agreement on how source-to-target (mapping) metadata can be captured for used by different tools in an ecosystem.
+The schema definition specifically is located here: [https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface/blob/master/Generic%20interface/interfaceDataWarehouseAutomationMetadata.json](https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface/blob/master/Generic interface/interfaceDataWarehouseAutomationMetadata.json). 
 
-I have implemented this interface schema in the [TEAM](http://roelantvos.com/blog/team/) (metadata management) and [Virtual Data Warehouse](http://roelantvos.com/blog/articles-and-white-papers/virtualisation-software/) (VDW – ETL generation) applications, so that they can be used independently. This would, for example, make it possible to define metadata using TEAM but generate code (ETL) using a different tool. Or to leverage, say, PowerDesigner to design the mappings but generate code using Virtual Data Warehouse and use the load patterns available there
-
-The 1.6 release of TEAM and 1.6.1 release of VDW will be the first versions to adopt this schema. These releases are in the final stages of development at the time of writing.
+It is also referenced in the Class Library.
 
 ## How does the interface schema work?
 
@@ -67,3 +65,41 @@ In other words, the Data Object Mapping List is an array of individual Data Obje
 The decision to start the format with an array / list that contains potentially multiple Data Object Mappings relates to the Data Warehouse virtualisation use-case. In this style of implementation, multiple individual mappings together create a single view object. Testing revealed it is much harder to piece the relationships between mappings together at a later stage to create a single (view) object, and having the option to define a collection makes this really easy.
 
 For example, consider the loading of a Core Business Concept (‘Hub’) type entity from various different data sources. If you would use these different mappings to generate ETL processes you would create one physical ETL object for each mapping. However, if you are seeking to generate a view that represents the target table you would use the collection (list) of mappings to generate separate statements that are unioned in a single view object.
+
+## Example
+
+This is a simple example using the schema definition. Various other examples and use-cases are available in the code sections of this Github. The example shows a single DataObjectMapping in a DataObjectMappingList.
+
+```json
+{
+  "dataObjectMappingList": [
+    {
+      "mappingName": "Mapping1",
+      "sourceDataObject": {
+        "name": "SourceTable"
+      },
+      "targetDataObject": {
+        "name": "TargetTable"
+      },
+      "dataItemMapping": [
+        {
+          "sourceDataItem": {
+            "name": "SourceColumn1"
+          },
+          "targetDataItem": {
+            "name": "TargetColumn1"
+          }
+        },
+        {
+          "sourceDataItem": {
+            "name": "SourceColumn2"
+          },
+          "targetDataItem": {
+            "name": "TargetColumn2"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
