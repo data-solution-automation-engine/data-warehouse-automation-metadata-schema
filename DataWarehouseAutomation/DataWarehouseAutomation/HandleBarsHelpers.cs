@@ -1,7 +1,4 @@
-﻿using System.Security.Cryptography;
-using System.Text;
-
-namespace DataWarehouseAutomation;
+﻿namespace DataWarehouseAutomation;
 
 public static class HandleBarsHelpers
 {
@@ -41,9 +38,15 @@ public static class HandleBarsHelpers
         return start.AddDays(new Random(seed).Next(1, range)).AddSeconds(new Random(seed).Next(1, 86400));
     }
 
+    /// <summary>
+    ///  Convenience method to install all Handlebars extension in one go.
+    /// </summary>
+    /// <exception cref="HandlebarsException"></exception>
     public static void RegisterHandleBarsHelpers()
     {
-        // Display the current date and time.
+        // Extension to the Handlebars templating language. Shows the current date and time in the generated output.
+        // Usage: {{now}}
+        // Example: The time is {{now}}.
         Handlebars.RegisterHelper("now", (output, context, arguments) => { output.WriteSafeString(DateTime.Now); });
 
         // Generation random date, based on an integer input year value.
@@ -64,8 +67,6 @@ public static class HandleBarsHelpers
 
                 output.WriteSafeString(GetRandomDate(localInteger).Date);
             }
-
-
         });
 
         // Generation random string, based on an integer input value cap.

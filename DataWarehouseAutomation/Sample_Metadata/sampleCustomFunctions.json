@@ -1,9 +1,10 @@
 ﻿{
   "dataObjectMappings": [
     {
-      "mappingName": "Example",
+      "name": "Example",
       "sourceDataObjects": [
         {
+          "dataObjectType": "dataObject",
           "name": "ExampleSourceDataObject"
         }
       ],
@@ -14,6 +15,7 @@
         {
           "sourceDataItems": [
             {
+              "dataItemType": "dataItem",
               "name": "NAME"
             }
           ],
@@ -24,6 +26,7 @@
         {
           "sourceDataItems": [
             {
+              "dataItemType": "dataItem",
               "name": "LAST_NAME"
             }
           ],
@@ -34,12 +37,13 @@
         {
           "sourceDataItems": [
             {
+              "dataItemType" :  "dataItem", 
               "name": "DOB"
             }
           ],
           "targetDataItem": {
             "name": "DATE_OF_BIRTH",
-            "dataItemClassification": [
+            "classifications": [
               {
                 "classification": "MultiActiveKey"
               }
@@ -53,8 +57,13 @@
             {
               "sourceDataItems": [
                 {
+                  "dataItemType": "dataItem",
                   "name": "ID",
-                  "isHardCodedValue": false
+                  "classifications": [
+                    {
+                      "classification": "Hardcoded"
+                    }
+                  ]
                 }
               ],
               "targetDataItem": {

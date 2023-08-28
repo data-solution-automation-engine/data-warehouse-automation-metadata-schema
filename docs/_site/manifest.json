@@ -185,46 +185,30 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "api/index.md",
+      "source_relative_path": "faq/index.md",
       "output": {
         ".html": {
-          "relative_path": "api/index.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "api/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/toc.html"
-        },
-        ".json": {
-          "relative_path": "api/toc.json"
+          "relative_path": "faq/index.html"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "faq/faq.md",
+      "source_relative_path": "handlebars/extension_now.md",
       "output": {
         ".html": {
-          "relative_path": "faq/faq.html"
+          "relative_path": "handlebars/extension_now.html"
         }
       },
       "version": ""
     },
     {
-      "type": "Toc",
-      "source_relative_path": "faq/toc.yml",
+      "type": "Conceptual",
+      "source_relative_path": "handlebars/index.md",
       "output": {
         ".html": {
-          "relative_path": "faq/toc.html"
-        },
-        ".json": {
-          "relative_path": "faq/toc.json"
+          "relative_path": "handlebars/index.html"
         }
       },
       "version": ""
@@ -255,6 +239,29 @@
       "output": {
         ".html": {
           "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "overview/Index.md",
+      "output": {
+        ".html": {
+          "relative_path": "overview/Index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "overview/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "overview/toc.html"
+        },
+        ".json": {
+          "relative_path": "overview/toc.json"
         }
       },
       "version": ""

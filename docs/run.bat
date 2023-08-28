@@ -1,1 +1,1 @@
-docfx docs/docfx.json -- serve -p 8081
+docfx docs/docfx.json --serve -p 8081

@@ -1,4 +1,4 @@
-# Generation Metadata Schema for Data Warehouse Automation
+# Metadata Schema for Data Warehouse Automation
 
 ## Intent
 

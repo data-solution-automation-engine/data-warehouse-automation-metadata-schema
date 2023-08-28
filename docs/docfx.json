@@ -26,8 +26,10 @@
       },
       {
         "files": [
-          "articles/**.md",
-          "articles/**/toc.yml",
+          "handlebars/**.md",
+          "handlebars/**/toc.yml",
+          "overview/**.md",
+          "overview/**/toc.yml",          
           "faq/**.md",
           "faq/**/toc.yml",
           "toc.yml",
@@ -42,6 +44,11 @@
         ]
       }
     ],
+    "overwrite": [{
+      "files": [
+          "toc.yml"
+      ]
+  }],    
     "output": "_site",
     "globalMetadata": {
       "_appLogoPath": ".",

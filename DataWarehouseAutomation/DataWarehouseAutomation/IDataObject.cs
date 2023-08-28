@@ -3,7 +3,7 @@
 /// <summary>
 /// IDataObject can be either a <see cref="DataObject"/> or <see cref="DataObjectQuery"/>.
 /// </summary>
-[JsonPolymorphic(TypeDiscriminatorPropertyName = "dataObjectType")]
+[JsonPolymorphic(TypeDiscriminatorPropertyName = "dataObjectType", UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FallBackToNearestAncestor)]
 [JsonDerivedType(typeof(DataObject), typeDiscriminator: "dataObject")]
 [JsonDerivedType(typeof(DataObjectQuery), typeDiscriminator: "dataObjectQuery")]
 public interface IDataObject

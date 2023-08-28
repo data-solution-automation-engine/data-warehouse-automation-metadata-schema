@@ -14,17 +14,16 @@ public interface IDataItem
     string Id { get; set; }
     string Name { get; set; }
 
-string? DataType { get; set; }
-int? CharacterLength { get; set; }
+    string? DataType { get; set; }
+    int? CharacterLength { get; set; }
 
-int? NumericPrecision { get; set; }
-int? NumericScale { get; set; }
+    int? NumericPrecision { get; set; }
+    int? NumericScale { get; set; }
 
     bool? IsPrimaryKey { get; set; }
     int? OrdinalPosition { get; set; }
 
     IDataObject DataObject { get; set; }
-
 
     List<DataClassification> Classifications { get; set; }
 

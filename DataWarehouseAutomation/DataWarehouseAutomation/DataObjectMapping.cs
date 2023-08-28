@@ -18,14 +18,14 @@ public class DataObjectMapping : IMetadata
     /// </summary>
     [JsonPropertyName("id")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public string Id { get; set; } = string.Empty;
+    public string? Id { get; set; } = string.Empty;
 
     /// <summary>
     /// The name of the source-to-target mapping. An optional unique name that identifies the individual mapping.
     /// </summary>
     [JsonPropertyName("name")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public string? Name { get; set; }
+    public string Name { get; set; }
 
     /// <summary>
     /// Free-form and optional classification for the mapping for use in ETL generation logic (evaluation).
