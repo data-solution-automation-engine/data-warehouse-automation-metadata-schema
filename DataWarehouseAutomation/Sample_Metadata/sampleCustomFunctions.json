@@ -1,7 +1,7 @@
 ﻿{
   "dataObjectMappings": [
     {
-      "name": "Example",
+      "mappingName": "Example",
       "sourceDataObjects": [
         {
           "dataObjectType": "dataObject",

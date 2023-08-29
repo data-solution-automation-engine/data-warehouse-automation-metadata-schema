@@ -3,6 +3,13 @@
 public class DataObject : IMetadata, IDataObject
 {
     /// <summary>
+    /// IDataObject Type discriminator.
+    /// </summary>
+    [JsonPropertyName("dataObjectType")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
+    public string DataObjectType { get; set; } = "dataObject";
+
+    /// <summary>
     /// An optional identifier for the Data Object.
     /// </summary>
     [JsonPropertyName("id")]

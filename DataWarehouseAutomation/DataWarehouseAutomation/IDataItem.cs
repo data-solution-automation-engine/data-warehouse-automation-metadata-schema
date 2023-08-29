@@ -9,15 +9,25 @@
 public interface IDataItem
 {
     /// <summary>
+    /// IDataItem Type discriminator.
+    /// </summary>
+    [JsonPropertyName("dataItemType")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
+    public string DataItemType { get; set; }
+
+    /// <summary>
     /// Optional identifier as a string value to allow various identifier approaches.
     /// </summary>
     string Id { get; set; }
+
     string Name { get; set; }
 
     string? DataType { get; set; }
+
     int? CharacterLength { get; set; }
 
     int? NumericPrecision { get; set; }
+
     int? NumericScale { get; set; }
 
     bool? IsPrimaryKey { get; set; }

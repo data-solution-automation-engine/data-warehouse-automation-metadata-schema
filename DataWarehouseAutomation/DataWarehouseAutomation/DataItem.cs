@@ -3,15 +3,46 @@
 public class DataItem : IDataItem
 {
     /// <summary>
+    /// IDataItem Type discriminator.
+    /// </summary>
+    [JsonPropertyName("dataItemType")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
+    public string DataItemType { get; set; } = "dataItem";
+
+    /// <summary>
     /// Identifier as a string value to allow various identifier approaches.
     /// </summary>
     [JsonPropertyName("id")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string Id { get; set; } = string.Empty;
 
+    private string _name = "NewDataItemName";
     [JsonPropertyName("name")]
-    public string Name { get; set; } = "NewDataItemName"; // Mandatory.
+    [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
+    public string Name
+    {
+        get
+        {
+            if (MappingName != null)
+            {
+                _name = MappingName;
+                return _name;
+            }
+            else
+            {
+                return _name;
+            }
+        }
+        set
+        {
+            _name = value;
+        }
+    }
 
+    [JsonPropertyName("mappingName")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.Always)]
+    public string MappingName {get; set; } = "NewDataItemName"; // Mandatory.
+    
     /// <summary>
     /// The data object to which the data item belongs. This can be used to construct fully qualified names.
     /// </summary>

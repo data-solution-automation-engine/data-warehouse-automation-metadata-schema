@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Text.Json;
 using DataWarehouseAutomation;
 using HandlebarsDotNet;
 using System.Text.Json.Nodes;
@@ -39,10 +40,12 @@ namespace Example_Handlebars
                 // Fetch the content of the Json files
                 string jsonInput = File.ReadAllText(jsonMetadataFile);
 
-                //ar deserializedMapping = JsonConvert.DeserializeObject<ExpandoObject>(jsonInput, new ExpandoObjectConverter()); -- This is the old Newtonsoft expando object approach
+                //var deserializedMapping = JsonConvert.DeserializeObject<ExpandoObject>(jsonInput, new ExpandoObjectConverter()); -- This is the old Newtonsoft expando object approach
                 //var deserializedMapping = System.Text.Json.JsonSerializer.Deserialize<ExpandoObject>(jsonInput);
 
-                JsonNode deserializedMapping = System.Text.Json.JsonSerializer.Deserialize<JsonNode>(jsonInput);
+                DataObjectMapping deserializedMapping = JsonSerializer.Deserialize<DataObjectMapping>(jsonInput);
+
+                //JsonNode deserializedMapping = System.Text.Json.JsonSerializer.Deserialize<JsonNode>(jsonInput);
 
                 var result = template(deserializedMapping);
                 Console.WriteLine(result);

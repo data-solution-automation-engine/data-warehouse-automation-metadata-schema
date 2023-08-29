@@ -3,6 +3,12 @@
 public class DataObjectQuery : IDataObject
 {
     /// <summary>
+    /// IDataObject Type discriminator.
+    /// </summary>
+    [JsonPropertyName("dataObjectType")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
+    public string DataObjectType { get; set; } = "dataObjectQuery";
+    /// <summary>
     /// Identifier for the Data Query.
     /// </summary>
     [JsonPropertyName("id")]

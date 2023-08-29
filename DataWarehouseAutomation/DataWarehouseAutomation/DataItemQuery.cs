@@ -3,6 +3,13 @@
 public class DataItemQuery : IDataItem
 {
     /// <summary>
+    /// IDataItem Type discriminator.
+    /// </summary>
+    [JsonPropertyName("dataItemType")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
+    public string DataItemType { get; set; } = "dataItemQuery";
+
+    /// <summary>
     /// An identifier for the Data Query.
     /// </summary>
     [JsonPropertyName("id")]
