@@ -38,7 +38,7 @@
           "description": "Optional unique identifier for a Data Object Mapping",
           "type": [ "string", "null" ]
         },
-        "mappingName": {
+        "name": {
           "$id": "#/definitions/dataObjectMapping/properties/dataObjectMappingName",
           "description": "Unique name which identifies the mapping.",
           "type": [ "string", "null" ]

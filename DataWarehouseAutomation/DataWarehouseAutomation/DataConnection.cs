@@ -10,7 +10,7 @@ public class DataConnection : IMetadata
     /// </summary>
     [JsonPropertyName("id")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public string Id { get; set; } = string.Empty;
+    public string? Id { get; set; }
 
     /// <summary>
     /// The connection information expressed in a key, token or (connection)string.

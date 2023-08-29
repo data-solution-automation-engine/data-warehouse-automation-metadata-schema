@@ -18,14 +18,45 @@ public class DataObjectMapping : IMetadata
     /// </summary>
     [JsonPropertyName("id")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public string? Id { get; set; } = string.Empty;
+    public string? Id { get; set; }
+
+    private string _name = "NewDataMappingName";
 
     /// <summary>
     /// The name of the source-to-target mapping. An optional unique name that identifies the individual mapping.
     /// </summary>
     [JsonPropertyName("name")]
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public string Name { get; set; }
+    [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
+    public string Name
+    {
+        get
+        {
+            return _name; 
+
+        }
+        set
+        {
+            _name = value;
+        }
+    }
+
+    [Obsolete]
+    [JsonPropertyName("mappingName")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    public string? MappingName
+    {
+        get
+        {
+            return null;
+        }
+        set
+        {
+            if (value != null)
+            {
+                _name = value;
+            }
+        }
+    }
 
     /// <summary>
     /// Free-form and optional classification for the mapping for use in ETL generation logic (evaluation).

@@ -3,18 +3,11 @@
 public class DataItemQuery : IDataItem
 {
     /// <summary>
-    /// IDataItem Type discriminator.
-    /// </summary>
-    [JsonPropertyName("dataItemType")]
-    [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
-    public string DataItemType { get; set; } = "dataItemQuery";
-
-    /// <summary>
     /// An identifier for the Data Query.
     /// </summary>
     [JsonPropertyName("id")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public string Id { get; set; } = string.Empty;
+    public string? Id { get; set; }
 
     /// <summary>
     /// The name for the query.

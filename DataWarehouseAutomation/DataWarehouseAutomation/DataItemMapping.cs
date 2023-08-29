@@ -10,7 +10,7 @@ public class DataItemMapping
     /// </summary>
     [JsonPropertyName("id")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public string Id { get; set; } = string.Empty;
+    public string? Id { get; set; }
 
     [JsonPropertyName("sourceDataItems")]
     public List<IDataItem> SourceDataItems { get; set; } = new();

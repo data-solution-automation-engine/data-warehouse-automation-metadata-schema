@@ -1,9 +1,10 @@
 ﻿{
   "dataObjectMappings": [
     {
-      "mappingName": "MappingOne",
+      "mappingName": "MappingOne2",
       "sourceDataObjects": [
         {
+          "dataObjectType": "dataObject",
           "name": "TableOneSource"
         }
       ],
@@ -14,6 +15,7 @@
         {
           "sourceDataItems": [
             {
+              "dataItemType": "dataItem",
               "name": "ColumnOneSource"
             }
           ],
@@ -24,6 +26,7 @@
         {
           "sourceDataItems": [
             {
+              "dataItemType": "dataItem",
               "name": "ColumnTwoSource"
             }
           ],

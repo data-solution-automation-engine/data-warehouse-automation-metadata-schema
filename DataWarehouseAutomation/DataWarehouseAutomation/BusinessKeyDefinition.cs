@@ -11,7 +11,7 @@ public class BusinessKeyDefinition
     /// </summary>
     [JsonPropertyName("id")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public string Id { get; set; } = string.Empty;
+    public string? Id { get; set; }
 
     /// <summary>
     /// Items that define the Business Key e.g. the collection of columns for a Business Key.

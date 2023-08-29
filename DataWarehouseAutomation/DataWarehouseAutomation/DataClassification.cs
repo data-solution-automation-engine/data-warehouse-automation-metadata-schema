@@ -11,7 +11,7 @@ public class DataClassification
     /// </summary>
     [JsonPropertyName("id")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public string Id { get; set; } = string.Empty;
+    public string? Id { get; set; }
 
     /// <summary>
     /// The mandatory classification description, usually a keyword used for automation purposes.
