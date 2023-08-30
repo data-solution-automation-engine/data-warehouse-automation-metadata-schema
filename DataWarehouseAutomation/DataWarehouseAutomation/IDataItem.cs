@@ -26,9 +26,9 @@ public interface IDataItem
     bool? IsPrimaryKey { get; set; }
     int? OrdinalPosition { get; set; }
 
-    IDataObject DataObject { get; set; }
+    IDataObject? DataObject { get; set; }
 
-    List<DataClassification> Classifications { get; set; }
+    List<DataClassification>? Classifications { get; set; }
 
     /// <summary>
     /// The collection of extension Key/Value pairs.

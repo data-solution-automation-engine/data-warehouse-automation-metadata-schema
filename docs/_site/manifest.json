@@ -255,19 +255,6 @@
     },
     {
       "type": "Toc",
-      "source_relative_path": "overview/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "overview/toc.html"
-        },
-        ".json": {
-          "relative_path": "overview/toc.json"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
         ".html": {

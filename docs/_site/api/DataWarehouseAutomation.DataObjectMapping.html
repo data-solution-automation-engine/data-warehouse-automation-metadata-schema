@@ -156,7 +156,7 @@ The SourceDataObject, TargetDataObject and DataItemMapping are the mandatory com
   
   </h3>
 
-  <div class="markdown level1 summary"><p>The definition of the Business Key for the source-to-target mapping.</p>
+  <div class="markdown level1 summary"><p>The definition of the Business Key(s) for the Data Object Mapping.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -190,7 +190,7 @@ public List&lt;BusinessKeyDefinition&gt;? BusinessKeyDefinitions { get; set; }</
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Free-form and optional classification for the mapping for use in ETL generation logic (evaluation).</p>
+  <div class="markdown level1 summary"><p>Free-form and optional classification for the mapping for use in data logistics generation logic (evaluation).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -224,7 +224,7 @@ public List&lt;DataClassification&gt;? Classifications { get; set; }</code></pre
   
   </h3>
 
-  <div class="markdown level1 summary"><p>The collection of individual attribute (column) mappings.</p>
+  <div class="markdown level1 summary"><p>The collection of individual attribute (column or query) mappings.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -360,7 +360,7 @@ public string? FilterCriterion { get; set; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>An optional identifier for the Data Object.</p>
+  <div class="markdown level1 summary"><p>An optional unique identifier for the Data Object mapping.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -394,13 +394,13 @@ public string? Id { get; set; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>The name of the source-to-target mapping. An optional unique name that identifies the individual mapping.</p>
+  <div class="markdown level1 summary"><p>The name of the Data Object Mapping. Ideally an unique name that identifies the individual mapping.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[JsonPropertyName(&quot;name&quot;)]
-[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+[JsonIgnore(Condition = JsonIgnoreCondition.Never)]
 public string Name { get; set; }</code></pre>
   </div>
 
@@ -428,7 +428,7 @@ public string Name { get; set; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Free-format notes on the classification.</p>
+  <div class="markdown level1 summary"><p>Free-format notes on the Data Object Mapping.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -462,8 +462,8 @@ public string? Notes { get; set; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Optional associated data object (collection) for purposes other than source- and target relationship.
-For example Lookups, merge joins etc.</p>
+  <div class="markdown level1 summary"><p>The collection of associated data object for purposes other than source-target relationship.
+For example for lookups, merge joins, lineage etc.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -497,7 +497,8 @@ public List&lt;DataObject&gt;? RelatedDataObjects { get; set; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>The source object of the mapping.</p>
+  <div class="markdown level1 summary"><p>The source object(s) of the mapping. This can either be an object or a query.
+Potentially multiple source objects can be mapped to a single target object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -530,7 +531,7 @@ public List&lt;IDataObject&gt; SourceDataObjects { get; set; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>The target object of the mapping.</p>
+  <div class="markdown level1 summary"><p>The target object of the mapping. This is always a Data Object type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
