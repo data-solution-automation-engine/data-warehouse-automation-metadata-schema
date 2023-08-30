@@ -17,5 +17,5 @@ This adds brackets around the string value: {{stringwrap "Example" "[" "]"}}
 This results in:
 
 ```dotnetcli
-[EXAMPLE]
+[Example]
 ```
