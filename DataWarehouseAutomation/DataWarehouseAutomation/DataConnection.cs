@@ -1,7 +1,8 @@
 ﻿namespace DataWarehouseAutomation;
 
 /// <summary>
-/// Optional connectivity information, that can be used for either a DataObject or DataQuery. Can be anything (e.g. key, token, string)
+/// Connectivity information, that can be used for either a DataObject or DataObjectQuery.
+/// This is be a key, token, reference, connection string and similar.
 /// </summary>
 public class DataConnection : IMetadata
 {

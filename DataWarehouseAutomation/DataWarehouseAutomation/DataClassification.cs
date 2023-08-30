@@ -1,8 +1,7 @@
 ﻿namespace DataWarehouseAutomation;
 
 /// <summary>
-/// Used to define a list of classifications (labels) and notes to add to a data object mapping.
-/// A classification can be used to identify a certain type of data object mapping.
+/// Used to define a list of classifications (labels) and notes to add to various components of the schema definition.
 /// </summary>
 public class DataClassification
 {
