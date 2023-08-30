@@ -20,7 +20,7 @@ public class DataClassification
     public string Classification { get; set; } = "NewClassification";
 
     /// <summary>
-    /// Free-format notes on the classification.
+    /// Free-format notes on the data classification.
     /// </summary>
     [JsonPropertyName("notes")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]

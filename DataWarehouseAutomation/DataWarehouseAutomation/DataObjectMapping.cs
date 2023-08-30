@@ -13,87 +13,58 @@
 /// </summary>
 public class DataObjectMapping : IMetadata
 {
+    #region Properties
     /// <summary>
-    /// An optional identifier for the Data Object.
+    /// An optional unique identifier for the Data Object mapping.
     /// </summary>
     [JsonPropertyName("id")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string? Id { get; set; }
 
-    private string _name = "NewDataMappingName";
-
     /// <summary>
-    /// The name of the source-to-target mapping. An optional unique name that identifies the individual mapping.
+    /// The name of the Data Object Mapping. Ideally an unique name that identifies the individual mapping.
     /// </summary>
     [JsonPropertyName("name")]
     [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
-    public string Name
-    {
-        get
-        {
-            return _name; 
-
-        }
-        set
-        {
-            _name = value;
-        }
-    }
-
-    [Obsolete]
-    [JsonPropertyName("mappingName")]
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-    public string? MappingName
-    {
-        get
-        {
-            return null;
-        }
-        set
-        {
-            if (value != null)
-            {
-                _name = value;
-            }
-        }
-    }
+    public string Name { get; set; } = "NewDataMappingName";
 
     /// <summary>
-    /// Free-form and optional classification for the mapping for use in ETL generation logic (evaluation).
+    /// Free-form and optional classification for the mapping for use in data logistics generation logic (evaluation).
     /// </summary>
     [JsonPropertyName("classifications")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<DataClassification>? Classifications { get; set; }
 
     /// <summary>
-    /// The source object of the mapping.
+    /// The source object(s) of the mapping. This can either be an object or a query.
+    /// Potentially multiple source objects can be mapped to a single target object.
     /// </summary>
     [JsonPropertyName("sourceDataObjects")]
     public List<IDataObject> SourceDataObjects { get; set; } = new();
 
     /// <summary>
-    /// The target object of the mapping.
+    /// The target object of the mapping. This is always a Data Object type.
     /// </summary>
     [JsonPropertyName("targetDataObject")]
     public DataObject TargetDataObject { get; set; } = new() { Name = "NewTargetDataObject" };
 
     /// <summary>
-    /// Optional associated data object (collection) for purposes other than source- and target relationship.
-    /// For example Lookups, merge joins etc.
+    /// The collection of associated data object for purposes other than source-target relationship.
+    /// For example for lookups, merge joins, lineage etc.
     /// </summary>
     [JsonPropertyName("relatedDataObjects")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<DataObject>? RelatedDataObjects { get; set; }
 
     /// <summary>
-    /// The collection of individual attribute (column) mappings.
+    /// The collection of individual attribute (column or query) mappings.
     /// </summary>
     [JsonPropertyName("dataItemMappings")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<DataItemMapping>? DataItemMappings { get; set; }
 
     /// <summary>
-    /// The definition of the Business Key for the source-to-target mapping.
+    /// The definition of the Business Key(s) for the Data Object Mapping.
     /// </summary>
     [JsonPropertyName("businessKeyDefinitions")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
@@ -121,11 +92,12 @@ public class DataObjectMapping : IMetadata
     public List<Extension>? Extensions { get; set; }
 
     /// <summary>
-    /// Free-format notes on the classification.
+    /// Free-format notes on the Data Object Mapping.
     /// </summary>
     [JsonPropertyName("notes")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string? Notes { get; set; }
+    #endregion
 
     #region Methods
     /// <summary>

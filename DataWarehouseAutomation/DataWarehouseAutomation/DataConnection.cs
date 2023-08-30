@@ -19,18 +19,18 @@ public class DataConnection : IMetadata
     public string Name { get; set; } = "NewConnection";
 
     /// <summary>
-    /// The collection of extension Key/Value pairs.
-    /// </summary>
-    [JsonPropertyName("extensions")]
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public List<Extension>? Extensions { get; set; }
-
-    /// <summary>
     /// Free-form and optional classification for the Data Item for use in generation logic (evaluation).
     /// </summary>
     [JsonPropertyName("classifications")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<DataClassification>? Classifications { get; set; }
+
+    /// <summary>
+    /// The collection of extension Key/Value pairs.
+    /// </summary>
+    [JsonPropertyName("extensions")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public List<Extension>? Extensions { get; set; }
 
     /// <summary>
     /// Free-format notes.
