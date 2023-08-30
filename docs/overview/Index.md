@@ -1,4 +1,4 @@
-# Interface specification - Data Solution Automation Metadata
+# Data Solution Automation Metadata
 
 The **interface for data solution automation metadata** provides an agreed (canonical) format for the exchange of relevant metadata for data solution/warehouse automation. The intent is to define a *sufficiently generic* format, that can be used to record and share information about data solution automation metadata, so that more time can be spent on concepts, patterns, and solution ideas - instead of reinventing the wheel on what exactly is required to automate a data solution.
 
@@ -17,17 +17,17 @@ In principle, the schema can be used to generate an entire Data Warehouse, Data 
 
 ## **Schema**
 
-The proposed Json schema has standard components for table (DataObjects) and column (DataItem) structures that are reused for sources and targets. At the mapping level only the classification, filter and load direction are added, the rest is generic reuse of definitions.
+The proposed JSON schema has standard components for table (DataObjects) and column (DataItem) structures that are reused for sources and targets. At the mapping level only the classification, filter and load direction are added, the rest is generic reuse of definitions.
 
-The schema is available in the Github under:  https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface.
+The schema is available in the GitHub under:  https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface.
 
-The schema definition specifically is located here: [https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface/blob/master/Generic%20interface/interfaceDataWarehouseAutomationMetadata.json](https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface/blob/master/Generic interface/interfaceDataWarehouseAutomationMetadata.json). 
+The schema definition specifically is located here: [https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface/blob/master/Generic%20interface/interfaceDataWarehouseAutomationMetadata.json](https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface/blob/master/Generic interface/interfaceDataWarehouseAutomationMetadata.json).
 
 It is also referenced in the Class Library.
 
 ## How does the interface schema work?
 
-The interface is a Json Schema Definition that has been designed following draft 7 of the Json schema. It contains a series of reusable defined objects (‘definitions’) that are implemented as a source-to-target mapping object called a ‘Data Object Mapping’.
+The interface is a JSON Schema Definition that has been designed following draft 7 of the JSON schema. It contains a series of reusable defined objects (‘definitions’) that are implemented as a source-to-target mapping object called a ‘Data Object Mapping’.
 
 The Data Object Mapping is literally a mapping between Data Objects. It is a unique ETL mapping / transformation that moves, or interprets, data from a given source to a given destination.
 
@@ -46,7 +46,7 @@ The other key component of a Data Object Mapping is the *Data Item Mapping*, whi
 
 The Source Data Object, Target Data Object and Data Item Mapping are the mandatory components of a Data Object Mapping.
 
-There are many other attributes that can be set, and there are mandatory items within the Data Objects and Data Items also. These are described in the Json schema, and the concept is that the validation functions will make it easy to try out different uses of the schema.
+There are many other attributes that can be set, and there are mandatory items within the Data Objects and Data Items also. These are described in the JSON schema, and the concept is that the validation functions will make it easy to try out different uses of the schema.
 
 One of the goals of defining this schema has been to find a good balance between being too generic and too specific (restrictive). For this reason there are only a few mandatory elements.
 

@@ -96,13 +96,13 @@ A Business Key is a special column, or combination of columns, that is defined s
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="DataWarehouseAutomation.DataClassification.html">DataClassification</a></dt>
-      <dd><p>Used to define a list of classifications (labels) and notes to add to a data object mapping.
-A classification can be used to identify a certain type of data object mapping.</p>
+      <dd><p>Used to define a list of classifications (labels) and notes to add to various components of the schema definition.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="DataWarehouseAutomation.DataConnection.html">DataConnection</a></dt>
-      <dd><p>Optional connectivity information, that can be used for either a DataObject or DataQuery. Can be anything (e.g. key, token, string)</p>
+      <dd><p>Connectivity information, that can be used for either a DataObject or DataObjectQuery.
+This is be a key, token, reference, connection string and similar.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -127,7 +127,7 @@ A classification can be used to identify a certain type of data object mapping.<
       <dd><p>The mapping between a source and target data set / table / file.</p>
 <p>The DataObjectMapping is the element that defines an individual source-to-target mapping / ETL process. It is a mapping between a source and target object - referred to as DataObjects.
 The DataObject is in fact a reusable definition in the Json schema.</p>
-<p>This definition is used twice in the DataObjectMapping: as the* SourceDataObject* and as the* TargetDataObject* - both instances of the DataObject class / type.</p>
+<p>This definition is used twice in the DataObjectMapping: as the <em>SourceDataObject</em> and as the <em>TargetDataObject</em> - both instances of the DataObject class / type.</p>
 <p>The other key component of a DataObjectMapping is the* DataItemMapping*, which describes the column-to-column(or transformation-to-column).
 The SourceDataObject, TargetDataObject and DataItemMapping are the mandatory components of a DataObjectMapping.There are many other attributes that can be set, and there are mandatory items within the DataObjects and DataItems.These are all described in the Json schema.</p>
 </dd>
@@ -181,7 +181,8 @@ Interfaces
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="DataWarehouseAutomation.IMetadata.html">IMetadata</a></dt>
-      <dd></dd>
+      <dd><p>IMetadata can be either a <a class="xref" href="DataWarehouseAutomation.DataConnection.html">DataConnection</a>, a <a class="xref" href="DataWarehouseAutomation.DataObject.html">DataObject</a>, or a <a class="xref" href="DataWarehouseAutomation.DataObjectMapping.html">DataObjectMapping</a>.</p>
+</dd>
     </dl>
 
 

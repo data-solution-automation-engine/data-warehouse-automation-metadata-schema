@@ -91,8 +91,7 @@
   <dl><dt>Assembly</dt><dd>DataWarehouseAutomation.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Used to define a list of classifications (labels) and notes to add to a data object mapping.
-A classification can be used to identify a certain type of data object mapping.</p>
+  <div class="markdown summary"><p>Used to define a list of classifications (labels) and notes to add to various components of the schema definition.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -251,24 +250,25 @@ public string? Notes { get; set; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Use this method to assert an object as a DataClassification (or not).</p>
+  <div class="markdown level1 summary"><p>Use this method to assert if two DataClassifications are the same, based on their Id.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool Equals(object? o)</code></pre>
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>o</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
     <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>bool</p>
+</dd>
   </dl>
 
 
@@ -300,7 +300,8 @@ public string? Notes { get; set; }</code></pre>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>int</p>
+</dd>
   </dl>
 
 
@@ -333,7 +334,8 @@ When an instance of this class is passed to a method that expects a string, the 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>string</p>
+</dd>
   </dl>
 
 

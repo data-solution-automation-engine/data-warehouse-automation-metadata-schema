@@ -14,9 +14,12 @@ public interface IDataObject
     string? Id { get; set; }
 
     /// <summary>
-    /// DataObject Name.
+    /// The name of the Data Object or Data Object Query.
     /// </summary>
     string Name { get; set; }
 
+    /// <summary>
+    /// The connection that is used for the Data Object or Data Object Query.
+    /// </summary>
     DataConnection? DataConnection { get; set; }
 }

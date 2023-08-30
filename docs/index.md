@@ -1,4 +1,4 @@
-# Metadata Schema for Data Warehouse Automation
+# Schema for Data Solution Automation
 
 ## Intent
 

@@ -2,3 +2,5 @@
   href: index.md
 - name: JSON Schema Definition
   href: jsonschema.md  
+- name: Getting Started
+  href: getting-started.md  

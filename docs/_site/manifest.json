@@ -215,6 +215,16 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/GenericSchemaSolution.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/GenericSchemaSolution.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/logo-small_transparant.ico",
       "output": {
         "resource": {
@@ -249,6 +259,16 @@
       "output": {
         ".html": {
           "relative_path": "overview/Index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "overview/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "overview/getting-started.html"
         }
       },
       "version": ""
