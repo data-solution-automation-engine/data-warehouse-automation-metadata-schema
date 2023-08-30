@@ -80,13 +80,28 @@ public class DataItemQuery : IDataItem
     public string? Notes { get; set; }
 
     #region Methods
+    /// <summary>
+    /// Use this method to assert if two DataItemQueries are the same, based on their Id.
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <returns>bool</returns>
     public override bool Equals(object? obj)
     {
         var other = obj as DataItemQuery;
         return other?.Id == Id;
     }
 
-    public override int GetHashCode() => Id.GetHashCode();
+    /// <summary>
+    /// Override to get a hash value that represents the identifier.
+    /// </summary>
+    /// <returns>int</returns>
+    public override int GetHashCode() => (Id?.GetHashCode()) ?? 0;
+
+    /// <summary>
+    /// String override so that the object returns its value ('name').
+    /// When an instance of this class is passed to a method that expects a string, the ToString() method will be called implicitly to convert the object to a string, and the value of the "Name" property will be returned.
+    /// </summary>
+    /// <returns>string</returns>
     public override string ToString()
     {
         return Name;

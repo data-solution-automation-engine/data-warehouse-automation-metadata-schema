@@ -8,7 +8,7 @@ public class DataObjectQuery : IDataObject
     [JsonPropertyName("id")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string? Id { get; set; }
-    
+
     /// <summary>
     /// The name for the query.
     /// </summary>
@@ -59,21 +59,21 @@ public class DataObjectQuery : IDataObject
 
     #region Methods
     /// <summary>
-    /// Use this method to assert an object as a DataItem (or not).
+    /// Use this method to assert if two DataObjectQueries are the same, based on their Id.
     /// </summary>
-    /// <param name="o"></param>
-    /// <returns></returns>
-    public override bool Equals(object? o)
+    /// <param name="obj"></param>
+    /// <returns>bool</returns>
+    public override bool Equals(object? obj)
     {
-        var other = o as DataObjectQuery;
+        var other = obj as DataObjectQuery;
         return other?.Id == Id;
     }
 
     /// <summary>
-    /// Override to get a hash value that represents the identifier. 
+    /// Override to get a hash value that represents the identifier.
     /// </summary>
-    /// <returns></returns>
-    public override int GetHashCode() => Id.GetHashCode();
+    /// <returns>int</returns>
+    public override int GetHashCode() => (Id?.GetHashCode()) ?? 0;
 
     /// <summary>
     /// String override so that the object returns its value ('name').

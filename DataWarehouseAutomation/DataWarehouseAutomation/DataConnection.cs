@@ -41,27 +41,27 @@ public class DataConnection : IMetadata
 
     #region Methods
     /// <summary>
-    /// Use this method to assert an object as a DataConnection (or not).
+    /// Use this method to assert if two DataConnections are the same, based on their Id.
     /// </summary>
-    /// <param name="o"></param>
-    /// <returns></returns>
-    public override bool Equals(object? o)
+    /// <param name="obj"></param>
+    /// <returns>bool</returns>
+    public override bool Equals(object? obj)
     {
-        var other = o as DataConnection;
+        var other = obj as DataConnection;
         return other?.Id == Id;
     }
 
     /// <summary>
-    /// Override to get a hash value that represents the identifier. 
+    /// Override to get a hash value that represents the identifier.
     /// </summary>
-    /// <returns></returns>
-    public override int GetHashCode() => Id.GetHashCode();
+    /// <returns>int</returns>
+    public override int GetHashCode() => (Id?.GetHashCode()) ?? 0;
 
     /// <summary>
     /// String override so that the object returns its value ('connection string').
     /// When an instance of this class is passed to a method that expects a string, the ToString() method will be called implicitly to convert the object to a string, and the value of the "Connection String" property will be returned.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>string</returns>
     public override string ToString()
     {
         return Name;

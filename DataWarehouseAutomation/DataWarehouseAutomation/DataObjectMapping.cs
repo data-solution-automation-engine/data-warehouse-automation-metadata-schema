@@ -6,7 +6,7 @@
 /// The DataObjectMapping is the element that defines an individual source-to-target mapping / ETL process. It is a mapping between a source and target object - referred to as DataObjects.
 /// The DataObject is in fact a reusable definition in the Json schema.
 ///
-/// This definition is used twice in the DataObjectMapping: as the* SourceDataObject* and as the* TargetDataObject* - both instances of the DataObject class / type.
+/// This definition is used twice in the DataObjectMapping: as the *SourceDataObject* and as the *TargetDataObject* - both instances of the DataObject class / type.
 ///
 /// The other key component of a DataObjectMapping is the* DataItemMapping*, which describes the column-to-column(or transformation-to-column).
 /// The SourceDataObject, TargetDataObject and DataItemMapping are the mandatory components of a DataObjectMapping.There are many other attributes that can be set, and there are mandatory items within the DataObjects and DataItems.These are all described in the Json schema.
@@ -101,25 +101,25 @@ public class DataObjectMapping : IMetadata
 
     #region Methods
     /// <summary>
-    /// Use this method to assert an object as a Data Object Mapping (or not).
+    /// Use this method to assert if two DataObjectMappings are the same, based on their Id.
     /// </summary>
-    /// <param name="o"></param>
-    /// <returns></returns>
-    public override bool Equals(object? o)
+    /// <param name="obj"></param>
+    /// <returns>bool</returns>
+    public override bool Equals(object? obj)
     {
-        var other = o as DataObjectMapping;
+        var other = obj as DataObjectMapping;
         return other?.Id == Id;
     }
 
     /// <summary>
-    /// Override to get a hash value that represents the identifier. 
+    /// Override to get a hash value that represents the identifier.
     /// </summary>
-    /// <returns></returns>
-    public override int GetHashCode() => Id.GetHashCode();
+    /// <returns>int</returns>
+    public override int GetHashCode() => (Id?.GetHashCode()) ?? 0;
 
     /// <summary>
-    /// String override so that the object returns its value ('MappingName').
-    /// When an instance of this class is passed to a method that expects a string, the ToString() method will be called implicitly to convert the object to a string, and the value of the "MappingName" property will be returned.
+    /// String override so that the object returns its value ('Name').
+    /// When an instance of this class is passed to a method that expects a string, the ToString() method will be called implicitly to convert the object to a string, and the value of the "Name" property will be returned.
     /// </summary>
     /// <returns></returns>
     public override string ToString()
