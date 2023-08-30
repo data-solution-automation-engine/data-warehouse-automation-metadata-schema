@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Overview | Schema for Data Warehouse Automation </title>
+      <title>{{now}} | Schema for Data Warehouse Automation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Overview | Schema for Data Warehouse Automation ">
+      <meta name="title" content="{{now}} | Schema for Data Warehouse Automation ">
       
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../">
       
       <meta name="docfx:disabletocfilter" content="true">
-      <meta name="docfx:docurl" content="https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/dev/docs/handlebars/index.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/dev/docs/handlebars/extension_randomdate copy.md/#L1">
   </head>
 
   <script type="module">
@@ -76,17 +76,16 @@
         </div>
 
         <article data-uid="">
-<h1 id="overview">Overview</h1>
+<h1 id="now">{{now}}</h1>
 
-<p>As part of the schema definitions, a number of extensions in the templating language have been developed:</p>
-<ul>
-<li><a href="extension_now.html">{{now}}</a></li>
-<li><a href="extension_randomdate.html">{{randomdate}}</a></li>
-<li><a href="extension_randomnumber.html">{{randomnumber}}</a></li>
-<li><a href="extension_randomstring.html">{{randomstring}}</a></li>
-<li><a href="extension_stringwrap.html">{{stringwrap}}</a></li>
-<li><a href="extension_stringcompare.html">{{stringcompare}}</a></li>
-</ul>
+<h2 id="usage">Usage</h2>
+<p>Generated a random string no longer than the provided characters as integer input.</p>
+<pre><code class="lang-json">{{randomstring 10}}.
+</code></pre>
+<h2 id="example">Example</h2>
+<pre><code class="lang-json">And here is a random string: {{randomstring 10}}.
+</code></pre>
+<p>This will result in</p>
 </article>
 
 

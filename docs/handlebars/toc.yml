@@ -3,3 +3,11 @@ items:
   href: index.md
 - name: Now
   href: extension_now.md  
+- name: Random date
+  href: extension_randomstring.md    
+- name: Random string
+  href: extension_randomdate.md    
+- name: String wrap
+  href: extension_stringwrap.md      
+- name: String compare
+  href: extension_stringcompare.md    

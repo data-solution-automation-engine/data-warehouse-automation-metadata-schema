@@ -205,6 +205,56 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "handlebars/extension_randomdate.md",
+      "output": {
+        ".html": {
+          "relative_path": "handlebars/extension_randomdate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "handlebars/extension_randomnumber.md",
+      "output": {
+        ".html": {
+          "relative_path": "handlebars/extension_randomnumber.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "handlebars/extension_randomstring.md",
+      "output": {
+        ".html": {
+          "relative_path": "handlebars/extension_randomstring.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "handlebars/extension_stringcompare.md",
+      "output": {
+        ".html": {
+          "relative_path": "handlebars/extension_stringcompare.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "handlebars/extension_stringwrap.md",
+      "output": {
+        ".html": {
+          "relative_path": "handlebars/extension_stringwrap.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "handlebars/index.md",
       "output": {
         ".html": {
