@@ -254,6 +254,16 @@
       "version": ""
     },
     {
+      "type": "Conceptual",
+      "source_relative_path": "overview/jsonschema.md",
+      "output": {
+        ".html": {
+          "relative_path": "overview/jsonschema.html"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {

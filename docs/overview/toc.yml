@@ -1,2 +1,4 @@
-- name: Overview
+- name: Introduction
   href: index.md
+- name: JSON Schema Definition
+  href: jsonschema.md  
