@@ -5,11 +5,11 @@
       "sourceDataObjects": [
         {
           "dataObjectType": "dataObjectQuery",
-          "queryCode": "SELECT GETDATE()"
+          "queryCode": "SELECT GETDATE() AS [CURRENT_DATE]"
         },
         {
           "dataObjectType": "dataObjectQuery",
-          "queryCode": "SELECT SYSDATETIMESTAMP()"
+          "queryCode": "SELECT SYSDATETIME() AS [CURRENT_DATE]"
         }
       ],
       "targetDataObject": {
@@ -20,11 +20,11 @@
           "sourceDataItems": [
             {
               "dataItemType": "dataItem",
-              "name": "CURRENTDATE"
+              "name": "CURRENT_DATE"
             }
           ],
           "targetDataItem": {
-            "name": "CURRENTDATETIME"
+            "name": "CURRENT_DATE_TIME"
           }
         }
       ]

@@ -1,3 +1,4 @@
+--TemplateSampleCustomFunctions.json
 The name of the dataObjectMapping is '{{dataObjectMappings.0.name}}'
 
 The time is {{now}}.
@@ -20,7 +21,7 @@ This replaces the a's in Roelant with an !: {{StringReplace "Roelant" "a" "!"}}
 
 {{!-- Demonstrating the array lookup --}}
 {{#each dataObjectMappings}}
-Working on mapping {{mappingName}}
+Working on mapping {{name}}
 {{#each dataItemMappings}}
 Found a data item mapping from {{sourceDataItems.0.name}} to {{targetDataItem.name}}
 {{/each}}

@@ -1,11 +1,12 @@
+--myFirstTemplate.json
 --Example using a templating engine for a simple select statement.
 {{#each dataObjectMappings }}
 
---Working on {{mappingName}}.
+--Working on {{name}}.
 
 SELECT
 {{#each dataItemMappings}}
-{{sourceDataItems.0.name}} AS {{targetDataItem.name}}{{#unless @last}},{{/unless}}
+  {{sourceDataItems.0.name}} AS {{targetDataItem.name}}{{#unless @last}},{{/unless}}
 {{/each}}
 FROM [{{targetDataObject.name}}]
 WHERE {{dataItemMappings.0.targetDataItem.name}}!=NULL

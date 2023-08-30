@@ -16,14 +16,14 @@ namespace Example_Handlebars
             var sampleTemplateDirectory = AppDomain.CurrentDomain.BaseDirectory+@"..\..\..\..\Sample_Templates\";
             var sampleMetadataDirectory = AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\..\Sample_Metadata\";
 
+            DisplayPatternResult(sampleTemplateDirectory + @"myFirstTemplate.handlebars", sampleMetadataDirectory + @"myFirstMapping.json");
             DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleBasic.handlebars", sampleMetadataDirectory + @"sampleBasic.json");
-            //DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleBasicWithExtensions.handlebars", sampleMetadataDirectory + @"sampleBasicWithExtensions.json");
-            //DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleMultipleDataItemMappings.handlebars", sampleMetadataDirectory + @"sampleMultipleDataItemMappings.json");
-            //DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleSourceQuery.handlebars", sampleMetadataDirectory + @"sampleSourceQuery.json");
-            //DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleSimpleDDL.handlebars", sampleMetadataDirectory + @"sampleSimpleDDL.json");
-            //DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleCalculation.handlebars", sampleMetadataDirectory + @"sampleCalculation.json");
-            //DisplayPatternResult(sampleTemplateDirectory + @"TemplateSatelliteView.handlebars", sampleMetadataDirectory + @"sampleVDW_Sat_Customer_v161.json");
-            //DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleFreeForm.handlebars", sampleMetadataDirectory + @"sampleFreeForm.json");
+            DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleBasicWithExtensions.handlebars", sampleMetadataDirectory + @"sampleBasicWithExtensions.json");
+            DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleMultipleDataItemMappings.handlebars", sampleMetadataDirectory + @"sampleMultipleDataItemMappings.json");
+            DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleSourceQuery.handlebars", sampleMetadataDirectory + @"sampleSourceQuery.json");
+            DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleSimpleDDL.handlebars", sampleMetadataDirectory + @"sampleSimpleDDL.json");
+            DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleCalculation.handlebars", sampleMetadataDirectory + @"sampleCalculation.json");
+            DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleFreeForm.handlebars", sampleMetadataDirectory + @"sampleFreeForm.json");
             DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleCustomFunctions.handlebars", sampleMetadataDirectory + @"sampleCustomFunctions.json");
 
             Console.ReadKey();
@@ -42,12 +42,9 @@ namespace Example_Handlebars
 
                 //var deserializedMapping = JsonConvert.DeserializeObject<ExpandoObject>(jsonInput, new ExpandoObjectConverter()); -- This is the old Newtonsoft expando object approach
                 //var deserializedMapping = System.Text.Json.JsonSerializer.Deserialize<ExpandoObject>(jsonInput);
+                //DataObjectMappingList deserializedMapping = JsonSerializer.Deserialize<DataObjectMappingList>(jsonInput);
 
-                DataObjectMappingList deserializedMapping = JsonSerializer.Deserialize<DataObjectMappingList>(jsonInput);
-
-                var bla = JsonSerializer.Serialize(deserializedMapping);
-
-                //JsonNode deserializedMapping = System.Text.Json.JsonSerializer.Deserialize<JsonNode>(jsonInput);
+                JsonNode deserializedMapping = System.Text.Json.JsonSerializer.Deserialize<JsonNode>(jsonInput);
 
                 var result = template(deserializedMapping);
                 Console.WriteLine(result);
