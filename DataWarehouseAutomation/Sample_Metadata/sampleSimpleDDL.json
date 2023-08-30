@@ -1,6 +1,7 @@
 ﻿{
   "dataObjectMappings": [
     {
+      "name": "Sample Free Form",
       "sourceDataObjects": [
         {
           "name": "HUB_CUSTOMER",
@@ -8,7 +9,7 @@
             {
               "name": "Customer_ID",
               "dataType": "VARCHAR",
-              "characterLength" : 10 
+              "characterLength": 10
             },
             {
               "name": "Customer_Name",

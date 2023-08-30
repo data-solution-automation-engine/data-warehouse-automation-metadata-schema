@@ -1,7 +1,7 @@
 {
   "dataObjectMappings": [
     {
-      "mappingName": "MyFirstMapping",
+      "name": "MyFirstMapping",
       "mappingClassifications": [
         {
           "classification": "Example"

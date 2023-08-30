@@ -17,7 +17,7 @@
   "metadataFileName": "tbcgct00.json",
   "dataObjectMappings": [
     {
-      "mappingName": "STG_tbcgct005",
+      "name": "STG_tbcgct005",
       "mappingClassifications": [
         {
           "id": "1",

@@ -1,13 +1,15 @@
 ﻿{
   "dataObjectMappings": [
     {
-      "mappingName": "MyDataObjectMapping",
+      "name": "MyDataObjectMapping",
       "sourceDataObjects": [
         {
-          "dataQueryCode": "SELECT GETDATE()"
+          "dataObjectType": "dataObjectQuery",
+          "queryCode": "SELECT GETDATE()"
         },
         {
-          "dataQueryCode": "SELECT SYSDATETIMESTAMP()"
+          "dataObjectType": "dataObjectQuery",
+          "queryCode": "SELECT SYSDATETIMESTAMP()"
         }
       ],
       "targetDataObject": {
@@ -17,6 +19,7 @@
         {
           "sourceDataItems": [
             {
+              "dataItemType": "dataItem",
               "name": "CURRENTDATE"
             }
           ],

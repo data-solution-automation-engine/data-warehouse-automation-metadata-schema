@@ -181,7 +181,7 @@ namespace RunDwhAutomation
                     {
                         try
                         {
-                            outputFileName = (string) deserializedMapping["dataObjectMappings"][0]["mappingName"]; 
+                            outputFileName = (string) deserializedMapping["dataObjectMappings"][0]["name"]; 
                         }
                         catch
                         {

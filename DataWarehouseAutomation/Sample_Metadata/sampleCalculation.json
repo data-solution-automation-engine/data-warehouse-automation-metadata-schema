@@ -1,9 +1,10 @@
 ﻿{
   "dataObjectMappings": [
     {
-      "mappingName": "CalculationExample",
+      "name": "CalculationExample",
       "sourceDataObjects": [
         {
+          "dataObjectType": "dataObject",
           "name": "SourceTable"
         }
       ],
@@ -14,7 +15,8 @@
         {
           "sourceDataItems": [
             {
-              "dataQueryCode": "SUBSTRING([Customer_Full_Name],INSTR(' '),LEN([Customer_Full_Name)])"
+              "dataItemType": "dataItemQuery",
+              "queryCode": "SUBSTRING([Customer_Full_Name],INSTR(' '),LEN([Customer_Full_Name)])"
             }
           ],
           "targetDataItem": {
@@ -24,6 +26,7 @@
         {
           "sourceDataItems": [
             {
+              "dataItemType": "dataItem",
               "name": "ColumnOneSource"
             }
           ],
