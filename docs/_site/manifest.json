@@ -235,10 +235,50 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "handlebars/extension_replicate.md",
+      "output": {
+        ".html": {
+          "relative_path": "handlebars/extension_replicate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "handlebars/extension_space.md",
+      "output": {
+        ".html": {
+          "relative_path": "handlebars/extension_space.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "handlebars/extension_stringcompare.md",
       "output": {
         ".html": {
           "relative_path": "handlebars/extension_stringcompare.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "handlebars/extension_stringdiff.md",
+      "output": {
+        ".html": {
+          "relative_path": "handlebars/extension_stringdiff.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "handlebars/extension_stringreplace.md",
+      "output": {
+        ".html": {
+          "relative_path": "handlebars/extension_stringreplace.html"
         }
       },
       "version": ""

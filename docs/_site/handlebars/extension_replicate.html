@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>{{stringwrap}} | Schema for Data Warehouse Automation </title>
+      <title>{{replicate}} | Schema for Data Warehouse Automation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="{{stringwrap}} | Schema for Data Warehouse Automation ">
+      <meta name="title" content="{{replicate}} | Schema for Data Warehouse Automation ">
       
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../">
       
       <meta name="docfx:disabletocfilter" content="true">
-      <meta name="docfx:docurl" content="https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/dev/docs/handlebars/extension_stringwrap.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/dev/docs/handlebars/extension_replicate.md/#L1">
   </head>
 
   <script type="module">
@@ -76,17 +76,22 @@
         </div>
 
         <article data-uid="">
-<h1 id="stringwrap">{{stringwrap}}</h1>
+<h1 id="replicate">{{replicate}}</h1>
 
-<p>Wraps an input character string with two specified characters.</p>
+<p>Returns the input string value a number of times, as specified by the input integer.</p>
+<p>This is often used to generate test data.</p>
 <h2 id="usage">Usage</h2>
-<pre><code class="lang-json">{{stringwrap &quot;&lt;start character&gt;&quot; &quot;&lt;end character&gt;&quot;}}
+<pre><code class="lang-json">{{#replicate 10}}
 </code></pre>
 <h2 id="example">Example</h2>
-<pre><code class="lang-json">This adds brackets around the string value: {{stringwrap &quot;Example&quot; &quot;[&quot; &quot;]&quot;}}
+<pre><code class="lang-json">{{#replicate 3}}
+This value is replicated 3 times!
+{{/replicate}}
 </code></pre>
-<p>This results in:</p>
-<pre><code class="lang-dotnetcli">[Example]
+<p>This returns:</p>
+<pre><code class="lang-dotnetcli">This value is replicated 3 times!
+This value is replicated 3 times!
+This value is replicated 3 times!
 </code></pre>
 </article>
 
