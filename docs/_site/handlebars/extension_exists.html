@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Overview | Schema for Data Warehouse Automation </title>
+      <title>{{exists}} | Schema for Data Warehouse Automation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Overview | Schema for Data Warehouse Automation ">
+      <meta name="title" content="{{exists}} | Schema for Data Warehouse Automation ">
       
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../">
       
       <meta name="docfx:disabletocfilter" content="true">
-      <meta name="docfx:docurl" content="https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/dev/docs/handlebars/index.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/dev/docs/handlebars/extension_exists.md/#L1">
   </head>
 
   <script type="module">
@@ -76,30 +76,24 @@
         </div>
 
         <article data-uid="">
-<h1 id="overview">Overview</h1>
+<h1 id="exists">{{exists}}</h1>
 
-<p>As part of the schema definitions, a number of extensions in the templating language have been developed:</p>
-<h2 id="block-helpers">Block helpers</h2>
-<p>Block helpers have a starting and closing tag, and often support if-then-else constructs.</p>
-<ul>
-<li><a href="extension_stringcompare.html">{{#stringcompare}}</a></li>
-<li><a href="extension_stringdiff.html">{{#stringdiff}}</a></li>
-<li><a href="extension_replicate.html">{{#replicate}}</a></li>
-<li><a href="extension_exists.html">{{#exists}}</a></li>
-<li><a href="extension_targetdataitemexists.html">{{#targetDataItemExists}}</a></li>
-</ul>
-<h2 id="string-helpers">String helpers</h2>
-<p>String helpers do not have the #, and no end tag. Instead, they accept one or more parameter values and return a string value to use in the templates.</p>
-<ul>
-<li><a href="extension_now.html">{{now}}</a></li>
-<li><a href="extension_randomdate.html">{{randomdate}}</a></li>
-<li><a href="extension_randomnumber.html">{{randomnumber}}</a></li>
-<li><a href="extension_randomstring.html">{{randomstring}}</a></li>
-<li><a href="extension_space.html">{{space}}</a></li>
-<li><a href="extension_stringwrap.html">{{stringwrap}}</a></li>
-<li><a href="extension_stringreplace.html">{{stringreplace}}</a></li>
-<li><a href="extension_lookupextension.html">{{lookupExtension}}</a></li>
-</ul>
+<p>This block helper extension specifically applies to the schema for data solution automation.</p>
+<p>The helper can target specific segments in the metadata, and evaluates if either the segment exists at all (without specifying an optional search value) or if the provided optional search value exists in that segment.</p>
+<p>Only the <em>multiActiveKey</em> and <em>targetDataItem</em> properties are currently supported.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-json">{{#exists &quot;&lt;category / json segment&gt;&quot; &quot;&lt;optional value&gt;&quot;}}
+</code></pre>
+<h2 id="example">Example</h2>
+<pre><code class="lang-json">{{#exists multiActiveKey}}There is a multi-active key!{{else}}No multi-active key is found in this data object mapping.{{/exists}}
+{{#exists multiActiveKey &quot;DATE_OF_BIRTH&quot;}}There is a multi-active key which is not DATE_OF_BIRTH{{else}}No multi-active key with DATE_OF_BIRTH is found in this data object mapping.{{/exists}}
+{{#exists targetDataItem}}There is a target data item in this mapping!{{else}}No target data items are defined in this mapping.{{/exists}}
+</code></pre>
+<p>Depending on the metadata, this may result in:</p>
+<pre><code class="lang-dotnetcli">There is a multi-active key!
+No multi-active key with DATE_OF_BIRTH is found in this data object mapping.
+There is a target data item in this mapping!
+</code></pre>
 </article>
 
 

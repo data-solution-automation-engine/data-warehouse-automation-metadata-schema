@@ -20,4 +20,10 @@ items:
 - name: Replicate
   href: extension_replicate.md
 - name: Space
-  href: extension_space.md
+  href: extension_space.md  
+- name: Exists
+  href: extension_exists.md
+- name: Lookup extension
+  href: extension_lookupextension.md
+- name: Target data item exists
+  href: extension_targetdataitemexists.md

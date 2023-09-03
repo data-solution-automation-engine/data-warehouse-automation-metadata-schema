@@ -11,9 +11,9 @@
         "name": "TableOneTarget",
         "extensions": [
           {
-            "key": "colour",
+            "key": "color",
             "value": "green",
-            "description": "The colour of the object."
+            "description": "The color of the object."
           },
           {
             "key": "taste",

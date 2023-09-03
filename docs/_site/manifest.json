@@ -195,6 +195,26 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "handlebars/extension_exists.md",
+      "output": {
+        ".html": {
+          "relative_path": "handlebars/extension_exists.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "handlebars/extension_lookupextension.md",
+      "output": {
+        ".html": {
+          "relative_path": "handlebars/extension_lookupextension.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "handlebars/extension_now.md",
       "output": {
         ".html": {
@@ -289,6 +309,16 @@
       "output": {
         ".html": {
           "relative_path": "handlebars/extension_stringwrap.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "handlebars/extension_targetdataitemexists.md",
+      "output": {
+        ".html": {
+          "relative_path": "handlebars/extension_targetdataitemexists.html"
         }
       },
       "version": ""

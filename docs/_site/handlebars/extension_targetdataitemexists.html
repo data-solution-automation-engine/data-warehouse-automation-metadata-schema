@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Overview | Schema for Data Warehouse Automation </title>
+      <title>{{targetDataItemExists}} | Schema for Data Warehouse Automation </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Overview | Schema for Data Warehouse Automation ">
+      <meta name="title" content="{{targetDataItemExists}} | Schema for Data Warehouse Automation ">
       
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../">
       
       <meta name="docfx:disabletocfilter" content="true">
-      <meta name="docfx:docurl" content="https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/dev/docs/handlebars/index.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/dev/docs/handlebars/extension_targetdataitemexists.md/#L1">
   </head>
 
   <script type="module">
@@ -76,30 +76,20 @@
         </div>
 
         <article data-uid="">
-<h1 id="overview">Overview</h1>
+<h1 id="targetdataitemexists">{{targetDataItemExists}}</h1>
 
-<p>As part of the schema definitions, a number of extensions in the templating language have been developed:</p>
-<h2 id="block-helpers">Block helpers</h2>
-<p>Block helpers have a starting and closing tag, and often support if-then-else constructs.</p>
-<ul>
-<li><a href="extension_stringcompare.html">{{#stringcompare}}</a></li>
-<li><a href="extension_stringdiff.html">{{#stringdiff}}</a></li>
-<li><a href="extension_replicate.html">{{#replicate}}</a></li>
-<li><a href="extension_exists.html">{{#exists}}</a></li>
-<li><a href="extension_targetdataitemexists.html">{{#targetDataItemExists}}</a></li>
-</ul>
-<h2 id="string-helpers">String helpers</h2>
-<p>String helpers do not have the #, and no end tag. Instead, they accept one or more parameter values and return a string value to use in the templates.</p>
-<ul>
-<li><a href="extension_now.html">{{now}}</a></li>
-<li><a href="extension_randomdate.html">{{randomdate}}</a></li>
-<li><a href="extension_randomnumber.html">{{randomnumber}}</a></li>
-<li><a href="extension_randomstring.html">{{randomstring}}</a></li>
-<li><a href="extension_space.html">{{space}}</a></li>
-<li><a href="extension_stringwrap.html">{{stringwrap}}</a></li>
-<li><a href="extension_stringreplace.html">{{stringreplace}}</a></li>
-<li><a href="extension_lookupextension.html">{{lookupExtension}}</a></li>
-</ul>
+<p>This block helper extension specifically applies to the schema for data solution automation.</p>
+<p>The helper performs a search in the target data items within a data item mapping, so evaluate if the input value exists there as a data item name.</p>
+<p>This is used in some cases to handle special column names.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-json">{{stringwrap &quot;&lt;character value&gt;&quot;}}
+</code></pre>
+<h2 id="example">Example</h2>
+<pre><code class="lang-json">{{#targetDataItemExists &quot;FIRST_NAME&quot;}}FIRST_NAME exists{{else}}FIRST_NAME does not exist{{/targetDataItemExists}}
+</code></pre>
+<p>This results in:</p>
+<pre><code class="lang-dotnetcli">FIRST_NAME exists
+</code></pre>
 </article>
 
 

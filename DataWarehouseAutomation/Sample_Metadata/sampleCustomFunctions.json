@@ -5,7 +5,17 @@
       "sourceDataObjects": [
         {
           "dataObjectType": "dataObject",
-          "name": "ExampleSourceDataObject"
+          "name": "ExampleSourceDataObject",
+          "extensions": [
+            {
+              "key": "type",
+              "value": "procedure"
+            },
+            {
+              "key": "hint",
+              "value": "READ ONLY"
+            }
+          ]
         }
       ],
       "targetDataObject": {
@@ -37,7 +47,7 @@
         {
           "sourceDataItems": [
             {
-              "dataItemType" :  "dataItem", 
+              "dataItemType": "dataItem",
               "name": "DOB"
             }
           ],

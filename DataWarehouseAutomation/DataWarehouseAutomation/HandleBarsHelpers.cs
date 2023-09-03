@@ -359,13 +359,13 @@ public static class HandleBarsHelpers
         // lookupExtension allows a lookup of an extension value by key value. Pass in the Extensions list and the string key value.
         Handlebars.RegisterHelper("lookupExtension", (writer, context, parameters) =>
         {
-            // Check if the parameters are valid
-            if (parameters.Length != 2 || parameters[0] is not List<Extension> || parameters[1] is not string)
+            // Check if the parameters are valid.
+            if (parameters.Length != 2 || parameters[1] is not string)
             {
-                throw new HandlebarsException("{{lookupExtension}} helper expects an Extension list and a string lookup key");
+                throw new HandlebarsException("{{lookupExtension}} helper expects two arguments: a List<Extension> and a string lookup key");
             }
 
-            var extensionList = (List<Extension>)parameters[0];
+            var extensionList = JsonSerializer.Deserialize<List<Extension>>(parameters[0].ToString() ?? string.Empty);
             var key = (string)parameters[1];
             var result = extensionList.Find(i => i.Key.Equals(key, StringComparison.OrdinalIgnoreCase))?.Value ?? "";
 
