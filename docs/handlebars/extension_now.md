@@ -14,4 +14,4 @@ Get the date and time at the moment of execution.
 The time is {{now}}.
 ```
 
-This gives you the date/time at present.
+This returns the date/time at present.

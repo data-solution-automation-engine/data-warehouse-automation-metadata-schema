@@ -14,4 +14,8 @@ Generate a random string no longer than the provided characters as integer input
 And here is a random string: {{randomstring 10}}.
 ```
 
-This may result in *Cg8uKuBFS5*.
+This returns:
+
+```dotnetcli
+Cg8uKuBFS5
+```

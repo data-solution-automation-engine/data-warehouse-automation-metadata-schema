@@ -16,4 +16,8 @@ This was originally added to generate test data, and is used for referential-int
 And here is a random string: {{randomnumber 5}}.
 ```
 
-This may result in *1346*.
+This may return:
+
+```dotnetcli
+1346
+```

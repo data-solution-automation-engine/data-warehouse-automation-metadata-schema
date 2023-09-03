@@ -1,5 +1,10 @@
 ﻿namespace DataWarehouseAutomation;
 
+/// <summary>
+/// The definition of a data set, file, or table.
+/// The Data Object can be the 'source' or 'target' in a Data Object Mapping.
+/// A Data Object which acts as target in one mapping, can be a source in another mapping, building up the data logistics lineage.
+/// </summary>
 public class DataObject : IMetadata, IDataObject
 {
     /// <summary>
