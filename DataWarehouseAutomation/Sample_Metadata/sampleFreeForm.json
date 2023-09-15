@@ -1,0 +1,10 @@
+﻿{
+  "name": "sampleFreeFormMapping.json",
+  "sourceApp": {
+    "value": "event-service",
+    "description": "name of system"
+  },
+  "topicName": {
+    "value": "application-declined"
+  }
+}

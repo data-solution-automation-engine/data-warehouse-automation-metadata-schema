@@ -1,0 +1,11 @@
+--TemplateSampleBasicWithExtensions.json
+--Example using key/value pair extensions.
+{{#each dataObjectMappings }}
+
+--Working on {{name}}.
+
+Data Object {{targetDataObject.name}}'s first extension is that the {{targetDataObject.extensions.0.key}} is {{targetDataObject.extensions.0.value}}.
+
+In addition to this, the {{targetDataObject.extensions.1.key}} is {{targetDataObject.extensions.1.value}}.
+
+{{/each}}

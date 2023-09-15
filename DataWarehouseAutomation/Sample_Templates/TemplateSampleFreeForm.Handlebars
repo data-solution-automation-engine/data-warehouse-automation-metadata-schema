@@ -1,0 +1,8 @@
+--TemplateSampleFreeForm.json
+  {
+    "bucketrelpath": "{{topicName.value}}",
+    "bucketrootpath": "kafka/topics",
+    "container": "{{sourceApp.value}}",
+    "containerrootpath": "data",
+    "module_code": "kafka_{{StringReplace topicName.value '-' '_'}}"
+  }

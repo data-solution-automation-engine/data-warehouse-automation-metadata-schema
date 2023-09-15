@@ -1,0 +1,18 @@
+--TemplateSampleSimpleDDL.json
+--Example for using a templating engine to generate DDL statements.
+{{#each dataObjectMappings }}
+--
+-- Generating DDL for {{sourceDataObjects.0.name}}
+--
+
+-- Drop table if exists
+IF OBJECT_ID (N'{{sourceDataObjects.0.name}}', N'U') IS NOT NULL
+   DROP TABLE [{{sourceDataObjects.0.name}}]
+
+-- Create table
+CREATE TABLE [{{sourceDataObjects.0.name}}] (
+{{#each sourceDataObjects.0.dataItems}}
+  [{{name}}] {{dataType}}({{characterLength}}) NOT NULL{{#unless @last}},{{/unless}}
+{{/each}})
+
+{{/each}}

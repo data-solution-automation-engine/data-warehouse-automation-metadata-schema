@@ -1,0 +1,27 @@
+﻿{
+  "dataObjectMappings": [
+    {
+      "name": "Sample Free Form",
+      "sourceDataObjects": [
+        {
+          "name": "HUB_CUSTOMER",
+          "dataItems": [
+            {
+              "name": "Customer_ID",
+              "dataType": "VARCHAR",
+              "characterLength": 10
+            },
+            {
+              "name": "Customer_Name",
+              "dataType": "VARCHAR",
+              "characterLength": 10
+            }
+          ]
+        }
+      ],
+      "targetDataObject": {
+        "name": "TableOneTarget"
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "sourceToTargetMappingList": [
+    {
+      "sourceObject": {
+        "mappingObjectId": 2,
+        "mappingObjectName": "STG_PROFILER_OFFER",
+        "businessKey": {
+          "businessKeyComponentBehaviour": "None",
+          "businessKeyComponents": [
+            {
+              "columnName": "OfferID"
+            }
+          ]
+        }
+      },
+      "targetObject": {
+        "mappingObjectId": 2,
+        "mappingObjectName": "HUB_INCENTIVE_OFFER",
+        "businessKey": {
+          "businessKeyComponents": [
+            {
+              "columnName": "INCENTIVE_OFFER_HSH"
+            }
+          ]
+        }
+      },
+      "filterCriterion": "3=3",
+      "columnMapping": [
+        {
+          "sourceColumn": { "columnName": "OfferId" },
+          "targetColumn": { "columnName": "OFFER_ID" }
+        }
+      ]
+    }
+  ]
+}

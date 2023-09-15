@@ -1,0 +1,43 @@
+{
+  "dataObjectMappings": [
+    {
+      "name": "MappingOne",
+      "sourceDataObjects": [
+        {
+          "name": "TableOneSource"
+        },
+        {
+          "name": "TableTwoSource"
+        }
+      ],
+      "targetDataObject": {
+        "name": "TableOneTarget"
+      },
+      "dataItemMappings": [
+        {
+          "sourceDataItems": [
+            {
+              "name": "ColumnOneSource"
+            },
+            {
+              "name": "ColumnTwoSource"
+            }
+          ],
+          "targetDataItem": {
+            "name": "ColumnOneTarget"
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "name": "ColumnTwoSource"
+            }
+          ],
+          "targetDataItem": {
+            "name": "ColumnTwoTarget"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+--TemplateSampleCalculation.json
+--Example using a query as a source rather than an attribute.
+{{#each dataObjectMappings }}
+
+{{#if mappingName}}
+--Working on {{name}}.
+{{else}}
+--No mapping name is defined.
+{{/if}}
+
+SELECT
+
+{{#each dataItemMappings}}
+  {{#each sourceDataItems}}
+    {{#if queryCode}}
+    -- This is the data query logic
+    {{queryCode}} as {{../targetDataItem.name}}{{else}}
+    -- This is the item, with brackets added using a custom extension
+    {{stringwrap name "[" "]"}} as {{../targetDataItem.name}}
+    {{/if}}{{/each}}{{#unless @last}},{{/unless}}
+  {{/each}}
+FROM {{targetDataObject.name}}
+{{/each}}

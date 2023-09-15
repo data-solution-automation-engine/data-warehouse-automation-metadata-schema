@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataWarehouseAutomation", "DataWarehouseAutomation\DataWarehouseAutomation.csproj", "{F0458983-9646-42E6-9E18-90AD91288B40}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D3FD1325-9F54-481B-8363-BC1CF463F589}"
+	ProjectSection(SolutionItems) = preProject
+		..\GenericInterface\interfaceDataWarehouseAutomationMetadataV1_4.json = ..\GenericInterface\interfaceDataWarehouseAutomationMetadataV1_4.json
+		..\GenericInterface\interfaceDataWarehouseAutomationMetadataV2_0.json = ..\GenericInterface\interfaceDataWarehouseAutomationMetadataV2_0.json
+		Images\Ravos-logo-small_transparant.ico = Images\Ravos-logo-small_transparant.ico
+		Images\Ravos-logo.png = Images\Ravos-logo.png
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testing", "Test_Project\Testing.csproj", "{23CF4A46-B17F-4642-B949-02E061868BBC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F0458983-9646-42E6-9E18-90AD91288B40} = {F0458983-9646-42E6-9E18-90AD91288B40}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Metadata", "Sample Metadata", "{242F4BD0-68F9-4193-A329-826E755C6B08}"
+	ProjectSection(SolutionItems) = preProject
+		Sample_Metadata\myFirstMapping.json = Sample_Metadata\myFirstMapping.json
+		Sample_Metadata\sampleBasic.json = Sample_Metadata\sampleBasic.json
+		Sample_Metadata\sampleBasicWithExtensions.json = Sample_Metadata\sampleBasicWithExtensions.json
+		Sample_Metadata\sampleCalculation.json = Sample_Metadata\sampleCalculation.json
+		Sample_Metadata\sampleCustomFunctions.json = Sample_Metadata\sampleCustomFunctions.json
+		Sample_Metadata\sampleFreeForm.json = Sample_Metadata\sampleFreeForm.json
+		Sample_Metadata\sampleJsonStagingWithPsaDetails.json = Sample_Metadata\sampleJsonStagingWithPsaDetails.json
+		Sample_Metadata\sampleMultipleDataItemMappings.json = Sample_Metadata\sampleMultipleDataItemMappings.json
+		Sample_Metadata\sampleSimpleDDL.json = Sample_Metadata\sampleSimpleDDL.json
+		Sample_Metadata\sampleSourceQuery.json = Sample_Metadata\sampleSourceQuery.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Templates", "Sample Templates", "{968E4A48-A2A3-4F7E-B8D9-243D1F4CCE17}"
+	ProjectSection(SolutionItems) = preProject
+		Sample_Templates\myFirstTemplate.handlebars = Sample_Templates\myFirstTemplate.handlebars
+		Sample_Templates\TemplateSampleBasic.Handlebars = Sample_Templates\TemplateSampleBasic.Handlebars
+		Sample_Templates\TemplateSampleBasicWithExtensions.Handlebars = Sample_Templates\TemplateSampleBasicWithExtensions.Handlebars
+		Sample_Templates\TemplateSampleCalculation.Handlebars = Sample_Templates\TemplateSampleCalculation.Handlebars
+		Sample_Templates\TemplateSampleCustomFunctions.Handlebars = Sample_Templates\TemplateSampleCustomFunctions.Handlebars
+		Sample_Templates\TemplateSampleFreeForm.Handlebars = Sample_Templates\TemplateSampleFreeForm.Handlebars
+		Sample_Templates\TemplateSampleMultipleDataItemMappings.Handlebars = Sample_Templates\TemplateSampleMultipleDataItemMappings.Handlebars
+		Sample_Templates\TemplateSampleSimpleDDL.Handlebars = Sample_Templates\TemplateSampleSimpleDDL.Handlebars
+		Sample_Templates\TemplateSampleSourceQuery.Handlebars = Sample_Templates\TemplateSampleSourceQuery.Handlebars
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Examples", "Example_Project\Examples.csproj", "{F77AC518-6300-4927-8775-B92CDF15CC8E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunDwhAutomation", "RunDwhAutomation\RunDwhAutomation.csproj", "{62C992C6-370D-4591-B54E-2F61E2D8B638}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F0458983-9646-42E6-9E18-90AD91288B40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0458983-9646-42E6-9E18-90AD91288B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0458983-9646-42E6-9E18-90AD91288B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0458983-9646-42E6-9E18-90AD91288B40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23CF4A46-B17F-4642-B949-02E061868BBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23CF4A46-B17F-4642-B949-02E061868BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23CF4A46-B17F-4642-B949-02E061868BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23CF4A46-B17F-4642-B949-02E061868BBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F77AC518-6300-4927-8775-B92CDF15CC8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F77AC518-6300-4927-8775-B92CDF15CC8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F77AC518-6300-4927-8775-B92CDF15CC8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F77AC518-6300-4927-8775-B92CDF15CC8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62C992C6-370D-4591-B54E-2F61E2D8B638}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62C992C6-370D-4591-B54E-2F61E2D8B638}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62C992C6-370D-4591-B54E-2F61E2D8B638}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62C992C6-370D-4591-B54E-2F61E2D8B638}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {80C95FDD-628F-4779-A8C7-70019BBCD14C}
+	EndGlobalSection
+EndGlobal

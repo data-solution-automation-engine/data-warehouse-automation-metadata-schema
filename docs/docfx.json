@@ -1,0 +1,72 @@
+
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [
+            "**/DataWarehouseAutomation/DataWarehouseAutomation.csproj"
+          ],
+          "src": "..",
+          "exclude": [ "**/obj/**", "**/bin/**" ]
+        }
+      ],
+      "dest": "api",
+      "disableGitFeatures": true,
+      "disableDefaultFilter": false
+    }
+  ],  
+  "build": {
+    "content": [
+      {
+        "files": [
+          "api/**.yml",
+          "api/index.md"
+        ]
+      },
+      {
+        "files": [
+          "handlebars/**.md",
+          "handlebars/**/toc.yml",
+          "overview/**.md",
+          "overview/**/toc.yml",          
+          "faq/**.md",
+          "faq/**/toc.yml",
+          "toc.yml",
+          "*.md"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "overwrite": [{
+      "files": [
+          "toc.yml"
+      ]
+  }],    
+    "output": "_site",
+    "globalMetadata": {
+      "_appLogoPath": ".",
+      "_appTitle": "Schema for Data Warehouse Automation",
+      "_enableSearch": "true",
+      "_disableTocFilter": "true",
+      "_disableBreadcrumb": "true",
+      "_appFooter": "<span>Schema for Data Solution Automation</span>",
+      "_disableContribution": "true"
+    },
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "template": [
+      "default",
+      "modern"
+    ],
+    "postProcessors": [],
+    "keepFileLink": false,
+    "disableGitFeatures": false
+  }
+}

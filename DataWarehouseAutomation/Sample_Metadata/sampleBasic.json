@@ -1,0 +1,40 @@
+﻿{
+  "dataObjectMappings": [
+    {
+      "name": "MappingOne",
+      "sourceDataObjects": [
+        {
+          "dataObjectType": "dataObject",
+          "name": "TableOneSource"
+        }
+      ],
+      "targetDataObject": {
+        "name": "HelloWorldExampleTableOne"
+      },
+      "dataItemMappings": [
+        {
+          "sourceDataItems": [
+            {
+              "dataItemType": "dataItem",
+              "name": "ColumnOneSource"
+            }
+          ],
+          "targetDataItem": {
+            "name": "CustomerId"
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "dataItemType": "dataItem",
+              "name": "ColumnTwoSource"
+            }
+          ],
+          "targetDataItem": {
+            "name": "CustomerName"
+          }
+        }
+      ]
+    }
+  ]
+}

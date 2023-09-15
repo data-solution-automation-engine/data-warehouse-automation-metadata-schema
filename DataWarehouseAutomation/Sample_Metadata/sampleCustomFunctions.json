@@ -1,0 +1,91 @@
+﻿{
+  "dataObjectMappings": [
+    {
+      "name": "Example",
+      "sourceDataObjects": [
+        {
+          "dataObjectType": "dataObject",
+          "name": "ExampleSourceDataObject",
+          "extensions": [
+            {
+              "key": "type",
+              "value": "procedure"
+            },
+            {
+              "key": "hint",
+              "value": "READ ONLY"
+            }
+          ]
+        }
+      ],
+      "targetDataObject": {
+        "name": "ExampleTargetDataObject"
+      },
+      "dataItemMappings": [
+        {
+          "sourceDataItems": [
+            {
+              "dataItemType": "dataItem",
+              "name": "NAME"
+            }
+          ],
+          "targetDataItem": {
+            "name": "FIRST_NAME"
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "dataItemType": "dataItem",
+              "name": "LAST_NAME"
+            }
+          ],
+          "targetDataItem": {
+            "name": "LAST_NAME"
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "dataItemType": "dataItem",
+              "name": "DOB"
+            }
+          ],
+          "targetDataItem": {
+            "name": "DATE_OF_BIRTH",
+            "classifications": [
+              {
+                "classification": "MultiActiveKey"
+              }
+            ]
+          }
+        }
+      ],
+      "businessKeys": [
+        {
+          "businessKeyComponentMapping": [
+            {
+              "sourceDataItems": [
+                {
+                  "dataItemType": "dataItem",
+                  "name": "ID",
+                  "classifications": [
+                    {
+                      "classification": "Hardcoded"
+                    }
+                  ]
+                }
+              ],
+              "targetDataItem": {
+                "name": "ID"
+              }
+            }
+          ],
+          "surrogateKey": "Example_SK"
+        }
+      ],
+      "filterCriterion": "",
+      "enabled": true
+    }
+  ]
+}

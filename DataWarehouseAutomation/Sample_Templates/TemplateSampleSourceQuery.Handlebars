@@ -1,0 +1,26 @@
+--TemplateSampleSourceQuery.json
+--Example using a data object as a query source rather than a table/file.
+--Usage in a CTE context with multiple sources mapping to a single target
+{{#each dataObjectMappings }}
+
+{{#if mappingName}}
+--Working on {{name}}.
+{{else}}
+--No mapping name is defined.
+{{/if}}
+
+WITH
+{{#each sourceDataObjects}}[{{@index}}] AS
+(  {{#if queryCode}}-- This is the data query as a source object
+    {{queryCode}}{{else}}
+    -- This is the item, with brackets added using a custom extension
+    SELECT * FROM {{stringwrap name "[" "]"}}{{/if}}
+){{#unless @last}},{{/unless}}
+{{/each}}
+{{#each sourceDataObjects}}SELECT {{#each ../dataItemMappings}}{{#each sourceDataItems}}{{#if queryCode}}{{queryCode}} AS {{../targetDataItem.name}}{{else}}
+  {{stringwrap name "[" "]"}} AS {{../targetDataItem.name}}
+{{/if}}{{/each}}{{#unless @last}},{{/unless}}{{/each}}FROM [{{@index}}]
+{{#unless @last}}UNION{{/unless}}
+{{/each}}
+INTO {{targetDataObject.name}}
+{{/each}}

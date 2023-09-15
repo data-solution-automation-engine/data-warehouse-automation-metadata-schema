@@ -1,0 +1,40 @@
+﻿{
+  "dataObjectMappings": [
+    {
+      "name": "CalculationExample",
+      "sourceDataObjects": [
+        {
+          "dataObjectType": "dataObject",
+          "name": "SourceTable"
+        }
+      ],
+      "targetDataObject": {
+        "name": "TargetTable"
+      },
+      "dataItemMappings": [
+        {
+          "sourceDataItems": [
+            {
+              "dataItemType": "dataItemQuery",
+              "queryCode": "SUBSTRING([Customer_Full_Name],INSTR(' '),LEN([Customer_Full_Name)])"
+            }
+          ],
+          "targetDataItem": {
+            "name": "Customer_Last_Name"
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "dataItemType": "dataItem",
+              "name": "ColumnOneSource"
+            }
+          ],
+          "targetDataItem": {
+            "name": "CustomerId"
+          }
+        }
+      ]
+    }
+  ]
+}

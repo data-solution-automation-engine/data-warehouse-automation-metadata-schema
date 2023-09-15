@@ -1,0 +1,42 @@
+{
+  "dataObjectMappings": [
+    {
+      "name": "MyFirstMapping",
+      "mappingClassifications": [
+        {
+          "classification": "Example"
+        }
+      ],
+      "sourceDataObjects": [
+        {
+          "name": "MyFirstMappingSource"
+        }
+      ],
+      "targetDataObject": {
+        "name": "SomeCustomerTable"
+      },
+      "dataItemMappings": [
+        {
+          "sourceDataItems": [
+            {
+              "name": "ColumnOneSource"
+            }
+          ],
+          "targetDataItem": {
+            "name": "CustomerId"
+          }
+        },
+        {
+          "sourceDataItems": [
+            {
+              "name": "ColumnTwoSource"
+            }
+          ],
+          "targetDataItem": {
+            "name": "CustomerName"
+          }
+        }
+      ]
+    }
+  ]
+}

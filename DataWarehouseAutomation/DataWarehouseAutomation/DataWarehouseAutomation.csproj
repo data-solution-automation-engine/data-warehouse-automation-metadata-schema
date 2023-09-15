@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Version>1.4</Version>
+    <Authors>Roelant Vos</Authors>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Data Warehouse Automation</Title>
+    <PackageProjectUrl>https://roelantvos.com/blog/interface-for-data-warehouse-automation/</PackageProjectUrl>
+    <PackageIcon>Ravos-logo.png</PackageIcon>
+    <PackageReadmeFile>index.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/RoelantVos/data-warehouse-automation-metadata-schema</RepositoryUrl>
+    <PackageTags>data warehouse; etl; data integration; data warehouse automation</PackageTags>
+    <Description>The generic schema for Data Warehouse Automation covers the efforts towards defining a standard interface to exchange Data Warehouse Automation and ETL generation metadata.
+
+The schema provides a generic API / information exchange format for source-to-target mapping information. The schema definition covers the metadata that is needed to generate Data Warehouse structures and processes, such as ETL.
+
+The interface itself is a Json schema definition (JSDL) with examples on how to use, as well as libraries for validation and code snippets.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\docs\index.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\Images\Ravos-logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Handlebars.Net" Version="2.1.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.15" />
+  </ItemGroup>
+
+</Project>
