@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "D:/Git_Repos/Data_Warehouse_Automation_Metadata_Interface/docs",
+  "source_base_path": "D:/Git_Repos/Data-Warehouse-Automation-Metadata-Schema/docs",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -389,6 +389,16 @@
       "output": {
         ".html": {
           "relative_path": "overview/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "overview/implementations.md",
+      "output": {
+        ".html": {
+          "relative_path": "overview/implementations.html"
         }
       },
       "version": ""
