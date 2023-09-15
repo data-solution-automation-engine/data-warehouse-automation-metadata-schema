@@ -277,7 +277,7 @@ public static class HandleBarsHelpers
         // Run at data object mapping level.
         Handlebars.RegisterHelper("exists", (output, options, context, arguments) =>
         {
-            if (arguments.Length == 0 || arguments.Length>2) throw new HandlebarsException("The {{exists}} function must have one or two arguments, which must be a property of a data object mapping which is mandatory and an optional exception value.");
+            if (arguments.Length == 0 || arguments.Length > 2) throw new HandlebarsException("The {{exists}} function must have one or two arguments, which must be a property of a data object mapping which is mandatory and an optional exception value.");
 
             var property = arguments[0] == null ? "" : arguments[0].ToString();
 
@@ -327,7 +327,7 @@ public static class HandleBarsHelpers
                 }
                 else if (property == "targetDataItem")
                 {
-                    var targetDataItem = dataObjectMapping?.DataItemMappings?.Where(x => x.TargetDataItem != null).FirstOrDefault();
+                    var targetDataItem = dataObjectMapping?.DataItemMappings?.Find(x => x.TargetDataItem != null);
 
                     if (targetDataItem != null)
                     {
@@ -367,7 +367,7 @@ public static class HandleBarsHelpers
 
             var extensionList = JsonSerializer.Deserialize<List<Extension>>(parameters[0].ToString() ?? string.Empty);
             var key = (string)parameters[1];
-            var result = extensionList.Find(i => i.Key.Equals(key, StringComparison.OrdinalIgnoreCase))?.Value ?? "";
+            var result = extensionList?.Find(i => i.Key.Equals(key, StringComparison.OrdinalIgnoreCase))?.Value ?? "";
 
             writer.WriteSafeString($"{result}");
         });

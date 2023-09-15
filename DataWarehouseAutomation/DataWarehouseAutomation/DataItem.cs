@@ -11,7 +11,7 @@ public class DataItem : IDataItem
 
     [JsonPropertyName("name")]
     [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
-    public string Name { get; set; }
+    public string Name { get; set; } = "NewDataItem";
 
     /// <summary>
     /// The data object to which the data item belongs. This can be used to construct fully qualified names.
@@ -67,10 +67,10 @@ public class DataItem : IDataItem
 
     #region Methods
     /// <summary>
-    /// Use this method to assert if two DataItems are the same, based on their Id.
+    /// Use this method to assert if two Data Items are the same, based on their Ids.
     /// </summary>
     /// <param name="obj"></param>
-    /// <returns>bool</returns>
+    /// <returns>True if the Data Items are the same, based on their Ids</returns>
     public override bool Equals(object? obj)
     {
         var other = obj as DataItem;
@@ -80,14 +80,14 @@ public class DataItem : IDataItem
     /// <summary>
     /// Override to get a hash value that represents the identifier.
     /// </summary>
-    /// <returns>int</returns>
+    /// <returns>A 32-bit signed integer hash code</returns>
     public override int GetHashCode() => (Id?.GetHashCode()) ?? 0;
 
     /// <summary>
     /// String override so that the object returns its value ('name').
     /// When an instance of this class is passed to a method that expects a string, the ToString() method will be called implicitly to convert the object to a string, and the value of the "Name" property will be returned.
     /// </summary>
-    /// <returns>string</returns>
+    /// <returns>The Name</returns>
     public override string ToString()
     {
         return Name;

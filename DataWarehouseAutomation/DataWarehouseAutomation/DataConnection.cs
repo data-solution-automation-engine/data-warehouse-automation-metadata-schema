@@ -42,10 +42,10 @@ public class DataConnection : IMetadata
 
     #region Methods
     /// <summary>
-    /// Use this method to assert if two DataConnections are the same, based on their Id.
+    /// Use this method to assert if two Data Connections are the same, based on their Ids.
     /// </summary>
     /// <param name="obj"></param>
-    /// <returns>bool</returns>
+    /// <returns>True if the Data Connections are the same, based on their Ids</returns>
     public override bool Equals(object? obj)
     {
         var other = obj as DataConnection;
@@ -55,14 +55,14 @@ public class DataConnection : IMetadata
     /// <summary>
     /// Override to get a hash value that represents the identifier.
     /// </summary>
-    /// <returns>int</returns>
+    /// <returns>A 32-bit signed integer hash code</returns>
     public override int GetHashCode() => (Id?.GetHashCode()) ?? 0;
 
     /// <summary>
     /// String override so that the object returns its value ('connection string').
     /// When an instance of this class is passed to a method that expects a string, the ToString() method will be called implicitly to convert the object to a string, and the value of the "Connection String" property will be returned.
     /// </summary>
-    /// <returns>string</returns>
+    /// <returns>The Name</returns>
     public override string ToString()
     {
         return Name;

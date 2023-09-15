@@ -59,10 +59,10 @@ public class DataObjectQuery : IDataObject
 
     #region Methods
     /// <summary>
-    /// Use this method to assert if two DataObjectQueries are the same, based on their Id.
+    /// Use this method to assert if two DataObjectQueries are the same, based on their Ids.
     /// </summary>
     /// <param name="obj"></param>
-    /// <returns>bool</returns>
+    /// <returns>true if Data Object Queries are the same, based on their Ids</returns>
     public override bool Equals(object? obj)
     {
         var other = obj as DataObjectQuery;
@@ -72,7 +72,7 @@ public class DataObjectQuery : IDataObject
     /// <summary>
     /// Override to get a hash value that represents the identifier.
     /// </summary>
-    /// <returns>int</returns>
+    /// <returns>A 32-bit signed integer hash code</returns>
     public override int GetHashCode() => (Id?.GetHashCode()) ?? 0;
 
     /// <summary>
