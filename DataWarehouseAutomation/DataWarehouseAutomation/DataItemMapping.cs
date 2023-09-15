@@ -27,10 +27,10 @@ public class DataItemMapping
 
     #region Methods
     /// <summary>
-    /// Use this method to assert if two DataItemMappings are the same, based on their Id.
+    /// Use this method to assert if two DataItemMappings are the same, based on their Ids.
     /// </summary>
     /// <param name="obj"></param>
-    /// <returns>bool</returns>
+    /// <returns>True if the Data Item Mappings are the same, based on their Ids</returns>
     public override bool Equals(object? obj)
     {
         var other = obj as DataItemMapping;
@@ -40,14 +40,14 @@ public class DataItemMapping
     /// <summary>
     /// Override to get a hash value that represents the identifier.
     /// </summary>
-    /// <returns>int</returns>
+    /// <returns>A 32-bit signed integer hash code</returns>
     public override int GetHashCode() => (Id?.GetHashCode()) ?? 0;
 
     /// <summary>
     /// String override so that the object returns its value ('name of the target data item').
     /// When an instance of this class is passed to a method that expects a string, the ToString() method will be called implicitly to convert the object to a string, and the value of the Data Item "Name" property will be returned.
     /// </summary>
-    /// <returns>string</returns>
+    /// <returns>The Target Data Item's Name</returns>
     public override string ToString()
     {
         return TargetDataItem.Name;
