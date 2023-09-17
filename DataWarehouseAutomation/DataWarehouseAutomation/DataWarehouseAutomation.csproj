@@ -4,7 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>1.4</Version>
+    <Version>2.0</Version>
     <Authors>Roelant Vos</Authors>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Data Warehouse Automation</Title>
