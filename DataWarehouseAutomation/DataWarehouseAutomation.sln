@@ -35,6 +35,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Templates", "Sample Templates", "{968E4A48-A2A3-4F7E-B8D9-243D1F4CCE17}"
 	ProjectSection(SolutionItems) = preProject
 		Sample_Templates\myFirstTemplate.handlebars = Sample_Templates\myFirstTemplate.handlebars
+		Sample_Metadata\sampleDataVaultHub.json = Sample_Metadata\sampleDataVaultHub.json
 		Sample_Templates\TemplateSampleBasic.Handlebars = Sample_Templates\TemplateSampleBasic.Handlebars
 		Sample_Templates\TemplateSampleBasicWithExtensions.Handlebars = Sample_Templates\TemplateSampleBasicWithExtensions.Handlebars
 		Sample_Templates\TemplateSampleCalculation.Handlebars = Sample_Templates\TemplateSampleCalculation.Handlebars
