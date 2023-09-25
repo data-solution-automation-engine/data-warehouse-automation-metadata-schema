@@ -432,7 +432,7 @@
       "$id": "#/definitions/dataConnection",
       "title": "Data Connection",
       "description": "Connectivity details, that can be used for either a DataObject or DataQuery.",
-      "required": [ "dataConnectionString" ],
+      "required": [ "name" ],
       "type": [ "object", "null" ],
       "properties": {
         "id": {
