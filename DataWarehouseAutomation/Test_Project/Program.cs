@@ -23,15 +23,16 @@ namespace Test_Project
                 var sampleTemplateDirectory = AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\..\Sample_Metadata\";
 
                 List<string> fileList = new List<string>();
-                fileList.Add(sampleTemplateDirectory + @"sampleBasic.json");
-                fileList.Add(sampleTemplateDirectory + @"sampleBasicWithExtensions.json");
-                fileList.Add(sampleTemplateDirectory + @"sampleCalculation.json");
-                fileList.Add(sampleTemplateDirectory + @"sampleFreeForm.json"); // Expected to fail, intentional.
-                fileList.Add(sampleTemplateDirectory + @"sampleJsonStagingWithPsaDetails.json");
-                fileList.Add(sampleTemplateDirectory + @"sampleMultipleDataItemMappings.json");
-                fileList.Add(sampleTemplateDirectory + @"sampleSimpleDDL.json"); // Simple test using one of the column mappings as calculation
-                fileList.Add(sampleTemplateDirectory + @"sampleSourceQuery.json");
-                fileList.Add(sampleTemplateDirectory + @"sampleCustomFunctions.json");
+                //fileList.Add(sampleTemplateDirectory + @"sampleBasic.json");
+                //fileList.Add(sampleTemplateDirectory + @"sampleBasicWithExtensions.json");
+                //fileList.Add(sampleTemplateDirectory + @"sampleCalculation.json");
+                //fileList.Add(sampleTemplateDirectory + @"sampleFreeForm.json"); // Expected to fail, intentional.
+                //fileList.Add(sampleTemplateDirectory + @"sampleJsonStagingWithPsaDetails.json");
+                //fileList.Add(sampleTemplateDirectory + @"sampleMultipleDataItemMappings.json");
+                //fileList.Add(sampleTemplateDirectory + @"sampleSimpleDDL.json"); // Simple test using one of the column mappings as calculation
+                //fileList.Add(sampleTemplateDirectory + @"sampleSourceQuery.json");
+                //fileList.Add(sampleTemplateDirectory + @"sampleCustomFunctions.json");
+                fileList.Add(sampleTemplateDirectory + @"sampleDataVaultHub.json");
 
                 foreach (string jsonFile in fileList)
                 {

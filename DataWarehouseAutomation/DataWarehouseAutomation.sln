@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Images\Ravos-logo.png = Images\Ravos-logo.png
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testing", "Test_Project\Testing.csproj", "{23CF4A46-B17F-4642-B949-02E061868BBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validation", "Test_Project\Validation.csproj", "{23CF4A46-B17F-4642-B949-02E061868BBC}"
 	ProjectSection(ProjectDependencies) = postProject
 		{F0458983-9646-42E6-9E18-90AD91288B40} = {F0458983-9646-42E6-9E18-90AD91288B40}
 	EndProjectSection
@@ -25,6 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Metadata", "Sample M
 		Sample_Metadata\sampleBasicWithExtensions.json = Sample_Metadata\sampleBasicWithExtensions.json
 		Sample_Metadata\sampleCalculation.json = Sample_Metadata\sampleCalculation.json
 		Sample_Metadata\sampleCustomFunctions.json = Sample_Metadata\sampleCustomFunctions.json
+		Sample_Metadata\sampleDataVaultHub.json = Sample_Metadata\sampleDataVaultHub.json
 		Sample_Metadata\sampleFreeForm.json = Sample_Metadata\sampleFreeForm.json
 		Sample_Metadata\sampleJsonStagingWithPsaDetails.json = Sample_Metadata\sampleJsonStagingWithPsaDetails.json
 		Sample_Metadata\sampleMultipleDataItemMappings.json = Sample_Metadata\sampleMultipleDataItemMappings.json
@@ -35,7 +36,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Templates", "Sample Templates", "{968E4A48-A2A3-4F7E-B8D9-243D1F4CCE17}"
 	ProjectSection(SolutionItems) = preProject
 		Sample_Templates\myFirstTemplate.handlebars = Sample_Templates\myFirstTemplate.handlebars
-		Sample_Metadata\sampleDataVaultHub.json = Sample_Metadata\sampleDataVaultHub.json
 		Sample_Templates\TemplateSampleBasic.Handlebars = Sample_Templates\TemplateSampleBasic.Handlebars
 		Sample_Templates\TemplateSampleBasicWithExtensions.Handlebars = Sample_Templates\TemplateSampleBasicWithExtensions.Handlebars
 		Sample_Templates\TemplateSampleCalculation.Handlebars = Sample_Templates\TemplateSampleCalculation.Handlebars
@@ -49,6 +49,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Examples", "Example_Project\Examples.csproj", "{F77AC518-6300-4927-8775-B92CDF15CC8E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunDwhAutomation", "RunDwhAutomation\RunDwhAutomation.csproj", "{62C992C6-370D-4591-B54E-2F61E2D8B638}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchemaJsonConverter", "SchemaJsonConverter\SchemaJsonConverter.csproj", "{07214B80-37A9-4137-B0F3-109FA0D0926A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -72,6 +74,10 @@ Global
 		{62C992C6-370D-4591-B54E-2F61E2D8B638}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62C992C6-370D-4591-B54E-2F61E2D8B638}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62C992C6-370D-4591-B54E-2F61E2D8B638}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07214B80-37A9-4137-B0F3-109FA0D0926A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07214B80-37A9-4137-B0F3-109FA0D0926A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07214B80-37A9-4137-B0F3-109FA0D0926A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07214B80-37A9-4137-B0F3-109FA0D0926A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -126,8 +126,7 @@ public static class HandleBarsHelpers
             {
                 try
                 {
-                    writer.Write(
-                        string.Concat(args[1].ToString(), args[0].ToString(), args[2].ToString()));
+                    writer.Write(string.Concat(args[1].ToString(), args[0].ToString(), args[2].ToString()));
                 }
                 catch (Exception ex)
                 {
