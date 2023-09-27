@@ -490,9 +490,9 @@
           "description": "An optional identifier.",
           "type": [ "string", "null" ]
         },
-        "businessKeyComponentMapping": {
-          "$id": "#/definitions/businessKeyDefinition/properties/businessKeyComponentMapping",
-          "title": "businessKeyComponentMapping",
+        "businessKeyComponentMappings": {
+          "$id": "#/definitions/businessKeyDefinition/properties/businessKeyComponentMappings",
+          "title": "businessKeyComponentMappings",
           "description": "Items that define the Business Key e.g. the collection of columns for a Business Key.",
           "type": "array",
           "items": {
