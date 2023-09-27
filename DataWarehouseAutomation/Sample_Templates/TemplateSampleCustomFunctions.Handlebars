@@ -36,7 +36,8 @@ Found a data item mapping from {{sourceDataItems.0.name}} to {{targetDataItem.na
 {{#targetDataItemExists "NAME"}}NAME exists{{else}}NAME does not exist{{/targetDataItemExists}}
 {{#targetDataItemExists "DATE_OF_BIRTH"}}DATE_OF_BIRTH exists{{else}}DATE_OF_BIRTH does not exist{{/targetDataItemExists}}
 
-The lookup value for 'type' is '{{lookupExtension sourceDataObjects.0.extensions "type"}}'.
+The lookup value for 'type' is '{{lookupExtension sourceDataObjects.0.extensions "hint"}}'.
+The lookup value for 'type' is '{{lookupExtension extensions "first key"}}'.
 
 -- End of mapping
 {{/each}}
