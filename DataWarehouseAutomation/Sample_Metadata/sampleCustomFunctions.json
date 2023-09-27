@@ -85,7 +85,17 @@
         }
       ],
       "filterCriterion": "",
-      "enabled": true
+      "enabled": true,
+      "extensions": [
+        {
+          "key": "first key",
+          "value": "first value"
+        },
+        {
+          "key": "second key",
+          "value": "second value"
+        }
+      ]
     }
   ]
 }
