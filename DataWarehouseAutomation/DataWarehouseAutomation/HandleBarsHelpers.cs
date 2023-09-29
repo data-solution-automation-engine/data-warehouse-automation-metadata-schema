@@ -364,11 +364,19 @@ public static class HandleBarsHelpers
                 throw new HandlebarsException("{{lookupExtension}} helper expects two arguments: a List<Extension> and a string lookup key");
             }
 
-            var extensionList = JsonSerializer.Deserialize<List<Extension>>(parameters[0].ToString() ?? string.Empty);
-            var key = (string)parameters[1];
-            var result = extensionList?.Find(i => i.Key.Equals(key, StringComparison.OrdinalIgnoreCase))?.Value ?? "";
+            try
+            {
+                var extensionList = JsonSerializer.Deserialize<List<Extension>>(parameters[0].ToString() ?? string.Empty);
+                var key = (string)parameters[1];
+                var result = extensionList?.Find(i => i.Key.Equals(key, StringComparison.OrdinalIgnoreCase))?.Value ?? "";
 
-            writer.WriteSafeString($"{result}");
+
+                writer.WriteSafeString($"{result}");
+            }
+            catch (Exception exception)
+            {
+                throw new HandlebarsException($"{{lookupExtension}} encountered an error: the list of extensions provided as the first argument could not be deserialized. The reported error is :{exception.Message}");
+            }
         });
     }
 }

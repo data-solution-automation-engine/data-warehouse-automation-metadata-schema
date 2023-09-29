@@ -29,6 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Metadata", "Sample M
 		Sample_Metadata\sampleFreeForm.json = Sample_Metadata\sampleFreeForm.json
 		Sample_Metadata\sampleJsonStagingWithPsaDetails.json = Sample_Metadata\sampleJsonStagingWithPsaDetails.json
 		Sample_Metadata\sampleMultipleDataItemMappings.json = Sample_Metadata\sampleMultipleDataItemMappings.json
+		Sample_Metadata\samplePSA.json = Sample_Metadata\samplePSA.json
 		Sample_Metadata\sampleSimpleDDL.json = Sample_Metadata\sampleSimpleDDL.json
 		Sample_Metadata\sampleSourceQuery.json = Sample_Metadata\sampleSourceQuery.json
 	EndProjectSection
@@ -50,7 +51,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Examples", "Example_Project
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunDwhAutomation", "RunDwhAutomation\RunDwhAutomation.csproj", "{62C992C6-370D-4591-B54E-2F61E2D8B638}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchemaJsonConverter", "SchemaJsonConverter\SchemaJsonConverter.csproj", "{07214B80-37A9-4137-B0F3-109FA0D0926A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchemaJsonConverter", "SchemaJsonConverter\SchemaJsonConverter.csproj", "{07214B80-37A9-4137-B0F3-109FA0D0926A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

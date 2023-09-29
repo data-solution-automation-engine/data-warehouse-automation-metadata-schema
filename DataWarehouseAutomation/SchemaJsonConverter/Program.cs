@@ -1,4 +1,5 @@
 ﻿using System.IO.Enumeration;
+using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Xml.Linq;
@@ -20,12 +21,20 @@ if (!string.IsNullOrEmpty(jsonSchema))
     var inputMetadataDirectory = @"D:\TeamEnvironments\VDW\Metadata";
     var outputMetadataDirectory = @"D:\TeamEnvironments\VDW\MetadataV2";
 
-    var exceptionList = new List<string>();
-    exceptionList.Add("VDW_Samples_TEAM_Attribute_Mapping.json");
-    exceptionList.Add("sample_TEAM_Attribute_Mapping.json");
+    var exceptionList = new List<string>
+    {
+        "VDW_Samples_TEAM_Attribute_Mapping.json",
+        "sample_TEAM_Attribute_Mapping.json"
+    };
 
     foreach (string file in Directory.EnumerateFiles(inputMetadataDirectory, "*.json", SearchOption.TopDirectoryOnly))
     {
+        // TODO
+        // Infer group for classification.Set property upon import.
+        // Adding Name to dataObjectMappingList
+        // Updating dataObjectMapping Name
+
+
         if (!exceptionList.Contains(Path.GetFileName(file)))
         {
             Console.WriteLine(file);
@@ -42,6 +51,24 @@ if (!string.IsNullOrEmpty(jsonSchema))
             {
                 try
                 {
+                    var dataObject = jsonObject["generationSpecificMetadata"]!["selectedDataObject"];
+                    var dataObjectJsonObject = JsonNode.Parse(dataObject.ToJsonString()).AsObject();
+
+                    // Extensions
+                    if (dataObjectJsonObject["extensions"] == null)
+                    {
+                        dataObjectJsonObject.Add("extensions", null);
+                    }
+
+                    // Replace properties with newer names (upgrade).
+                    ReplaceDataObjectProperties(dataObjectJsonObject);
+
+                    // Connection.
+                    UpdateDataConnection(dataObjectJsonObject);
+
+                    jsonObject["generationSpecificMetadata"]!["selectedDataObject"] = dataObjectJsonObject;
+
+                    // Data items.
                     var generationSpecificDataObjectDataItemList = new List<JsonObject>();
                     foreach (var generationSpecificDataObjectDataItem in jsonObject["generationSpecificMetadata"]!["selectedDataObject"]!["dataItems"].AsArray())
                     {
@@ -73,8 +100,7 @@ if (!string.IsNullOrEmpty(jsonSchema))
             }
 
             #endregion
-
-
+            
             // Start parsing.
             var dataObjectMappingJsonObjectList = new List<JsonObject>();
 
@@ -83,69 +109,113 @@ if (!string.IsNullOrEmpty(jsonSchema))
                 // Data Object Mapping level.
                 var jsonObjectDataObjectMapping = JsonNode.Parse(dataObjectMapping.ToJsonString()).AsObject();
 
-                // Set the mapping name.
-                var mappingName = jsonObjectDataObjectMapping["mappingName"];
+                // Rename the mapping name.
+                var mappingNameNode = jsonObjectDataObjectMapping["mappingName"];
                 jsonObjectDataObjectMapping.Remove("mappingName");
-                jsonObjectDataObjectMapping.Add("name", mappingName);
+                jsonObjectDataObjectMapping.Add("name", mappingNameNode);
 
-                // Set the mapping classifications.
-                var mappingClassifications = jsonObjectDataObjectMapping["mappingClassifications"];
+                // Rename the mapping classifications.
+
+                var mappingClassificationsNode = jsonObjectDataObjectMapping["mappingClassifications"];
                 jsonObjectDataObjectMapping.Remove("mappingClassifications");
-                jsonObjectDataObjectMapping.Add("classifications", mappingClassifications);
+                jsonObjectDataObjectMapping.Add("classifications", mappingClassificationsNode);
+
+                // Rename the business key definitions.
+                var businessKeyDefinitionsNode = jsonObjectDataObjectMapping["businessKeys"];
+                jsonObjectDataObjectMapping.Remove("businessKeys");
+                jsonObjectDataObjectMapping.Add("businessKeyDefinitions", businessKeyDefinitionsNode);
 
                 #region Source Data Objects
-                var sourceDataObjectList = new List<JsonObject>();
-                foreach (var sourceDataObject in dataObjectMapping["sourceDataObjects"].AsArray())
+
+                try
                 {
-                    // Source data object level.
-                    var jsonObjectSourceDataObject = JsonNode.Parse(sourceDataObject.ToJsonString()).AsObject();
-
-                    // Type must be first.
-                    jsonObjectSourceDataObject.Add("dataObjectType", "dataObject");
-
-                    // Re-add unchanged properties to manage order.
-                    AddUnchangedDataObjectProperties(jsonObjectSourceDataObject);
-
-                    // Replace properties with newer names (upgrade).
-                    ReplaceDataObjectProperties(jsonObjectSourceDataObject);
-
-                    // Data Items.
-                    var sourceDataObjectDataItemList = new List<JsonObject>();
-                    foreach (var sourceDataObjectDataItem in jsonObjectSourceDataObject["dataItems"].AsArray())
+                    var dataObjectList = new List<JsonObject>();
+                    foreach (var dataObject in dataObjectMapping["sourceDataObjects"].AsArray())
                     {
-                        var jsonObjectSourceDataObjectDataItem = JsonNode.Parse(sourceDataObjectDataItem.ToJsonString()).AsObject();
+                        // Source data object level.
+                        var dataObjectJsonObject = JsonNode.Parse(dataObject.ToJsonString()).AsObject();
 
                         // Type must be first.
-                        jsonObjectSourceDataObjectDataItem.Add("dataItemType", "dataItem");
+                        dataObjectJsonObject.Add("dataObjectType", "dataObject");
 
                         // Re-add unchanged properties to manage order.
-                        AddUnchangedDataItemProperties(jsonObjectSourceDataObjectDataItem);
+                        AddUnchangedDataObjectProperties(dataObjectJsonObject);
 
                         // Replace properties with newer names (upgrade).
-                        ReplaceDataObjectProperties(jsonObjectSourceDataObjectDataItem);
+                        ReplaceDataObjectProperties(dataObjectJsonObject);
 
-                        sourceDataObjectDataItemList.Add(jsonObjectSourceDataObjectDataItem);
+                        // Data Items.
+                        var dataItems = new List<JsonObject>();
+                        foreach (var dataItem in dataObjectJsonObject["dataItems"].AsArray())
+                        {
+                            var dataItemJsonObject = JsonNode.Parse(dataItem.ToJsonString()).AsObject();
+
+                            // Type must be first.
+                            dataItemJsonObject.Add("dataItemType", "dataItem");
+
+                            // Re-add unchanged properties to manage order.
+                            AddUnchangedDataItemProperties(dataItemJsonObject);
+
+                            // Replace properties with newer names (upgrade).
+                            ReplaceDataObjectProperties(dataItemJsonObject);
+
+                            dataItems.Add(dataItemJsonObject);
+                        }
+
+                        foreach (var dataItem in dataItems)
+                        {
+                            dataObjectJsonObject["dataItems"]![dataItems.IndexOf(dataItem)] = dataItem;
+                        }
+
+                        // Extensions
+                        if (dataObjectJsonObject["extensions"] == null)
+                        {
+                            dataObjectJsonObject.Add("extensions", null);
+                        }
+
+                        // Connection.
+                        UpdateDataConnection(dataObjectJsonObject);
+
+                        // Add the target data objects to a list so that they can be added to the main object later.
+                        dataObjectList.Add(dataObjectJsonObject);
                     }
 
-                    foreach (var dataItem in sourceDataObjectDataItemList)
+                    // Add the segment back.
+                    foreach (var sourceDataObjectJsonObject in dataObjectList)
                     {
-                        jsonObjectSourceDataObject["dataItems"]![sourceDataObjectDataItemList.IndexOf(dataItem)] = dataItem;
+                        jsonObjectDataObjectMapping["sourceDataObjects"]![dataObjectList.IndexOf(sourceDataObjectJsonObject)] = sourceDataObjectJsonObject;
                     }
-
-                    // Add the target data objects to a list so that they can be added to the main object later.
-                    sourceDataObjectList.Add(jsonObjectSourceDataObject);
                 }
-
-                foreach (var sourceDataObjectJsonObject in sourceDataObjectList)
+                catch (Exception ex)
                 {
-                    jsonObjectDataObjectMapping["sourceDataObjects"]![sourceDataObjectList.IndexOf(sourceDataObjectJsonObject)] = sourceDataObjectJsonObject;
+                    //
                 }
+
                 #endregion
 
                 #region Target Data Object
 
                 try
                 {
+                    // Data object.
+                    var dataObject = jsonObjectDataObjectMapping["targetDataObject"];
+                    var dataObjectJsonObject = JsonNode.Parse(dataObject.ToJsonString()).AsObject();
+
+                    // Extensions
+                    if (dataObjectJsonObject["extensions"] == null)
+                    {
+                        dataObjectJsonObject.Add("extensions", null);
+                    }
+
+                    // Replace properties with newer names (upgrade).
+                    ReplaceDataObjectProperties(dataObjectJsonObject);
+
+                    // Connection.
+                    UpdateDataConnection(dataObjectJsonObject);
+
+                    jsonObjectDataObjectMapping["targetDataObject"] = dataObjectJsonObject;
+
+                    /// Data items.
                     var targetDataObjectDataItemList = new List<JsonObject>();
                     foreach (var targetDataObjectDataItem in dataObjectMapping["targetDataObject"]!["dataItems"].AsArray())
                     {
@@ -179,85 +249,215 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
                 #region Related Data Objects
 
-                if (dataObjectMapping["relatedDataObjects"] != null)
+                try
                 {
-                    var relatedDataObjectList = new List<JsonObject>();
-                    foreach (var relatedDataObject in dataObjectMapping["relatedDataObjects"].AsArray())
+                    if (dataObjectMapping["relatedDataObjects"] != null)
                     {
-                        var jsonObjectRelatedDataObject = JsonNode.Parse(relatedDataObject.ToJsonString()).AsObject();
-
-                        // Data Items.
-                        var relatedDataObjectDataItemList = new List<JsonObject>();
-                        foreach (var relatedDataObjectDataItem in jsonObjectRelatedDataObject["dataItems"].AsArray())
+                        var dataObjects = new List<JsonObject>();
+                        foreach (var dataObject in dataObjectMapping["relatedDataObjects"].AsArray())
                         {
-                            var jsonObjectRelatedDataObjectDataItem = JsonNode.Parse(relatedDataObjectDataItem.ToJsonString()).AsObject();
+                            // Data Object.
+                            var dataObjectJsonObject = JsonNode.Parse(dataObject.ToJsonString()).AsObject();
 
-                            // Type must be first.
-                            jsonObjectRelatedDataObjectDataItem.Add("dataItemType", "dataItem");
-
-                            // Re-add unchanged properties to manage order.
-                            AddUnchangedDataItemProperties(jsonObjectRelatedDataObjectDataItem);
+                            // Extensions
+                            if (dataObjectJsonObject["extensions"] == null)
+                            {
+                                dataObjectJsonObject.Add("extensions", null);
+                            }
 
                             // Replace properties with newer names (upgrade).
-                            ReplaceDataObjectProperties(jsonObjectRelatedDataObjectDataItem);
+                            ReplaceDataObjectProperties(dataObjectJsonObject);
 
-                            relatedDataObjectDataItemList.Add(jsonObjectRelatedDataObjectDataItem);
+                            // Connection.
+                            UpdateDataConnection(dataObjectJsonObject);
+
+                            // Data Items.
+                            var dataItems = new List<JsonObject>();
+                            foreach (var dataItem in dataObjectJsonObject["dataItems"].AsArray())
+                            {
+                                var dataItemJsonObject = JsonNode.Parse(dataItem.ToJsonString()).AsObject();
+
+                                // Type must be first.
+                                dataItemJsonObject.Add("dataItemType", "dataItem");
+
+                                // Re-add unchanged properties to manage order.
+                                AddUnchangedDataItemProperties(dataItemJsonObject);
+
+                                // Replace properties with newer names (upgrade).
+                                ReplaceDataObjectProperties(dataItemJsonObject);
+
+                                dataItems.Add(dataItemJsonObject);
+                            }
+
+                            foreach (var dataItem in dataItems)
+                            {
+                                dataObjectJsonObject["dataItems"]![dataItems.IndexOf(dataItem)] = dataItem;
+                            }
+
+                            dataObjects.Add(dataObjectJsonObject);
                         }
 
-                        foreach (var dataItem in relatedDataObjectDataItemList)
+                        foreach (var dataObject in dataObjects)
                         {
-                            jsonObjectRelatedDataObject["dataItems"]![relatedDataObjectDataItemList.IndexOf(dataItem)] = dataItem;
+                            jsonObjectDataObjectMapping["relatedDataObjects"]![dataObjects.IndexOf(dataObject)] = dataObject;
                         }
-
-                        relatedDataObjectList.Add(jsonObjectRelatedDataObject);
                     }
-
-                    foreach (var dataObject in relatedDataObjectList)
-                    {
-                        jsonObjectDataObjectMapping["relatedDataObjects"]![relatedDataObjectList.IndexOf(dataObject)] = dataObject;
-                    }
+                }
+                catch (Exception ex)
+                {
+                    //
                 }
 
                 #endregion
 
                 #region Data Item Mappings
-                var dataItemMappingList = new List<JsonObject>();
-                if (dataObjectMapping["dataItemMappings"] != null)
+
+                try
                 {
-                    foreach (var dataItemMappings in dataObjectMapping["dataItemMappings"]?.AsArray())
+                    var dataItemMappingList = new List<JsonObject>();
+                    if (dataObjectMapping["dataItemMappings"] != null)
                     {
-                        // Data Item Mapping level.
-                        var jsonObjectDataItemMapping = JsonNode.Parse(dataItemMappings.ToJsonString()).AsObject();
-
-                        var sourceDataItemList = new List<JsonObject>();
-                        foreach (var sourceDataItem in dataItemMappings["sourceDataItems"].AsArray())
+                        foreach (var dataItemMappings in dataObjectMapping["dataItemMappings"]?.AsArray())
                         {
-                            // Source data item level.
-                            var jsonObjectSourceDataItem = JsonNode.Parse(sourceDataItem.ToJsonString()).AsObject();
+                            // Data Item Mapping level.
+                            var jsonObjectDataItemMapping = JsonNode.Parse(dataItemMappings.ToJsonString()).AsObject();
 
-                            jsonObjectSourceDataItem.Add("dataItemType", "dataItem");
+                            var sourceDataItemList = new List<JsonObject>();
+                            foreach (var sourceDataItem in dataItemMappings["sourceDataItems"].AsArray())
+                            {
+                                // Source data item level.
+                                var jsonObjectSourceDataItem = JsonNode.Parse(sourceDataItem.ToJsonString()).AsObject();
 
-                            // Re-add unchanged properties to manage order.
-                            AddUnchangedDataItemProperties(jsonObjectSourceDataItem);
+                                jsonObjectSourceDataItem.Add("dataItemType", "dataItem");
 
-                            // Replace properties with newer names (upgrade).
-                            ReplaceDataObjectProperties(jsonObjectSourceDataItem);
+                                // Re-add unchanged properties to manage order.
+                                AddUnchangedDataItemProperties(jsonObjectSourceDataItem);
 
-                            sourceDataItemList.Add(jsonObjectSourceDataItem);
+                                // Replace properties with newer names (upgrade).
+                                ReplaceDataItemProperties(jsonObjectSourceDataItem);
+
+                                sourceDataItemList.Add(jsonObjectSourceDataItem);
+                            }
+
+                            foreach (var sourceDataItemJsonObject in sourceDataItemList)
+                            {
+                                jsonObjectDataItemMapping["sourceDataItems"]![sourceDataItemList.IndexOf(sourceDataItemJsonObject)] = sourceDataItemJsonObject;
+                            }
+
+                            dataItemMappingList.Add(jsonObjectDataItemMapping);
                         }
 
-                        foreach (var sourceDataItemJsonObject in sourceDataItemList)
+                        foreach (var dataItemMappingJsonObject in dataItemMappingList)
                         {
-                            jsonObjectDataItemMapping["sourceDataItems"]![sourceDataItemList.IndexOf(sourceDataItemJsonObject)] = sourceDataItemJsonObject;
+                            jsonObjectDataObjectMapping["dataItemMappings"]![dataItemMappingList.IndexOf(dataItemMappingJsonObject)] = dataItemMappingJsonObject;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //
+                }
+
+                #endregion
+
+                #region Business Key Definitions
+
+                try
+                {
+                    if (jsonObjectDataObjectMapping["businessKeyDefinitions"] != null)
+                    {
+                        // Business Key definitions.
+                        var businessKeyDefinitions = new List<JsonObject>();
+                        foreach (var businessKeyComponentMapping in jsonObjectDataObjectMapping["businessKeyDefinitions"]?.AsArray())
+                        {
+                            var businessKeyComponentMappingJsonObject = JsonNode.Parse(businessKeyComponentMapping.ToJsonString()).AsObject();
+
+                            //  Business Key component mapping (data item mapping).
+                            var dataItemMappingList = new List<JsonObject>();
+                            foreach (var dataItemMapping in businessKeyComponentMapping!["businessKeyComponentMapping"]?.AsArray())
+                            {
+                                var dataMappingJsonObject = JsonNode.Parse(dataItemMapping.ToJsonString()).AsObject();
+
+                                var dataItemList = new List<JsonObject>();
+                                foreach (var dataItem in dataItemMapping!["sourceDataItems"]?.AsArray())
+                                {
+                                    // Source data item.
+                                    var dataItemJsonObject = JsonNode.Parse(dataItem.ToJsonString()).AsObject();
+
+                                    dataItemJsonObject.Add("dataItemType", "dataItem");
+
+                                    // Re-add unchanged properties to manage order.
+                                    AddUnchangedDataItemProperties(dataItemJsonObject);
+
+                                    // Replace properties with newer names (upgrade).
+                                    ReplaceDataItemProperties(dataItemJsonObject);
+
+                                    // Change isHardCodedValue into extension.
+                                    if (dataItemJsonObject.ContainsKey("isHardCodedValue"))
+                                    {
+                                        var keyExists = dataItemJsonObject.TryGetPropertyValue("key", out var jsonNode).ToString();
+
+                                        if (keyExists == "True")
+                                        {
+                                            if (jsonNode != null && jsonNode.ToString() == "true")
+                                            {
+                                                // Create an extension.
+                                                var extension = new JsonObject()
+                                                {
+                                                    ["key"] = "isHardCodedValue",
+                                                    ["value"] = "true",
+                                                    ["notes"] = "database name"
+                                                };
+
+                                                // Extensions
+                                                if (dataItemJsonObject["extensions"] == null)
+                                                {
+                                                    dataItemJsonObject.Add("extensions", extension);
+                                                }
+                                                else
+                                                {
+                                                    var extensionArray = new JsonArray();
+                                                    extensionArray = dataItemJsonObject["extensions"]?.AsArray();
+                                                    extensionArray.Add(extension);
+                                                    dataItemJsonObject["extensions"] = extensionArray;
+                                                }
+                                            }
+                                        }
+
+                                        dataItemJsonObject.Remove("isHardCodedValue");
+                                    }
+
+                                    dataItemList.Add(dataItemJsonObject);
+
+                                    foreach (var sourceDataItemJsonObject in dataItemList)
+                                    {
+                                        dataMappingJsonObject["sourceDataItems"]![dataItemList.IndexOf(sourceDataItemJsonObject)] = sourceDataItemJsonObject;
+                                    }
+
+                                    dataItemMappingList.Add(dataMappingJsonObject);
+                                }
+                            }
+
+                            foreach (var dataItemMappingJsonObject in dataItemMappingList)
+                            {
+                                businessKeyComponentMappingJsonObject["businessKeyComponentMapping"]![dataItemMappingList.IndexOf(dataItemMappingJsonObject)] = dataItemMappingJsonObject;
+                            }
+
+                            RenameProperty("businessKeyComponentMapping", "businessKeyComponentMappings", businessKeyComponentMappingJsonObject);
+                            businessKeyDefinitions.Add(businessKeyComponentMappingJsonObject);
                         }
 
-                        dataItemMappingList.Add(jsonObjectDataItemMapping);
-                    }
+                        foreach (var businessKeyComponent in businessKeyDefinitions)
+                        {
+                            jsonObjectDataObjectMapping["businessKeyDefinitions"]![businessKeyDefinitions.IndexOf(businessKeyComponent)] = businessKeyComponent;
+                        }
 
-                    foreach (var dataItemMappingJsonObject in dataItemMappingList)
-                    {
-                        jsonObjectDataObjectMapping["dataItemMappings"]![dataItemMappingList.IndexOf(dataItemMappingJsonObject)] = dataItemMappingJsonObject;
+
                     }
+                }
+                catch (Exception ex)
+                {
+                    //
                 }
 
                 #endregion
@@ -294,13 +494,15 @@ if (!string.IsNullOrEmpty(jsonSchema))
             }
             finally
             {
-                // Save the file to disk.
-                var fileName = outputMetadataDirectory + @"\" + Path.GetFileName(file);
-                using (var outfile = new StreamWriter(fileName))
-                {
-                    outfile.Write(jsonObject!.ToJsonString(options));
-                    outfile.Close();
-                }
+
+            }
+
+            // Save the file to disk.
+            var fileName = outputMetadataDirectory + @"\" + Path.GetFileName(file);
+            using (var outfile = new StreamWriter(fileName))
+            {
+                outfile.Write(jsonObject!.ToJsonString(options));
+                outfile.Close();
             }
         }
     }
@@ -320,7 +522,7 @@ void ReAddProperty(string input, JsonObject jsonObject)
     }
 }
 
-void ReplaceProperty(string inputOld, string inputNew, JsonObject jsonObject)
+void RenameProperty(string inputOld, string inputNew, JsonObject jsonObject)
 {
     var property = jsonObject[inputOld];
 
@@ -339,6 +541,8 @@ void AddUnchangedDataItemProperties(JsonObject jsonObject)
     ReAddProperty("ordinalPosition", jsonObject);
     ReAddProperty("numericScale", jsonObject);
     ReAddProperty("numericPrecision", jsonObject);
+    ReAddProperty("classifications", jsonObject);
+    ReAddProperty("extensions", jsonObject);
 }
 
 void AddUnchangedDataObjectProperties(JsonObject jsonObject)
@@ -352,6 +556,61 @@ void AddUnchangedDataObjectProperties(JsonObject jsonObject)
 
 void ReplaceDataObjectProperties(JsonObject jsonObject)
 {
-    ReplaceProperty("dataObjectConnection", "dataConnection", jsonObject);
-    ReplaceProperty("dataObjectClassifications", "classifications", jsonObject);
+    RenameProperty("dataObjectConnection", "dataConnection", jsonObject);
+    RenameProperty("dataObjectClassifications", "classifications", jsonObject);
+}
+
+void ReplaceDataItemProperties(JsonObject jsonObject)
+{
+    RenameProperty("dataItemClassification", "classifications", jsonObject);
+}
+
+void UpdateDataConnection(JsonObject dataObjectJsonObject)
+{
+    // Connection.
+    if (dataObjectJsonObject["dataConnection"] != null)
+    {
+        var dataConnectionNode = dataObjectJsonObject["dataConnection"];
+        var dataConnectionObject = JsonNode.Parse(dataConnectionNode.ToJsonString()).AsObject();
+
+        // Rename the dataObjectConnection to dataConnection.
+        RenameProperty("dataObjectConnection", "dataConnection", dataObjectJsonObject);
+
+        // Rename the dataConnectionString to name.
+        RenameProperty("dataConnectionString", "name", dataConnectionObject);
+
+        // Extensions.
+        if (dataConnectionObject["extensions"] != null)
+        {
+            var extensionArray = new JsonArray();
+            foreach (var extension in dataConnectionObject["extensions"].AsArray())
+            {
+                var extensionObject = JsonNode.Parse(extension.ToJsonString()).AsObject();
+
+                // Rename the description to notes.
+                RenameProperty("description", "notes", extensionObject);
+
+                var keyExists = extensionObject.TryGetPropertyValue("key", out var jsonNode).ToString();
+
+                if (jsonNode.ToString() == "database")
+                {
+                    extensionObject["key"] = "datastore";
+                }
+
+                if (jsonNode.ToString() == "schema")
+                {
+                    extensionObject["key"] = "location";
+                }
+                extensionArray.Add(extensionObject);
+            }
+
+            // Move the connection extensions to the data object.
+            dataConnectionObject.Remove("extensions");
+            dataObjectJsonObject["dataConnection"] = dataConnectionObject;
+
+            dataObjectJsonObject!["extensions"] = extensionArray;
+        }
+
+        dataObjectJsonObject["dataConnection"] = dataConnectionObject;
+    }
 }
