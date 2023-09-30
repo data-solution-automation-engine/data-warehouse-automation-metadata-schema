@@ -136,14 +136,6 @@ if (!string.IsNullOrEmpty(jsonSchema))
                             var getClassification = classificationJsonObject
                                 .TryGetPropertyValue("classification", out var classificationValue).ToString();
 
-
-                            //                        public string groupValue) => classificationValue.ToString() 
-                            //switch
-                            //                            {
-                            //                                "CoreBusinessConcept" => new NewSwitch(0xFF, 0x00, 0x00),
-                            //                                _ => throw new ArgumentException(message: "error", paramName: nameof(color)),
-                            //                            };
-
                             string groupValue = classificationValue.ToString() switch
                             {
                                 "Source" => "Solution Layer",
