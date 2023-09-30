@@ -154,6 +154,7 @@ if (!string.IsNullOrEmpty(jsonSchema))
                                 "Persistent Staging" => "Solution Layer",
                                 "PersistentStaging" => "Solution Layer",
                                 "Staging" => "Solution Layer",
+                                "StagingArea" => "Solution Layer",
                                 "Thing" => "Conceptual",
                                 "Presentation" => "Solution Layer",
                                 "Natural Business Relationship" => "Logical",
