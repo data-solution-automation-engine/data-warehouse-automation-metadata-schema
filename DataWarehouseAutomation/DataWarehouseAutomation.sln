@@ -29,7 +29,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Metadata", "Sample M
 		Sample_Metadata\sampleFreeForm.json = Sample_Metadata\sampleFreeForm.json
 		Sample_Metadata\sampleJsonStagingWithPsaDetails.json = Sample_Metadata\sampleJsonStagingWithPsaDetails.json
 		Sample_Metadata\sampleMultipleDataItemMappings.json = Sample_Metadata\sampleMultipleDataItemMappings.json
-		Sample_Metadata\samplePSA.json = Sample_Metadata\samplePSA.json
 		Sample_Metadata\sampleSimpleDDL.json = Sample_Metadata\sampleSimpleDDL.json
 		Sample_Metadata\sampleSourceQuery.json = Sample_Metadata\sampleSourceQuery.json
 	EndProjectSection
