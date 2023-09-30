@@ -1,4 +1,5 @@
-﻿using System.IO.Enumeration;
+﻿using System.Drawing;
+using System.IO.Enumeration;
 using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -18,8 +19,8 @@ catch
 
 if (!string.IsNullOrEmpty(jsonSchema))
 {
-    var inputMetadataDirectory = @"D:\TeamEnvironments\VDW\Metadata";
-    var outputMetadataDirectory = @"D:\TeamEnvironments\VDW\MetadataV2";
+    var inputMetadataDirectory = @"C:\AutomationEnvironments\VDW\Metadata";
+    var outputMetadataDirectory = @"C:\AutomationEnvironments\VDW\MetadataV2";
 
     var exceptionList = new List<string>
     {
@@ -31,9 +32,6 @@ if (!string.IsNullOrEmpty(jsonSchema))
     {
         // TODO
         // Infer group for classification.Set property upon import.
-        // Adding Name to dataObjectMappingList
-        // Updating dataObjectMapping Name
-
 
         if (!exceptionList.Contains(Path.GetFileName(file)))
         {
@@ -44,7 +42,7 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
             // Create a JSON object, which can be modified at runtime.
             var jsonObject = JsonNode.Parse(jsonFile).AsObject();
-
+            
             #region Generation Specific Data Object
 
             if (jsonObject["generationSpecificMetadata"] != null)
@@ -100,9 +98,9 @@ if (!string.IsNullOrEmpty(jsonSchema))
             }
 
             #endregion
-            
+
             // Start parsing.
-            var dataObjectMappingJsonObjectList = new List<JsonObject>();
+            var dataObjectMappingJsonArray = new JsonArray();
 
             foreach (var dataObjectMapping in jsonObject["dataObjectMappings"].AsArray())
             {
@@ -114,14 +112,78 @@ if (!string.IsNullOrEmpty(jsonSchema))
                 jsonObjectDataObjectMapping.Remove("mappingName");
                 jsonObjectDataObjectMapping.Add("name", mappingNameNode);
 
-                // Rename the mapping classifications.
+                var getName = jsonObjectDataObjectMapping.TryGetPropertyValue("name", out var mappingNameJsonNode).ToString();
 
+                // Add the mapping name as a 'name' to the list of mappings, only once.
+                if (jsonObject["dataObjectMappings"].AsArray().IndexOf(dataObjectMapping) == 0)
+                {
+                    jsonObject["name"] = mappingNameJsonNode.ToString();
+                }
+
+                // Rename the mapping classifications.
                 var mappingClassificationsNode = jsonObjectDataObjectMapping["mappingClassifications"];
                 jsonObjectDataObjectMapping.Remove("mappingClassifications");
                 jsonObjectDataObjectMapping.Add("classifications", mappingClassificationsNode);
 
+                // Update the classifications
+                if (jsonObjectDataObjectMapping["classifications"] != null)
+                {
+                    try
+                    {
+                        foreach (var classification in jsonObjectDataObjectMapping["classifications"].AsArray())
+                        {
+                            var classificationJsonObject = JsonNode.Parse(classification.ToJsonString()).AsObject();
+                            var getClassification = classificationJsonObject
+                                .TryGetPropertyValue("classification", out var classificationValue).ToString();
+
+
+                            //                        public string groupValue) => classificationValue.ToString() 
+                            //switch
+                            //                            {
+                            //                                "CoreBusinessConcept" => new NewSwitch(0xFF, 0x00, 0x00),
+                            //                                _ => throw new ArgumentException(message: "error", paramName: nameof(color)),
+                            //                            };
+
+                            string groupValue = classificationValue.ToString() switch
+                            {
+                                "Source" => "Solution Layer",
+                                "Core Business Concept" => "Logical",
+                                "CoreBusinessConcept" => "Logical",
+                                "Integration" => "Solution Layer",
+                                "Context" => "Logical",
+                                "Persistent Staging" => "Solution Layer",
+                                "PersistentStaging" => "Solution Layer",
+                                "Staging" => "Solution Layer",
+                                "Thing" => "Conceptual",
+                                "Presentation" => "Solution Layer",
+                                "Natural Business Relationship" => "Logical",
+                                "NaturalBusinessRelationship" => "Logical",
+                                "Natural Business Relationship Context" => "Logical",
+                                "NaturalBusinessRelationshipContext" => "Logical",
+                                "Natural Business Relationship Context Driving Key" => "Logical",
+                                "NaturalBusinessRelationshipContextDrivingKey" => "Logical",
+                                "Person" => "Conceptual",
+                                "Place" => "Conceptual",
+                                "Hub" => "Physical",
+                                "Event" => "Physical",
+                                "Satellite" => "Conceptual",
+                                "Link" => "Physical",
+                                _ => "Unknown"
+                            };
+
+                            classificationJsonObject.Add("group",groupValue);
+                        }
+
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }
+
                 // Rename the business key definitions.
-                var businessKeyDefinitionsNode = jsonObjectDataObjectMapping["businessKeys"];
+                        var businessKeyDefinitionsNode = jsonObjectDataObjectMapping["businessKeys"];
                 jsonObjectDataObjectMapping.Remove("businessKeys");
                 jsonObjectDataObjectMapping.Add("businessKeyDefinitions", businessKeyDefinitionsNode);
 
@@ -143,6 +205,14 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
                         // Replace properties with newer names (upgrade).
                         ReplaceDataObjectProperties(dataObjectJsonObject);
+
+                        var getSourceDataObjectName = dataObjectJsonObject.TryGetPropertyValue("name", out var sourceDataObjectNameJsonNode).ToString();
+
+                        // Add the mapping name as a 'name' to the list of mappings, only once.
+                        if (jsonObject["dataObjectMappings"].AsArray().IndexOf(dataObjectMapping) == 0)
+                        {
+                            jsonObjectDataObjectMapping["name"] = sourceDataObjectNameJsonNode.ToString() + " to " + mappingNameJsonNode.ToString();
+                        }
 
                         // Data Items.
                         var dataItems = new List<JsonObject>();
@@ -462,14 +532,11 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
                 #endregion
 
-                dataObjectMappingJsonObjectList.Add(jsonObjectDataObjectMapping);
+                dataObjectMappingJsonArray.Add(jsonObjectDataObjectMapping);
             }
 
             // Put the data object mappings back into the main object.
-            foreach (var dataObjectMappingJsonObject in dataObjectMappingJsonObjectList)
-            {
-                jsonObject["dataObjectMappings"]![dataObjectMappingJsonObjectList.IndexOf(dataObjectMappingJsonObject)] = dataObjectMappingJsonObject;
-            }
+            jsonObject["dataObjectMappings"] = dataObjectMappingJsonArray;
 
             // Finalisation
             var options = new JsonSerializerOptions { WriteIndented = true };
@@ -485,7 +552,7 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
             try
             {
-                var test = JsonSerializer.Deserialize<DataObjectMappingList>(jsonObject.ToJsonString());
+                var testSerialisation = JsonSerializer.Deserialize<DataObjectMappingList>(jsonObject.ToJsonString());
             }
             catch (Exception ex)
             {
