@@ -19,8 +19,8 @@ catch
 
 if (!string.IsNullOrEmpty(jsonSchema))
 {
-    var inputMetadataDirectory = @"C:\AutomationEnvironments\VDW\Metadata";
-    var outputMetadataDirectory = @"C:\AutomationEnvironments\VDW\MetadataV2";
+    var inputMetadataDirectory = @"D:\TeamEnvironments\VDW\Metadata";
+    var outputMetadataDirectory = @"D:\TeamEnvironments\VDW\MetadataV2";
 
     var exceptionList = new List<string>
     {
@@ -63,6 +63,9 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
                     // Connection.
                     UpdateDataConnection(dataObjectJsonObject);
+
+                    // Update the classifications
+                    UpdateClassifications(dataObjectJsonObject);
 
                     jsonObject["generationSpecificMetadata"]!["selectedDataObject"] = dataObjectJsonObject;
 
@@ -126,57 +129,10 @@ if (!string.IsNullOrEmpty(jsonSchema))
                 jsonObjectDataObjectMapping.Add("classifications", mappingClassificationsNode);
 
                 // Update the classifications
-                if (jsonObjectDataObjectMapping["classifications"] != null)
-                {
-                    try
-                    {
-                        foreach (var classification in jsonObjectDataObjectMapping["classifications"].AsArray())
-                        {
-                            var classificationJsonObject = JsonNode.Parse(classification.ToJsonString()).AsObject();
-                            var getClassification = classificationJsonObject
-                                .TryGetPropertyValue("classification", out var classificationValue).ToString();
-
-                            string groupValue = classificationValue.ToString() switch
-                            {
-                                "Source" => "Solution Layer",
-                                "Core Business Concept" => "Logical",
-                                "CoreBusinessConcept" => "Logical",
-                                "Integration" => "Solution Layer",
-                                "Context" => "Logical",
-                                "Persistent Staging" => "Solution Layer",
-                                "PersistentStaging" => "Solution Layer",
-                                "Staging" => "Solution Layer",
-                                "StagingArea" => "Solution Layer",
-                                "Thing" => "Conceptual",
-                                "Presentation" => "Solution Layer",
-                                "Natural Business Relationship" => "Logical",
-                                "NaturalBusinessRelationship" => "Logical",
-                                "Natural Business Relationship Context" => "Logical",
-                                "NaturalBusinessRelationshipContext" => "Logical",
-                                "Natural Business Relationship Context Driving Key" => "Logical",
-                                "NaturalBusinessRelationshipContextDrivingKey" => "Logical",
-                                "Person" => "Conceptual",
-                                "Place" => "Conceptual",
-                                "Hub" => "Physical",
-                                "Event" => "Physical",
-                                "Satellite" => "Conceptual",
-                                "Link" => "Physical",
-                                _ => "Unknown"
-                            };
-
-                            classificationJsonObject.Add("group",groupValue);
-                        }
-
-
-                    }
-                    catch (Exception ex)
-                    {
-
-                    }
-                }
+                UpdateClassifications(jsonObjectDataObjectMapping);
 
                 // Rename the business key definitions.
-                        var businessKeyDefinitionsNode = jsonObjectDataObjectMapping["businessKeys"];
+                var businessKeyDefinitionsNode = jsonObjectDataObjectMapping["businessKeys"];
                 jsonObjectDataObjectMapping.Remove("businessKeys");
                 jsonObjectDataObjectMapping.Add("businessKeyDefinitions", businessKeyDefinitionsNode);
 
@@ -198,6 +154,9 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
                         // Replace properties with newer names (upgrade).
                         ReplaceDataObjectProperties(dataObjectJsonObject);
+
+                        // Update the classifications
+                        UpdateClassifications(dataObjectJsonObject);
 
                         var getSourceDataObjectName = dataObjectJsonObject.TryGetPropertyValue("name", out var sourceDataObjectNameJsonNode).ToString();
 
@@ -276,6 +235,9 @@ if (!string.IsNullOrEmpty(jsonSchema))
                     // Connection.
                     UpdateDataConnection(dataObjectJsonObject);
 
+                    // Update the classifications
+                    UpdateClassifications(dataObjectJsonObject);
+
                     jsonObjectDataObjectMapping["targetDataObject"] = dataObjectJsonObject;
 
                     /// Data items.
@@ -333,6 +295,9 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
                             // Connection.
                             UpdateDataConnection(dataObjectJsonObject);
+
+                            // Update the classifications
+                            UpdateClassifications(dataObjectJsonObject);
 
                             // Data Items.
                             var dataItems = new List<JsonObject>();
@@ -458,31 +423,36 @@ if (!string.IsNullOrEmpty(jsonSchema))
                                     // Change isHardCodedValue into extension.
                                     if (dataItemJsonObject.ContainsKey("isHardCodedValue"))
                                     {
-                                        var keyExists = dataItemJsonObject.TryGetPropertyValue("key", out var jsonNode).ToString();
+                                        var keyExists = dataItemJsonObject.TryGetPropertyValue("isHardCodedValue", out var jsonNode).ToString();
 
                                         if (keyExists == "True")
                                         {
                                             if (jsonNode != null && jsonNode.ToString() == "true")
                                             {
-                                                // Create an extension.
-                                                var extension = new JsonObject()
+                                                try
                                                 {
-                                                    ["key"] = "isHardCodedValue",
-                                                    ["value"] = "true",
-                                                    ["notes"] = "database name"
-                                                };
+                                                    // Create an extension.
+                                                    var extension = new JsonObject()
+                                                    {
+                                                        ["key"] = "isHardCodedValue",
+                                                        ["value"] = "true",
+                                                        ["notes"] = "database name"
+                                                    };
 
-                                                // Extensions
-                                                if (dataItemJsonObject["extensions"] == null)
-                                                {
-                                                    dataItemJsonObject.Add("extensions", extension);
-                                                }
-                                                else
-                                                {
+                                                    // Extensions
                                                     var extensionArray = new JsonArray();
+                                                    if (dataItemJsonObject["extensions"] == null)
+                                                    {
+                                                        dataItemJsonObject.Add("extensions", extensionArray);
+                                                    }
+
                                                     extensionArray = dataItemJsonObject["extensions"]?.AsArray();
                                                     extensionArray.Add(extension);
                                                     dataItemJsonObject["extensions"] = extensionArray;
+                                                }
+                                                catch (Exception ex)
+                                                {
+                                                    //
                                                 }
                                             }
                                         }
@@ -623,6 +593,60 @@ void ReplaceDataObjectProperties(JsonObject jsonObject)
 void ReplaceDataItemProperties(JsonObject jsonObject)
 {
     RenameProperty("dataItemClassification", "classifications", jsonObject);
+}
+
+void UpdateClassifications(JsonObject jsonObject)
+{
+    if (jsonObject["classifications"] != null)
+    {
+        var classificationArray = new JsonArray();
+        try
+        {
+            foreach (var classification in jsonObject["classifications"].AsArray())
+            {
+                var classificationJsonObject = JsonNode.Parse(classification.ToJsonString()).AsObject();
+                var getClassification = classificationJsonObject.TryGetPropertyValue("classification", out var classificationValue).ToString();
+
+                string groupValue = classificationValue.ToString() switch
+                {
+                    "Source" => "Solution Layer",
+                    "Core Business Concept" => "Logical",
+                    "CoreBusinessConcept" => "Logical",
+                    "Integration" => "Solution Layer",
+                    "Context" => "Logical",
+                    "Persistent Staging" => "Solution Layer",
+                    "PersistentStaging" => "Solution Layer",
+                    "Staging" => "Solution Layer",
+                    "StagingArea" => "Solution Layer",
+                    "Thing" => "Conceptual",
+                    "Presentation" => "Solution Layer",
+                    "Natural Business Relationship" => "Logical",
+                    "NaturalBusinessRelationship" => "Logical",
+                    "Natural Business Relationship Context" => "Logical",
+                    "NaturalBusinessRelationshipContext" => "Logical",
+                    "Natural Business Relationship Context Driving Key" => "Logical",
+                    "NaturalBusinessRelationshipContextDrivingKey" => "Logical",
+                    "Person" => "Conceptual",
+                    "Place" => "Conceptual",
+                    "Hub" => "Physical",
+                    "Event" => "Physical",
+                    "Satellite" => "Conceptual",
+                    "Link" => "Physical",
+                    _ => "Unknown"
+                };
+
+                classificationJsonObject.Add("group", groupValue);
+
+                classificationArray.Add(classificationJsonObject);
+            }
+        }
+        catch (Exception ex)
+        {
+            // To do
+        }
+
+        jsonObject["classifications"] = classificationArray;
+    }
 }
 
 void UpdateDataConnection(JsonObject dataObjectJsonObject)
