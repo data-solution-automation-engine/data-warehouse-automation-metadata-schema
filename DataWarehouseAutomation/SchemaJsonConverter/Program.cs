@@ -436,7 +436,7 @@ if (!string.IsNullOrEmpty(jsonSchema))
                                                     {
                                                         ["key"] = "isHardCodedValue",
                                                         ["value"] = "true",
-                                                        ["notes"] = "database name"
+                                                        ["notes"] = "Hard-coded value"
                                                     };
 
                                                     // Extensions
@@ -491,6 +491,58 @@ if (!string.IsNullOrEmpty(jsonSchema))
                 catch (Exception ex)
                 {
                     //
+                }
+
+                #endregion
+
+                #region Extension
+
+                try
+                {
+                    var extensionArray = new JsonArray();
+
+                    if (jsonObjectDataObjectMapping["extensions"] != null)
+                    {
+                        // Use the existing values.
+                        extensionArray = jsonObjectDataObjectMapping["extensions"]?.AsArray();
+                    }
+                    else
+                    {
+                        // Create a new property.
+                        jsonObjectDataObjectMapping.Add("extensions", extensionArray);
+                    }
+
+                    // Create a control framework extension.
+                    var extension = new JsonObject()
+                    {
+                        ["key"] = "hasControlFramework",
+                        ["value"] = "true",
+                        ["notes"] = "Integration with Control Framework"
+                    };
+                    extensionArray.Add(extension);
+
+                    var extensionControlFrameworkDataStore = new JsonObject()
+                    {
+                        ["key"] = "controlFrameworkDataStore",
+                        ["value"] = "900_Direct_Framework",
+                        ["notes"] = "Control Framework data store"
+                    };
+                    extensionArray.Add(extensionControlFrameworkDataStore);
+
+                    var extensionControlFrameworkLocation = new JsonObject()
+                    {
+                        ["key"] = "controlFrameworkLocation",
+                        ["value"] = "omd",
+                        ["notes"] = "Control Framework location"
+                    };
+                    extensionArray.Add(extensionControlFrameworkLocation);
+
+
+                    jsonObjectDataObjectMapping["extensions"] = extensionArray;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
                 }
 
                 #endregion
