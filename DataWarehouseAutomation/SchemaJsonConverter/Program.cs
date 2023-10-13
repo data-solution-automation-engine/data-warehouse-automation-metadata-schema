@@ -1,9 +1,5 @@
-﻿using System.Drawing;
-using System.IO.Enumeration;
-using System.Linq;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Nodes;
-using System.Xml.Linq;
 using DataWarehouseAutomation;
 
 string jsonSchema = string.Empty;
@@ -30,9 +26,6 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
     foreach (string file in Directory.EnumerateFiles(inputMetadataDirectory, "*.json", SearchOption.TopDirectoryOnly))
     {
-        // TODO
-        // Infer group for classification.Set property upon import.
-
         if (!exceptionList.Contains(Path.GetFileName(file)))
         {
             Console.WriteLine(file);
@@ -42,7 +35,19 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
             // Create a JSON object, which can be modified at runtime.
             var jsonObject = JsonNode.Parse(jsonFile).AsObject();
-            
+
+            #region GUIDs
+            // GUID for object, item, connection, classification, businessKeyDefinition, dataObjectMapping, dataItemMapping, mappinglist
+            Dictionary<string, Guid> dataObjectGuids = new Dictionary<string, Guid>();
+            Dictionary<string, Guid> dataItemGuids = new Dictionary<string, Guid>();
+            Dictionary<string, Guid> connectionGuids = new Dictionary<string, Guid>();
+            Dictionary<string, Guid> classificationGuids = new Dictionary<string, Guid>();
+            Dictionary<string, Guid> dataObjectMappingGuids = new Dictionary<string, Guid>();
+            Dictionary<string, Guid> businessKeyDefinitionGuids = new Dictionary<string, Guid>();
+            Dictionary<string, Guid> dataItemMappingGuids = new Dictionary<string, Guid>();
+
+            #endregion
+
             #region Generation Specific Data Object
 
             if (jsonObject["generationSpecificMetadata"] != null)
@@ -58,14 +63,17 @@ if (!string.IsNullOrEmpty(jsonSchema))
                         dataObjectJsonObject.Add("extensions", null);
                     }
 
+                    // Ensure each object has a GUID
+                    AddGuid(dataObjectJsonObject, dataObjectGuids, "name");
+
                     // Replace properties with newer names (upgrade).
                     ReplaceDataObjectProperties(dataObjectJsonObject);
 
                     // Connection.
-                    UpdateDataConnection(dataObjectJsonObject);
+                    UpdateDataConnection(dataObjectJsonObject, connectionGuids);
 
                     // Update the classifications
-                    UpdateClassifications(dataObjectJsonObject);
+                    UpdateClassifications(dataObjectJsonObject, classificationGuids);
 
                     jsonObject["generationSpecificMetadata"]!["selectedDataObject"] = dataObjectJsonObject;
 
@@ -77,6 +85,9 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
                         // Type must be first.
                         jsonObjectGenerationSpecificDataObjectDataItem.Add("dataItemType", "dataItem");
+
+                        // Ensure each item has a GUID
+                        AddGuid(jsonObjectGenerationSpecificDataObjectDataItem, dataItemGuids, "name");
 
                         // Re-add unchanged properties to manage order.
                         AddUnchangedDataItemProperties(jsonObjectGenerationSpecificDataObjectDataItem);
@@ -129,7 +140,7 @@ if (!string.IsNullOrEmpty(jsonSchema))
                 jsonObjectDataObjectMapping.Add("classifications", mappingClassificationsNode);
 
                 // Update the classifications
-                UpdateClassifications(jsonObjectDataObjectMapping);
+                UpdateClassifications(jsonObjectDataObjectMapping, classificationGuids);
 
                 // Rename the business key definitions.
                 var businessKeyDefinitionsNode = jsonObjectDataObjectMapping["businessKeys"];
@@ -149,6 +160,9 @@ if (!string.IsNullOrEmpty(jsonSchema))
                         // Type must be first.
                         dataObjectJsonObject.Add("dataObjectType", "dataObject");
 
+                        // Ensure each object has a GUID
+                        AddGuid(dataObjectJsonObject, dataObjectGuids, "name");
+
                         // Re-add unchanged properties to manage order.
                         AddUnchangedDataObjectProperties(dataObjectJsonObject);
 
@@ -156,7 +170,7 @@ if (!string.IsNullOrEmpty(jsonSchema))
                         ReplaceDataObjectProperties(dataObjectJsonObject);
 
                         // Update the classifications
-                        UpdateClassifications(dataObjectJsonObject);
+                        UpdateClassifications(dataObjectJsonObject, classificationGuids);
 
                         var getSourceDataObjectName = dataObjectJsonObject.TryGetPropertyValue("name", out var sourceDataObjectNameJsonNode).ToString();
 
@@ -174,6 +188,9 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
                             // Type must be first.
                             dataItemJsonObject.Add("dataItemType", "dataItem");
+
+                            // Ensure each item has a GUID
+                            AddGuid(dataItemJsonObject, dataItemGuids, "name");
 
                             // Re-add unchanged properties to manage order.
                             AddUnchangedDataItemProperties(dataItemJsonObject);
@@ -196,7 +213,7 @@ if (!string.IsNullOrEmpty(jsonSchema))
                         }
 
                         // Connection.
-                        UpdateDataConnection(dataObjectJsonObject);
+                        UpdateDataConnection(dataObjectJsonObject, connectionGuids);
 
                         // Add the target data objects to a list so that they can be added to the main object later.
                         dataObjectList.Add(dataObjectJsonObject);
@@ -229,18 +246,21 @@ if (!string.IsNullOrEmpty(jsonSchema))
                         dataObjectJsonObject.Add("extensions", null);
                     }
 
+                    // Ensure each object has a GUID
+                    AddGuid(dataObjectJsonObject, dataObjectGuids, "name");
+
                     // Replace properties with newer names (upgrade).
                     ReplaceDataObjectProperties(dataObjectJsonObject);
 
                     // Connection.
-                    UpdateDataConnection(dataObjectJsonObject);
+                    UpdateDataConnection(dataObjectJsonObject, connectionGuids);
 
                     // Update the classifications
-                    UpdateClassifications(dataObjectJsonObject);
+                    UpdateClassifications(dataObjectJsonObject, classificationGuids);
 
                     jsonObjectDataObjectMapping["targetDataObject"] = dataObjectJsonObject;
 
-                    /// Data items.
+                    // Data items.
                     var targetDataObjectDataItemList = new List<JsonObject>();
                     foreach (var targetDataObjectDataItem in dataObjectMapping["targetDataObject"]!["dataItems"].AsArray())
                     {
@@ -248,6 +268,9 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
                         // Type must be first.
                         jsonObjectTargetDataObjectDataItem.Add("dataItemType", "dataItem");
+
+                        // Ensure each item has a GUID
+                        AddGuid(jsonObjectTargetDataObjectDataItem, dataItemGuids, "name");
 
                         // Re-add unchanged properties to manage order.
                         AddUnchangedDataItemProperties(jsonObjectTargetDataObjectDataItem);
@@ -290,14 +313,17 @@ if (!string.IsNullOrEmpty(jsonSchema))
                                 dataObjectJsonObject.Add("extensions", null);
                             }
 
+                            // Ensure each object has a GUID
+                            AddGuid(dataObjectJsonObject, dataObjectGuids, "name");
+
                             // Replace properties with newer names (upgrade).
                             ReplaceDataObjectProperties(dataObjectJsonObject);
 
                             // Connection.
-                            UpdateDataConnection(dataObjectJsonObject);
+                            UpdateDataConnection(dataObjectJsonObject, connectionGuids);
 
                             // Update the classifications
-                            UpdateClassifications(dataObjectJsonObject);
+                            UpdateClassifications(dataObjectJsonObject, classificationGuids);
 
                             // Data Items.
                             var dataItems = new List<JsonObject>();
@@ -307,6 +333,9 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
                                 // Type must be first.
                                 dataItemJsonObject.Add("dataItemType", "dataItem");
+
+                                // Ensure each item has a GUID
+                                AddGuid(dataItemJsonObject, dataItemGuids, "name");
 
                                 // Re-add unchanged properties to manage order.
                                 AddUnchangedDataItemProperties(dataItemJsonObject);
@@ -364,13 +393,26 @@ if (!string.IsNullOrEmpty(jsonSchema))
                                 // Replace properties with newer names (upgrade).
                                 ReplaceDataItemProperties(jsonObjectSourceDataItem);
 
+                                // Ensure each item has a GUID
+                                AddGuid(jsonObjectSourceDataItem, dataItemGuids, "name");
+
                                 sourceDataItemList.Add(jsonObjectSourceDataItem);
                             }
+
+                            // Target data item
+                            var jsonNodeTargetDataItem = jsonObjectDataItemMapping["targetDataItem"];
+                            var jsonObjectTargetDataItem = JsonNode.Parse(jsonNodeTargetDataItem.ToJsonString()).AsObject();
+                            AddGuid(jsonObjectTargetDataItem, dataItemGuids, "name");
+                            jsonObjectDataItemMapping["targetDataItem"] = jsonObjectTargetDataItem;
+
 
                             foreach (var sourceDataItemJsonObject in sourceDataItemList)
                             {
                                 jsonObjectDataItemMapping["sourceDataItems"]![sourceDataItemList.IndexOf(sourceDataItemJsonObject)] = sourceDataItemJsonObject;
                             }
+
+                            // Ensure each object has a GUID
+                            AddGuid(jsonObjectDataItemMapping, dataItemMappingGuids);
 
                             dataItemMappingList.Add(jsonObjectDataItemMapping);
                         }
@@ -419,6 +461,9 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
                                     // Replace properties with newer names (upgrade).
                                     ReplaceDataItemProperties(dataItemJsonObject);
+
+                                    // Ensure each item has a GUID
+                                    AddGuid(dataItemJsonObject, dataItemGuids, "name");
 
                                     // Change isHardCodedValue into extension.
                                     if (dataItemJsonObject.ContainsKey("isHardCodedValue"))
@@ -471,6 +516,9 @@ if (!string.IsNullOrEmpty(jsonSchema))
                                 }
                             }
 
+                            // Ensure each item has a GUID
+                            AddGuid(businessKeyComponentMappingJsonObject, businessKeyDefinitionGuids);
+
                             foreach (var dataItemMappingJsonObject in dataItemMappingList)
                             {
                                 businessKeyComponentMappingJsonObject["businessKeyComponentMapping"]![dataItemMappingList.IndexOf(dataItemMappingJsonObject)] = dataItemMappingJsonObject;
@@ -512,14 +560,15 @@ if (!string.IsNullOrEmpty(jsonSchema))
                         jsonObjectDataObjectMapping.Add("extensions", extensionArray);
                     }
 
+                    #region Control Framework
                     // Create a control framework extension.
-                    var extension = new JsonObject()
+                    var extensionControlFramework = new JsonObject()
                     {
                         ["key"] = "hasControlFramework",
                         ["value"] = "true",
                         ["notes"] = "Integration with Control Framework"
                     };
-                    extensionArray.Add(extension);
+                    extensionArray.Add(extensionControlFramework);
 
                     var extensionControlFrameworkDataStore = new JsonObject()
                     {
@@ -536,7 +585,34 @@ if (!string.IsNullOrEmpty(jsonSchema))
                         ["notes"] = "Control Framework location"
                     };
                     extensionArray.Add(extensionControlFrameworkLocation);
+                    #endregion
 
+                    #region Testing Framework
+                    // Create a testing framework extension.
+                    var extensionTestingFramework = new JsonObject()
+                    {
+                        ["key"] = "hasTestingFramework",
+                        ["value"] = "true",
+                        ["notes"] = "Integration with Testing Framework"
+                    };
+                    extensionArray.Add(extensionTestingFramework);
+
+                    var extensionTestingFrameworkDataStore = new JsonObject()
+                    {
+                        ["key"] = "controlTestingDataStore",
+                        ["value"] = "testing-framework",
+                        ["notes"] = "Testing Framework data store"
+                    };
+                    extensionArray.Add(extensionTestingFrameworkDataStore);
+
+                    var extensionTestingFrameworkLocation = new JsonObject()
+                    {
+                        ["key"] = "controlTestingLocation",
+                        ["value"] = "ut",
+                        ["notes"] = "Testing Framework location"
+                    };
+                    extensionArray.Add(extensionTestingFrameworkLocation);
+                    #endregion
 
                     jsonObjectDataObjectMapping["extensions"] = extensionArray;
                 }
@@ -547,7 +623,12 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
                 #endregion
 
+                // Ensure each object has a GUID
+                AddGuid(jsonObjectDataObjectMapping, dataObjectMappingGuids, "name");
+
                 dataObjectMappingJsonArray.Add(jsonObjectDataObjectMapping);
+
+
             }
 
             // Put the data object mappings back into the main object.
@@ -604,6 +685,29 @@ void ReAddProperty(string input, JsonObject jsonObject)
     }
 }
 
+void AddGuid(JsonObject jsonObject, Dictionary<string, Guid> objectGuids, string propertyName = null)
+{
+    var property = "";
+
+    if (propertyName == null)
+    {
+        property = jsonObject.ToString();
+    }
+    else
+    {
+        property = jsonObject[propertyName].ToString();
+    }
+
+    if (!objectGuids.ContainsKey(property))
+    {
+        objectGuids.Add(property, Guid.NewGuid());
+    }
+
+    var propertyGuid = objectGuids.TryGetValue(property, out Guid guid);
+
+    jsonObject["id"] = guid;
+}
+
 void RenameProperty(string inputOld, string inputNew, JsonObject jsonObject)
 {
     var property = jsonObject[inputOld];
@@ -617,6 +721,7 @@ void RenameProperty(string inputOld, string inputNew, JsonObject jsonObject)
 
 void AddUnchangedDataItemProperties(JsonObject jsonObject)
 {
+    //ReAddProperty("id", jsonObject);
     ReAddProperty("name", jsonObject);
     ReAddProperty("dataType", jsonObject);
     ReAddProperty("characterLength", jsonObject);
@@ -629,6 +734,7 @@ void AddUnchangedDataItemProperties(JsonObject jsonObject)
 
 void AddUnchangedDataObjectProperties(JsonObject jsonObject)
 {
+    //ReAddProperty("id", jsonObject);
     ReAddProperty("name", jsonObject);
     ReAddProperty("dataItems", jsonObject);
     ReAddProperty("dataConnection", jsonObject);
@@ -647,7 +753,7 @@ void ReplaceDataItemProperties(JsonObject jsonObject)
     RenameProperty("dataItemClassification", "classifications", jsonObject);
 }
 
-void UpdateClassifications(JsonObject jsonObject)
+void UpdateClassifications(JsonObject jsonObject, Dictionary<string, Guid> objectGuids)
 {
     if (jsonObject["classifications"] != null)
     {
@@ -689,6 +795,9 @@ void UpdateClassifications(JsonObject jsonObject)
 
                 classificationJsonObject.Add("group", groupValue);
 
+                // Ensure each object has a GUID
+                AddGuid(classificationJsonObject, objectGuids, "classification");
+
                 classificationArray.Add(classificationJsonObject);
             }
         }
@@ -701,7 +810,7 @@ void UpdateClassifications(JsonObject jsonObject)
     }
 }
 
-void UpdateDataConnection(JsonObject dataObjectJsonObject)
+void UpdateDataConnection(JsonObject dataObjectJsonObject, Dictionary<string, Guid> objectGuids)
 {
     // Connection.
     if (dataObjectJsonObject["dataConnection"] != null)
@@ -714,6 +823,9 @@ void UpdateDataConnection(JsonObject dataObjectJsonObject)
 
         // Rename the dataConnectionString to name.
         RenameProperty("dataConnectionString", "name", dataConnectionObject);
+
+        // Ensure each object has a GUID
+        AddGuid(dataConnectionObject, objectGuids, "name");
 
         // Extensions.
         if (dataConnectionObject["extensions"] != null)
