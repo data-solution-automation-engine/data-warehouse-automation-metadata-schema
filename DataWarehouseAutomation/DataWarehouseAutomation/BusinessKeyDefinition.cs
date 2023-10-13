@@ -14,6 +14,12 @@ public class BusinessKeyDefinition
     public string? Id { get; set; }
 
     /// <summary>
+    /// The optional name of the Business Key Definition.
+    /// </summary>
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
+
+    /// <summary>
     /// Items that define the Business Key e.g. the collection of columns for a Business Key.
     /// </summary>
     [JsonPropertyName("businessKeyComponentMappings")]
