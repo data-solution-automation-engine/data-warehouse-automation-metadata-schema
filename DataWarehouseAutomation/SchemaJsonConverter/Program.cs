@@ -24,6 +24,18 @@ if (!string.IsNullOrEmpty(jsonSchema))
         "sample_TEAM_Attribute_Mapping.json"
     };
 
+    #region GUIDs
+    // GUID for object, item, connection, classification, businessKeyDefinition, dataObjectMapping, dataItemMapping, mappinglist
+    Dictionary<string, Guid> dataObjectGuids = new Dictionary<string, Guid>();
+    Dictionary<string, Guid> dataItemGuids = new Dictionary<string, Guid>();
+    Dictionary<string, Guid> connectionGuids = new Dictionary<string, Guid>();
+    Dictionary<string, Guid> classificationGuids = new Dictionary<string, Guid>();
+    Dictionary<string, Guid> dataObjectMappingGuids = new Dictionary<string, Guid>();
+    Dictionary<string, Guid> businessKeyDefinitionGuids = new Dictionary<string, Guid>();
+    Dictionary<string, Guid> dataItemMappingGuids = new Dictionary<string, Guid>();
+
+    #endregion
+
     foreach (string file in Directory.EnumerateFiles(inputMetadataDirectory, "*.json", SearchOption.TopDirectoryOnly))
     {
         if (!exceptionList.Contains(Path.GetFileName(file)))
@@ -35,18 +47,6 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
             // Create a JSON object, which can be modified at runtime.
             var jsonObject = JsonNode.Parse(jsonFile).AsObject();
-
-            #region GUIDs
-            // GUID for object, item, connection, classification, businessKeyDefinition, dataObjectMapping, dataItemMapping, mappinglist
-            Dictionary<string, Guid> dataObjectGuids = new Dictionary<string, Guid>();
-            Dictionary<string, Guid> dataItemGuids = new Dictionary<string, Guid>();
-            Dictionary<string, Guid> connectionGuids = new Dictionary<string, Guid>();
-            Dictionary<string, Guid> classificationGuids = new Dictionary<string, Guid>();
-            Dictionary<string, Guid> dataObjectMappingGuids = new Dictionary<string, Guid>();
-            Dictionary<string, Guid> businessKeyDefinitionGuids = new Dictionary<string, Guid>();
-            Dictionary<string, Guid> dataItemMappingGuids = new Dictionary<string, Guid>();
-
-            #endregion
 
             #region Generation Specific Data Object
 
@@ -404,8 +404,7 @@ if (!string.IsNullOrEmpty(jsonSchema))
                             var jsonObjectTargetDataItem = JsonNode.Parse(jsonNodeTargetDataItem.ToJsonString()).AsObject();
                             AddGuid(jsonObjectTargetDataItem, dataItemGuids, "name");
                             jsonObjectDataItemMapping["targetDataItem"] = jsonObjectTargetDataItem;
-
-
+                            
                             foreach (var sourceDataItemJsonObject in sourceDataItemList)
                             {
                                 jsonObjectDataItemMapping["sourceDataItems"]![sourceDataItemList.IndexOf(sourceDataItemJsonObject)] = sourceDataItemJsonObject;
@@ -448,7 +447,8 @@ if (!string.IsNullOrEmpty(jsonSchema))
                             {
                                 var dataMappingJsonObject = JsonNode.Parse(dataItemMapping.ToJsonString()).AsObject();
 
-                                var dataItemList = new List<JsonObject>();
+                                // Source data items.
+                                var sourceDataItemList = new List<JsonObject>();
                                 foreach (var dataItem in dataItemMapping!["sourceDataItems"]?.AsArray())
                                 {
                                     // Source data item.
@@ -505,12 +505,18 @@ if (!string.IsNullOrEmpty(jsonSchema))
                                         dataItemJsonObject.Remove("isHardCodedValue");
                                     }
 
-                                    dataItemList.Add(dataItemJsonObject);
+                                    sourceDataItemList.Add(dataItemJsonObject);
 
-                                    foreach (var sourceDataItemJsonObject in dataItemList)
+                                    foreach (var sourceDataItemJsonObject in sourceDataItemList)
                                     {
-                                        dataMappingJsonObject["sourceDataItems"]![dataItemList.IndexOf(sourceDataItemJsonObject)] = sourceDataItemJsonObject;
+                                        dataMappingJsonObject["sourceDataItems"]![sourceDataItemList.IndexOf(sourceDataItemJsonObject)] = sourceDataItemJsonObject;
                                     }
+
+                                    // Target data item
+                                    var jsonNodeTargetDataItem = dataMappingJsonObject["targetDataItem"];
+                                    var jsonObjectTargetDataItem = JsonNode.Parse(jsonNodeTargetDataItem.ToJsonString()).AsObject();
+                                    AddGuid(jsonObjectTargetDataItem, dataItemGuids, "name");
+                                    dataMappingJsonObject["targetDataItem"] = jsonObjectTargetDataItem;
 
                                     dataItemMappingList.Add(dataMappingJsonObject);
                                 }
@@ -518,6 +524,11 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
                             // Ensure each item has a GUID
                             AddGuid(businessKeyComponentMappingJsonObject, businessKeyDefinitionGuids);
+
+                            // Ensdure that each business key definition has a name.
+                            var businessKeyDefinitionName = $"{jsonObjectDataObjectMapping["name"]} for {businessKeyComponentMappingJsonObject["surrogateKey"]}";
+
+                            businessKeyComponentMappingJsonObject.Add("name", businessKeyDefinitionName);
 
                             foreach (var dataItemMappingJsonObject in dataItemMappingList)
                             {
@@ -532,8 +543,6 @@ if (!string.IsNullOrEmpty(jsonSchema))
                         {
                             jsonObjectDataObjectMapping["businessKeyDefinitions"]![businessKeyDefinitions.IndexOf(businessKeyComponent)] = businessKeyComponent;
                         }
-
-
                     }
                 }
                 catch (Exception ex)
@@ -627,8 +636,6 @@ if (!string.IsNullOrEmpty(jsonSchema))
                 AddGuid(jsonObjectDataObjectMapping, dataObjectMappingGuids, "name");
 
                 dataObjectMappingJsonArray.Add(jsonObjectDataObjectMapping);
-
-
             }
 
             // Put the data object mappings back into the main object.
@@ -657,7 +664,7 @@ if (!string.IsNullOrEmpty(jsonSchema))
             }
             finally
             {
-
+                // To do.
             }
 
             // Save the file to disk.
