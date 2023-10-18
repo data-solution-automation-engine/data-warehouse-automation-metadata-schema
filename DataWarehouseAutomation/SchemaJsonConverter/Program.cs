@@ -175,10 +175,11 @@ if (!string.IsNullOrEmpty(jsonSchema))
                         var getSourceDataObjectName = dataObjectJsonObject.TryGetPropertyValue("name", out var sourceDataObjectNameJsonNode).ToString();
 
                         // Add the mapping name as a 'name' to the list of mappings, only once.
-                        if (jsonObject["dataObjectMappings"].AsArray().IndexOf(dataObjectMapping) == 0)
-                        {
-                            jsonObjectDataObjectMapping["name"] = sourceDataObjectNameJsonNode.ToString() + " to " + mappingNameJsonNode.ToString();
-                        }
+                        //if (jsonObject["dataObjectMappings"].AsArray().IndexOf(dataObjectMapping) == 0)
+                        //{
+                            var tempMappingName = sourceDataObjectNameJsonNode.ToString() + " to " + mappingNameJsonNode.ToString();
+                            jsonObjectDataObjectMapping["name"] = tempMappingName;
+                        //}
 
                         // Data Items.
                         var dataItems = new List<JsonObject>();
@@ -781,6 +782,7 @@ void UpdateClassifications(JsonObject jsonObject, Dictionary<string, Guid> objec
                     "Context" => "Logical",
                     "Persistent Staging" => "Solution Layer",
                     "PersistentStaging" => "Solution Layer",
+                    "PersistentStagingArea" => "Solution Layer",
                     "Staging" => "Solution Layer",
                     "StagingArea" => "Solution Layer",
                     "Thing" => "Conceptual",
