@@ -1,6 +1,5 @@
 {
-  "homepages": [],
-  "source_base_path": "D:/Git_Repos/Data-Warehouse-Automation-Metadata-Schema/docs",
+  "source_base_path": "D:/Git_Repos/data-warehouse-automation-metadata-schema/docs",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -427,7 +426,6 @@
       "version": ""
     }
   ],
-  "version_info": {},
   "groups": [
     {
       "xrefmap": "xrefmap.yml"

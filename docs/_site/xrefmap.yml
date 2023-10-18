@@ -65,6 +65,19 @@ references:
   isSpec: "True"
   fullName: DataWarehouseAutomation.BusinessKeyDefinition.Id
   nameWithType: BusinessKeyDefinition.Id
+- uid: DataWarehouseAutomation.BusinessKeyDefinition.Name
+  name: Name
+  href: api/DataWarehouseAutomation.BusinessKeyDefinition.html#DataWarehouseAutomation_BusinessKeyDefinition_Name
+  commentId: P:DataWarehouseAutomation.BusinessKeyDefinition.Name
+  fullName: DataWarehouseAutomation.BusinessKeyDefinition.Name
+  nameWithType: BusinessKeyDefinition.Name
+- uid: DataWarehouseAutomation.BusinessKeyDefinition.Name*
+  name: Name
+  href: api/DataWarehouseAutomation.BusinessKeyDefinition.html#DataWarehouseAutomation_BusinessKeyDefinition_Name_
+  commentId: Overload:DataWarehouseAutomation.BusinessKeyDefinition.Name
+  isSpec: "True"
+  fullName: DataWarehouseAutomation.BusinessKeyDefinition.Name
+  nameWithType: BusinessKeyDefinition.Name
 - uid: DataWarehouseAutomation.BusinessKeyDefinition.Notes
   name: Notes
   href: api/DataWarehouseAutomation.BusinessKeyDefinition.html#DataWarehouseAutomation_BusinessKeyDefinition_Notes

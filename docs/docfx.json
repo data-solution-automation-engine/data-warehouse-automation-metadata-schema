@@ -8,7 +8,11 @@
             "**/DataWarehouseAutomation/DataWarehouseAutomation.csproj"
           ],
           "src": "..",
-          "exclude": [ "**/obj/**", "**/bin/**" ]
+          "exclude": [
+            "**/obj/**",
+            "**/bin/**",
+            "SchemaJsonConvertor/**"
+        ]
         }
       ],
       "dest": "api",
