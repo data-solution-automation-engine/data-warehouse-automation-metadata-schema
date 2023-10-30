@@ -126,14 +126,6 @@ if (!string.IsNullOrEmpty(jsonSchema))
                 jsonObjectDataObjectMapping.Remove("mappingName");
                 jsonObjectDataObjectMapping.Add("name", mappingNameNode);
 
-                var getName = jsonObjectDataObjectMapping.TryGetPropertyValue("name", out var mappingNameJsonNode).ToString();
-
-                // Add the mapping name as a 'name' to the list of mappings, only once.
-                if (jsonObject["dataObjectMappings"].AsArray().IndexOf(dataObjectMapping) == 0)
-                {
-                    jsonObject["name"] = mappingNameJsonNode.ToString();
-                }
-
                 // Rename the mapping classifications.
                 var mappingClassificationsNode = jsonObjectDataObjectMapping["mappingClassifications"];
                 jsonObjectDataObjectMapping.Remove("mappingClassifications");
@@ -141,6 +133,18 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
                 // Update the classifications
                 UpdateClassifications(jsonObjectDataObjectMapping, classificationGuids);
+
+                var getName = jsonObjectDataObjectMapping.TryGetPropertyValue("name", out var mappingNameJsonNode).ToString();
+                var getClassification = jsonObjectDataObjectMapping.TryGetPropertyValue("classifications", out var mappingClassificationJsonNode).ToString();
+
+                var copyOfMappingClassificationNode = JsonNode.Parse(mappingClassificationJsonNode.ToJsonString());
+
+                // Add the mapping name as a 'name', and the classification, to the list of mappings, only once.
+                if (jsonObject["dataObjectMappings"].AsArray().IndexOf(dataObjectMapping) == 0)
+                {
+                    jsonObject["name"] = mappingNameJsonNode.ToString();
+                    jsonObject["classifications"] = copyOfMappingClassificationNode;
+                }
 
                 // Rename the business key definitions.
                 var businessKeyDefinitionsNode = jsonObjectDataObjectMapping["businessKeys"];
@@ -183,23 +187,26 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
                         // Data Items.
                         var dataItems = new List<JsonObject>();
-                        foreach (var dataItem in dataObjectJsonObject["dataItems"].AsArray())
+                        if (dataObjectJsonObject["dataItems"] != null)
                         {
-                            var dataItemJsonObject = JsonNode.Parse(dataItem.ToJsonString()).AsObject();
+                            foreach (var dataItem in dataObjectJsonObject["dataItems"].AsArray())
+                            {
+                                var dataItemJsonObject = JsonNode.Parse(dataItem.ToJsonString()).AsObject();
 
-                            // Type must be first.
-                            dataItemJsonObject.Add("dataItemType", "dataItem");
+                                // Type must be first.
+                                dataItemJsonObject.Add("dataItemType", "dataItem");
 
-                            // Ensure each item has a GUID
-                            AddGuid(dataItemJsonObject, dataItemGuids, "name");
+                                // Ensure each item has a GUID
+                                AddGuid(dataItemJsonObject, dataItemGuids, "name");
 
-                            // Re-add unchanged properties to manage order.
-                            AddUnchangedDataItemProperties(dataItemJsonObject);
+                                // Re-add unchanged properties to manage order.
+                                AddUnchangedDataItemProperties(dataItemJsonObject);
 
-                            // Replace properties with newer names (upgrade).
-                            ReplaceDataObjectProperties(dataItemJsonObject);
+                                // Replace properties with newer names (upgrade).
+                                ReplaceDataObjectProperties(dataItemJsonObject);
 
-                            dataItems.Add(dataItemJsonObject);
+                                dataItems.Add(dataItemJsonObject);
+                            }
                         }
 
                         foreach (var dataItem in dataItems)
@@ -773,6 +780,32 @@ void UpdateClassifications(JsonObject jsonObject, Dictionary<string, Guid> objec
                 var classificationJsonObject = JsonNode.Parse(classification.ToJsonString()).AsObject();
                 var getClassification = classificationJsonObject.TryGetPropertyValue("classification", out var classificationValue).ToString();
 
+                // Rename to phyiscal model object classifications.
+                string newClassificationValue = classificationValue.ToString() switch
+                {
+                    "Source" => "Source",
+                    "Core Business Concept" => "Hub",
+                    "CoreBusinessConcept" => "Hub",
+                    "Context" => "Satellite",
+                    "Natural Business Relationship" => "Link",
+                    "NaturalBusinessRelationship" => "Link",
+                    "Natural Business Relationship Context" => "Link-Satellite",
+                    "NaturalBusinessRelationshipContext" => "Link-Satellite",
+                    "Natural Business Relationship Context Driving Key" => "Link-Satellite Driving Key",
+                    "NaturalBusinessRelationshipContextDrivingKey" => "Link-Satellite Driving Key",
+                    "Person" => "Conceptual",
+                    "Place" => "Conceptual",
+                    "Event" => "Physical",
+                    _ => "Unknown"
+                };
+
+                if (newClassificationValue != "Unknown")
+                {
+                    classificationJsonObject["classification"] = newClassificationValue;
+                    classificationValue = newClassificationValue;
+                }
+
+                // Add a group.
                 string groupValue = classificationValue.ToString() switch
                 {
                     "Source" => "Solution Layer",
