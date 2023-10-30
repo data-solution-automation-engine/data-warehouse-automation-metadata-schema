@@ -8,13 +8,13 @@ Only the *multiActiveKey* and *targetDataItem* properties are currently supporte
 
 ## Usage
 
-```json
+``` handlebars
 {{#exists "<category / json segment>" "<optional value>"}}
 ```
 
 ## Example
 
-```json
+``` handlebars
 {{#exists multiActiveKey}}There is a multi-active key!{{else}}No multi-active key is found in this data object mapping.{{/exists}}
 {{#exists multiActiveKey "DATE_OF_BIRTH"}}There is a multi-active key which is not DATE_OF_BIRTH{{else}}No multi-active key with DATE_OF_BIRTH is found in this data object mapping.{{/exists}}
 {{#exists targetDataItem}}There is a target data item in this mapping!{{else}}No target data items are defined in this mapping.{{/exists}}

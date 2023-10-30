@@ -4,13 +4,13 @@ Space will space out (!?) the name of the input value to 30 characters using tab
 
 ## Usage
 
-```json
+``` handlebars
 {{space "<value>"}}
 ```
 
 ## Example
 
-```json
+``` handlebars
 This is {{space "Hello World"}} ...spaced out.
 ```
 

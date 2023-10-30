@@ -46,9 +46,9 @@ result = template(deserialisedMapping);
 
 // Display the results to the user
 Console.WriteLine(result);
-``````
+```
 
-Validating JSON files against the schema definition
+## Validating JSON files against the schema definition
 
 Examples are provided to validate Json metadata files in order to assert if they comply with the schema definition. These examples are located in the 'test_project' on the Github.
 
@@ -56,13 +56,13 @@ This project is used for regression testing, making sure that the inputs and out
 
 Validating Json files against the generic schema is easy, a method is provided as part of the JsonHandling class included in the DataWarehouseAutomation.dll. Consider the example below, where a filename (including path) for the schema definition as well as a Json file are provided.
 
-```csharp
+``` csharp
 var result = JsonHandling.ValidateJsonFileAgainstSchema(jsonSchema, jsonFile);
 
 var testOutput = result.Valid ? "OK" : "Failed";
 
 Console.Write($"The result for {jsonFile} was {testOutput}.");
-``````
+```
 
 ## Further reading
 

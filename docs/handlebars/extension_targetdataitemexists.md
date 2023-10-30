@@ -8,13 +8,13 @@ This is used in some cases to handle special column names.
 
 ## Usage
 
-```json
+``` handlebars
 {{stringwrap "<character value>"}}
 ```
 
 ## Example
 
-```json
+``` handlebars
 {{#targetDataItemExists "FIRST_NAME"}}FIRST_NAME exists{{else}}FIRST_NAME does not exist{{/targetDataItemExists}}
 ```
 

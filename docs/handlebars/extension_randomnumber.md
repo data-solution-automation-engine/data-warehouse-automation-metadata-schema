@@ -6,13 +6,13 @@ This was originally added to generate test data, and is used for referential-int
 
 ## Usage
 
-```json
+``` handlebars
 {{randomnumber 5}}
 ```
 
 ## Example
 
-```json
+``` handlebars
 And here is a random string: {{randomnumber 5}}.
 ```
 

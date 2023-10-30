@@ -6,13 +6,13 @@ This is often used to generate test data.
 
 ## Usage
 
-```json
+``` handlebars
 {{#replicate 10}}
 ```
 
 ## Example
 
-```json
+``` handlebars
 {{#replicate 3}}
 This value is replicated 3 times!
 {{/replicate}}

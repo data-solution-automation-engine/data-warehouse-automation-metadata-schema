@@ -1,5 +1,7 @@
 # Data Solution Automation Metadata
 
+Welcome to the [documentation of the schema for data solution automation](https://data-solution-automation-engine.github.io/data-warehouse-automation-metadata-schema/).
+
 The **interface for data solution automation metadata** provides an agreed (canonical) format for the exchange of relevant metadata for data solution/warehouse automation. The intent is to define a *sufficiently generic* format, that can be used to record and share information about data solution automation metadata, so that more time can be spent on concepts, patterns, and solution ideas - instead of reinventing the wheel on what exactly is required to automate a data solution.
 
 This in itself aims to facilitate greater interoperability between various data solution / data warehouse automation and data logistics generations approaches and ecosystems.

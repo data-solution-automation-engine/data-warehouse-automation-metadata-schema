@@ -4,13 +4,13 @@ Block helper to evaluate if the input does *not* match a specified string. Also 
 
 ## Usage
 
-```json
+``` handlebars
 {{#stringdiff string1 string2}} do something {{else}} do something else {{/stringdiff}}
 ```
 
 ## Example
 
-```json
+``` handlebars
 A and B {{#stringdiff "A" "B"}}are not the same. {{else}}are the same. {{/stringdiff}}
 ```
 

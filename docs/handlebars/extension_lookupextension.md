@@ -8,13 +8,13 @@ Pass in the extensions list and the string key value.
 
 ## Usage
 
-```json
+``` handlebars
 {{lookupExtension <extension list> "<string value>"}}
 ```
 
 ## Example
 
-```json
+``` handlebars
 The lookup value for the 'type' extension is '{{lookupExtension sourceDataObjects.0.extensions "type"}}'.
 ```
 

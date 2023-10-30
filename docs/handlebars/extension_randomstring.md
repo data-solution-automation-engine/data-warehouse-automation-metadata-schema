@@ -4,13 +4,13 @@ Generate a random string no longer than the provided characters as integer input
 
 ## Usage
 
-```json
+``` handlebars
 {{randomstring 10}}
 ```
 
 ## Example
 
-```json
+``` handlebars
 And here is a random string: {{randomstring 10}}.
 ```
 

@@ -4,13 +4,13 @@ Block helper to evaluate if the input matches a specified string. Also optionall
 
 ## Usage
 
-```json
+``` handlebars
 {{#stringcompare string1 string2}} do something {{else}} do something else {{/stringcompare}}
 ```
 
 ## Example
 
-```json
+``` handlebars
 A and B {{#stringcompare "A" "B"}}are the same. {{else}}are not the same. {{/stringcompare}}
 ```
 
