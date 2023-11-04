@@ -19,11 +19,11 @@ In principle, the schema can be used to generate an entire Data Warehouse, Data 
 
 ## **Schema**
 
-The proposed JSON schema has standard components for table (DataObjects) and column (DataItem) structures that are reused for sources and targets. At the mapping level only the classification, filter and load direction are added, the rest is generic reuse of definitions.
+The JSON schema for data solution automation has standard components for table (DataObjects) and column (DataItem) structures that are reused for sources and targets. At the mapping level only the classification, filter and load direction are added, the rest is generic reuse of definitions.
 
 The schema is available in the GitHub under:  https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface.
 
-The schema definition specifically is located here: [https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface/blob/master/Generic%20interface/interfaceDataWarehouseAutomationMetadata.json](https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface/blob/master/Generic interface/interfaceDataWarehouseAutomationMetadata.json).
+The schema definition itself is located here: [https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/main/GenericInterface/interfaceDataWarehouseAutomationMetadataV2_0.json](https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/main/GenericInterface/interfaceDataWarehouseAutomationMetadataV2_0.json).
 
 It is also referenced in the Class Library.
 
