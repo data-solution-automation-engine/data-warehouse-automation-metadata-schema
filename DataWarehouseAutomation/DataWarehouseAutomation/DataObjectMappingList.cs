@@ -15,4 +15,19 @@ public class DataObjectMappingList
     /// </summary>
     [JsonPropertyName("dataObjectMappings")]
     public List<DataObjectMapping> DataObjectMappings { get; set; } = new();
+
+    /// <summary>
+    /// The name of the Data Object Mapping List. This is typically provided by one of the data object mappings in the list.
+    /// It has been added to allow easy identification of the objects in case a list contains many mappings.
+    /// </summary>
+    [JsonPropertyName("name")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
+    public string? Name { get; set; }
+
+    /// <summary>
+    /// Free-form and optional classification for the mapping for use in data logistics generation logic (evaluation).
+    /// </summary>
+    [JsonPropertyName("classifications")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public List<DataClassification>? Classifications { get; set; }
 }
