@@ -25,9 +25,16 @@ public class DataObjectMappingList
     public string? Name { get; set; }
 
     /// <summary>
-    /// Free-form and optional classification for the mapping for use in data logistics generation logic (evaluation).
+    /// Free-form and optional classification for the mapping for use in data logistics generation logic.
     /// </summary>
     [JsonPropertyName("classifications")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<DataClassification>? Classifications { get; set; }
+
+    /// <summary>
+    /// The collection of extension Key/Value pairs.
+    /// </summary>
+    [JsonPropertyName("extensions")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public List<Extension>? Extensions { get; set; }
 }
