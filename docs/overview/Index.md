@@ -8,10 +8,10 @@ This in itself aims to facilitate greater interoperability between various data 
 
 The schema definition can be directly viewed [here](https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface/blob/master/GenericInterface/interfaceDataWarehouseAutomationMetadata.json), and is part of [this GitHub repository](https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface). The repository contains various supporting components such as:
 
-- A simple Class Library (DLL) that has implemented the schema structure, as well as a validation function to test JSON files / messages against the schema
-- Starter documentation.
-- A sample implementation that generates code using [Handlebars.Net](http://roelantvos.com/blog/using-handlebars-to-generate-data-vault-hub-load-processes/). The example that uses the Handlebars generates code using a sample JSON file that conforms to the interface schema.
-- A simple regression test application that demonstrates different usages of the schema.
+* A simple Class Library (DLL) that has implemented the schema structure, as well as a validation function to test JSON files / messages against the schema
+* Starter documentation.
+* A sample implementation that generates code using [Handlebars.Net](http://roelantvos.com/blog/using-handlebars-to-generate-data-vault-hub-load-processes/). The example that uses the Handlebars generates code using a sample JSON file that conforms to the interface schema.
+* A simple regression test application that demonstrates different usages of the schema.
 
 The schema is and examples are validated / extended using <https://www.jsonschemavalidator.net/>. Standards are followed from [json-schema.org](http://json-schema.org/).  Also see [some miscellaneous examples](http://json-schema.org/learn/miscellaneous-examples.html).
 

@@ -1187,6 +1187,19 @@ references:
   commentId: T:DataWarehouseAutomation.DataObjectMappingList
   fullName: DataWarehouseAutomation.DataObjectMappingList
   nameWithType: DataObjectMappingList
+- uid: DataWarehouseAutomation.DataObjectMappingList.Classifications
+  name: Classifications
+  href: api/DataWarehouseAutomation.DataObjectMappingList.html#DataWarehouseAutomation_DataObjectMappingList_Classifications
+  commentId: P:DataWarehouseAutomation.DataObjectMappingList.Classifications
+  fullName: DataWarehouseAutomation.DataObjectMappingList.Classifications
+  nameWithType: DataObjectMappingList.Classifications
+- uid: DataWarehouseAutomation.DataObjectMappingList.Classifications*
+  name: Classifications
+  href: api/DataWarehouseAutomation.DataObjectMappingList.html#DataWarehouseAutomation_DataObjectMappingList_Classifications_
+  commentId: Overload:DataWarehouseAutomation.DataObjectMappingList.Classifications
+  isSpec: "True"
+  fullName: DataWarehouseAutomation.DataObjectMappingList.Classifications
+  nameWithType: DataObjectMappingList.Classifications
 - uid: DataWarehouseAutomation.DataObjectMappingList.DataObjectMappings
   name: DataObjectMappings
   href: api/DataWarehouseAutomation.DataObjectMappingList.html#DataWarehouseAutomation_DataObjectMappingList_DataObjectMappings
@@ -1200,6 +1213,32 @@ references:
   isSpec: "True"
   fullName: DataWarehouseAutomation.DataObjectMappingList.DataObjectMappings
   nameWithType: DataObjectMappingList.DataObjectMappings
+- uid: DataWarehouseAutomation.DataObjectMappingList.Extensions
+  name: Extensions
+  href: api/DataWarehouseAutomation.DataObjectMappingList.html#DataWarehouseAutomation_DataObjectMappingList_Extensions
+  commentId: P:DataWarehouseAutomation.DataObjectMappingList.Extensions
+  fullName: DataWarehouseAutomation.DataObjectMappingList.Extensions
+  nameWithType: DataObjectMappingList.Extensions
+- uid: DataWarehouseAutomation.DataObjectMappingList.Extensions*
+  name: Extensions
+  href: api/DataWarehouseAutomation.DataObjectMappingList.html#DataWarehouseAutomation_DataObjectMappingList_Extensions_
+  commentId: Overload:DataWarehouseAutomation.DataObjectMappingList.Extensions
+  isSpec: "True"
+  fullName: DataWarehouseAutomation.DataObjectMappingList.Extensions
+  nameWithType: DataObjectMappingList.Extensions
+- uid: DataWarehouseAutomation.DataObjectMappingList.Name
+  name: Name
+  href: api/DataWarehouseAutomation.DataObjectMappingList.html#DataWarehouseAutomation_DataObjectMappingList_Name
+  commentId: P:DataWarehouseAutomation.DataObjectMappingList.Name
+  fullName: DataWarehouseAutomation.DataObjectMappingList.Name
+  nameWithType: DataObjectMappingList.Name
+- uid: DataWarehouseAutomation.DataObjectMappingList.Name*
+  name: Name
+  href: api/DataWarehouseAutomation.DataObjectMappingList.html#DataWarehouseAutomation_DataObjectMappingList_Name_
+  commentId: Overload:DataWarehouseAutomation.DataObjectMappingList.Name
+  isSpec: "True"
+  fullName: DataWarehouseAutomation.DataObjectMappingList.Name
+  nameWithType: DataObjectMappingList.Name
 - uid: DataWarehouseAutomation.DataObjectQuery
   name: DataObjectQuery
   href: api/DataWarehouseAutomation.DataObjectQuery.html

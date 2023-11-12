@@ -93,10 +93,10 @@
 <p>The lookupExtension helper allows a lookup of an extension by key value.</p>
 <p>Pass in the extensions list and the string key value.</p>
 <h2 id="usage">Usage</h2>
-<pre><code class="lang-json">{{lookupExtension &lt;extension list&gt; &quot;&lt;string value&gt;&quot;}}
+<pre><code class="lang-handlebars">{{lookupExtension &lt;extension list&gt; &quot;&lt;string value&gt;&quot;}}
 </code></pre>
 <h2 id="example">Example</h2>
-<pre><code class="lang-json">The lookup value for the 'type' extension is '{{lookupExtension sourceDataObjects.0.extensions &quot;type&quot;}}'.
+<pre><code class="lang-handlebars">The lookup value for the 'type' extension is '{{lookupExtension sourceDataObjects.0.extensions &quot;type&quot;}}'.
 </code></pre>
 <p>Depending on the metadata, this may result in:</p>
 <pre><code class="lang-dotnetcli">The lookup value for the 'type' extension is 'procedure'.

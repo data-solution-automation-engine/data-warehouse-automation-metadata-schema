@@ -101,6 +101,33 @@
   &quot;properties&quot;: {
     &quot;dataObjectMappings&quot;: {
       &quot;$ref&quot;: &quot;#/definitions/dataObjectMappings&quot;
+    },
+    &quot;name&quot;: {
+      &quot;$id&quot;: &quot;#/definitions/dataObjectMappings/properties/name&quot;,
+      &quot;title&quot;: &quot;Name&quot;,
+      &quot;description&quot;: &quot;Optional name of the data object mapping list.&quot;,
+      &quot;type&quot;: &quot;string&quot;
+    },
+    &quot;classifications&quot;: {
+      &quot;$id&quot;: &quot;#/definitions/dataObjectMappings/properties/classifications&quot;,
+      &quot;title&quot;: &quot;Classifications&quot;,
+      &quot;description&quot;: &quot;Classification for the data object mapping list.&quot;,
+      &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+      &quot;items&quot;: {
+        &quot;$ref&quot;: &quot;#/definitions/dataClassification&quot;
+      },
+      &quot;minItems&quot;: 0,
+      &quot;uniqueItems&quot;: true
+    },
+    &quot;extensions&quot;: {
+      &quot;$id&quot;: &quot;#/definitions/dataObjectMappings/properties/extensions&quot;,
+      &quot;description&quot;: &quot;Key/Value pair extension object.&quot;,
+      &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+      &quot;items&quot;: {
+        &quot;$ref&quot;: &quot;#/definitions/extension&quot;
+      },
+      &quot;minItems&quot;: 0,
+      &quot;uniqueItems&quot;: true
     }
   },
   &quot;definitions&quot;: {
@@ -523,7 +550,7 @@
       &quot;$id&quot;: &quot;#/definitions/dataConnection&quot;,
       &quot;title&quot;: &quot;Data Connection&quot;,
       &quot;description&quot;: &quot;Connectivity details, that can be used for either a DataObject or DataQuery.&quot;,
-      &quot;required&quot;: [ &quot;dataConnectionString&quot; ],
+      &quot;required&quot;: [ &quot;name&quot; ],
       &quot;type&quot;: [ &quot;object&quot;, &quot;null&quot; ],
       &quot;properties&quot;: {
         &quot;id&quot;: {
@@ -581,9 +608,9 @@
           &quot;description&quot;: &quot;An optional identifier.&quot;,
           &quot;type&quot;: [ &quot;string&quot;, &quot;null&quot; ]
         },
-        &quot;businessKeyComponentMapping&quot;: {
-          &quot;$id&quot;: &quot;#/definitions/businessKeyDefinition/properties/businessKeyComponentMapping&quot;,
-          &quot;title&quot;: &quot;businessKeyComponentMapping&quot;,
+        &quot;businessKeyComponentMappings&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/businessKeyDefinition/properties/businessKeyComponentMappings&quot;,
+          &quot;title&quot;: &quot;businessKeyComponentMappings&quot;,
           &quot;description&quot;: &quot;Items that define the Business Key e.g. the collection of columns for a Business Key.&quot;,
           &quot;type&quot;: &quot;array&quot;,
           &quot;items&quot;: {
@@ -773,7 +800,7 @@
       }
     }
   }
-}
+} 
 </code></pre>
 </article>
 

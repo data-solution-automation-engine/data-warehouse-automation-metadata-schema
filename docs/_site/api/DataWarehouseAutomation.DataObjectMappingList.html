@@ -162,6 +162,40 @@ As an example, consider the loading of a Core Business Concept / Hub type entity
 </h2>
 
 
+  <a id="DataWarehouseAutomation_DataObjectMappingList_Classifications_" data-uid="DataWarehouseAutomation.DataObjectMappingList.Classifications*"></a>
+
+  <h3 id="DataWarehouseAutomation_DataObjectMappingList_Classifications" data-uid="DataWarehouseAutomation.DataObjectMappingList.Classifications">
+  Classifications
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Free-form and optional classification for the mapping for use in data logistics generation logic.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonPropertyName(&quot;classifications&quot;)]
+[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+public List&lt;DataClassification&gt;? Classifications { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="DataWarehouseAutomation.DataClassification.html">DataClassification</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="DataWarehouseAutomation_DataObjectMappingList_DataObjectMappings_" data-uid="DataWarehouseAutomation.DataObjectMappingList.DataObjectMappings*"></a>
 
   <h3 id="DataWarehouseAutomation_DataObjectMappingList_DataObjectMappings" data-uid="DataWarehouseAutomation.DataObjectMappingList.DataObjectMappings">
@@ -185,6 +219,75 @@ public List&lt;DataObjectMapping&gt; DataObjectMappings { get; set; }</code></pr
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="DataWarehouseAutomation.DataObjectMapping.html">DataObjectMapping</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="DataWarehouseAutomation_DataObjectMappingList_Extensions_" data-uid="DataWarehouseAutomation.DataObjectMappingList.Extensions*"></a>
+
+  <h3 id="DataWarehouseAutomation_DataObjectMappingList_Extensions" data-uid="DataWarehouseAutomation.DataObjectMappingList.Extensions">
+  Extensions
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The collection of extension Key/Value pairs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonPropertyName(&quot;extensions&quot;)]
+[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+public List&lt;Extension&gt;? Extensions { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="DataWarehouseAutomation.Extension.html">Extension</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="DataWarehouseAutomation_DataObjectMappingList_Name_" data-uid="DataWarehouseAutomation.DataObjectMappingList.Name*"></a>
+
+  <h3 id="DataWarehouseAutomation_DataObjectMappingList_Name" data-uid="DataWarehouseAutomation.DataObjectMappingList.Name">
+  Name
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The name of the Data Object Mapping List. This is typically provided by one of the data object mappings in the list.
+It has been added to allow easy identification of the objects in case a list contains many mappings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonPropertyName(&quot;name&quot;)]
+[JsonIgnore(Condition = JsonIgnoreCondition.Never)]
+public string? Name { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
 

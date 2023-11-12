@@ -13,6 +13,33 @@
   "properties": {
     "dataObjectMappings": {
       "$ref": "#/definitions/dataObjectMappings"
+    },
+    "name": {
+      "$id": "#/definitions/dataObjectMappings/properties/name",
+      "title": "Name",
+      "description": "Optional name of the data object mapping list.",
+      "type": "string"
+    },
+    "classifications": {
+      "$id": "#/definitions/dataObjectMappings/properties/classifications",
+      "title": "Classifications",
+      "description": "Classification for the data object mapping list.",
+      "type": [ "array", "null" ],
+      "items": {
+        "$ref": "#/definitions/dataClassification"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "extensions": {
+      "$id": "#/definitions/dataObjectMappings/properties/extensions",
+      "description": "Key/Value pair extension object.",
+      "type": [ "array", "null" ],
+      "items": {
+        "$ref": "#/definitions/extension"
+      },
+      "minItems": 0,
+      "uniqueItems": true
     }
   },
   "definitions": {
@@ -435,7 +462,7 @@
       "$id": "#/definitions/dataConnection",
       "title": "Data Connection",
       "description": "Connectivity details, that can be used for either a DataObject or DataQuery.",
-      "required": [ "dataConnectionString" ],
+      "required": [ "name" ],
       "type": [ "object", "null" ],
       "properties": {
         "id": {
@@ -493,9 +520,9 @@
           "description": "An optional identifier.",
           "type": [ "string", "null" ]
         },
-        "businessKeyComponentMapping": {
-          "$id": "#/definitions/businessKeyDefinition/properties/businessKeyComponentMapping",
-          "title": "businessKeyComponentMapping",
+        "businessKeyComponentMappings": {
+          "$id": "#/definitions/businessKeyDefinition/properties/businessKeyComponentMappings",
+          "title": "businessKeyComponentMappings",
           "description": "Items that define the Business Key e.g. the collection of columns for a Business Key.",
           "type": "array",
           "items": {
@@ -685,5 +712,5 @@
       }
     }
   }
-}
+} 
 ```

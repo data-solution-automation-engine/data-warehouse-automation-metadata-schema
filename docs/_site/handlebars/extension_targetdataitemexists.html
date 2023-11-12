@@ -93,10 +93,10 @@
 <p>The helper performs a search in the target data items within a data item mapping, so evaluate if the input value exists there as a data item name.</p>
 <p>This is used in some cases to handle special column names.</p>
 <h2 id="usage">Usage</h2>
-<pre><code class="lang-json">{{stringwrap &quot;&lt;character value&gt;&quot;}}
+<pre><code class="lang-handlebars">{{stringwrap &quot;&lt;character value&gt;&quot;}}
 </code></pre>
 <h2 id="example">Example</h2>
-<pre><code class="lang-json">{{#targetDataItemExists &quot;FIRST_NAME&quot;}}FIRST_NAME exists{{else}}FIRST_NAME does not exist{{/targetDataItemExists}}
+<pre><code class="lang-handlebars">{{#targetDataItemExists &quot;FIRST_NAME&quot;}}FIRST_NAME exists{{else}}FIRST_NAME does not exist{{/targetDataItemExists}}
 </code></pre>
 <p>This results in:</p>
 <pre><code class="lang-dotnetcli">FIRST_NAME exists

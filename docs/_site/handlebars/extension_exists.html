@@ -93,10 +93,10 @@
 <p>The helper can target specific segments in the metadata, and evaluates if either the segment exists at all (without specifying an optional search value) or if the provided optional search value exists in that segment.</p>
 <p>Only the <em>multiActiveKey</em> and <em>targetDataItem</em> properties are currently supported.</p>
 <h2 id="usage">Usage</h2>
-<pre><code class="lang-json">{{#exists &quot;&lt;category / json segment&gt;&quot; &quot;&lt;optional value&gt;&quot;}}
+<pre><code class="lang-handlebars">{{#exists &quot;&lt;category / json segment&gt;&quot; &quot;&lt;optional value&gt;&quot;}}
 </code></pre>
 <h2 id="example">Example</h2>
-<pre><code class="lang-json">{{#exists multiActiveKey}}There is a multi-active key!{{else}}No multi-active key is found in this data object mapping.{{/exists}}
+<pre><code class="lang-handlebars">{{#exists multiActiveKey}}There is a multi-active key!{{else}}No multi-active key is found in this data object mapping.{{/exists}}
 {{#exists multiActiveKey &quot;DATE_OF_BIRTH&quot;}}There is a multi-active key which is not DATE_OF_BIRTH{{else}}No multi-active key with DATE_OF_BIRTH is found in this data object mapping.{{/exists}}
 {{#exists targetDataItem}}There is a target data item in this mapping!{{else}}No target data items are defined in this mapping.{{/exists}}
 </code></pre>
