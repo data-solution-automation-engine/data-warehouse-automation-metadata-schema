@@ -1,0 +1,827 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>JSON Schema Definition | Schema for Data Warehouse Automation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="JSON Schema Definition | Schema for Data Warehouse Automation ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      <meta name="docfx:disabletocfilter" content="true">
+      <meta name="docfx:docurl" content="https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/main/docs/overview/jsonschema.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../." alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="json-schema-definition">JSON Schema Definition</h1>
+
+<pre><code class="lang-json">{
+  &quot;$schema&quot;: &quot;http://json-schema.org/draft-07/schema#&quot;,
+  &quot;$id&quot;: &quot;https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface/GenericInterface/interfaceDataWarehouseAutomationMetadataV2_0.json&quot;,
+  &quot;title&quot;: &quot;Schema for Data Solution code generation.&quot;,
+  &quot;description&quot;: &quot;Standardized format for the required metadata to generate data logistics (ETL) and object creation (DDL) for Data Solutions such as a Data Warehouse or Data Lake. The intent is to separate / decouple how individual software stores Data Warehouse Automation metadata and how this metadata can be exposed to other components, technologies and solutions for data processing and data structure generation.&quot;,
+  &quot;type&quot;: &quot;object&quot;,
+  &quot;required&quot;: [
+    &quot;dataObjectMappings&quot;
+  ],
+  &quot;properties&quot;: {
+    &quot;dataObjectMappings&quot;: {
+      &quot;$ref&quot;: &quot;#/definitions/dataObjectMappings&quot;
+    },
+    &quot;name&quot;: {
+      &quot;$id&quot;: &quot;#/definitions/dataObjectMappings/properties/name&quot;,
+      &quot;title&quot;: &quot;Name&quot;,
+      &quot;description&quot;: &quot;Optional name of the data object mapping list.&quot;,
+      &quot;type&quot;: &quot;string&quot;
+    },
+    &quot;classifications&quot;: {
+      &quot;$id&quot;: &quot;#/definitions/dataObjectMappings/properties/classifications&quot;,
+      &quot;title&quot;: &quot;Classifications&quot;,
+      &quot;description&quot;: &quot;Classification for the data object mapping list.&quot;,
+      &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+      &quot;items&quot;: {
+        &quot;$ref&quot;: &quot;#/definitions/dataClassification&quot;
+      },
+      &quot;minItems&quot;: 0,
+      &quot;uniqueItems&quot;: true
+    },
+    &quot;extensions&quot;: {
+      &quot;$id&quot;: &quot;#/definitions/dataObjectMappings/properties/extensions&quot;,
+      &quot;description&quot;: &quot;Key/Value pair extension object.&quot;,
+      &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+      &quot;items&quot;: {
+        &quot;$ref&quot;: &quot;#/definitions/extension&quot;
+      },
+      &quot;minItems&quot;: 0,
+      &quot;uniqueItems&quot;: true
+    }
+  },
+  &quot;definitions&quot;: {
+    &quot;dataObjectMappings&quot;: {
+      &quot;$id&quot;: &quot;#/definitions/dataObjectMappings&quot;,
+      &quot;title&quot;: &quot;Data Object Mappings&quot;,
+      &quot;description&quot;: &quot;The list (array) of source-to-target mappings between Data Objects. This is the top-level object that contains one or more data object mappings.&quot;,
+      &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+      &quot;items&quot;: {
+        &quot;$ref&quot;: &quot;#/definitions/dataObjectMapping&quot;
+      }
+    },
+    &quot;dataObjectMapping&quot;: {
+      &quot;$id&quot;: &quot;#/definitions/dataObjectMapping&quot;,
+      &quot;title&quot;: &quot;Data Object Mapping.&quot;,
+      &quot;description&quot;: &quot;An individual mapping between a source data object and a target data object.&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;required&quot;: [
+        &quot;name&quot;,
+        &quot;sourceDataObjects&quot;,
+        &quot;targetDataObject&quot;
+      ],
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectMapping/properties/id&quot;,
+          &quot;title&quot;: &quot;Id&quot;,
+          &quot;description&quot;: &quot;An optional unique identifier for a Data Object Mapping.&quot;,
+          &quot;type&quot;: [ &quot;string&quot;, &quot;null&quot; ]
+        },
+        &quot;name&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectMapping/properties/name&quot;,
+          &quot;title&quot;: &quot;Name&quot;,
+          &quot;description&quot;: &quot;Unique name which identifies the mapping.&quot;,
+          &quot;type&quot;: [ &quot;string&quot;, &quot;null&quot; ]
+        },
+        &quot;classifications&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectMapping/properties/classifications&quot;,
+          &quot;title&quot;: &quot;Classifications&quot;,
+          &quot;description&quot;: &quot;Classification for the Data Object Mapping.&quot;,
+          &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/dataClassification&quot;
+          },
+          &quot;minItems&quot;: 0,
+          &quot;uniqueItems&quot;: true
+        },
+        &quot;sourceDataObjects&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectMapping/properties/sourceDataObjects&quot;,
+          &quot;title&quot;: &quot;Source Data Objects&quot;,
+          &quot;description&quot;: &quot;The source object of the mapping. This can either be an object or a query.&quot;,
+          &quot;oneOf&quot;: [
+            {
+              &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+              &quot;items&quot;: {
+                &quot;$ref&quot;: &quot;#/definitions/dataObject&quot;
+              }
+            },
+            {
+              &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+              &quot;items&quot;: {
+                &quot;$ref&quot;: &quot;#/definitions/dataObjectQuery&quot;
+              }
+            }
+          ]
+        },
+        &quot;targetDataObject&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectMapping/properties/targetDataObject&quot;,
+          &quot;title&quot;: &quot;Target Data Object&quot;,
+          &quot;description&quot;: &quot;The target object of the mapping. This is always a Data Object type.&quot;,
+          &quot;$ref&quot;: &quot;#/definitions/dataObject&quot;
+        },
+        &quot;relatedDataObjects&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectMapping/properties/relatedDataObjects&quot;,
+          &quot;title&quot;: &quot;Related Data Objects&quot;,
+          &quot;description&quot;: &quot;The collection of associated data object for purposes other than source-target relationship. For example for lookups, merge joins, lineage.&quot;,
+          &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/dataObject&quot;
+          }
+        },
+        &quot;dataItemMappings&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectMapping/properties/dataItemMappings&quot;,
+          &quot;title&quot;: &quot;Data Item Mappings&quot;,
+          &quot;description&quot;: &quot;The collection of individual attribute (column or query) mappings.&quot;,
+          &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/dataItemMapping&quot;
+          }
+        },
+        &quot;businessKeyDefinitions&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectMapping/properties/businessKeyDefinitions&quot;,
+          &quot;title&quot;: &quot;Business Keys&quot;,
+          &quot;description&quot;: &quot;The definition of the Business Key(s) for the Data Object Mapping.&quot;,
+          &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/businessKeyDefinition&quot;
+          }
+        },
+        &quot;filterCriterion&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectMapping/properties/filterCriterion&quot;,
+          &quot;title&quot;: &quot;Filter Criterion&quot;,
+          &quot;description&quot;: &quot;Any filtering that needs to be applied to the Data Object Mapping.&quot;,
+          &quot;type&quot;: [ &quot;string&quot;, &quot;null&quot; ]
+        },
+        &quot;enabled&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectMapping/properties/enabled&quot;,
+          &quot;title&quot;: &quot;Enabled&quot;,
+          &quot;description&quot;: &quot;An indicator (boolean) which can capture enabling / disabling of (the usage of) an individual source-to-target mapping.&quot;,
+          &quot;type&quot;: [ &quot;boolean&quot;, &quot;null&quot; ]
+        },
+        &quot;extensions&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectMapping/properties/extensions&quot;,
+          &quot;description&quot;: &quot;The collection of extension Key/Value pairs.&quot;,
+          &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/extension&quot;
+          },
+          &quot;minItems&quot;: 0,
+          &quot;uniqueItems&quot;: true
+        },
+        &quot;notes&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectMapping/properties/notes&quot;,
+          &quot;title&quot;: &quot;Notes&quot;,
+          &quot;description&quot;: &quot;Any additional information to be added to the Data Object Mapping.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
+    },
+    &quot;dataClassification&quot;: {
+      &quot;$id&quot;: &quot;#/definitions/classification/properties/dataClassification&quot;,
+      &quot;title&quot;: &quot;Data Classification&quot;,
+      &quot;description&quot;: &quot;Classification for the source-to-target mapping (free form), used to add various tags and notes if required.&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;required&quot;: [ &quot;classification&quot; ],
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/classification/properties/id&quot;,
+          &quot;title&quot;: &quot;Id&quot;,
+          &quot;description&quot;: &quot;An optional unique identifier for the classification, for sorting or identification purposes.&quot;,
+          &quot;type&quot;: [ &quot;string&quot;, &quot;null&quot; ]
+        },
+        &quot;classification&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/classification/properties/classification&quot;,
+          &quot;title&quot;: &quot;Classification&quot;,
+          &quot;description&quot;: &quot;A free-form name that adds documentation / classification to an object.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;notes&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/classification/properties/notes&quot;,
+          &quot;title&quot;: &quot;Notes&quot;,
+          &quot;description&quot;: &quot;Any additional information to be added to the classification.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
+    },
+    &quot;extension&quot;: {
+      &quot;$id&quot;: &quot;#/definitions/extension&quot;,
+      &quot;title&quot;: &quot;Extension&quot;,
+      &quot;description&quot;: &quot;Free-format key/value pair that can be used for additional context.&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;required&quot;: [ &quot;key&quot; ],
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/extension/properties/id&quot;,
+          &quot;title&quot;: &quot;Id&quot;,
+          &quot;description&quot;: &quot;Optional unique identifier for an extension&quot;,
+          &quot;type&quot;: [ &quot;string&quot;, &quot;null&quot; ]
+        },
+        &quot;key&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/extension/properties/key&quot;,
+          &quot;title&quot;: &quot;Key&quot;,
+          &quot;description&quot;: &quot;The Key in a Key/Value pair.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;value&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/extension/properties/value&quot;,
+          &quot;title&quot;: &quot;Value&quot;,
+          &quot;description&quot;: &quot;The Value in a Key/Value pair.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;description&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/extension/properties/notes&quot;,
+          &quot;title&quot;: &quot;Notes&quot;,
+          &quot;description&quot;: &quot;Any additional information.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
+    },
+    &quot;dataObject&quot;: {
+      &quot;title&quot;: &quot;Data Object&quot;,
+      &quot;description&quot;: &quot;The generic table of file definition. Any kind of entity, i.e. data set, query, object, file or table.&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;required&quot;: [
+        &quot;name&quot;
+      ],
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObject/properties/id&quot;,
+          &quot;title&quot;: &quot;Id&quot;,
+          &quot;description&quot;: &quot;Optional unique identifier for a file/table.&quot;,
+          &quot;type&quot;: [ &quot;string&quot;, &quot;null&quot; ]
+        },
+        &quot;name&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObject/properties/name&quot;,
+          &quot;title&quot;: &quot;Name&quot;,
+          &quot;description&quot;: &quot;Mandatory unique name of the file/table.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;dataItems&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObject/properties/dataItems&quot;,
+          &quot;title&quot;: &quot;Data Items&quot;,
+          &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+          &quot;description&quot;: &quot;Collection of dataItems for a table or file. Elements that define the dat set.&quot;,
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/dataItem&quot;
+          }
+        },
+        &quot;dataConnection&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObject/properties/dataConnection&quot;,
+          &quot;title&quot;: &quot;Data Connection&quot;,
+          &quot;type&quot;: [ &quot;object&quot;, &quot;null&quot; ],
+          &quot;description&quot;: &quot;Data Connection&quot;,
+          &quot;$ref&quot;: &quot;#/definitions/dataConnection&quot;
+        },
+        &quot;classifications&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObject/properties/classifications&quot;,
+          &quot;title&quot;: &quot;Classifications&quot;,
+          &quot;description&quot;: &quot;Classification for the Data Object (free form).&quot;,
+          &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/dataClassification&quot;
+          },
+          &quot;minItems&quot;: 0,
+          &quot;uniqueItems&quot;: true
+        },
+        &quot;extensions&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObject/properties/extensions&quot;,
+          &quot;description&quot;: &quot;Key/Value pair extension object.&quot;,
+          &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/extension&quot;
+          },
+          &quot;minItems&quot;: 0,
+          &quot;uniqueItems&quot;: true
+        },
+        &quot;description&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/extension/properties/notes&quot;,
+          &quot;title&quot;: &quot;Notes&quot;,
+          &quot;description&quot;: &quot;Any additional information.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
+    },
+    &quot;dataItemQuery&quot;: {
+      &quot;$id&quot;: &quot;#/definitions/dataItemQuery&quot;,
+      &quot;title&quot;: &quot;Data Item Query&quot;,
+      &quot;description&quot;: &quot;A concise piece of transformation or logic at Data Item level e.g. a query which can act as a source for a dataItem.&quot;,
+      &quot;required&quot;: [ &quot;queryCode&quot; ],
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItemQuery/properties/id&quot;,
+          &quot;title&quot;: &quot;Id&quot;,
+          &quot;description&quot;: &quot;Optional unique identifier for a Data Item Query.&quot;,
+          &quot;type&quot;: [ &quot;string&quot;, &quot;null&quot; ]
+        },
+        &quot;name&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItemQuery/properties/name&quot;,
+          &quot;title&quot;: &quot;Name&quot;,
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;description&quot;: &quot;An optional name for the query&quot;
+        },
+        &quot;queryCode&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItemQuery/properties/queryCode&quot;,
+          &quot;title&quot;: &quot;Query Code&quot;,
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;description&quot;: &quot;The code that constitutes the query.&quot;
+        },
+        &quot;queryLanguage&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItemQuery/properties/queryLanguage&quot;,
+          &quot;title&quot;: &quot;Query Language&quot;,
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;description&quot;: &quot;The language that the code was written in (e.g. SQL).&quot;
+        },
+        &quot;dataType&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItemQuery/properties/dataType&quot;,
+          &quot;title&quot;: &quot;Data type&quot;,
+          &quot;description&quot;: &quot;Data type of the Data Item.&quot;,
+          &quot;type&quot;: [ &quot;string&quot;, &quot;null&quot; ]
+        },
+        &quot;characterLength&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItemQuery/properties/characterLength&quot;,
+          &quot;title&quot;: &quot;Character Length&quot;,
+          &quot;description&quot;: &quot;Optional. Length of the item in case it is text.&quot;,
+          &quot;type&quot;: [ &quot;integer&quot;, &quot;null&quot; ]
+        },
+        &quot;numericPrecision&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItemQuery/properties/numericPrecision&quot;,
+          &quot;title&quot;: &quot;Numeric Precision&quot;,
+          &quot;description&quot;: &quot;The number of digits in a numeric value (number).&quot;,
+          &quot;type&quot;: [ &quot;integer&quot;, &quot;null&quot; ]
+        },
+        &quot;numericScale&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItemQuery/properties/numericScale&quot;,
+          &quot;title&quot;: &quot;Numeric Scale&quot;,
+          &quot;description&quot;: &quot;The number of digits to the right of the decimal point.&quot;,
+          &quot;type&quot;: [ &quot;integer&quot;, &quot;null&quot; ]
+        },
+        &quot;ordinalPosition&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItemQuery/properties/ordinalPosition&quot;,
+          &quot;title&quot;: &quot;Ordinal Position&quot;,
+          &quot;description&quot;: &quot;Optional. The position in the data object.&quot;,
+          &quot;type&quot;: [ &quot;integer&quot;, &quot;null&quot; ]
+        },
+        &quot;isPrimaryKey&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItemQuery/properties/isPrimaryKey&quot;,
+          &quot;title&quot;: &quot;Is Primary Key&quot;,
+          &quot;description&quot;: &quot;Boolean value indicating if the item is a Primary Key.&quot;,
+          &quot;type&quot;: [ &quot;boolean&quot;, &quot;null&quot; ]
+        },
+        &quot;classifications&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItemQuery/properties/classifications&quot;,
+          &quot;title&quot;: &quot;Classifications&quot;,
+          &quot;description&quot;: &quot;Classification for the Data Item Query.&quot;,
+          &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/dataClassification&quot;
+          },
+          &quot;minItems&quot;: 0,
+          &quot;uniqueItems&quot;: true
+        },
+        &quot;extensions&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItemQuery/properties/extensions&quot;,
+          &quot;title&quot;: &quot;Extensions&quot;,
+          &quot;description&quot;: &quot;Key/Value pair extension object.&quot;,
+          &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/extension&quot;
+          },
+          &quot;minItems&quot;: 0,
+          &quot;uniqueItems&quot;: true
+        },
+        &quot;description&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItemQuery/properties/notes&quot;,
+          &quot;title&quot;: &quot;Notes&quot;,
+          &quot;description&quot;: &quot;Any additional information.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
+    },
+    &quot;dataObjectQuery&quot;: {
+      &quot;$id&quot;: &quot;#/definitions/dataObjectQuery&quot;,
+      &quot;title&quot;: &quot;Data Object Query&quot;,
+      &quot;description&quot;: &quot;A concise piece of transformation or logic at Data Object level e.g. a query which can act as a source in a Data Object Mapping.&quot;,
+      &quot;required&quot;: [ &quot;queryCode&quot; ],
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectQuery/properties/id&quot;,
+          &quot;title&quot;: &quot;Id&quot;,
+          &quot;description&quot;: &quot;Optional unique identifier for a Data Object Query&quot;,
+          &quot;type&quot;: [ &quot;string&quot;, &quot;null&quot; ]
+        },
+        &quot;name&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectQuery/properties/name&quot;,
+          &quot;title&quot;: &quot;Name&quot;,
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;description&quot;: &quot;An optional name for the query&quot;
+        },
+        &quot;queryCode&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectQuery/properties/queryCode&quot;,
+          &quot;title&quot;: &quot;Query Code&quot;,
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;description&quot;: &quot;The code that constitutes the query.&quot;
+        },
+        &quot;queryLanguage&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectQuery/properties/queryLanguage&quot;,
+          &quot;title&quot;: &quot;Query Language&quot;,
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;description&quot;: &quot;The language that the code was written in (e.g. SQL).&quot;
+        },
+        &quot;dataConnection&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectQuery/properties/dataConnection&quot;,
+          &quot;title&quot;: &quot;Data Connection&quot;,
+          &quot;type&quot;: [ &quot;object&quot;, &quot;null&quot; ],
+          &quot;description&quot;: &quot;Data Connection&quot;,
+          &quot;$ref&quot;: &quot;#/definitions/dataConnection&quot;
+        },
+        &quot;classifications&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectQuery/properties/classifications&quot;,
+          &quot;title&quot;: &quot;Classifications&quot;,
+          &quot;description&quot;: &quot;Classification for the Data Item Query.&quot;,
+          &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/dataClassification&quot;
+          },
+          &quot;minItems&quot;: 0,
+          &quot;uniqueItems&quot;: true
+        },
+        &quot;extensions&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectQuery/properties/extensions&quot;,
+          &quot;title&quot;: &quot;Extensions&quot;,
+          &quot;description&quot;: &quot;Key/Value pair extension object.&quot;,
+          &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/extension&quot;
+          },
+          &quot;minItems&quot;: 0,
+          &quot;uniqueItems&quot;: true
+        },
+        &quot;description&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataObjectQuery/properties/notes&quot;,
+          &quot;title&quot;: &quot;Notes&quot;,
+          &quot;description&quot;: &quot;Any additional information.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
+    },
+    &quot;dataConnection&quot;: {
+      &quot;$id&quot;: &quot;#/definitions/dataConnection&quot;,
+      &quot;title&quot;: &quot;Data Connection&quot;,
+      &quot;description&quot;: &quot;Connectivity details, that can be used for either a DataObject or DataQuery.&quot;,
+      &quot;required&quot;: [ &quot;name&quot; ],
+      &quot;type&quot;: [ &quot;object&quot;, &quot;null&quot; ],
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataConnection/properties/id&quot;,
+          &quot;title&quot;: &quot;Id&quot;,
+          &quot;description&quot;: &quot;An optional identifier.&quot;,
+          &quot;type&quot;: [ &quot;string&quot;, &quot;null&quot; ]
+        },
+        &quot;name&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataConnection/properties/name&quot;,
+          &quot;title&quot;: &quot;Name&quot;,
+          &quot;type&quot;: [ &quot;string&quot;, &quot;null&quot; ],
+          &quot;description&quot;: &quot;A connection token, key or string&quot;
+        },
+        &quot;classifications&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataConnection/properties/classifications&quot;,
+          &quot;title&quot;: &quot;Classifications&quot;,
+          &quot;description&quot;: &quot;Classification for the Data Item Query.&quot;,
+          &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/dataClassification&quot;
+          },
+          &quot;minItems&quot;: 0,
+          &quot;uniqueItems&quot;: true
+        },
+        &quot;extensions&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataConnection/properties/extensions&quot;,
+          &quot;title&quot;: &quot;Extensions&quot;,
+          &quot;description&quot;: &quot;Key/Value pair extension object.&quot;,
+          &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/extension&quot;
+          },
+          &quot;minItems&quot;: 0,
+          &quot;uniqueItems&quot;: true
+        },
+        &quot;description&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataConnection/properties/notes&quot;,
+          &quot;title&quot;: &quot;Notes&quot;,
+          &quot;description&quot;: &quot;Any additional information.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
+    },
+    &quot;businessKeyDefinition&quot;: {
+      &quot;$id&quot;: &quot;#/definitions/businessKeyDefinition&quot;,
+      &quot;title&quot;: &quot;The definition of the business key&quot;,
+      &quot;description&quot;: &quot;The generic definition of business key.&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;required&quot;: [ &quot;businessKeyComponentMapping&quot; ],
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/businessKeyDefinition/properties/id&quot;,
+          &quot;title&quot;: &quot;Id&quot;,
+          &quot;description&quot;: &quot;An optional identifier.&quot;,
+          &quot;type&quot;: [ &quot;string&quot;, &quot;null&quot; ]
+        },
+        &quot;businessKeyComponentMappings&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/businessKeyDefinition/properties/businessKeyComponentMappings&quot;,
+          &quot;title&quot;: &quot;businessKeyComponentMappings&quot;,
+          &quot;description&quot;: &quot;Items that define the Business Key e.g. the collection of columns for a Business Key.&quot;,
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/dataItemMapping&quot;
+          }
+        },
+        &quot;surrogateKey&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/businessKeyDefinition/properties/surrogateKey&quot;,
+          &quot;title&quot;: &quot;Surrogate Key&quot;,
+          &quot;description&quot;: &quot;An optional label for the end result e.g. the target business key attribute.&quot;,
+          &quot;type&quot;: [ &quot;string&quot;, &quot;null&quot; ]
+        },
+        &quot;classification&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/businessKeyDefinition/properties/classifications&quot;,
+          &quot;title&quot;: &quot;Classifications&quot;,
+          &quot;description&quot;: &quot;Classification for the dataObject (free form).&quot;,
+          &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/dataClassification&quot;
+          },
+          &quot;minItems&quot;: 0,
+          &quot;uniqueItems&quot;: true
+        },
+        &quot;extensions&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/businessKeyDefinition/properties/extensions&quot;,
+          &quot;title&quot;: &quot;Extensions&quot;,
+          &quot;description&quot;: &quot;Key/Value pair extension object.&quot;,
+          &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/extension&quot;
+          },
+          &quot;minItems&quot;: 0,
+          &quot;uniqueItems&quot;: true
+        },
+        &quot;description&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataConnection/properties/notes&quot;,
+          &quot;title&quot;: &quot;Notes&quot;,
+          &quot;description&quot;: &quot;Any additional information.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
+    },
+    &quot;dataItem&quot;: {
+      &quot;$id&quot;: &quot;#/definitions/dataItem&quot;,
+      &quot;title&quot;: &quot;The individual value, query or attribute within a Data Object&quot;,
+      &quot;description&quot;: &quot;The generic definition of a column. A column, attribute or item in a dataObject&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;required&quot;: [ &quot;name&quot; ],
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItem/properties/id&quot;,
+          &quot;title&quot;: &quot;Id&quot;,
+          &quot;description&quot;: &quot;An optional identifier.&quot;,
+          &quot;type&quot;: [ &quot;string&quot;, &quot;null&quot; ]
+        },
+        &quot;name&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItem/properties/name&quot;,
+          &quot;title&quot;: &quot;Name&quot;,
+          &quot;description&quot;: &quot;Unique name which identifies the column / attribute.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;dataObject&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItem/properties/dataObject&quot;,
+          &quot;title&quot;: &quot;Data Object&quot;,
+          &quot;description&quot;: &quot;The data object of the data item, which may be required when the data item is used in a data item mapping context.&quot;,
+          &quot;type&quot;: [ &quot;object&quot;, &quot;null&quot; ],
+          &quot;$ref&quot;: &quot;#/definitions/dataObject&quot;
+        },
+        &quot;dataType&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItem/properties/dataType&quot;,
+          &quot;title&quot;: &quot;Data type&quot;,
+          &quot;description&quot;: &quot;Data type of the Data Item.&quot;,
+          &quot;type&quot;: [ &quot;string&quot;, &quot;null&quot; ]
+        },
+        &quot;characterLength&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItem/properties/characterLength&quot;,
+          &quot;title&quot;: &quot;Character Length&quot;,
+          &quot;description&quot;: &quot;Optional. Length of the item in case it is text.&quot;,
+          &quot;type&quot;: [ &quot;integer&quot;, &quot;null&quot; ]
+        },
+        &quot;numericPrecision&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItem/properties/numericPrecision&quot;,
+          &quot;title&quot;: &quot;Numeric Precision&quot;,
+          &quot;description&quot;: &quot;The number of digits in a numeric value (number).&quot;,
+          &quot;type&quot;: [ &quot;integer&quot;, &quot;null&quot; ]
+        },
+        &quot;numericScale&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItem/properties/numericScale&quot;,
+          &quot;title&quot;: &quot;Numeric Scale&quot;,
+          &quot;description&quot;: &quot;The number of digits to the right of the decimal point.&quot;,
+          &quot;type&quot;: [ &quot;integer&quot;, &quot;null&quot; ]
+        },
+        &quot;ordinalPosition&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItem/properties/ordinalPosition&quot;,
+          &quot;title&quot;: &quot;Ordinal Position&quot;,
+          &quot;description&quot;: &quot;Optional. The position of items in the data object.&quot;,
+          &quot;type&quot;: [ &quot;integer&quot;, &quot;null&quot; ]
+        },
+        &quot;isPrimaryKey&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItem/properties/isPrimaryKey&quot;,
+          &quot;title&quot;: &quot;Is Primary Key&quot;,
+          &quot;description&quot;: &quot;Boolean value indicating if the item is a Primary Key.&quot;,
+          &quot;type&quot;: [ &quot;boolean&quot;, &quot;null&quot; ]
+        },
+        &quot;classifications&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItem/properties/classifications&quot;,
+          &quot;title&quot;: &quot;Classifications&quot;,
+          &quot;description&quot;: &quot;Classification for the dataObject (free form).&quot;,
+          &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/dataClassification&quot;
+          },
+          &quot;minItems&quot;: 0,
+          &quot;uniqueItems&quot;: true
+        },
+        &quot;extensions&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItem/properties/extensions&quot;,
+          &quot;title&quot;: &quot;Extensions&quot;,
+          &quot;description&quot;: &quot;Key/Value pair extension object.&quot;,
+          &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/extension&quot;
+          },
+          &quot;minItems&quot;: 0,
+          &quot;uniqueItems&quot;: true
+        },
+        &quot;description&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItem/properties/notes&quot;,
+          &quot;title&quot;: &quot;Notes&quot;,
+          &quot;description&quot;: &quot;Any additional information.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
+    },
+    &quot;dataItemMapping&quot;: {
+      &quot;$id&quot;: &quot;#/definitions/dataItemMapping&quot;,
+      &quot;title&quot;: &quot;The individual mappings between Data Items&quot;,
+      &quot;description&quot;: &quot;A mapping between a source and a target columns or attributes&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;required&quot;: [
+        &quot;sourceDataItems&quot;,
+        &quot;targetDataItem&quot;
+      ],
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItem/properties/id&quot;,
+          &quot;title&quot;: &quot;Id&quot;,
+          &quot;description&quot;: &quot;An optional identifier.&quot;,
+          &quot;type&quot;: [ &quot;string&quot;, &quot;null&quot; ]
+        },
+        &quot;sourceDataItems&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItemMapping/properties/sourceDataItems&quot;,
+          &quot;title&quot;: &quot;Source Data Items&quot;,
+          &quot;description&quot;: &quot;The source item of the mapping. This can either be an column or a query.&quot;,
+          &quot;oneOf&quot;: [
+            {
+              &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+              &quot;items&quot;: {
+                &quot;$ref&quot;: &quot;#/definitions/dataItem&quot;
+              }
+            },
+            {
+              &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+              &quot;items&quot;: {
+                &quot;$ref&quot;: &quot;#/definitions/dataItemQuery&quot;
+              }
+            }
+          ]
+        },
+        &quot;targetDataItem&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItemMapping/properties/targetDataItem&quot;,
+          &quot;title&quot;: &quot;Target Data Item&quot;,
+          &quot;description&quot;: &quot;The target item of the mapping.&quot;,
+          &quot;$ref&quot;: &quot;#/definitions/dataItem&quot;
+        },
+        &quot;extensions&quot;: {
+          &quot;$id&quot;: &quot;#/definitions/dataItemMapping/properties/extensions&quot;,
+          &quot;title&quot;: &quot;Extensions&quot;,
+          &quot;description&quot;: &quot;Key/Value pair extension object.&quot;,
+          &quot;type&quot;: [ &quot;array&quot;, &quot;null&quot; ],
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/extension&quot;
+          },
+          &quot;minItems&quot;: 0,
+          &quot;uniqueItems&quot;: true
+        }
+      }
+    }
+  }
+} 
+</code></pre>
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Schema for Data Solution Automation</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
