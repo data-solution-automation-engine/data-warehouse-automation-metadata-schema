@@ -1,9 +1,7 @@
-﻿using System.Dynamic;
-using DataWarehouseAutomation;
-using HandlebarsDotNet;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System;
 
-var inputMetadataDirectory = @"D:\Git_Repos\jarvis-TEAM-metadata\Development\TEAM\Metadata";
+var inputMetadataDirectory = @"D:\Git_Repos\Projects\jarvis-TEAM-metadata\Development\TEAM\Metadata";
 var outputMetadataDirectory = @"D:\Git_Repos\";
 
 var exceptionList = new List<string>
@@ -56,18 +54,30 @@ foreach (string file in Directory.EnumerateFiles(inputMetadataDirectory, "*.json
             Console.WriteLine($"Issue: "+exception.Message);
         }
     }
+    else
+    {
+        Console.WriteLine($"Skipping " + Path.GetFileName(file));
+    }
 }
 
-// Export to file
+// Export to file.
 using (StreamWriter writer = new StreamWriter(outputMetadataDirectory+"TEAM-export.csv"))
 {
     foreach (var exportRow in exportOutput)
     {
-        writer.WriteLine($"{exportRow.SourceDataObject},{exportRow.SourceDataItem},{exportRow.TargetDataObject},{exportRow.TargetDataItem}");
+        try
+        {
+            writer.WriteLine($"{exportRow.SourceDataObject},{exportRow.SourceDataItem},{exportRow.TargetDataObject},{exportRow.TargetDataItem}");
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine($"Issue: " + exception.Message);
+        }
     }
 }
 
 // Finish the application.
+Console.WriteLine($"Done, press any key to exit");
 Console.ReadKey();
 
 internal class DataItemMappingTuple
