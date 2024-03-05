@@ -135,6 +135,40 @@ public static class HandleBarsHelpers
             }
         });
 
+        Handlebars.RegisterHelper("stringupper", (writer, context, args) =>
+        {
+            if (args.Length != 1) throw new HandlebarsException("The {{stringupper}} function requires one, and only one, input string value.");
+
+            if (args[0].GetType().Name != "UndefinedBindingResult")
+            {
+                try
+                {
+                    writer.Write(args[0].ToString().ToUpper());
+                }
+                catch (Exception ex)
+                {
+                    writer.WriteSafeString("An issue has been encountered: " + ex.Message + ".");
+                }
+            }
+        });
+
+        Handlebars.RegisterHelper("stringlower", (writer, context, args) =>
+        {
+            if (args.Length != 1) throw new HandlebarsException("The {{stringlower}} function requires one, and only one, input string value.");
+
+            if (args[0].GetType().Name != "UndefinedBindingResult")
+            {
+                try
+                {
+                    writer.Write(args[0].ToString().ToLower());
+                }
+                catch (Exception ex)
+                {
+                    writer.WriteSafeString("An issue has been encountered: " + ex.Message + ".");
+                }
+            }
+        });
+
         // Accept two values, and see if they are the same, use as block helper.
         // Usage {{#stringcompare string1 string2}} do something {{else}} do something else {{/stringcompare}}
         // Usage {{#stringcompare string1 string2}} do something {{/stringcompare}}
