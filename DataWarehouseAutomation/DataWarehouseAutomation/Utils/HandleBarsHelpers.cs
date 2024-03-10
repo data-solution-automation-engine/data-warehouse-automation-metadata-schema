@@ -404,21 +404,28 @@ public static class HandleBarsHelpers
 
             try
             {
-                var test = parameters[0];
+                var classificationsParameter = parameters[0];
 
-                var classifications = JsonSerializer.Deserialize<List<DataClassification>>(parameters[0].ToString() ?? string.Empty);
-                var classificationName = (string)parameters[1];
-                var result = classifications?.Find(i => i.Classification.ToString().Equals(classificationName, StringComparison.OrdinalIgnoreCase)).Classification;
-
-                if (result != null && result !="")
+                if (classificationsParameter.ToString() == "classifications")
                 {
-                    // Regular block, a classification has been found
-                    options.Template(output, context);
+                    // Skip, it's really null.
                 }
                 else
                 {
-                    // Else block, no classification with the input name has been found.
-                    options.Inverse(output, context);
+                    var classifications = JsonSerializer.Deserialize<List<DataClassification>>(classificationsParameter.ToString() ?? string.Empty);
+                    var classificationName = (string)parameters[1];
+                    var result = classifications?.Find(i => i.Classification.ToString().Equals(classificationName, StringComparison.OrdinalIgnoreCase)).Classification;
+
+                    if (result != null && result != "")
+                    {
+                        // Regular block, a classification has been found
+                        options.Template(output, context);
+                    }
+                    else
+                    {
+                        // Else block, no classification with the input name has been found.
+                        options.Inverse(output, context);
+                    }
                 }
             }
             catch (Exception exception)
