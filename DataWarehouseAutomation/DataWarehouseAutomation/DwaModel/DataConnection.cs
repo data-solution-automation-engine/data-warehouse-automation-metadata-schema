@@ -1,4 +1,4 @@
-﻿namespace DataWarehouseAutomation;
+﻿namespace DataWarehouseAutomation.DwaModel;
 
 /// <summary>
 /// Connectivity information, that can be used for either a DataObject or DataObjectQuery.

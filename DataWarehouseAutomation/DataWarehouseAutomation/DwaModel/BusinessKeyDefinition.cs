@@ -1,4 +1,4 @@
-﻿namespace DataWarehouseAutomation;
+﻿namespace DataWarehouseAutomation.DwaModel;
 
 /// <summary>
 /// A Business Key, which consists of one or more components (column mappings) and has its own surrogate key.

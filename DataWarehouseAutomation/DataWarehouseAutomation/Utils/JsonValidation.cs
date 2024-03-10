@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
 
-namespace DataWarehouseAutomation;
+namespace DataWarehouseAutomation.Utils;
 
 public class JsonValidation
 {

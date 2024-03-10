@@ -1,4 +1,4 @@
-﻿namespace DataWarehouseAutomation;
+﻿namespace DataWarehouseAutomation.DwaModel;
 
 /// <summary>
 /// Used to define a list of classifications (labels) and notes to add to various components of the schema definition.

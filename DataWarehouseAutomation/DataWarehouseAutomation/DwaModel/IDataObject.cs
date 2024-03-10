@@ -1,4 +1,4 @@
-﻿namespace DataWarehouseAutomation;
+﻿namespace DataWarehouseAutomation.DwaModel;
 
 /// <summary>
 /// IDataObject can be either a <see cref="DataObject"/> or <see cref="DataObjectQuery"/>.

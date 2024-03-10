@@ -1,4 +1,4 @@
-﻿namespace DataWarehouseAutomation;
+﻿namespace DataWarehouseAutomation.DwaModel;
 
 /// <summary>
 /// IMetadata can be either a <see cref="DataConnection"/>, a <see cref="DataObject"/>, or a <see cref="DataObjectMapping"/>.

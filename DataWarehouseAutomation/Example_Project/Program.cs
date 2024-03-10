@@ -1,9 +1,9 @@
 using System;
 using System.IO;
 using System.Text.Json;
-using DataWarehouseAutomation;
 using HandlebarsDotNet;
 using System.Text.Json.Nodes;
+using DataWarehouseAutomation.Utils;
 
 namespace Example_Handlebars
 {
@@ -31,7 +31,7 @@ namespace Example_Handlebars
             //DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleCalculation.handlebars", sampleMetadataDirectory + @"sampleCalculation.json");
             //Console.Clear();
             //DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleFreeForm.handlebars", sampleMetadataDirectory + @"sampleFreeForm.json");
-            Console.Clear();
+            //Console.Clear();
             DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleCustomFunctions.handlebars", sampleMetadataDirectory + @"sampleCustomFunctions.json");
 
             Console.ReadKey();

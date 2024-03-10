@@ -1,4 +1,6 @@
-﻿namespace DataWarehouseAutomation;
+﻿using DataWarehouseAutomation.Utils;
+
+namespace DataWarehouseAutomation.DwaModel;
 
 /// <summary>
 /// The mapping between a source and target data set / table / file.
@@ -56,6 +58,26 @@ public class DataObjectMapping : IMetadata
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<DataObject>? RelatedDataObjects { get; set; }
 
+    private List<IDataItem> _dataItems = [];
+    /// <summary>
+    /// The collection of Data Items <see cref="IDataItem"/> specifically associated with this Data Object Mapping,
+    /// used as source/target Data Items/Queries for the mapping or the Mappings BKCM as needed.
+    /// </summary>
+    [JsonPropertyName("dataItems")]
+    [JsonPropertyOrder(order: 55)]
+    public List<IDataItem> DataItems
+    {
+        get
+        {
+            return _dataItems;
+        }
+        set
+        {
+            _dataItems = value;
+            isSorted = false;
+        }
+    }
+
     /// <summary>
     /// The collection of individual attribute (column or query) mappings.
     /// </summary>
@@ -97,6 +119,33 @@ public class DataObjectMapping : IMetadata
     [JsonPropertyName("notes")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string? Notes { get; set; }
+    #endregion
+
+    #region Json Representation
+    private bool isSorted = false;
+
+    /// <summary>
+    /// Sort all the lists in the metadata object
+    /// </summary>
+    public void SortLists()
+    {
+        if (!isSorted)
+        {
+            isSorted = true;
+            SourceDataObjects.Sort();
+            RelatedDataObjects.Sort();
+            DataItemMappings.Sort();
+            BusinessKeyDefinitions.Sort();
+            Classifications.Sort();
+            Extensions.Sort();
+        }
+    }
+
+    /// <summary>
+    /// Get the standard Json representation
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.Always)]
+    public string Json => JsonSerializer.Serialize(this, DefaultJsonOptions.SerializerOptions);
     #endregion
 
     #region Methods

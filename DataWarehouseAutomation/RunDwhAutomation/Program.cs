@@ -2,8 +2,8 @@
 using System.IO;
 using HandlebarsDotNet;
 using CommandLine;
-using DataWarehouseAutomation;
 using Newtonsoft.Json.Linq;
+using DataWarehouseAutomation.Utils;
 
 namespace RunDwhAutomation
 {

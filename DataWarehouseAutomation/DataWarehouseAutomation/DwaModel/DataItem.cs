@@ -1,43 +1,51 @@
-﻿namespace DataWarehouseAutomation;
+﻿namespace DataWarehouseAutomation.DwaModel;
 
-public class DataObjectQuery : IDataObject
+public class DataItem : IDataItem
 {
     /// <summary>
-    /// Identifier for the Data Query.
+    /// Identifier as a string value to allow various identifier approaches.
     /// </summary>
     [JsonPropertyName("id")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string? Id { get; set; }
 
-    /// <summary>
-    /// The name for the query.
-    /// </summary>
     [JsonPropertyName("name")]
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public string Name { get; set; } = "NewDataQuery";
+    [JsonIgnore(Condition = JsonIgnoreCondition.Never)]
+    public string Name { get; set; } = "NewDataItem";
 
     /// <summary>
-    /// The actual code that constitutes the query.
+    /// The data object to which the data item belongs. This can be used to construct fully qualified names.
     /// </summary>
-    [JsonPropertyName("queryCode")]
-    public string? QueryCode { get; set; }
-
-    /// <summary>
-    /// The language that the code was written in (e.g. SQL).
-    /// </summary>
-    [JsonPropertyName("queryLanguage")]
+    [JsonPropertyName("dataObject")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public string? QueryLanguage { get; set; }
+    public IDataObject? DataObject { get; set; }
 
-    /// <summary>
-    /// The connection for the query.
-    /// </summary>
-    [JsonPropertyName("dataConnection")]
+    [JsonPropertyName("dataType")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public DataConnection? DataConnection { get; set; }
+    public string? DataType { get; set; }
+
+    [JsonPropertyName("characterLength")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public int? CharacterLength { get; set; }
+
+    [JsonPropertyName("numericPrecision")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public int? NumericPrecision { get; set; }
+
+    [JsonPropertyName("numericScale")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public int? NumericScale { get; set; }
+
+    [JsonPropertyName("ordinalPosition")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public int? OrdinalPosition { get; set; }
+
+    [JsonPropertyName("isPrimaryKey")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public bool? IsPrimaryKey { get; set; }
 
     /// <summary>
-    /// Free-form and optional classification for the Data Query for use in generation logic (evaluation).
+    /// Free-form and optional classification for the Data Item for use in generation logic (evaluation).
     /// </summary>
     [JsonPropertyName("classifications")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
@@ -59,13 +67,13 @@ public class DataObjectQuery : IDataObject
 
     #region Methods
     /// <summary>
-    /// Use this method to assert if two DataObjectQueries are the same, based on their Ids.
+    /// Use this method to assert if two Data Items are the same, based on their Ids.
     /// </summary>
     /// <param name="obj"></param>
-    /// <returns>true if Data Object Queries are the same, based on their Ids</returns>
+    /// <returns>True if the Data Items are the same, based on their Ids</returns>
     public override bool Equals(object? obj)
     {
-        var other = obj as DataObjectQuery;
+        var other = obj as DataItem;
         return other?.Id == Id;
     }
 
@@ -79,7 +87,7 @@ public class DataObjectQuery : IDataObject
     /// String override so that the object returns its value ('name').
     /// When an instance of this class is passed to a method that expects a string, the ToString() method will be called implicitly to convert the object to a string, and the value of the "Name" property will be returned.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>The Name</returns>
     public override string ToString()
     {
         return Name;

@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Nodes;
-using DataWarehouseAutomation;
+using DataWarehouseAutomation.DwaModel;
 
 string jsonSchema = string.Empty;
 

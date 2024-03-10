@@ -1,4 +1,4 @@
-﻿namespace DataWarehouseAutomation;
+﻿namespace DataWarehouseAutomation.DwaModel;
 
 /// <summary>
 /// IDataItem can be either a <see cref="DataItem"/> or <see cref="DataItemQuery"/>.
