@@ -399,14 +399,14 @@ public static class HandleBarsHelpers
             // Check if the parameters are valid.
             if (parameters.Length != 2 || parameters[1] is not string)
             {
-                throw new HandlebarsException("An issues was encountered. The {{hasClassification}} helper expects two arguments: a List<DataClassification> and a string lookup key.");
+                throw new HandlebarsException("An issue was encountered. The {{hasClassification}} helper expects two arguments: a List<DataClassification> and a string lookup key.");
             }
 
             try
             {
                 var classificationsParameter = parameters[0];
 
-                if (classificationsParameter.ToString() == "classifications")
+                if (classificationsParameter == null || classificationsParameter.ToString() == "classifications")
                 {
                     // Skip, it's really null.
                 }
