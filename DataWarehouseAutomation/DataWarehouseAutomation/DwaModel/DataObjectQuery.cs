@@ -36,6 +36,24 @@ public class DataObjectQuery : IDataObject
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public DataConnection? DataConnection { get; set; }
 
+    private List<IDataItem> _dataItems = [];
+    /// <summary>
+    /// The collection of Data Items <see cref="IDataItem"/> associated with this Data Object Query.
+    /// </summary>
+    [JsonPropertyName("dataItems")]
+    [JsonPropertyOrder(order: 40)]
+    public List<IDataItem> DataItems
+    {
+        get
+        {
+            return _dataItems;
+        }
+        set
+        {
+            _dataItems = value;
+        }
+    }
+
     /// <summary>
     /// Free-form and optional classification for the Data Query for use in generation logic (evaluation).
     /// </summary>

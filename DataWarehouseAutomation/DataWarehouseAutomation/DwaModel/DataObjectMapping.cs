@@ -48,7 +48,7 @@ public class DataObjectMapping : IMetadata
     /// The target object of the mapping. This is always a Data Object type.
     /// </summary>
     [JsonPropertyName("targetDataObject")]
-    public DataObject TargetDataObject { get; set; } = new() { Name = "NewTargetDataObject" };
+    public IDataObject TargetDataObject { get; set; } = new DataObject() { Name = "newTargetDataObject" };
 
     /// <summary>
     /// The collection of associated data object for purposes other than source-target relationship.
@@ -56,7 +56,7 @@ public class DataObjectMapping : IMetadata
     /// </summary>
     [JsonPropertyName("relatedDataObjects")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public List<DataObject>? RelatedDataObjects { get; set; }
+    public List<IDataObject>? RelatedDataObjects { get; set; }
 
     private List<IDataItem> _dataItems = [];
     /// <summary>

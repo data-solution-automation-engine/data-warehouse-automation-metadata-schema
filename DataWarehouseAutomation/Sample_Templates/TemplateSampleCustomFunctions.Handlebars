@@ -3,6 +3,8 @@ The name of the dataObjectMapping is '{{dataObjectMappings.0.name}}'
 
 The time is {{now}}.
 
+{{#hasClassification dataObjectMappings.0.classifications "secondClassification"}}Classification 'secondClassification' found.{{else}}Classification 'secondClassification' not found.{{/hasClassification}}
+
 {{#replicate 3}}
 This value is replicated 3 times!
 {{/replicate}}
@@ -28,15 +30,18 @@ This adds brackets around the string value: {{stringwrap "Example" "[" "]"}}
 {{!-- Demonstrating the array lookup --}}
 {{#each dataObjectMappings}}
 Working on mapping {{name}}
+
 {{#each dataItemMappings}}
 Found a data item mapping from {{sourceDataItems.0.name}} to {{targetDataItem.name}}
+
+{{targetDataItem.classifications.0.classification}}
+{{#hasClassification targetDataItem.classifications "multiActiveKey"}}Classification 'multiActiveKey' found.{{else}}Classification 'multiActiveKey' not found.{{/hasClassification}}
+
 {{/each}}
 
 {{#exists multiActiveKey}}There is a multi-active key!{{else}}No multi-active key is found in this data object mapping.{{/exists}}
 {{#exists multiActiveKey "DATE_OF_BIRTH"}}There is a multi-active key which is not DATE_OF_BIRTH{{else}}No multi-active key with DATE_OF_BIRTH is found in this data object mapping.{{/exists}}
 {{#exists targetDataItem}}There is a target data item in this mapping!{{else}}No target data items are defined in this mapping.{{/exists}}
-
-{{#hasClassification ./targetDataItem.classifications "multiActiveKey"}}There is a classification called multiActiveKey{{/hasClassification}}
 
 {{#targetDataItemExists "FIRST_NAME"}}FIRST_NAME exists{{else}}FIRST_NAME does not exist{{/targetDataItemExists}}
 {{#targetDataItemExists "NAME"}}NAME exists{{else}}NAME does not exist{{/targetDataItemExists}}

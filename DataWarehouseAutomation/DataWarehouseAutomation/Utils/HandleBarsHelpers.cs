@@ -1,4 +1,5 @@
 ﻿using DataWarehouseAutomation.DwaModel;
+using HandlebarsDotNet;
 
 namespace DataWarehouseAutomation.Utils;
 
@@ -328,7 +329,8 @@ public static class HandleBarsHelpers
 
             try
             {
-                DataObjectMapping dataObjectMapping = JsonSerializer.Deserialize<DataObjectMapping>(context.Value.ToString());
+                
+                var dataObjectMapping = JsonSerializer.Deserialize<DataObjectMapping>(context.Value.ToString(), DefaultJsonOptions.DeserializerOptions);
 
                 var outcome = false;
 
@@ -391,7 +393,41 @@ public static class HandleBarsHelpers
             }
         });
 
-        // lookupExtension allows a lookup of an extension value by key value. Pass in the Extensions list and the string key value.
+        // Block helper that evalues is a certain classification exists in the list of classifications.
+        Handlebars.RegisterHelper("hasClassification", (output, options, context, parameters) =>
+        {
+            // Check if the parameters are valid.
+            if (parameters.Length != 2 || parameters[1] is not string)
+            {
+                throw new HandlebarsException("{{hasClassification}} helper expects two arguments: a List<DataClassification> and a string lookup key");
+            }
+
+            try
+            {
+                var test = parameters[0];
+
+                var classifications = JsonSerializer.Deserialize<List<DataClassification>>(parameters[0].ToString() ?? string.Empty);
+                var classificationName = (string)parameters[1];
+                var result = classifications?.Find(i => i.Classification.ToString().Equals(classificationName, StringComparison.OrdinalIgnoreCase)).Classification;
+
+                if (result != null && result !="")
+                {
+                    // Regular block, a classification has been found
+                    options.Template(output, context);
+                }
+                else
+                {
+                    // Else block, no classification with the input name has been found.
+                    options.Inverse(output, context);
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new HandlebarsException($"{{hasClassification}} encountered an error: the list of classifications provided as the first argument could not be deserialized. The reported error is :{exception.Message}");
+            }
+        });
+
+        // lookupExtension allows a lookup of an extension value by key. Pass in the Extensions list and the string key value as parameters.
         Handlebars.RegisterHelper("lookupExtension", (writer, context, parameters) =>
         {
             // Check if the parameters are valid.
@@ -412,29 +448,6 @@ public static class HandleBarsHelpers
             catch (Exception exception)
             {
                 throw new HandlebarsException($"{{lookupExtension}} encountered an error: the list of extensions provided as the first argument could not be deserialized. The reported error is :{exception.Message}");
-            }
-        });
-
-
-        Handlebars.RegisterHelper("hasClassification", (writer, context, parameters) =>
-        {
-            // Check if the parameters are valid.
-            if (parameters.Length != 2 || parameters[1] is not string)
-            {
-                throw new HandlebarsException("{{hasClassification}} helper expects two arguments: a List<DataClassification> and a string lookup key");
-            }
-
-            try
-            {
-                var classifictions = JsonSerializer.Deserialize<List<DataClassification>>(parameters[0].ToString() ?? string.Empty);
-                var classificationName = (string)parameters[1];
-                var result = classifictions?.Find(i => i.Classification.ToString().Equals(classificationName, StringComparison.OrdinalIgnoreCase)).Classification ?? "";
-
-                writer.WriteSafeString($"{result}");
-            }
-            catch (Exception exception)
-            {
-                throw new HandlebarsException($"{{hasClassification}} encountered an error: the list of classifications provided as the first argument could not be deserialized. The reported error is :{exception.Message}");
             }
         });
     }

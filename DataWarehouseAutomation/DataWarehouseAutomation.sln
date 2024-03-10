@@ -52,7 +52,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunDwhAutomation", "RunDwhA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchemaJsonConverter", "SchemaJsonConverter\SchemaJsonConverter.csproj", "{07214B80-37A9-4137-B0F3-109FA0D0926A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Export", "Export\Export.csproj", "{555AD192-6E8B-49DD-B60C-2E2CC41C0FA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Export", "Export\Export.csproj", "{555AD192-6E8B-49DD-B60C-2E2CC41C0FA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
