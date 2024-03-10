@@ -399,7 +399,7 @@ public static class HandleBarsHelpers
             // Check if the parameters are valid.
             if (parameters.Length != 2 || parameters[1] is not string)
             {
-                throw new HandlebarsException("{{hasClassification}} helper expects two arguments: a List<DataClassification> and a string lookup key");
+                throw new HandlebarsException("An issues was encountered. The {{hasClassification}} helper expects two arguments: a List<DataClassification> and a string lookup key.");
             }
 
             try
@@ -430,7 +430,7 @@ public static class HandleBarsHelpers
             }
             catch (Exception exception)
             {
-                throw new HandlebarsException($"{{hasClassification}} encountered an error: the list of classifications provided as the first argument could not be deserialized. The reported error is :{exception.Message}");
+                throw new HandlebarsException($"The {{hasClassification}} function encountered an error: the list of classifications provided as the first argument could not be deserialized. The reported error is :{exception.Message}");
             }
         });
 
@@ -440,7 +440,7 @@ public static class HandleBarsHelpers
             // Check if the parameters are valid.
             if (parameters.Length != 2 || parameters[1] is not string)
             {
-                throw new HandlebarsException("{{lookupExtension}} helper expects two arguments: a List<Extension> and a string lookup key");
+                throw new HandlebarsException("The {{lookupExtension}} helper expects two arguments: a List<Extension> and a string lookup key");
             }
 
             try
