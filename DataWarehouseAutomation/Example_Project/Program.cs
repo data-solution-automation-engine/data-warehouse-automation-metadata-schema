@@ -17,21 +17,13 @@ namespace Example_Handlebars
             var sampleMetadataDirectory = AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\..\Sample_Metadata\";
 
             DisplayPatternResult(sampleTemplateDirectory + @"myFirstTemplate.handlebars", sampleMetadataDirectory + @"myFirstMapping.json");
-            Console.Clear();
             DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleBasic.handlebars", sampleMetadataDirectory + @"sampleBasic.json");
-            Console.Clear();
             DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleBasicWithExtensions.handlebars", sampleMetadataDirectory + @"sampleBasicWithExtensions.json");
-            Console.Clear();
             DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleMultipleDataItemMappings.handlebars", sampleMetadataDirectory + @"sampleMultipleDataItemMappings.json");
-            Console.Clear();
             DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleSourceQuery.handlebars", sampleMetadataDirectory + @"sampleSourceQuery.json");
-            Console.Clear();
             DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleSimpleDDL.handlebars", sampleMetadataDirectory + @"sampleSimpleDDL.json");
-            Console.Clear();
             DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleCalculation.handlebars", sampleMetadataDirectory + @"sampleCalculation.json");
-            Console.Clear();
-            DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleFreeForm.handlebars", sampleMetadataDirectory + @"sampleFreeForm.json");
-            Console.Clear();
+            DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleFreeForm.handlebars", sampleMetadataDirectory + @"sampleFreeForm.json");            
             DisplayPatternResult(sampleTemplateDirectory + @"TemplateSampleCustomFunctions.handlebars", sampleMetadataDirectory + @"sampleCustomFunctions.json");
 
             Console.ReadKey();
@@ -41,6 +33,8 @@ namespace Example_Handlebars
         {
             try
             {
+                Console.Clear();
+
                 // Fetch and compile the template
                 string stringTemplate = File.ReadAllText(patternFile);
                 var template = Handlebars.Compile(stringTemplate);
