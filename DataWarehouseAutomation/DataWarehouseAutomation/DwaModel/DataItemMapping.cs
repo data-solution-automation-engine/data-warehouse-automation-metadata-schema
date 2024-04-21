@@ -1,4 +1,4 @@
-﻿namespace DataWarehouseAutomation;
+﻿namespace DataWarehouseAutomation.DwaModel;
 
 /// <summary>
 /// The individual column-to-column mapping.
@@ -16,7 +16,7 @@ public class DataItemMapping
     public List<IDataItem> SourceDataItems { get; set; } = new();
 
     [JsonPropertyName("targetDataItem")]
-    public DataItem TargetDataItem { get; set; } = new() { Name = "NewTargetDataItem" };
+    public IDataItem TargetDataItem { get; set; } = new DataItem() { Name = "newTargetDataItem" };
 
     /// <summary>
     /// The collection of extension Key/Value pairs.

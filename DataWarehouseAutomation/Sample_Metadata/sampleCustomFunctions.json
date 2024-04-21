@@ -19,6 +19,7 @@
         }
       ],
       "targetDataObject": {
+        "dataObjectType": "dataObject",
         "name": "ExampleTargetDataObject"
       },
       "dataItemMappings": [
@@ -30,6 +31,7 @@
             }
           ],
           "targetDataItem": {
+            "dataItemType": "dataItem",
             "name": "FIRST_NAME"
           }
         },
@@ -41,6 +43,7 @@
             }
           ],
           "targetDataItem": {
+            "dataItemType": "dataItem",
             "name": "LAST_NAME"
           }
         },
@@ -52,6 +55,7 @@
             }
           ],
           "targetDataItem": {
+            "dataItemType": "dataItem",
             "name": "DATE_OF_BIRTH",
             "classifications": [
               {
@@ -94,6 +98,14 @@
         {
           "key": "second key",
           "value": "second value"
+        }
+      ],
+      "classifications": [
+        {
+          "classification": "firstClassification"
+        },
+        {
+          "classification": "secondClassification"
         }
       ]
     }

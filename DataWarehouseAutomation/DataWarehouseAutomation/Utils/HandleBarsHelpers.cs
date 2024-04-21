@@ -1,4 +1,7 @@
-﻿namespace DataWarehouseAutomation;
+﻿using DataWarehouseAutomation.DwaModel;
+using HandlebarsDotNet;
+
+namespace DataWarehouseAutomation.Utils;
 
 public static class HandleBarsHelpers
 {
@@ -59,7 +62,7 @@ public static class HandleBarsHelpers
 
             if (arguments.Length == 1)
             {
-                bool evaluationResult = Int32.TryParse(arguments[0].ToString(), out var localInteger);
+                bool evaluationResult = int.TryParse(arguments[0].ToString(), out var localInteger);
                 if (evaluationResult == false)
                 {
                     throw new HandlebarsException($"The {{randomdate}} functions failed because {arguments[0]} could not be converted to an integer.");
@@ -79,7 +82,7 @@ public static class HandleBarsHelpers
 
             if (arguments.Length == 1)
             {
-                bool evaluationResult = Int32.TryParse(arguments[0].ToString(), out var localInteger);
+                bool evaluationResult = int.TryParse(arguments[0].ToString(), out var localInteger);
                 if (evaluationResult == false)
                 {
                     throw new HandlebarsException($"The {{randomnumber}} functions failed because {arguments[0]} could not be converted to an integer.");
@@ -98,7 +101,7 @@ public static class HandleBarsHelpers
 
             if (arguments.Length == 1)
             {
-                bool evaluationResult = Int32.TryParse(arguments[0].ToString(), out var localInteger);
+                bool evaluationResult = int.TryParse(arguments[0].ToString(), out var localInteger);
 
                 if (evaluationResult == false)
                 {
@@ -218,7 +221,7 @@ public static class HandleBarsHelpers
 
             if (arguments.Length == 1)
             {
-                bool evaluationResult = Int32.TryParse(arguments[0].ToString(), out var localInteger);
+                bool evaluationResult = int.TryParse(arguments[0].ToString(), out var localInteger);
 
                 if (evaluationResult == false)
                 {
@@ -260,7 +263,7 @@ public static class HandleBarsHelpers
                 {
                     var expression = args[0];
 
-                    if (!String.IsNullOrEmpty(expression.ToString()) && args[0] is JsonElement value)
+                    if (!string.IsNullOrEmpty(expression.ToString()) && args[0] is JsonElement value)
                     {
                         expression = value.GetString();
                     }
@@ -314,7 +317,7 @@ public static class HandleBarsHelpers
 
             var property = arguments[0] == null ? "" : arguments[0].ToString();
 
-            var propertyValue = String.Empty;
+            var propertyValue = string.Empty;
             if (arguments.Length == 2)
             {
                 propertyValue = arguments[1]?.ToString();
@@ -326,14 +329,15 @@ public static class HandleBarsHelpers
 
             try
             {
-                DataObjectMapping dataObjectMapping = JsonSerializer.Deserialize<DataObjectMapping>(context.Value.ToString());
+                
+                var dataObjectMapping = JsonSerializer.Deserialize<DataObjectMapping>(context.Value.ToString(), DefaultJsonOptions.DeserializerOptions);
 
                 var outcome = false;
 
                 if (property == "multiActiveKey")
                 {
                     var targetDataItemsWithClassifications = new List<DataItemMapping>();
-                    if (String.IsNullOrEmpty(propertyValue))
+                    if (string.IsNullOrEmpty(propertyValue))
                     {
                         targetDataItemsWithClassifications = dataObjectMapping?.DataItemMappings?.Where(x => x.TargetDataItem.Classifications != null).ToList();
                     }
@@ -389,13 +393,54 @@ public static class HandleBarsHelpers
             }
         });
 
-        // lookupExtension allows a lookup of an extension value by key value. Pass in the Extensions list and the string key value.
+        // Block helper that evalues is a certain classification exists in the list of classifications.
+        Handlebars.RegisterHelper("hasClassification", (output, options, context, parameters) =>
+        {
+            // Check if the parameters are valid.
+            if (parameters.Length != 2 || parameters[1] is not string)
+            {
+                throw new HandlebarsException("An issue was encountered. The {{hasClassification}} helper expects two arguments: a List<DataClassification> and a string lookup key.");
+            }
+
+            try
+            {
+                var classificationsParameter = parameters[0];
+
+                if (classificationsParameter == null || classificationsParameter.ToString() == "classifications")
+                {
+                    // Skip, it's really null.
+                }
+                else
+                {
+                    var classifications = JsonSerializer.Deserialize<List<DataClassification>>(classificationsParameter.ToString() ?? string.Empty);
+                    var classificationName = (string)parameters[1];
+                    var result = classifications?.Find(i => i.Classification.ToString().Equals(classificationName, StringComparison.OrdinalIgnoreCase)).Classification;
+
+                    if (result != null && result != "")
+                    {
+                        // Regular block, a classification has been found
+                        options.Template(output, context);
+                    }
+                    else
+                    {
+                        // Else block, no classification with the input name has been found.
+                        options.Inverse(output, context);
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new HandlebarsException($"The {{hasClassification}} function encountered an error: the list of classifications provided as the first argument could not be deserialized. The reported error is :{exception.Message}");
+            }
+        });
+
+        // lookupExtension allows a lookup of an extension value by key. Pass in the Extensions list and the string key value as parameters.
         Handlebars.RegisterHelper("lookupExtension", (writer, context, parameters) =>
         {
             // Check if the parameters are valid.
             if (parameters.Length != 2 || parameters[1] is not string)
             {
-                throw new HandlebarsException("{{lookupExtension}} helper expects two arguments: a List<Extension> and a string lookup key");
+                throw new HandlebarsException("The {{lookupExtension}} helper expects two arguments: a List<Extension> and a string lookup key");
             }
 
             try
