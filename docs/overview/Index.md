@@ -10,10 +10,10 @@ The schema definition can be directly viewed [here](https://github.com/RoelantVo
 
 * A simple Class Library (DLL) that has implemented the schema structure, as well as a validation function to test JSON files / messages against the schema
 * Starter documentation.
-* A sample implementation that generates code using [Handlebars.Net](http://roelantvos.com/blog/using-handlebars-to-generate-data-vault-hub-load-processes/). The example that uses the Handlebars generates code using a sample JSON file that conforms to the interface schema.
+* A sample implementation that generates code using [Handlebars.Net](https://roelantvos.com/blog/using-handlebars-to-generate-data-vault-hub-load-processes/). The example that uses the Handlebars generates code using a sample JSON file that conforms to the interface schema.
 * A simple regression test application that demonstrates different usages of the schema.
 
-The schema is and examples are validated / extended using [https://www.jsonschemavalidator.net/](https://www.jsonschemavalidator.net/). Standards are followed from [json-schema.org](http://json-schema.org/).  Also see [some miscellaneous examples](http://json-schema.org/learn/miscellaneous-examples.html).
+The schema is and examples are validated / extended using [https://www.jsonschemavalidator.net/](https://www.jsonschemavalidator.net/). Standards are followed from [json-schema.org](https://json-schema.org/).  Also see [some miscellaneous examples](https://json-schema.org/learn/miscellaneous-examples.html).
 
 In principle, the schema can be used to generate an entire Data Warehouse, Data Lake and equivalent and/or similar.
 
@@ -38,7 +38,7 @@ At a high level there are two elements that form the core of a Data Object Mappi
 * Data Object, which defines the source and target of the Data Object Mapping. A Data Object can optionally have a connection defined as a string or token, and can be a query, file or table.
 * Data Item, which belong to a Data Object and represents an individual column or calculation (query) in a Data Object Mapping.
 
-![img](http://roelantvos.com/blog/wp-content/uploads/2020/01/DataObject-3-1024x466.png)
+![img](https://roelantvos.com/blog/wp-content/uploads/2020/01/DataObject-3-1024x466.png)
 
 ## Mapping metadata
 
@@ -56,7 +56,7 @@ It is possible to add a specific class to a Data Object Mapping: the Business Ke
 
 By combining this, the Data Object Mapping looks as follows at a high level:
 
-![img](http://roelantvos.com/blog/wp-content/uploads/2020/01/DataObjectMapping-1024x453.png)
+![img](https://roelantvos.com/blog/wp-content/uploads/2020/01/DataObjectMapping-1024x453.png)
 
 ## Mapping collections
 
