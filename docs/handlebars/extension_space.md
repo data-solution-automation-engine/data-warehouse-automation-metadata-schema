@@ -4,18 +4,18 @@ Space will space out (!?) the name of the input value to 30 characters using tab
 
 ## Usage
 
-``` handlebars
+```handlebars
 {{space "<value>"}}
 ```
 
 ## Example
 
-``` handlebars
+```handlebars
 This is {{space "Hello World"}} ...spaced out.
 ```
 
 This results in:
 
-```dotnetcli
+```text
 This is Hello World                                              ...spaced out.
 ```

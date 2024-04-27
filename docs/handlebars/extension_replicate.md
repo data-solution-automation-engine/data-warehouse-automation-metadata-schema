@@ -6,13 +6,13 @@ This is often used to generate test data.
 
 ## Usage
 
-``` handlebars
+```handlebars
 {{#replicate 10}}
 ```
 
 ## Example
 
-``` handlebars
+```handlebars
 {{#replicate 3}}
 This value is replicated 3 times!
 {{/replicate}}
@@ -20,7 +20,7 @@ This value is replicated 3 times!
 
 This returns:
 
-```dotnetcli
+```text
 This value is replicated 3 times!
 This value is replicated 3 times!
 This value is replicated 3 times!

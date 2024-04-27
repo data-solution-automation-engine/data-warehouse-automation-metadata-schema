@@ -8,18 +8,18 @@ This is used in some cases to handle special column names.
 
 ## Usage
 
-``` handlebars
+```handlebars
 {{stringwrap "<character value>"}}
 ```
 
 ## Example
 
-``` handlebars
+```handlebars
 {{#targetDataItemExists "FIRST_NAME"}}FIRST_NAME exists{{else}}FIRST_NAME does not exist{{/targetDataItemExists}}
 ```
 
 This results in:
 
-```dotnetcli
+```text
 FIRST_NAME exists
 ```
