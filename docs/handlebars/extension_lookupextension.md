@@ -8,18 +8,18 @@ Pass in the extensions list and the string key value.
 
 ## Usage
 
-``` handlebars
+```handlebars
 {{lookupExtension <extension list> "<string value>"}}
 ```
 
 ## Example
 
-``` handlebars
+```handlebars
 The lookup value for the 'type' extension is '{{lookupExtension sourceDataObjects.0.extensions "type"}}'.
 ```
 
 Depending on the metadata, this may result in:
 
-```dotnetcli
+```text
 The lookup value for the 'type' extension is 'procedure'.
 ```

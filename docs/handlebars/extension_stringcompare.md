@@ -4,18 +4,18 @@ Block helper to evaluate if the input matches a specified string. Also optionall
 
 ## Usage
 
-``` handlebars
+```handlebars
 {{#stringcompare string1 string2}} do something {{else}} do something else {{/stringcompare}}
 ```
 
 ## Example
 
-``` handlebars
+```handlebars
 A and B {{#stringcompare "A" "B"}}are the same. {{else}}are not the same. {{/stringcompare}}
 ```
 
 This results in:
 
-```dotnetcli
+```text
 A and B are not the same.
 ```

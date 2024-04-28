@@ -4,13 +4,13 @@ Get the date and time at the moment of execution.
 
 ## Usage
 
-``` handlebars
+```handlebars
 {{now}}
 ```
 
 ## Example
 
-``` handlebars
+```handlebars
 The time is {{now}}.
 ```
 

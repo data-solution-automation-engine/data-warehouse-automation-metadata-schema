@@ -10,10 +10,10 @@ The schema definition can be directly viewed [here](https://github.com/RoelantVo
 
 * A simple Class Library (DLL) that has implemented the schema structure, as well as a validation function to test JSON files / messages against the schema
 * Starter documentation.
-* A sample implementation that generates code using [Handlebars.Net](http://roelantvos.com/blog/using-handlebars-to-generate-data-vault-hub-load-processes/). The example that uses the Handlebars generates code using a sample JSON file that conforms to the interface schema.
+* A sample implementation that generates code using [Handlebars.Net](https://roelantvos.com/blog/using-handlebars-to-generate-data-vault-hub-load-processes/). The example that uses the Handlebars generates code using a sample JSON file that conforms to the interface schema.
 * A simple regression test application that demonstrates different usages of the schema.
 
-The schema is and examples are validated / extended using <https://www.jsonschemavalidator.net/>. Standards are followed from [json-schema.org](http://json-schema.org/).  Also see [some miscellaneous examples](http://json-schema.org/learn/miscellaneous-examples.html).
+The schema is and examples are validated / extended using [https://www.jsonschemavalidator.net/](https://www.jsonschemavalidator.net/). Standards are followed from [json-schema.org](https://json-schema.org/).  Also see [some miscellaneous examples](https://json-schema.org/learn/miscellaneous-examples.html).
 
 In principle, the schema can be used to generate an entire Data Warehouse, Data Lake and equivalent and/or similar.
 
@@ -21,7 +21,7 @@ In principle, the schema can be used to generate an entire Data Warehouse, Data 
 
 The JSON schema for data solution automation has standard components for table (DataObjects) and column (DataItem) structures that are reused for sources and targets. At the mapping level only the classification, filter and load direction are added, the rest is generic reuse of definitions.
 
-The schema is available in the GitHub under:  https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface.
+The schema is available in the GitHub under:  [https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface](https://github.com/RoelantVos/Data_Warehouse_Automation_Metadata_Interface).
 
 The schema definition itself is located here: [https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/main/GenericInterface/interfaceDataWarehouseAutomationMetadataV2_0.json](https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema/blob/main/GenericInterface/interfaceDataWarehouseAutomationMetadataV2_0.json).
 
@@ -35,10 +35,10 @@ The Data Object Mapping is literally a mapping between Data Objects. It is a uni
 
 At a high level there are two elements that form the core of a Data Object Mapping, these are the:
 
-- Data Object, which defines the source and target of the Data Object Mapping. A Data Object can optionally have a connection defined as a string or token, and can be a query, file or table.
-- Data Item, which belong to a Data Object and represents an individual column or calculation (query) in a Data Object Mapping.
+* Data Object, which defines the source and target of the Data Object Mapping. A Data Object can optionally have a connection defined as a string or token, and can be a query, file or table.
+* Data Item, which belong to a Data Object and represents an individual column or calculation (query) in a Data Object Mapping.
 
-![img](http://roelantvos.com/blog/wp-content/uploads/2020/01/DataObject-3-1024x466.png)
+![img](https://roelantvos.com/blog/wp-content/uploads/2020/01/DataObject-3-1024x466.png)
 
 ## Mapping metadata
 
@@ -56,13 +56,13 @@ It is possible to add a specific class to a Data Object Mapping: the Business Ke
 
 By combining this, the Data Object Mapping looks as follows at a high level:
 
-![img](http://roelantvos.com/blog/wp-content/uploads/2020/01/DataObjectMapping-1024x453.png)
+![img](https://roelantvos.com/blog/wp-content/uploads/2020/01/DataObjectMapping-1024x453.png)
 
 ## Mapping collections
 
 At the top level, one or more Data Object Mappings are grouped into a single Data Object Mapping List. The convention is that, even though only a single Data Object Mapping may be needed in a message or file, a Data Object Mapping is *always* part of a Data Object Mapping List.
 
-In other words, the Data Object Mapping List is an array of individual Data Object Mappings. In code, this means a Data Object Mapping List is defined as a List<DataObjectMapping>.
+In other words, the Data Object Mapping List is an array of individual Data Object Mappings. In code, this means a Data Object Mapping List is defined as a `List<DataObjectMapping>`.
 
 The decision to start the format with an array / list that contains potentially multiple Data Object Mappings relates to the Data Warehouse virtualisation use-case. In this style of implementation, multiple individual mappings together create a single view object. Testing revealed it is much harder to piece the relationships between mappings together at a later stage to create a single (view) object, and having the option to define a collection makes this really easy.
 
