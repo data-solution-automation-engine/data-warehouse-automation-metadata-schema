@@ -47,12 +47,7 @@
           "images/**"
         ]
       }
-    ],
-    "overwrite": [{
-      "files": [
-          "toc.yml"
-      ]
-  }],    
+    ],    
     "output": "_site",
     "globalMetadata": {
       "_appLogoPath": ".",
