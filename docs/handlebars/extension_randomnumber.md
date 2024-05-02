@@ -6,18 +6,18 @@ This was originally added to generate test data, and is used for referential-int
 
 ## Usage
 
-``` handlebars
+```handlebars
 {{randomnumber 5}}
 ```
 
 ## Example
 
-``` handlebars
+```handlebars
 And here is a random string: {{randomnumber 5}}.
 ```
 
 This may return:
 
-```dotnetcli
+```text
 1346
 ```
