@@ -38,4 +38,4 @@ Across most, if not all, metadata models there is a core set of information that
 
 ### Working guidelines
 
-For any change, create a new branch (no direct commits to master branch).
+For any change, create a new branch (no direct commits to main branch).

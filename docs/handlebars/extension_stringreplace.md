@@ -4,18 +4,18 @@ Parses an input string value, and replaces a specified part of the contents with
 
 ## Usage
 
-``` handlebars
+```handlebars
 {{stringreplace "<input string value>" "<lookup character>" "<replacement character>"}}
 ```
 
 ## Example
 
-``` handlebars
+```handlebars
 This replaces the o's in Hello Word with an !: {{StringReplace "Hello World" "o" "!"}}
 ```
 
 This results in:
 
-```dotnetcli
+```text
 This replaces the o's in Hello Word with an !: Hell! W!rld
 ```

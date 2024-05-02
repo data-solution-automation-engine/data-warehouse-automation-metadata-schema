@@ -28,7 +28,7 @@ With these three components in place, code can be generated quickly using a simp
 
 Consider the snippet below, as taken from the example project:
 
-```csharp
+```cs
 // Load a template (pattern) from file
 stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\..\TemplateSampleBasic.handlebars");
 
@@ -56,7 +56,7 @@ This project is used for regression testing, making sure that the inputs and out
 
 Validating Json files against the generic schema is easy, a method is provided as part of the JsonHandling class included in the DataWarehouseAutomation.dll. Consider the example below, where a filename (including path) for the schema definition as well as a Json file are provided.
 
-``` csharp
+```cs
 var result = JsonHandling.ValidateJsonFileAgainstSchema(jsonSchema, jsonFile);
 
 var testOutput = result.Valid ? "OK" : "Failed";
@@ -66,13 +66,13 @@ Console.Write($"The result for {jsonFile} was {testOutput}.");
 
 ## Further reading
 
-* http://roelantvos.com/blog/fun-with-code-generation-patterns-extensions/]
-* http://roelantvos.com/blog/major-improvements-to-the-data-warehouse-automation-schema-definition/
-* http://roelantvos.com/blog/interface-for-data-warehouse-automation/
-* http://roelantvos.com/blog/a-collaboration-for-a-common-metadata-model/
-* http://roelantvos.com/blog/updates-on-the-generic-interface-for-data-warehouse-automation-metadata/
-* http://roelantvos.com/blog/improvements-on-dwh-automation-interface-v1-1/
-* http://roelantvos.com/blog/interface-for-data-warehouse-automation-metadata-released/
-* http://roelantvos.com/blog/fun-with-code-generation-patterns-multiple-sources/
-* http://roelantvos.com/blog/fun-with-code-generation-patterns-transformations/
-* http://roelantvos.com/blog/fun-with-code-generation-patterns-extensions/
+* [https://roelantvos.com/blog/fun-with-code-generation-patterns-extensions/](https://roelantvos.com/blog/fun-with-code-generation-patterns-extensions/)
+* [https://roelantvos.com/blog/major-improvements-to-the-data-warehouse-automation-schema-definition/](https://roelantvos.com/blog/major-improvements-to-the-data-warehouse-automation-schema-definition/)
+* [https://roelantvos.com/blog/interface-for-data-warehouse-automation/](https://roelantvos.com/blog/interface-for-data-warehouse-automation/)
+* [https://roelantvos.com/blog/a-collaboration-for-a-common-metadata-model/](https://roelantvos.com/blog/a-collaboration-for-a-common-metadata-model/)
+* [https://roelantvos.com/blog/updates-on-the-generic-interface-for-data-warehouse-automation-metadata/](https://roelantvos.com/blog/updates-on-the-generic-interface-for-data-warehouse-automation-metadata/)
+* [https://roelantvos.com/blog/improvements-on-dwh-automation-interface-v1-1/](https://roelantvos.com/blog/improvements-on-dwh-automation-interface-v1-1/)
+* [https://roelantvos.com/blog/interface-for-data-warehouse-automation-metadata-released/](https://roelantvos.com/blog/interface-for-data-warehouse-automation-metadata-released/)
+* [https://roelantvos.com/blog/fun-with-code-generation-patterns-multiple-sources/](https://roelantvos.com/blog/fun-with-code-generation-patterns-multiple-sources/)
+* [https://roelantvos.com/blog/fun-with-code-generation-patterns-transformations/](https://roelantvos.com/blog/fun-with-code-generation-patterns-transformations/)
+* [https://roelantvos.com/blog/fun-with-code-generation-patterns-extensions/](https://roelantvos.com/blog/fun-with-code-generation-patterns-extensions/)
