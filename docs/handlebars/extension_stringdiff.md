@@ -4,18 +4,18 @@ Block helper to evaluate if the input does *not* match a specified string. Also 
 
 ## Usage
 
-``` handlebars
+```handlebars
 {{#stringdiff string1 string2}} do something {{else}} do something else {{/stringdiff}}
 ```
 
 ## Example
 
-``` handlebars
+```handlebars
 A and B {{#stringdiff "A" "B"}}are not the same. {{else}}are the same. {{/stringdiff}}
 ```
 
 This results in:
 
-```dotnetcli
+```text
 A and B are not the same.
 ```

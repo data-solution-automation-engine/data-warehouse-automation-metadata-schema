@@ -6,18 +6,18 @@ This was originally added to generate test data, and is used for referential-int
 
 ## Usage
 
-``` handlebars
+```handlebars
 {{randomdate 2020}}
 ```
 
 ## Example
 
-``` handlebars
+```handlebars
 Here is a random date: {{randomdate 2020}}.
 ```
 
 This may return:
 
-```dotnetcli
+```text
 2022-08-03T00:00:00.000000
 ```

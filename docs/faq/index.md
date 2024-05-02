@@ -2,7 +2,7 @@
 
 ## Why have a schema definition for Data Warehouse Automation?
 
-The reason work on the schema definition started is based on a desire to collaborate with various likeminded professionals in the industry, but who all had different (proprietary) ways to record metadata. The challenge was how to collaborate on at least the patterns, without necessarily agreeing on ‘the best’ back-end solution to store metadata.
+The reason work on the schema definition started is based on a desire to collaborate with various like-minded professionals in the industry, but who all had different (proprietary) ways to record metadata. The challenge was how to collaborate on at least the patterns, without necessarily agreeing on ‘the best’ back-end solution to store metadata.
 
 The interface for Data Warehouse Automation was started as an initiative that would support each to use the back-end of their choosing, while still be able to cooperate on the design and improvement of Data Warehouse implementation patterns and ETL generation concepts.
 
@@ -16,11 +16,11 @@ The decision to start the format with an array / list that contains potentially 
 
 For example, consider the loading of a Core Business Concept (‘Hub’) type entity from various different data sources. If you would use these different mappings to generate ETL processes you would create one physical ETL object for each mapping. However, if you are seeking to generate a view that represents the target table you would use the collection (list) of mappings to generate separate statements that are 'unioned' in a single view object.
 
-Example: [https://github.com/RoelantVos/Data-Warehouse-Automation-Metadata-Schema/blob/master/ClassLibrary/DataWarehouseAutomation/Sample_Metadata/sampleBasic.json].
+Example: [https://github.com/RoelantVos/Data-Warehouse-Automation-Metadata-Schema/blob/master/ClassLibrary/DataWarehouseAutomation/Sample_Metadata/sampleBasic.json](https://github.com/RoelantVos/Data-Warehouse-Automation-Metadata-Schema/blob/master/ClassLibrary/DataWarehouseAutomation/Sample_Metadata/sampleBasic.json).
 
 Or below, an even more simplified example of a single Data Object Mapping (with only one source, one target and a single Data Item Mapping) being part of the list dataObjectMappings.
 
-````json
+```json
 {
   "dataObjectMappings": [
     {
@@ -48,7 +48,7 @@ Or below, an even more simplified example of a single Data Object Mapping (with 
     }
   ]
 }
-`````
+```
 
 ## Why are Data Objects and Data Items defined as arrays when they are used as sources?
 
@@ -58,7 +58,7 @@ The downside is that either a loop or array index needs to be used to pinpoint t
 
 Example: using Handlebars will give you the name of the first source object:
 
-```JSON
+```handlebars
 {{sourceDataObjects.0.name}}
 ```
 
@@ -76,7 +76,7 @@ The easiest way to get started is to either copy and modify the example project,
 
 A simple C# example to generate some quick ETL (taken from the example project):
 
-```json
+```cs
 // Load a template (pattern) from file
 stringTemplate = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"..\\..\\TemplateSampleBasic.handlebars");
 
@@ -94,4 +94,4 @@ result = template(deserialisedMapping);
 
 // Display the results to the user
 Console.WriteLine(result);
-``````
+```
