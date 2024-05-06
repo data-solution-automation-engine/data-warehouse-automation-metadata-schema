@@ -55,6 +55,7 @@ namespace Example_Handlebars
             catch (Exception ex)
             {
                 Console.WriteLine($"An issue was encountered: {ex}");
+                Console.ReadKey();
             }
         }
     }

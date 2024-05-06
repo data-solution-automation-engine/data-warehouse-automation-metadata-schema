@@ -434,27 +434,105 @@ public static class HandleBarsHelpers
             }
         });
 
-        // lookupExtension allows a lookup of an extension value by key. Pass in the Extensions list and the string key value as parameters.
-        Handlebars.RegisterHelper("lookupExtension", (writer, context, parameters) =>
+        // Block helper that evalues is a certain classification exists in the list of classifications.
+        Handlebars.RegisterHelper("hasClassification", (output, options, context, parameters) =>
         {
             // Check if the parameters are valid.
             if (parameters.Length != 2 || parameters[1] is not string)
             {
-                throw new HandlebarsException("The {{lookupExtension}} helper expects two arguments: a List<Extension> and a string lookup key");
+                throw new HandlebarsException("An issue was encountered. The {{hasClassification}} helper expects two arguments: a List<DataClassification> and a string lookup key.");
             }
 
             try
             {
-                var extensionList = JsonSerializer.Deserialize<List<Extension>>(parameters[0].ToString() ?? string.Empty);
-                var key = (string)parameters[1];
-                var result = extensionList?.Find(i => i.Key.Equals(key, StringComparison.OrdinalIgnoreCase))?.Value ?? "";
+                if (parameters[0] == null || parameters[1] == null || string.IsNullOrEmpty(parameters[1].ToString()) || parameters[0].ToString() == "classifications" || parameters[0]?.ToString()?.Length == 0)
+                {
+                    // Skip, it's really null.
+                    //Console.WriteLine("Something is NULL");
+                }
+                else
+                {
+                    var classificationsParameter = parameters[0];
+                    var classificationName = (string)parameters[1];
 
+                    //Console.WriteLine(classificationsParameter);
 
-                writer.WriteSafeString($"{result}");
+                    var classifications = JsonSerializer.Deserialize<List<DataClassification>>(classificationsParameter.ToString() ?? string.Empty);
+
+                    var result = classifications?.Find(i => i.Classification?.ToString().Equals(classificationName, StringComparison.OrdinalIgnoreCase) == true)?.Classification;
+
+                    if (!string.IsNullOrEmpty(result))
+                    {
+                        // Regular block, a classification has been found
+                        options.Template(output, context);
+                    }
+                    else
+                    {
+                        // Else block, no classification with the input name has been found.
+                        options.Inverse(output, context);
+                    }
+                }
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                throw new HandlebarsException($"{{lookupExtension}} encountered an error: the list of extensions provided as the first argument could not be deserialized. The reported error is :{exception.Message}");
+                throw new HandlebarsException($"The {{{{hasClassification}}}} function encountered an error. The list of classifications provided as the first argument could not be deserialized. The reported error is: '{ex.Message}'.");
+            }
+        });
+
+        // Block helper that evalues is a certain string exists in a list of string values.
+        Handlebars.RegisterHelper("hasStringValue", (output, options, context, parameters) =>
+        {
+            // Check if the parameters are valid.
+            if (parameters.Length != 2)
+            {
+                throw new HandlebarsException("An issue was encountered. The {{hasStringValue}} helper expects two arguments: a List<String> and a string lookup key.");
+            }
+
+            try
+            {
+                if (parameters[0] == null || parameters[1] == null || string.IsNullOrEmpty(parameters[1].ToString()) || parameters[0]?.ToString()?.Length == 0)
+                {
+                    // Skip, it's really null.
+                }
+                else
+                {
+                    var stringListParameter = parameters[0];
+                    var lookupValue = parameters[1].ToString();
+
+                    // Deserialize the JSON array
+                    JsonDocument doc = JsonDocument.Parse(stringListParameter.ToString());
+
+                    JsonElement root = doc.RootElement;
+
+                    bool valueExists = false;
+
+                    // Iterate over the array elements
+                    foreach (JsonElement element in root.EnumerateArray())
+                    {
+                        // Check if the current element matches the value we're looking for
+                        if (element.ValueKind == JsonValueKind.String && element.GetString() == lookupValue)
+                        {
+                            // Value found
+                            valueExists = true;
+                            break;
+                        }
+                    }
+
+                    if (valueExists)
+                    {
+                        // Regular block, a value has been found
+                        options.Template(output, context);
+                    }
+                    else
+                    {
+                        // Else block, no matching value has been found.
+                        options.Inverse(output, context);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new HandlebarsException($"The {{{{hasStringValue}}}} function encountered an error. The list of strings provided as the first argument could not be deserialized. The reported error is: '{ex.Message}'.");
             }
         });
     }
