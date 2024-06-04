@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>2.0.3</Version>
+    <Version>2.1.0</Version>
     <Authors>Roelant Vos</Authors>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Data Warehouse Automation</Title>
@@ -22,10 +22,6 @@ The interface itself is a Json schema definition (JSDL) with examples on how to 
 
   <ItemGroup>
     <None Include="..\..\docs\index.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="..\Images\Ravos-logo.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
