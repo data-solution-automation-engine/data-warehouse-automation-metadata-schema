@@ -1,5 +1,9 @@
 ﻿namespace DataWarehouseAutomation.DwaModel;
 
+/// <summary>
+/// Data items belong to data objects or data object queries. This means that a given data item always has a parent object.
+/// They describe the individual elements, such as the columns in a table or headers in a file.
+/// </summary>
 public class DataItem : IDataItem
 {
     /// <summary>

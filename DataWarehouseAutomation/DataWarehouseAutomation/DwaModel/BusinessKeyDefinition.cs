@@ -1,8 +1,8 @@
 ﻿namespace DataWarehouseAutomation.DwaModel;
 
 /// <summary>
-/// A Business Key, which consists of one or more components (column mappings) and has its own surrogate key.
-/// A Business Key is a special column, or combination of columns, that is defined separately outside of regular data item mappings.
+/// A business key definition is a special object that is defined as an optional property of a data object mapping.
+/// In other words, the business key definition can be a part of describing the relationship between a source data object and a target data object.
 /// </summary>
 public class BusinessKeyDefinition
 {
@@ -14,16 +14,17 @@ public class BusinessKeyDefinition
     public string? Id { get; set; }
 
     /// <summary>
-    /// The optional name of the Business Key Definition.
+    /// The optional name of the business key definition.
     /// </summary>
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     /// <summary>
-    /// Items that define the Business Key e.g. the collection of columns for a Business Key.
+    /// Items that define the Business Key e.g. the collection of columns for a business key.
+    /// The integer value defines the order of the components in the business key definition.
     /// </summary>
-    [JsonPropertyName("businessKeyComponentMappings")]
-    public List<DataItemMapping> BusinessKeyComponentMappings { get; set; } = new();
+    [JsonPropertyName("businessKeyComponents")]
+    public List<Tuple<int, IDataItem>> BusinessKeyComponents { get; set; } = new();
 
     /// <summary>
     /// An optional label for the end result e.g. the target business key attribute.
@@ -33,14 +34,14 @@ public class BusinessKeyDefinition
     public string? SurrogateKey { get; set; }
 
     /// <summary>
-    /// Free-form and optional classification for the Business Key for use in generation logic (evaluation).
+    /// Free-form and optional classification for the business key for use in generation logic (evaluation).
     /// </summary>
     [JsonPropertyName("classifications")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<DataClassification>? Classifications { get; set; }
 
     /// <summary>
-    /// The collection of extension Key/Value pairs.
+    /// The collection of extension key/value pairs.
     /// </summary>
     [JsonPropertyName("extensions")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]

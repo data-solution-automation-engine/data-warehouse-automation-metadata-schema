@@ -1,5 +1,14 @@
-﻿namespace DataWarehouseAutomation.DwaModel;
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Reflection.Emit;
 
+namespace DataWarehouseAutomation.DwaModel;
+
+/// <summary>
+/// A data query is a bespoke code element that is scoped for a specific function or purpose, and can act as a ‘source’ in a source-target mapping.
+/// This applies to both data object and data item level.
+/// When acting the data object object, the data query replaces the source data object in the mapping.
+/// This is a data object query, which could be a view, script, or procedure that provides the data in the mapping instead of a table or file.
+/// </summary>
 public class DataObjectQuery : IDataObject
 {
     /// <summary>
