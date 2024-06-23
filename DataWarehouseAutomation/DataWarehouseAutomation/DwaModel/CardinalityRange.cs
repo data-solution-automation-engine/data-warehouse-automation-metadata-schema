@@ -11,6 +11,6 @@ namespace DataWarehouseAutomation.DwaModel;
 /// </summary>
 public class CardinalityRange
 {
-    public string Min { get; set; }
-    public string Max { get; set; }
+    public string? Min { get; set; }
+    public string? Max { get; set; }
 }

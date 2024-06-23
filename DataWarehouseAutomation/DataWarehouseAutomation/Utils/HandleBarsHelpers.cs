@@ -53,7 +53,7 @@ public static class HandleBarsHelpers
         Handlebars.RegisterHelper("now", (output, context, arguments) => { output.WriteSafeString(DateTime.Now); });
 
         // Generation random date, based on an integer input year value.
-        Handlebars.RegisterHelper("randomdate", (output, context, arguments) =>
+        Handlebars.RegisterHelper("randomDate", (output, context, arguments) =>
         {
             if (arguments.Length > 1)
             {
@@ -73,7 +73,7 @@ public static class HandleBarsHelpers
         });
 
         // Generation random string, based on an integer input value cap.
-        Handlebars.RegisterHelper("randomnumber", (output, context, arguments) =>
+        Handlebars.RegisterHelper("randomNumber", (output, context, arguments) =>
         {
             if (arguments.Length > 1)
             {
@@ -92,7 +92,7 @@ public static class HandleBarsHelpers
         });
 
         // Generation random string, based on an integer input value
-        Handlebars.RegisterHelper("randomstring", (output, context, arguments) =>
+        Handlebars.RegisterHelper("randomString", (output, context, arguments) =>
         {
             if (arguments.Length > 1)
             {
@@ -121,7 +121,7 @@ public static class HandleBarsHelpers
             }
         });
 
-        Handlebars.RegisterHelper("stringwrap", (writer, context, args) =>
+        Handlebars.RegisterHelper("stringWrap", (writer, context, args) =>
         {
             if (args.Length != 3) throw new HandlebarsException("The {{stringwrap}} function requires exactly three arguments, an object and the string to wrap its value in.");
 
@@ -138,9 +138,9 @@ public static class HandleBarsHelpers
             }
         });
 
-        Handlebars.RegisterHelper("stringupper", (writer, context, args) =>
+        Handlebars.RegisterHelper("stringUpper", (writer, context, args) =>
         {
-            if (args.Length != 1) throw new HandlebarsException("The {{stringupper}} function requires one, and only one, input string value.");
+            if (args.Length != 1) throw new HandlebarsException("The {{stringUpper}} function requires one, and only one, input string value.");
 
             if (args[0].GetType().Name != "UndefinedBindingResult")
             {
@@ -155,9 +155,9 @@ public static class HandleBarsHelpers
             }
         });
 
-        Handlebars.RegisterHelper("stringlower", (writer, context, args) =>
+        Handlebars.RegisterHelper("stringLower", (writer, context, args) =>
         {
-            if (args.Length != 1) throw new HandlebarsException("The {{stringlower}} function requires one, and only one, input string value.");
+            if (args.Length != 1) throw new HandlebarsException("The {{stringLower}} function requires one, and only one, input string value.");
 
             if (args[0].GetType().Name != "UndefinedBindingResult")
             {
@@ -175,9 +175,9 @@ public static class HandleBarsHelpers
         // Accept two values, and see if they are the same, use as block helper.
         // Usage {{#stringcompare string1 string2}} do something {{else}} do something else {{/stringcompare}}
         // Usage {{#stringcompare string1 string2}} do something {{/stringcompare}}
-        Handlebars.RegisterHelper("stringcompare", (output, options, context, arguments) =>
+        Handlebars.RegisterHelper("stringCompare", (output, options, context, arguments) =>
         {
-            if (arguments.Length != 2) throw new HandlebarsException("The {{stringcompare}} function requires exactly two arguments.");
+            if (arguments.Length != 2) throw new HandlebarsException("The {{stringCompare}} function requires exactly two arguments.");
 
             var leftString = arguments[0] == null ? "" : arguments[0].ToString();
             var rightString = arguments[1] == null ? "" : arguments[1].ToString();
@@ -195,9 +195,9 @@ public static class HandleBarsHelpers
         // Accept two values, and do something if they are the different.
         // Usage {{#stringdiff string1 string2}} do something {{else}} do something else {{/stringdiff}}
         // Usage {{#stringdiff string1 string2}} do something {{/stringdiff}}
-        Handlebars.RegisterHelper("stringdiff", (output, options, context, arguments) =>
+        Handlebars.RegisterHelper("stringDiff", (output, options, context, arguments) =>
         {
-            if (arguments.Length != 2) throw new HandlebarsException("The {{stringdiff}} functions requires exactly two arguments.");
+            if (arguments.Length != 2) throw new HandlebarsException("The {{stringDiff}} functions requires exactly two arguments.");
 
             var leftString = arguments[0] == null ? "" : arguments[0].ToString();
             var rightString = arguments[1] == null ? "" : arguments[1].ToString();

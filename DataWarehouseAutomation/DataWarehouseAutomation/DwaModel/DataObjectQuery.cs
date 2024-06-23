@@ -1,7 +1,4 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Reflection.Emit;
-
-namespace DataWarehouseAutomation.DwaModel;
+﻿namespace DataWarehouseAutomation.DwaModel;
 
 /// <summary>
 /// A data query is a bespoke code element that is scoped for a specific function or purpose, and can act as a ‘source’ in a source-target mapping.
