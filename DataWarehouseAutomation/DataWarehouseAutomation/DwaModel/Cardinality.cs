@@ -1,15 +1,11 @@
-﻿using System.Buffers.Text;
-using System.Collections.Generic;
-using System.Xml.Linq;
-
-namespace DataWarehouseAutomation.DwaModel;
+﻿namespace DataWarehouseAutomation.DwaModel;
 
 /// <summary>
 /// This object captures the cardinality and ordinality of a relationship.
 /// Cardinality refers to the uniqueness of data values contained in a column (attribute) of a database table.
 /// It defines the number of occurrences of one entity that are associated with the number of occurrences of another entity through a relationship.
 /// </summary>
-public class Cardinality : IMetadata
+public class Cardinality
 {
     /// <summary>
     /// Optional identifier as a string value to allow various identifier approaches.
