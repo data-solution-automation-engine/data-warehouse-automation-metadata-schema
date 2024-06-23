@@ -85,14 +85,3 @@ public class Cardinality : IMetadata
     }
     #endregion
 }
-
-/// <summary>
-/// The possible range for a from/to component for the cardinality.
-/// For eaxmple "min": 1, "max": "N"
-/// This way, you can define at least 1 to many. Or 0 or 1 to 1.
-/// </summary>
-public class CardinalityRange
-{
-    public int Min { get; set; }
-    public string Max { get; set; }
-}
