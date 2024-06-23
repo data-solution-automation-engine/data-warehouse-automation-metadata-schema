@@ -24,12 +24,12 @@ public class Cardinality
     /// <summary>
     /// The 'from' component in the cardinality, e.g. the '1' in 1 to many.
     /// </summary>
-    public CardinalityRange FromRange { get; set; } = new CardinalityRange { Min = 1, Max = "1" };
+    public CardinalityRange FromRange { get; set; } = new CardinalityRange { Min = "1", Max = "1" };
 
     /// <summary>
     /// The 'to' component in the cardinality, e.g. the 'many' in 1 to many.
     /// </summary>
-    public CardinalityRange ToRange { get; set; } = new CardinalityRange { Min = 1, Max = "N" };
+    public CardinalityRange ToRange { get; set; } = new CardinalityRange { Min = "1", Max = "N" };
 
     /// <summary>
     /// Free-form and optional classification for the Data Item for use in generation logic (evaluation).
