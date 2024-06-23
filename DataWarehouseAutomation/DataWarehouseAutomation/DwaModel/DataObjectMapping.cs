@@ -56,7 +56,7 @@ public class DataObjectMapping : IMetadata
     /// </summary>
     [JsonPropertyName("relatedDataObjects")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public List<IDataObject>? RelatedDataObjects { get; set; }
+    public List<Tuple<int, Relationship>>? Relationships { get; set; }
 
     private List<IDataItem> _dataItems = [];
     /// <summary>

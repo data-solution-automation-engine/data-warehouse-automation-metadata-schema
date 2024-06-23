@@ -50,7 +50,7 @@ public class DataObject : IMetadata, IDataObject
     /// </summary>
     [JsonPropertyName("relationships")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public List<Relationship>? Relationships { get; set; }
+    public List<Tuple<int,Relationship>>? Relationships { get; set; }
 
     /// <summary>
     /// Free-form and optional classification for the Data Object.
