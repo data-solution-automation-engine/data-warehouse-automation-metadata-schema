@@ -15,8 +15,8 @@ public class Cardinality
     public string? Id { get; set; }
 
     /// <summary>
-    /// Optional information to name a certain cardinality construct. For example
-    /// One-to-One (1:1): {"from": {"min": 1, "max": 1}, "to": {"min": 1, "max": 1}}
+    /// Optional information to name a certain cardinality construct. For example one-to-one, one-to-many, or many-to-many.
+    /// E.g. one-to-one could be defined as {"from": {"min": 1, "max": 1}, "to": {"min": 1, "max": 1}}.
     /// </summary>
     [JsonPropertyName("name")]
     public string? Name { get; set; }
