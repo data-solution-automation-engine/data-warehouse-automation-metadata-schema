@@ -21,7 +21,7 @@ public class Relationship
     /// The mandatory name of the relationship.
     /// </summary>
     [JsonPropertyName("name")]
-    public string Name { get; set; } = string.Empty;
+    public string? Name { get; set; } = string.Empty;
 
     /// <summary>
     /// The related data object, <see cref="IDataObject"/>
@@ -52,7 +52,7 @@ public class Relationship
     /// </summary>
     [JsonPropertyName("cardinality")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public Cardinality Cardinality { get; set; }
+    public Cardinality? Cardinality { get; set; }
 
     /// <summary>
     /// Free-form and optional classification for the relationship.
