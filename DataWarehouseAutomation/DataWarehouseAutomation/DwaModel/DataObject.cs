@@ -38,10 +38,12 @@ public class DataObject : IMetadata, IDataObject
     /// The definition of the Business Key(s) for the Data Object.
     /// Being able to record the business key definition 
     /// This serves multiple purposes, but one of them is to support defining a series of business key definitions against the source data object, and reuse these across different data object mappings.
+    /// The order is stored as well, because in some cases the order of keys is meaningful.
     /// </summary>
     [JsonPropertyName("businessKeyDefinitions")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public List<BusinessKeyDefinition>? BusinessKeyDefinitions { get; set; }
+    public List<Tuple<int,BusinessKeyDefinition>>? BusinessKeyDefinitions { get; set; }
+
 
     /// <summary>
     /// Any relationship to other data objects.

@@ -87,10 +87,11 @@ public class DataObjectMapping : IMetadata
 
     /// <summary>
     /// The definition of the Business Key(s) for the Data Object Mapping.
+    /// The order is stored as well, because in some cases the order of keys is meaningful.
     /// </summary>
     [JsonPropertyName("businessKeyDefinitions")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public List<BusinessKeyDefinition>? BusinessKeyDefinitions { get; set; }
+    public List<Tuple<int, BusinessKeyDefinition>>? BusinessKeyDefinitions { get; set; }
 
     /// <summary>
     /// Any filtering that needs to be applied to the source-to-target mapping.
