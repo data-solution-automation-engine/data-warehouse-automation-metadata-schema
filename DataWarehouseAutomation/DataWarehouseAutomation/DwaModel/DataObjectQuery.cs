@@ -38,13 +38,6 @@ public class DataObjectQuery : IDataObject
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string? QueryLanguage { get; set; }
 
-    /// <summary>
-    /// The connection for the query.
-    /// </summary>
-    [JsonPropertyName("dataConnection")]
-    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public DataConnection? DataConnection { get; set; }
-
     private List<IDataItem> _dataItems = [];
     /// <summary>
     /// The collection of Data Items <see cref="IDataItem"/> associated with this Data Object Query.
@@ -62,6 +55,29 @@ public class DataObjectQuery : IDataObject
             _dataItems = value;
         }
     }
+
+    /// <summary>
+    /// The connection for the query.
+    /// </summary>
+    [JsonPropertyName("dataConnection")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public DataConnection? DataConnection { get; set; }
+
+    /// <summary>
+    /// The definition of the Business Key(s) for the Data Object Query.
+    /// Being able to record the business key definition 
+    /// This serves multiple purposes, but one of them is to support defining a series of business key definitions against the source data object, and reuse these across different data object mappings.
+    /// </summary>
+    [JsonPropertyName("businessKeyDefinitions")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public List<BusinessKeyDefinition>? BusinessKeyDefinitions { get; set; }
+
+    /// <summary>
+    /// Any relationship to other data objects and/or queries.
+    /// </summary>
+    [JsonPropertyName("relationships")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public List<Relationship>? Relationships { get; set; }
 
     /// <summary>
     /// Free-form and optional classification for the Data Query for use in generation logic (evaluation).
