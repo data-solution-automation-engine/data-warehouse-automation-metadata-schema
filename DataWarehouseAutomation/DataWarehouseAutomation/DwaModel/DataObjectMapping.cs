@@ -56,27 +56,14 @@ public class DataObjectMapping : IMetadata
     /// </summary>
     [JsonPropertyName("relatedDataObjects")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public List<Tuple<int, Relationship>>? Relationships { get; set; }
+    public List<Relationships>? Relationships { get; set; }
 
-    private List<IDataItem> _dataItems = [];
     /// <summary>
     /// The collection of Data Items <see cref="IDataItem"/> specifically associated with this Data Object Mapping,
     /// used as source/target Data Items/Queries for the mapping or the Mappings BKCM as needed.
     /// </summary>
     [JsonPropertyName("dataItems")]
-    [JsonPropertyOrder(order: 55)]
-    public List<IDataItem> DataItems
-    {
-        get
-        {
-            return _dataItems;
-        }
-        set
-        {
-            _dataItems = value;
-            isSorted = false;
-        }
-    }
+    public List<IDataItem>? DataItems { get; set; }
 
     /// <summary>
     /// The collection of individual attribute (column or query) mappings.
@@ -91,7 +78,7 @@ public class DataObjectMapping : IMetadata
     /// </summary>
     [JsonPropertyName("businessKeyDefinitions")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public List<Tuple<int, BusinessKeyDefinition>>? BusinessKeyDefinitions { get; set; }
+    public List<BusinessKeyDefinitions>? BusinessKeyDefinitions { get; set; }
 
     /// <summary>
     /// Any filtering that needs to be applied to the source-to-target mapping.
@@ -123,25 +110,6 @@ public class DataObjectMapping : IMetadata
     #endregion
 
     #region Json Representation
-    private bool isSorted = false;
-
-    /// <summary>
-    /// Sort all the lists in the metadata object
-    /// </summary>
-    public void SortLists()
-    {
-        if (!isSorted)
-        {
-            isSorted = true;
-            SourceDataObjects.Sort();
-            RelatedDataObjects.Sort();
-            DataItemMappings.Sort();
-            BusinessKeyDefinitions.Sort();
-            Classifications.Sort();
-            Extensions.Sort();
-        }
-    }
-
     /// <summary>
     /// Get the standard Json representation
     /// </summary>

@@ -1,8 +1,4 @@
-﻿using System.Buffers.Text;
-using System.Collections.Generic;
-using System.Xml.Linq;
-
-namespace DataWarehouseAutomation.DwaModel;
+﻿namespace DataWarehouseAutomation.DwaModel;
 
 /// <summary>
 /// The possible range for a from/to component for the cardinality.

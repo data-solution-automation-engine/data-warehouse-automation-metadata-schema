@@ -18,7 +18,7 @@ public class DataItem : IDataItem
     public string Name { get; set; } = "NewDataItem";
 
     /// <summary>
-    /// The data object to which the data item belongs. This can be used to construct fully qualified names.
+    /// The <see cref="IDataObject"/> to which the data item belongs. This can be used to construct fully qualified names.
     /// </summary>
     [JsonPropertyName("dataObject")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]

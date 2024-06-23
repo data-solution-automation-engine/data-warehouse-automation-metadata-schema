@@ -3,7 +3,7 @@ using Newtonsoft.Json.Schema;
 
 namespace DataWarehouseAutomation.Utils;
 
-public class JsonValidation
+public static class JsonValidation
 {
     /// <summary>
     /// Struct to contain a Json.Net validation result with the collection of errors (if any).

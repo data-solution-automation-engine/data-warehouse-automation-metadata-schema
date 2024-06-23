@@ -77,7 +77,7 @@ public class Cardinality
     /// <returns>The Name</returns>
     public override string ToString()
     {
-        return Name;
+        return Name ?? string.Empty;
     }
     #endregion
 }

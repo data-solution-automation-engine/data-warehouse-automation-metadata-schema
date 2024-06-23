@@ -35,23 +35,11 @@ public class DataObjectQuery : IDataObject
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string? QueryLanguage { get; set; }
 
-    private List<IDataItem> _dataItems = [];
     /// <summary>
     /// The collection of Data Items <see cref="IDataItem"/> associated with this Data Object Query.
     /// </summary>
     [JsonPropertyName("dataItems")]
-    [JsonPropertyOrder(order: 40)]
-    public List<IDataItem> DataItems
-    {
-        get
-        {
-            return _dataItems;
-        }
-        set
-        {
-            _dataItems = value;
-        }
-    }
+    public List<IDataItem>? DataItems { get; set; }
 
     /// <summary>
     /// The connection for the query.
@@ -74,7 +62,7 @@ public class DataObjectQuery : IDataObject
     /// </summary>
     [JsonPropertyName("relationships")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public List<Tuple<int, Relationship>>? Relationships { get; set; }
+    public List<Relationships>? Relationships { get; set; }
 
     /// <summary>
     /// Free-form and optional classification for the Data Query for use in generation logic (evaluation).
@@ -119,7 +107,7 @@ public class DataObjectQuery : IDataObject
     /// String override so that the object returns its value ('name').
     /// When an instance of this class is passed to a method that expects a string, the ToString() method will be called implicitly to convert the object to a string, and the value of the "Name" property will be returned.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>The Name</returns>
     public override string ToString()
     {
         return Name;

@@ -7,8 +7,6 @@ namespace DataWarehouseAutomation.DwaModel;
 /// </summary>
 public class Relationship
 {
-    
-
     #region Properties
     /// <summary>
     /// An optional identifier for the relationship.
@@ -92,7 +90,7 @@ public class Relationship
     /// Generates a Hash Code derived from the Entity's Id.
     /// </summary>
     /// <returns>Hash Code</returns>
-    public override int GetHashCode() => Id.GetHashCode();
+    public override int GetHashCode() => Id?.GetHashCode() ?? 0;
 
     /// <summary>
     /// String representation override for the Entity
@@ -100,7 +98,7 @@ public class Relationship
     /// <returns>The Name Attribute</returns>
     public override string ToString()
     {
-        return Name;
+        return Name ?? string.Empty;
     }
     #endregion
 }

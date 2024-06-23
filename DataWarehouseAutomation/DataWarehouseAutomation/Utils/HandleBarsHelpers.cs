@@ -237,14 +237,14 @@ public static class HandleBarsHelpers
 
         // Character spacing not satisfactory? Do not panic, help is near! Make sure the character spacing is righteous using this Handlebars helper.
         // Usage {{space sourceDataObject.name}} will space out (!?) the name of the source to 30 characters and a few tabs for lots of white spaces.
-        Handlebars.RegisterHelper("space", (writer, context, arguments) =>
+        Handlebars.RegisterHelper("space", (writer, _, arguments) =>
         {
             if (arguments.Length != 1)
             {
                 throw new HandlebarsException("The {{space}} functions requires an input string value to space out against.");
             }
 
-            string outputString = arguments[0].ToString();
+            string outputString = arguments[0]?.ToString() ?? "";
             if (outputString.Length < 30)
             {
                 outputString = outputString.PadRight(30);
