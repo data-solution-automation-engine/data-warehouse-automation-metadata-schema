@@ -35,7 +35,23 @@ public class DataObject : IMetadata, IDataObject
     public DataConnection? DataConnection { get; set; }
 
     /// <summary>
-    /// Free-form and optional classification for the Data Object for use in ETL generation logic (evaluation).
+    /// The definition of the Business Key(s) for the Data Object.
+    /// Being able to record the business key definition 
+    /// This serves multiple purposes, but one of them is to support defining a series of business key definitions against the source data object, and reuse these across different data object mappings.
+    /// </summary>
+    [JsonPropertyName("businessKeyDefinitions")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public List<BusinessKeyDefinition>? BusinessKeyDefinitions { get; set; }
+
+    /// <summary>
+    /// Any relationship to other data objects.
+    /// </summary>
+    [JsonPropertyName("relationships")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public List<Relationship>? Relationships { get; set; }
+
+    /// <summary>
+    /// Free-form and optional classification for the Data Object.
     /// </summary>
     [JsonPropertyName("classifications")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]

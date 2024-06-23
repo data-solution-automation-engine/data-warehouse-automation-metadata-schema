@@ -22,6 +22,7 @@ public class BusinessKeyDefinition
     /// <summary>
     /// Items that define the Business Key e.g. the collection of columns for a business key.
     /// The integer value defines the order of the components in the business key definition.
+    /// The order is significant, and can be recorded as part of the tuple definition.
     /// </summary>
     [JsonPropertyName("businessKeyComponents")]
     public List<Tuple<int, IDataItem>> BusinessKeyComponents { get; set; } = new();
