@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
 
 var inputMetadataDirectory = @"D:\Git_Repos\Projects\jarvis-TEAM-metadata\Development\TEAM\Metadata";
 var outputMetadataDirectory = @"D:\Git_Repos\";
@@ -11,7 +10,7 @@ var exceptionList = new List<string>
     "sample_TEAM_Attribute_Mapping.json"
 };
 
-List<DataItemMappingTuple> exportOutput = new List<DataItemMappingTuple>();
+List<DataItemMappingTuple> exportOutput = new();
 
 foreach (string file in Directory.EnumerateFiles(inputMetadataDirectory, "*.json", SearchOption.TopDirectoryOnly))
 {
@@ -51,7 +50,7 @@ foreach (string file in Directory.EnumerateFiles(inputMetadataDirectory, "*.json
         }
         catch (Exception exception)
         {
-            Console.WriteLine($"Issue: "+exception.Message);
+            Console.WriteLine($"Issue: " + exception.Message);
         }
     }
     else
@@ -61,7 +60,7 @@ foreach (string file in Directory.EnumerateFiles(inputMetadataDirectory, "*.json
 }
 
 // Export to file.
-using (StreamWriter writer = new StreamWriter(outputMetadataDirectory+"TEAM-export.csv"))
+using (StreamWriter writer = new StreamWriter(outputMetadataDirectory + "TEAM-export.csv"))
 {
     foreach (var exportRow in exportOutput)
     {
@@ -77,7 +76,7 @@ using (StreamWriter writer = new StreamWriter(outputMetadataDirectory+"TEAM-expo
 }
 
 // Finish the application.
-Console.WriteLine($"Done, press any key to exit");
+Console.WriteLine("Done, press any key to exit");
 Console.ReadKey();
 
 internal class DataItemMappingTuple
@@ -86,23 +85,23 @@ internal class DataItemMappingTuple
     {
         get;
         set;
-    }
+    } = string.Empty;
 
     internal string SourceDataItem
     {
         get;
         set;
-    }
+    } = string.Empty;
 
     internal string TargetDataObject
     {
         get;
         set;
-    }
+    } = string.Empty;
 
     internal string TargetDataItem
     {
         get;
         set;
-    }
+    } = string.Empty;
 }

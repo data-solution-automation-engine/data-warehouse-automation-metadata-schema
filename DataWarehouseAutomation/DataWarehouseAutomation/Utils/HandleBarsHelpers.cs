@@ -1,9 +1,6 @@
-﻿using DataWarehouseAutomation.DwaModel;
-using HandlebarsDotNet;
+﻿namespace DataWarehouseAutomation.Utils;
 
-namespace DataWarehouseAutomation.Utils;
-
-public static class HandleBarsHelpers
+public static class HandlebarsHelpers
 {
     /// <summary>
     /// Generate a random integer value, capped by an input (maximum) value.
@@ -45,19 +42,19 @@ public static class HandleBarsHelpers
     ///  Convenience method to install all Handlebars extension in one go.
     /// </summary>
     /// <exception cref="HandlebarsException"></exception>
-    public static void RegisterHandleBarsHelpers()
+    public static void RegisterHandlebarsHelpers()
     {
         // Extension to the Handlebars templating language. Shows the current date and time in the generated output.
         // Usage: {{now}}
         // Example: The time is {{now}}.
-        Handlebars.RegisterHelper("now", (output, context, arguments) => { output.WriteSafeString(DateTime.Now); });
+        Handlebars.RegisterHelper("now", (output, _, _) => output.WriteSafeString(DateTime.Now));
 
         // Generation random date, based on an integer input year value.
-        Handlebars.RegisterHelper("randomDate", (output, context, arguments) =>
+        Handlebars.RegisterHelper("randomDate", (output, _, arguments) =>
         {
             if (arguments.Length > 1)
             {
-                throw new HandlebarsException("The {{randomdate}} function requires a single integer (year e.g. 1995) value as input.");
+                throw new HandlebarsException("The {{randomDate}} function requires a single integer (year e.g. 1995) value as input.");
             }
 
             if (arguments.Length == 1)
@@ -65,7 +62,7 @@ public static class HandleBarsHelpers
                 bool evaluationResult = int.TryParse(arguments[0].ToString(), out var localInteger);
                 if (evaluationResult == false)
                 {
-                    throw new HandlebarsException($"The {{randomdate}} functions failed because {arguments[0]} could not be converted to an integer.");
+                    throw new HandlebarsException($"The {{randomDate}} functions failed because {arguments[0]} could not be converted to an integer.");
                 }
 
                 output.WriteSafeString(GetRandomDate(localInteger).Date);
@@ -73,39 +70,39 @@ public static class HandleBarsHelpers
         });
 
         // Generation random string, based on an integer input value cap.
-        Handlebars.RegisterHelper("randomNumber", (output, context, arguments) =>
+        Handlebars.RegisterHelper("randomNumber", (output, _, arguments) =>
         {
             if (arguments.Length > 1)
             {
-                throw new HandlebarsException("The {{randomnumber}} function requires a single integer value as input.");
+                throw new HandlebarsException("The {{randomNumber}} function requires a single integer value as input.");
             }
 
             if (arguments.Length == 1)
             {
                 bool evaluationResult = int.TryParse(arguments[0].ToString(), out var localInteger);
-                if (evaluationResult == false)
+                if (!evaluationResult)
                 {
-                    throw new HandlebarsException($"The {{randomnumber}} functions failed because {arguments[0]} could not be converted to an integer.");
+                    throw new HandlebarsException($"The {{randomNumber}} functions failed because {arguments[0]} could not be converted to an integer.");
                 }
                 output.WriteSafeString(GetRandomNumber(localInteger));
             }
         });
 
         // Generation random string, based on an integer input value
-        Handlebars.RegisterHelper("randomString", (output, context, arguments) =>
+        Handlebars.RegisterHelper("randomString", (output, _, arguments) =>
         {
             if (arguments.Length > 1)
             {
-                throw new HandlebarsException("The {{randomstring}} function requires a single integer value as input.");
+                throw new HandlebarsException("The {{randomString}} function requires a single integer value as input.");
             }
 
             if (arguments.Length == 1)
             {
                 bool evaluationResult = int.TryParse(arguments[0].ToString(), out var localInteger);
 
-                if (evaluationResult == false)
+                if (!evaluationResult)
                 {
-                    throw new HandlebarsException($"The {{randomstring}} functions failed because {arguments[0]} could not be converted to an integer.");
+                    throw new HandlebarsException($"The {{randomString}} functions failed because {arguments[0]} could not be converted to an integer.");
                 }
 
                 var array = new[]
@@ -121,9 +118,9 @@ public static class HandleBarsHelpers
             }
         });
 
-        Handlebars.RegisterHelper("stringWrap", (writer, context, args) =>
+        Handlebars.RegisterHelper("stringWrap", (writer, _, args) =>
         {
-            if (args.Length != 3) throw new HandlebarsException("The {{stringwrap}} function requires exactly three arguments, an object and the string to wrap its value in.");
+            if (args.Length != 3) throw new HandlebarsException("The {{stringWrap}} function requires exactly three arguments, an object and the string to wrap its value in.");
 
             if (args[0].GetType().Name != "UndefinedBindingResult")
             {
@@ -138,15 +135,15 @@ public static class HandleBarsHelpers
             }
         });
 
-        Handlebars.RegisterHelper("stringUpper", (writer, context, args) =>
+        Handlebars.RegisterHelper("stringUpper", (writer, _, args) =>
         {
             if (args.Length != 1) throw new HandlebarsException("The {{stringUpper}} function requires one, and only one, input string value.");
 
-            if (args[0].GetType().Name != "UndefinedBindingResult")
+            if (args[0].GetType().Name != "UndefinedBindingResult" && args[0] is string theString)
             {
                 try
                 {
-                    writer.Write(args[0].ToString().ToUpper());
+                    writer.Write(theString.ToUpper());
                 }
                 catch (Exception ex)
                 {
@@ -155,15 +152,15 @@ public static class HandleBarsHelpers
             }
         });
 
-        Handlebars.RegisterHelper("stringLower", (writer, context, args) =>
+        Handlebars.RegisterHelper("stringLower", (writer, _, args) =>
         {
             if (args.Length != 1) throw new HandlebarsException("The {{stringLower}} function requires one, and only one, input string value.");
 
-            if (args[0].GetType().Name != "UndefinedBindingResult")
+            if (args[0].GetType().Name != "UndefinedBindingResult" && args[0] is string theString)
             {
                 try
                 {
-                    writer.Write(args[0].ToString().ToLower());
+                    writer.Write(theString.ToLower());
                 }
                 catch (Exception ex)
                 {
@@ -173,8 +170,8 @@ public static class HandleBarsHelpers
         });
 
         // Accept two values, and see if they are the same, use as block helper.
-        // Usage {{#stringcompare string1 string2}} do something {{else}} do something else {{/stringcompare}}
-        // Usage {{#stringcompare string1 string2}} do something {{/stringcompare}}
+        // Usage {{#stringCompare string1 string2}} do something {{else}} do something else {{/stringCompare}}
+        // Usage {{#stringCompare string1 string2}} do something {{/stringCompare}}
         Handlebars.RegisterHelper("stringCompare", (output, options, context, arguments) =>
         {
             if (arguments.Length != 2) throw new HandlebarsException("The {{stringCompare}} function requires exactly two arguments.");
@@ -193,8 +190,8 @@ public static class HandleBarsHelpers
         });
 
         // Accept two values, and do something if they are the different.
-        // Usage {{#stringdiff string1 string2}} do something {{else}} do something else {{/stringdiff}}
-        // Usage {{#stringdiff string1 string2}} do something {{/stringdiff}}
+        // Usage {{#stringDiff string1 string2}} do something {{else}} do something else {{/stringDiff}}
+        // Usage {{#stringDiff string1 string2}} do something {{/stringDiff}}
         Handlebars.RegisterHelper("stringDiff", (output, options, context, arguments) =>
         {
             if (arguments.Length != 2) throw new HandlebarsException("The {{stringDiff}} functions requires exactly two arguments.");
@@ -223,7 +220,7 @@ public static class HandleBarsHelpers
             {
                 bool evaluationResult = int.TryParse(arguments[0].ToString(), out var localInteger);
 
-                if (evaluationResult == false)
+                if (!evaluationResult)
                 {
                     throw new HandlebarsException($"The {{replicate}} functions failed because {arguments[0]} could not be converted to an integer.");
                 }
@@ -253,7 +250,7 @@ public static class HandleBarsHelpers
 
         });
 
-        Handlebars.RegisterHelper("stringReplace", (writer, context, args) =>
+        Handlebars.RegisterHelper("stringReplace", (writer, _, args) =>
         {
             if (args.Length < 3) throw new HandlebarsException("The {{StringReplace}} function requires at least three arguments.");
 
@@ -267,12 +264,11 @@ public static class HandleBarsHelpers
                     {
                         expression = value.GetString();
                     }
-
-                    string pattern = args[1] as string;
-                    string replacement = args[2] as string;
-
-                    expression = expression.ToString().Replace(pattern, replacement);
-                    writer.WriteSafeString(expression);
+                    if (args[1] is string pattern && args[2] is string replacement)
+                    {
+                        expression = expression?.ToString()?.Replace(pattern, replacement);
+                        writer.WriteSafeString(expression);
+                    }
                 }
                 catch (Exception exception)
                 {
@@ -289,9 +285,9 @@ public static class HandleBarsHelpers
             try
             {
                 var searchString = arguments[0] == null ? "" : arguments[0].ToString();
-                DataObjectMapping dataObjectMapping = JsonSerializer.Deserialize<DataObjectMapping>(context.Value.ToString());
+                DataObjectMapping? dataObjectMapping = JsonSerializer.Deserialize<DataObjectMapping>(context.Value.ToString());
 
-                var dataItemExists = dataObjectMapping.DataItemMappings.Where(x => x.TargetDataItem.Name == searchString).FirstOrDefault();
+                var dataItemExists = dataObjectMapping?.DataItemMappings?.FirstOrDefault(x => x.TargetDataItem.Name == searchString);
 
                 if (dataItemExists != null)
                 {
@@ -306,7 +302,7 @@ public static class HandleBarsHelpers
             }
             catch (Exception exception)
             {
-                throw new HandlebarsException($"The {{targetDataItemExists}} helper reported a conversion error, and was unable to deserialize the context into a DataObjectMapping. The reported error is " + exception.Message);
+                throw new HandlebarsException("The {{targetDataItemExists}} helper reported a conversion error, and was unable to deserialize the context into a DataObjectMapping. The reported error is " + exception.Message);
             }
         });
 
@@ -329,7 +325,6 @@ public static class HandleBarsHelpers
 
             try
             {
-                
                 var dataObjectMapping = JsonSerializer.Deserialize<DataObjectMapping>(context.Value.ToString(), DefaultJsonOptions.DeserializerOptions);
 
                 var outcome = false;
@@ -348,9 +343,9 @@ public static class HandleBarsHelpers
 
                     if (targetDataItemsWithClassifications != null)
                     {
-                        var dataItemClassifications = targetDataItemsWithClassifications.SelectMany(x => x.TargetDataItem.Classifications).ToList();
+                        var dataItemClassifications = targetDataItemsWithClassifications.SelectMany(x => x.TargetDataItem.Classifications ?? []).ToList();
 
-                        if (dataItemClassifications != null && dataItemClassifications.Any())
+                        if (dataItemClassifications?.Any() == true)
                         {
                             foreach (var classification in dataItemClassifications)
                             {
@@ -393,7 +388,7 @@ public static class HandleBarsHelpers
             }
         });
 
-        // Block helper that evalues is a certain classification exists in the list of classifications.
+        // Block helper that evaluates is a certain classification exists in the list of classifications.
         Handlebars.RegisterHelper("hasClassification", (output, options, context, parameters) =>
         {
             // Check if the parameters are valid.
@@ -414,9 +409,9 @@ public static class HandleBarsHelpers
                 {
                     var classifications = JsonSerializer.Deserialize<List<DataClassification>>(classificationsParameter.ToString() ?? string.Empty);
                     var classificationName = (string)parameters[1];
-                    var result = classifications?.Find(i => i.Classification.ToString().Equals(classificationName, StringComparison.OrdinalIgnoreCase)).Classification;
+                    var result = classifications?.Find(i => i.Classification.Equals(classificationName, StringComparison.OrdinalIgnoreCase))?.Classification;
 
-                    if (result != null && result != "")
+                    if (!string.IsNullOrEmpty(result))
                     {
                         // Regular block, a classification has been found
                         options.Template(output, context);
@@ -434,7 +429,7 @@ public static class HandleBarsHelpers
             }
         });
 
-        // Block helper that evalues is a certain classification exists in the list of classifications.
+        // Block helper that evaluates is a certain classification exists in the list of classifications.
         Handlebars.RegisterHelper("hasClassification", (output, options, context, parameters) =>
         {
             // Check if the parameters are valid.
@@ -479,7 +474,7 @@ public static class HandleBarsHelpers
             }
         });
 
-        // Block helper that evalues is a certain string exists in a list of string values.
+        // Block helper that evaluates is a certain string exists in a list of string values.
         Handlebars.RegisterHelper("hasStringValue", (output, options, context, parameters) =>
         {
             // Check if the parameters are valid.
