@@ -1,4 +1,6 @@
-﻿namespace DataWarehouseAutomation.Utils;
+﻿using HandlebarsDotNet;
+
+namespace DataWarehouseAutomation.Utils;
 
 public static class HandlebarsHelpers
 {
@@ -529,6 +531,43 @@ public static class HandlebarsHelpers
             {
                 throw new HandlebarsException($"The {{{{hasStringValue}}}} function encountered an error. The list of strings provided as the first argument could not be deserialized. The reported error is: '{ex.Message}'.");
             }
+        });
+
+        // lookupExtension allows a lookup of an extension value by key value. Pass in the Extensions list and the string key value.
+        Handlebars.RegisterHelper("lookupExtension", (writer, _, parameters) =>
+        {
+            // Check if the parameters are valid.
+            if (parameters.Length != 2 || parameters[1] is not string)
+            {
+                throw new HandlebarsException("\rThe {{lookupExtension}} helper expects two arguments: a List<Extension> and a string lookup key");
+            }
+
+            var extensionList = new List<Extension>();
+
+            // Deserialize the extensions.
+            try
+            {
+                extensionList = JsonSerializer.Deserialize<List<Extension>>(parameters[0].ToString() ?? string.Empty);
+            }
+            catch (Exception exception)
+            {
+                throw new HandlebarsException($"\rThe {{{{lookupExtension}}}} helper function encountered an error. \r\rThe list of extensions provided as the first argument could not be deserialized, it probably wasn't available or found. Can you check the location of the extension? \r\rThe code so far is:\r\r{writer}\r\rThe reported error is:\r\r'{exception.Message}'");
+            }
+
+            // Write the result.
+            string key = "";
+            try
+            {
+                key = (string)parameters[1];
+                var result = extensionList?.Find(i => i.Key.Equals(key, StringComparison.OrdinalIgnoreCase))?.Value ?? "";
+
+                writer.WriteSafeString($"{result}");
+            }
+            catch (Exception exception)
+            {
+                throw new HandlebarsException($"The {{{{lookupExtension}}}} helper function encountered an error. \r\rNo extension could be found for {key}. \r\rThe reported error is :\r\r'{exception.Message}'");
+            }
+
         });
     }
 }

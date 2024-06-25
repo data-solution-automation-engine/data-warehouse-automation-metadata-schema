@@ -56,7 +56,7 @@ class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"An issue was encountered: {ex}");
+            Console.WriteLine($"An issue was encountered while generating {patternFile} from {jsonMetadataFile}: {ex}");
             Console.ReadKey();
         }
     }
