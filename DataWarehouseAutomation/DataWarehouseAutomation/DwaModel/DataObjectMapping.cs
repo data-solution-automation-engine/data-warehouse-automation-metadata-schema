@@ -3,15 +3,18 @@
 namespace DataWarehouseAutomation.DwaModel;
 
 /// <summary>
-/// The mapping between a source and target data set / table / file.
-/// 
+/// <para>The mapping between a source and target data set / table / file.</para>
+/// <para>
 /// The DataObjectMapping is the element that defines an individual source-to-target mapping / ETL process. It is a mapping between a source and target object - referred to as DataObjects.
-/// The DataObject is in fact a reusable definition in the Json schema.
-///
-/// This definition is used twice in the DataObjectMapping: as the *SourceDataObject* and as the *TargetDataObject* - both instances of the DataObject class / type.
-///
-/// The other key component of a DataObjectMapping is the* DataItemMapping*, which describes the column-to-column(or transformation-to-column).
+/// The DataObject <see cref="IDataObject"/> is in fact a reusable definition in the Json schema.
+/// </para>
+/// <para>This definition is used twice in the DataObjectMapping: as the *SourceDataObjects* and as the *TargetDataObject*
+/// - both instances/lists of <see cref="IDataObject"/>,
+/// implemented as <see cref="DataObject"/> or <see cref="DataObjectQuery"/>.</para>
+/// <para>
+/// The other key component of a DataObjectMapping is the <see cref="DataItemMapping"/> *DataItemMapping*, which describes the column-to-column (or transformation-to-column).
 /// The SourceDataObject, TargetDataObject and DataItemMapping are the mandatory components of a DataObjectMapping.There are many other attributes that can be set, and there are mandatory items within the DataObjects and DataItems.These are all described in the Json schema.
+/// </para>
 /// </summary>
 public class DataObjectMapping : IMetadata
 {
@@ -54,7 +57,7 @@ public class DataObjectMapping : IMetadata
     /// The collection of associated data object for purposes other than source-target relationship.
     /// For example for lookups, merge joins, lineage etc.
     /// </summary>
-    [JsonPropertyName("relatedDataObjects")]
+    [JsonPropertyName("relationships")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public List<Relationships>? Relationships { get; set; }
 
