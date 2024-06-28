@@ -1,7 +1,7 @@
 ﻿namespace DataWarehouseAutomation.DwaModel;
 
 /// <summary>
-/// The individual column-to-column mapping.
+/// The individual <see cref="IDataItem"/> to <see cref="IDataItem"/>, column-to-column mapping.
 /// </summary>
 public class DataItemMapping
 {
@@ -13,7 +13,7 @@ public class DataItemMapping
     public string? Id { get; set; }
 
     [JsonPropertyName("sourceDataItems")]
-    public List<IDataItem> SourceDataItems { get; set; } = new();
+    public List<IDataItem> SourceDataItems { get; set; } = [];
 
     [JsonPropertyName("targetDataItem")]
     public IDataItem TargetDataItem { get; set; } = new DataItem() { Name = "newTargetDataItem" };

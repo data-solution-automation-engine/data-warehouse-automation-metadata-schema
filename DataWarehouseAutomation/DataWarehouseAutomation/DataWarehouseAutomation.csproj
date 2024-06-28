@@ -4,14 +4,14 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Version>2.0.3</Version>
+    <Version>2.1.0</Version>
     <Authors>Roelant Vos</Authors>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Data Warehouse Automation</Title>
-    <PackageProjectUrl>https://roelantvos.com/blog/interface-for-data-warehouse-automation/</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema</PackageProjectUrl>
     <PackageIcon>Ravos-logo.png</PackageIcon>
     <PackageReadmeFile>index.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/RoelantVos/data-warehouse-automation-metadata-schema</RepositoryUrl>
+    <RepositoryUrl>https://github.com/data-solution-automation-engine/data-warehouse-automation-metadata-schema</RepositoryUrl>
     <PackageTags>data warehouse; etl; data integration; data warehouse automation</PackageTags>
     <Description>The generic schema for Data Warehouse Automation covers the efforts towards defining a standard interface to exchange Data Warehouse Automation and ETL generation metadata.
 
@@ -35,6 +35,22 @@ The interface itself is a Json schema definition (JSDL) with examples on how to 
     <PackageReference Include="Handlebars.Net" Version="2.1.4" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.15" />
+    <PackageReference Include="Roslynator.Analyzers" Version="4.12.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Roslynator.CodeFixes" Version="4.12.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Roslynator.Formatting.Analyzers" Version="4.12.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Roslynator.Refactorings" Version="4.12.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

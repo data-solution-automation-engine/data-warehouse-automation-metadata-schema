@@ -16,8 +16,9 @@ public class DataItemQuery : IDataItem
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public string Name { get; set; } = string.Empty;
 
-    // convenience property for parent, derived on json load, never stored in the json file
-    // Can be either a DataObject or a DataQuery when the DataQuery is a DataItem level thing
+    /// <summary>
+    /// The <see cref="IDataObject"/> to which the data item belongs. This can be used to construct fully qualified names.
+    /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.Always)]
     public IDataObject? DataObject { get; set; }
 
