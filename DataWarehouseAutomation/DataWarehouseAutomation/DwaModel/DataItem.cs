@@ -1,5 +1,9 @@
 ﻿namespace DataWarehouseAutomation.DwaModel;
 
+/// <summary>
+/// Data items belong to data objects or data object queries. This means that a given data item always has a parent object.
+/// They describe the individual elements, such as the columns in a table or headers in a file.
+/// </summary>
 public class DataItem : IDataItem
 {
     /// <summary>
@@ -14,7 +18,7 @@ public class DataItem : IDataItem
     public string Name { get; set; } = "NewDataItem";
 
     /// <summary>
-    /// The data object to which the data item belongs. This can be used to construct fully qualified names.
+    /// The <see cref="IDataObject"/> to which the data item belongs. This can be used to construct fully qualified names.
     /// </summary>
     [JsonPropertyName("dataObject")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]

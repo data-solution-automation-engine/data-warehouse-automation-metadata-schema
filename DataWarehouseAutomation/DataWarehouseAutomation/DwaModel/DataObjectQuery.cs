@@ -1,5 +1,11 @@
 ﻿namespace DataWarehouseAutomation.DwaModel;
 
+/// <summary>
+/// A data query is a bespoke code element that is scoped for a specific function or purpose, and can act as a ‘source’ in a source-target mapping.
+/// This applies to both data object and data item level.
+/// When acting the data object object, the data query replaces the source data object in the mapping.
+/// This is a data object query, which could be a view, script, or procedure that provides the data in the mapping instead of a table or file.
+/// </summary>
 public class DataObjectQuery : IDataObject
 {
     /// <summary>
@@ -30,29 +36,33 @@ public class DataObjectQuery : IDataObject
     public string? QueryLanguage { get; set; }
 
     /// <summary>
+    /// The collection of Data Items <see cref="IDataItem"/> associated with this Data Object Query.
+    /// </summary>
+    [JsonPropertyName("dataItems")]
+    public List<IDataItem>? DataItems { get; set; }
+
+    /// <summary>
     /// The connection for the query.
     /// </summary>
     [JsonPropertyName("dataConnection")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public DataConnection? DataConnection { get; set; }
 
-    private List<IDataItem> _dataItems = [];
     /// <summary>
-    /// The collection of Data Items <see cref="IDataItem"/> associated with this Data Object Query.
+    /// The definition of the Business Key(s) for the Data Object Query.
+    /// Being able to record the business key definition 
+    /// This serves multiple purposes, but one of them is to support defining a series of business key definitions against the source data object, and reuse these across different data object mappings.
     /// </summary>
-    [JsonPropertyName("dataItems")]
-    [JsonPropertyOrder(order: 40)]
-    public List<IDataItem> DataItems
-    {
-        get
-        {
-            return _dataItems;
-        }
-        set
-        {
-            _dataItems = value;
-        }
-    }
+    [JsonPropertyName("businessKeyDefinitions")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public List<BusinessKeyDefinition>? BusinessKeyDefinitions { get; set; }
+
+    /// <summary>
+    /// Any relationship to other data objects and/or queries.
+    /// </summary>
+    [JsonPropertyName("relationships")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public List<Relationships>? Relationships { get; set; }
 
     /// <summary>
     /// Free-form and optional classification for the Data Query for use in generation logic (evaluation).
@@ -97,7 +107,7 @@ public class DataObjectQuery : IDataObject
     /// String override so that the object returns its value ('name').
     /// When an instance of this class is passed to a method that expects a string, the ToString() method will be called implicitly to convert the object to a string, and the value of the "Name" property will be returned.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>The Name</returns>
     public override string ToString()
     {
         return Name;

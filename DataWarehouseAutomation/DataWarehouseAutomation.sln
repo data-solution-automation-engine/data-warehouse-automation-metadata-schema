@@ -13,11 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Images\Ravos-logo.png = Images\Ravos-logo.png
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validation", "Test_Project\Validation.csproj", "{23CF4A46-B17F-4642-B949-02E061868BBC}"
-	ProjectSection(ProjectDependencies) = postProject
-		{F0458983-9646-42E6-9E18-90AD91288B40} = {F0458983-9646-42E6-9E18-90AD91288B40}
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Metadata", "Sample Metadata", "{242F4BD0-68F9-4193-A329-826E755C6B08}"
 	ProjectSection(SolutionItems) = preProject
 		Sample_Metadata\myFirstMapping.json = Sample_Metadata\myFirstMapping.json
@@ -25,9 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Metadata", "Sample M
 		Sample_Metadata\sampleBasicWithExtensions.json = Sample_Metadata\sampleBasicWithExtensions.json
 		Sample_Metadata\sampleCalculation.json = Sample_Metadata\sampleCalculation.json
 		Sample_Metadata\sampleCustomFunctions.json = Sample_Metadata\sampleCustomFunctions.json
-		Sample_Metadata\sampleDataVaultHub.json = Sample_Metadata\sampleDataVaultHub.json
 		Sample_Metadata\sampleFreeForm.json = Sample_Metadata\sampleFreeForm.json
-		Sample_Metadata\sampleJsonStagingWithPsaDetails.json = Sample_Metadata\sampleJsonStagingWithPsaDetails.json
 		Sample_Metadata\sampleMultipleDataItemMappings.json = Sample_Metadata\sampleMultipleDataItemMappings.json
 		Sample_Metadata\sampleSimpleDDL.json = Sample_Metadata\sampleSimpleDDL.json
 		Sample_Metadata\sampleSourceQuery.json = Sample_Metadata\sampleSourceQuery.json
@@ -46,13 +39,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Templates", "Sample 
 		Sample_Templates\TemplateSampleSourceQuery.Handlebars = Sample_Templates\TemplateSampleSourceQuery.Handlebars
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Examples", "Example_Project\Examples.csproj", "{F77AC518-6300-4927-8775-B92CDF15CC8E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunDwhAutomation", "RunDwhAutomation\RunDwhAutomation.csproj", "{62C992C6-370D-4591-B54E-2F61E2D8B638}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchemaJsonConverter", "SchemaJsonConverter\SchemaJsonConverter.csproj", "{07214B80-37A9-4137-B0F3-109FA0D0926A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Export", "Export\Export.csproj", "{555AD192-6E8B-49DD-B60C-2E2CC41C0FA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Validation", "Validation\Validation.csproj", "{DB4DA80B-39D0-451F-ADF4-C4CA75F1851D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Examples", "Examples\Examples.csproj", "{59169ABF-D3E5-479E-B4F5-D30DEB5900A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,14 +57,6 @@ Global
 		{F0458983-9646-42E6-9E18-90AD91288B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0458983-9646-42E6-9E18-90AD91288B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0458983-9646-42E6-9E18-90AD91288B40}.Release|Any CPU.Build.0 = Release|Any CPU
-		{23CF4A46-B17F-4642-B949-02E061868BBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23CF4A46-B17F-4642-B949-02E061868BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23CF4A46-B17F-4642-B949-02E061868BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23CF4A46-B17F-4642-B949-02E061868BBC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F77AC518-6300-4927-8775-B92CDF15CC8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F77AC518-6300-4927-8775-B92CDF15CC8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F77AC518-6300-4927-8775-B92CDF15CC8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F77AC518-6300-4927-8775-B92CDF15CC8E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{62C992C6-370D-4591-B54E-2F61E2D8B638}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{62C992C6-370D-4591-B54E-2F61E2D8B638}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62C992C6-370D-4591-B54E-2F61E2D8B638}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -80,10 +65,14 @@ Global
 		{07214B80-37A9-4137-B0F3-109FA0D0926A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07214B80-37A9-4137-B0F3-109FA0D0926A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07214B80-37A9-4137-B0F3-109FA0D0926A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{555AD192-6E8B-49DD-B60C-2E2CC41C0FA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{555AD192-6E8B-49DD-B60C-2E2CC41C0FA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{555AD192-6E8B-49DD-B60C-2E2CC41C0FA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{555AD192-6E8B-49DD-B60C-2E2CC41C0FA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB4DA80B-39D0-451F-ADF4-C4CA75F1851D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB4DA80B-39D0-451F-ADF4-C4CA75F1851D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB4DA80B-39D0-451F-ADF4-C4CA75F1851D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB4DA80B-39D0-451F-ADF4-C4CA75F1851D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59169ABF-D3E5-479E-B4F5-D30DEB5900A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59169ABF-D3E5-479E-B4F5-D30DEB5900A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59169ABF-D3E5-479E-B4F5-D30DEB5900A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59169ABF-D3E5-479E-B4F5-D30DEB5900A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

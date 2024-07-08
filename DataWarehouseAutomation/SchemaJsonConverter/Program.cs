@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Nodes;
+
 using DataWarehouseAutomation.DwaModel;
 
 string jsonSchema = string.Empty;
@@ -15,8 +16,8 @@ catch
 
 if (!string.IsNullOrEmpty(jsonSchema))
 {
-    var inputMetadataDirectory = @"D:\TeamEnvironments\VDW\Metadata";
-    var outputMetadataDirectory = @"D:\TeamEnvironments\VDW\MetadataV2";
+    const string inputMetadataDirectory = @"D:\TeamEnvironments\VDW\Metadata";
+    const string outputMetadataDirectory = @"D:\TeamEnvironments\VDW\MetadataV2";
 
     var exceptionList = new List<string>
     {
@@ -25,14 +26,14 @@ if (!string.IsNullOrEmpty(jsonSchema))
     };
 
     #region GUIDs
-    // GUID for object, item, connection, classification, businessKeyDefinition, dataObjectMapping, dataItemMapping, mappinglist
-    Dictionary<string, Guid> dataObjectGuids = new Dictionary<string, Guid>();
-    Dictionary<string, Guid> dataItemGuids = new Dictionary<string, Guid>();
-    Dictionary<string, Guid> connectionGuids = new Dictionary<string, Guid>();
-    Dictionary<string, Guid> classificationGuids = new Dictionary<string, Guid>();
-    Dictionary<string, Guid> dataObjectMappingGuids = new Dictionary<string, Guid>();
-    Dictionary<string, Guid> businessKeyDefinitionGuids = new Dictionary<string, Guid>();
-    Dictionary<string, Guid> dataItemMappingGuids = new Dictionary<string, Guid>();
+    // GUID for object, item, connection, classification, businessKeyDefinition, dataObjectMapping, dataItemMapping, mappingList
+    Dictionary<string, Guid> dataObjectGuids = [];
+    Dictionary<string, Guid> dataItemGuids = [];
+    Dictionary<string, Guid> connectionGuids = [];
+    Dictionary<string, Guid> classificationGuids = [];
+    Dictionary<string, Guid> dataObjectMappingGuids = [];
+    Dictionary<string, Guid> businessKeyDefinitionGuids = [];
+    Dictionary<string, Guid> dataItemMappingGuids = [];
 
     #endregion
 
@@ -181,8 +182,8 @@ if (!string.IsNullOrEmpty(jsonSchema))
                         // Add the mapping name as a 'name' to the list of mappings, only once.
                         //if (jsonObject["dataObjectMappings"].AsArray().IndexOf(dataObjectMapping) == 0)
                         //{
-                            var tempMappingName = sourceDataObjectNameJsonNode.ToString() + " to " + mappingNameJsonNode.ToString();
-                            jsonObjectDataObjectMapping["name"] = tempMappingName;
+                        var tempMappingName = sourceDataObjectNameJsonNode + " to " + mappingNameJsonNode;
+                        jsonObjectDataObjectMapping["name"] = tempMappingName;
                         //}
 
                         // Data Items.
@@ -412,7 +413,7 @@ if (!string.IsNullOrEmpty(jsonSchema))
                             var jsonObjectTargetDataItem = JsonNode.Parse(jsonNodeTargetDataItem.ToJsonString()).AsObject();
                             AddGuid(jsonObjectTargetDataItem, dataItemGuids, "name");
                             jsonObjectDataItemMapping["targetDataItem"] = jsonObjectTargetDataItem;
-                            
+
                             foreach (var sourceDataItemJsonObject in sourceDataItemList)
                             {
                                 jsonObjectDataItemMapping["sourceDataItems"]![sourceDataItemList.IndexOf(sourceDataItemJsonObject)] = sourceDataItemJsonObject;
@@ -480,7 +481,7 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
                                         if (keyExists == "True")
                                         {
-                                            if (jsonNode != null && jsonNode.ToString() == "true")
+                                            if (jsonNode?.ToString() == "true")
                                             {
                                                 try
                                                 {
@@ -533,7 +534,7 @@ if (!string.IsNullOrEmpty(jsonSchema))
                             // Ensure each item has a GUID
                             AddGuid(businessKeyComponentMappingJsonObject, businessKeyDefinitionGuids);
 
-                            // Ensdure that each business key definition has a name.
+                            // Ensure that each business key definition has a name.
                             var businessKeyDefinitionName = $"{jsonObjectDataObjectMapping["name"]} for {businessKeyComponentMappingJsonObject["surrogateKey"]}";
 
                             businessKeyComponentMappingJsonObject.Add("name", businessKeyDefinitionName);
@@ -677,11 +678,9 @@ if (!string.IsNullOrEmpty(jsonSchema))
 
             // Save the file to disk.
             var fileName = outputMetadataDirectory + @"\" + Path.GetFileName(file);
-            using (var outfile = new StreamWriter(fileName))
-            {
-                outfile.Write(jsonObject!.ToJsonString(options));
-                outfile.Close();
-            }
+            using var outFile = new StreamWriter(fileName);
+            outFile.Write(jsonObject!.ToJsonString(options));
+            outFile.Close();
         }
     }
 }
@@ -780,8 +779,8 @@ void UpdateClassifications(JsonObject jsonObject, Dictionary<string, Guid> objec
                 var classificationJsonObject = JsonNode.Parse(classification.ToJsonString()).AsObject();
                 var getClassification = classificationJsonObject.TryGetPropertyValue("classification", out var classificationValue).ToString();
 
-                // Rename to phyiscal model object classifications.
-                string newClassificationValue = classificationValue.ToString() switch
+                // Rename to physical model object classifications.
+                string newClassificationValue = classificationValue?.ToString() switch
                 {
                     "Source" => "Source",
                     "Core Business Concept" => "Hub",
@@ -806,7 +805,7 @@ void UpdateClassifications(JsonObject jsonObject, Dictionary<string, Guid> objec
                 }
 
                 // Add a group.
-                string groupValue = classificationValue.ToString() switch
+                string groupValue = classificationValue?.ToString() switch
                 {
                     "Source" => "Solution Layer",
                     "Core Business Concept" => "Logical",

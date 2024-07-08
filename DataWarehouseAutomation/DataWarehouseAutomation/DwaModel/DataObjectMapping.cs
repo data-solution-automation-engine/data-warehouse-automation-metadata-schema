@@ -3,15 +3,18 @@
 namespace DataWarehouseAutomation.DwaModel;
 
 /// <summary>
-/// The mapping between a source and target data set / table / file.
-/// 
+/// <para>The mapping between a source and target data set / table / file.</para>
+/// <para>
 /// The DataObjectMapping is the element that defines an individual source-to-target mapping / ETL process. It is a mapping between a source and target object - referred to as DataObjects.
-/// The DataObject is in fact a reusable definition in the Json schema.
-///
-/// This definition is used twice in the DataObjectMapping: as the *SourceDataObject* and as the *TargetDataObject* - both instances of the DataObject class / type.
-///
-/// The other key component of a DataObjectMapping is the* DataItemMapping*, which describes the column-to-column(or transformation-to-column).
+/// The DataObject <see cref="IDataObject"/> is in fact a reusable definition in the Json schema.
+/// </para>
+/// <para>This definition is used twice in the DataObjectMapping: as the *SourceDataObjects* and as the *TargetDataObject*
+/// - both instances/lists of <see cref="IDataObject"/>,
+/// implemented as <see cref="DataObject"/> or <see cref="DataObjectQuery"/>.</para>
+/// <para>
+/// The other key component of a DataObjectMapping is the <see cref="DataItemMapping"/> *DataItemMapping*, which describes the column-to-column (or transformation-to-column).
 /// The SourceDataObject, TargetDataObject and DataItemMapping are the mandatory components of a DataObjectMapping.There are many other attributes that can be set, and there are mandatory items within the DataObjects and DataItems.These are all described in the Json schema.
+/// </para>
 /// </summary>
 public class DataObjectMapping : IMetadata
 {
@@ -54,29 +57,16 @@ public class DataObjectMapping : IMetadata
     /// The collection of associated data object for purposes other than source-target relationship.
     /// For example for lookups, merge joins, lineage etc.
     /// </summary>
-    [JsonPropertyName("relatedDataObjects")]
+    [JsonPropertyName("relationships")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public List<IDataObject>? RelatedDataObjects { get; set; }
+    public List<Relationships>? Relationships { get; set; }
 
-    private List<IDataItem> _dataItems = [];
     /// <summary>
     /// The collection of Data Items <see cref="IDataItem"/> specifically associated with this Data Object Mapping,
     /// used as source/target Data Items/Queries for the mapping or the Mappings BKCM as needed.
     /// </summary>
     [JsonPropertyName("dataItems")]
-    [JsonPropertyOrder(order: 55)]
-    public List<IDataItem> DataItems
-    {
-        get
-        {
-            return _dataItems;
-        }
-        set
-        {
-            _dataItems = value;
-            isSorted = false;
-        }
-    }
+    public List<IDataItem>? DataItems { get; set; }
 
     /// <summary>
     /// The collection of individual attribute (column or query) mappings.
@@ -87,10 +77,11 @@ public class DataObjectMapping : IMetadata
 
     /// <summary>
     /// The definition of the Business Key(s) for the Data Object Mapping.
+    /// The order is stored as well, because in some cases the order of keys is meaningful.
     /// </summary>
     [JsonPropertyName("businessKeyDefinitions")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-    public List<BusinessKeyDefinition>? BusinessKeyDefinitions { get; set; }
+    public List<BusinessKeyDefinitions>? BusinessKeyDefinitions { get; set; }
 
     /// <summary>
     /// Any filtering that needs to be applied to the source-to-target mapping.
@@ -122,25 +113,6 @@ public class DataObjectMapping : IMetadata
     #endregion
 
     #region Json Representation
-    private bool isSorted = false;
-
-    /// <summary>
-    /// Sort all the lists in the metadata object
-    /// </summary>
-    public void SortLists()
-    {
-        if (!isSorted)
-        {
-            isSorted = true;
-            SourceDataObjects.Sort();
-            RelatedDataObjects.Sort();
-            DataItemMappings.Sort();
-            BusinessKeyDefinitions.Sort();
-            Classifications.Sort();
-            Extensions.Sort();
-        }
-    }
-
     /// <summary>
     /// Get the standard Json representation
     /// </summary>

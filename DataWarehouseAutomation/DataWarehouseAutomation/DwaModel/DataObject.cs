@@ -2,8 +2,9 @@
 
 /// <summary>
 /// The definition of a data set, file, or table.
-/// The Data Object can be the 'source' or 'target' in a Data Object Mapping.
-/// A Data Object which acts as target in one mapping, can be a source in another mapping, building up the data logistics lineage.
+/// The Data Object can be the 'source' or 'target' in a <see cref="DataObjectMapping"/>.
+/// A Data Object which acts as target in one mapping, can be a source in another mapping,
+/// building up the data logistics lineage.
 /// </summary>
 public class DataObject : IMetadata, IDataObject
 {
@@ -35,7 +36,24 @@ public class DataObject : IMetadata, IDataObject
     public DataConnection? DataConnection { get; set; }
 
     /// <summary>
-    /// Free-form and optional classification for the Data Object for use in ETL generation logic (evaluation).
+    /// The definition of the Business Key(s) for the Data Object.
+    /// Being able to record the business key definition 
+    /// This serves multiple purposes, but one of them is to support defining a series of business key definitions against the source data object, and reuse these across different data object mappings.
+    /// The order is stored as well, because in some cases the order of keys is meaningful.
+    /// </summary>
+    [JsonPropertyName("businessKeyDefinitions")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public List<BusinessKeyDefinitions>? BusinessKeyDefinitions { get; set; }
+
+    /// <summary>
+    /// Any relationship to other data objects.
+    /// </summary>
+    [JsonPropertyName("relationships")]
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+    public List<Relationships>? Relationships { get; set; }
+
+    /// <summary>
+    /// Free-form and optional classification for the Data Object.
     /// </summary>
     [JsonPropertyName("classifications")]
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
