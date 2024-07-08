@@ -1,15 +1,19 @@
 name: Docs
 
 on:
-  # Runs on pushes targeting the default branch
+  # Runs on pushes targeting the default branch.
   push:
     branches: ["main"]
 
-  # Allows you to run this workflow manually from the Actions tab
+  # Allows you to run this workflow manually from the Actions tab.
   workflow_dispatch:
 
 jobs:
   generate-docs:
+
+    permissions:
+      id-token: write
+      pages: write
 
     runs-on: windows-latest
 
