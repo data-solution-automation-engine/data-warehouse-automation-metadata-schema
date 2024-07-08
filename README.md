@@ -6,7 +6,7 @@
 
 #### Intent
 
-To provide a collaborative space to discuss an exchange format concerning ETL generation metadata, supporting Data Warehouse Automation. This adapter should contain all metadata necessary to generate the transformation logic for a Data Warehouse solution.
+To provide a collaborative space to discuss an exchange format concerning data logistics generation metadata, supporting Data Warehouse Automation. This adapter should contain all metadata necessary to generate the transformation logic for a Data Warehouse solution.
 
 #### Links / structure
 
@@ -21,7 +21,9 @@ The following directories have been set up:
 
 Across most, if not all, metadata models there is a core set of information that is required for any generation of ETL. If we can separate this from the UI / management of metadata we could have an exchange format that allows anyone to 'plug in' their own desired technology.
 
-As an example '[TEAM](https://github.com/RoelantVos/TEAM)' has the intent to separate UI with a view of limiting data entry and validation, but does not focus on SQL generation. Rather, these functions are separated by an adapter that is accessible as Json or database view.
+Examples:
+* [Agnostic Data Labs](https://agnosticdatalabs.com) implements this schema and provides a dedicated UI and out of the box templates.
+* '[TEAM](https://github.com/RoelantVos/TEAM)' has the intent to separate UI with a view of limiting data entry and validation, but does not focus on SQL generation. Rather, these functions are separated by an adapter that is accessible as Json or database view.
 
 #### Requirements
 
