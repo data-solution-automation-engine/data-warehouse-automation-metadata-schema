@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 using CommandLine;
 
@@ -21,39 +23,6 @@ class Program
         // Get the handlebars extensions from the DataWarehouseAutomation class library.
         HandlebarsHelpers.RegisterHandlebarsHelpers();
 
-        #region unit testing
-        // Unit testing only.
-        //var testArgs = new string[]
-        //{    "-i", @"D:\Git_Repos\TEAM\TEAM\bin\Debug\Output\"
-        //    ,"-p", @"D:\Git_Repos\Data_Warehouse_Automation_Metadata_Interface\ClassLibrary\DataWarehouseAutomation\Sample_Templates\TemplateSatelliteView.Handlebars"
-        //    ,"-o"
-        //    ,"-d", @"D:\Workspace"
-        //    ,"-e", "sql"
-        //    //,"-f", "roelant"
-        //    ,"-v"
-        //};
-
-        //var testArgs = new string[]
-        //{
-        //       "-i", @"C:\Github\Data-Warehouse-Automation-Metadata-Schema\ClassLibrary\DataWarehouseAutomation\Sample_Metadata\sampleBasic.json"
-        //    "-i", @"C:\Files\Test\"
-        //    ,"-p", @"C:\Files\Test\TemplateSampleBasic.Handlebars"
-        //    ,"-o"
-        //    ,"-f", "roelant"
-        //    ,"-v"
-        //};
-
-        //var testArgs = new string[]
-        //{
-        //     "-i", @"D:\RunDwhAutomation\Input\dbo.SAT_DeliveryTypeSalesControl_InforLN.json"
-        //    ,"-p", @"D:\RunDwhAutomation\Pattern\test.handlebars"
-        //    ,"-o"
-        //    ,"-f", "tst"
-        //    ,"-v"
-        //};
-
-        #endregion
-
         CommandLineArgumentHelper environmentHelper = new CommandLineArgumentHelper();
         //CommandLineArgumentHelper environmentHelper = new CommandLineArgumentHelper(testArgs);
 
@@ -69,29 +38,35 @@ class Program
                 options.outputFileExtension ??= "txt";
             }
 
-            // Determine if the output is a file or path
-
-            var path = Path.GetExtension(options.input);
-            bool isPath;
-            isPath = path == String.Empty;
-
             // Managing verbose information back to user
             if (options.verbose)
             {
                 Console.WriteLine("Verbose mode enabled.");
 
-                if (!string.IsNullOrEmpty(options.input))
+                if (options.input != null && options.input.Any())
                 {
-                    Console.WriteLine($"The input (file or directory) provided is {options.input}");
-
-                    Console.WriteLine(isPath
-                        ? $"{options.input} is evaluated as a directory."
-                        : $"{options.input} is evaluated as a file.");
+                    Console.WriteLine($"The input path(s) provided:");
+                    foreach (var inputPath in options.input)
+                    {
+                        var path = Path.GetExtension(inputPath);
+                        bool isInputPath = path == String.Empty;
+                        Console.WriteLine($"  - {inputPath} ({(isInputPath ? "directory" : "file")})");
+                    }
                 }
 
                 if (!string.IsNullOrEmpty(options.pattern))
                 {
                     Console.WriteLine($"The pattern used is {options.pattern}");
+                }
+
+                if (options.recursive)
+                {
+                    Console.WriteLine("Recursive subdirectory search is enabled.");
+                }
+
+                if (options.combine)
+                {
+                    Console.WriteLine("Combine mode is enabled - all metadata files will be aggregated into a single object.");
                 }
 
                 if (options.output)
@@ -108,10 +83,37 @@ class Program
             // Do the main stuff
             //HandlebarsHelpers.RegisterHandlebarsHelpers();
 
-            if (isPath)
-            {
-                var localFiles = Directory.GetFiles(options.input, "*.json");
+            // Collect all files from all input paths
+            var allInputFiles = new List<string>();
 
+            foreach (var inputPath in options.input)
+            {
+                var path = Path.GetExtension(inputPath);
+                bool isPath = path == String.Empty;
+
+                if (isPath)
+                {
+                    var searchOption = options.recursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
+                    var filesInDirectory = Directory.GetFiles(inputPath, "*.json", searchOption);
+                    allInputFiles.AddRange(filesInDirectory);
+                }
+                else
+                {
+                    // It's a file
+                    allInputFiles.Add(inputPath);
+                }
+            }
+
+            var localFiles = allInputFiles.ToArray();
+
+            // Process the collected files
+            if (options.combine)
+            {
+                // Combine all metadata files into a single object
+                RunAutomationCombined(options, localFiles);
+            }
+            else
+            {
                 foreach (var file in localFiles)
                 {
                     if (options.outputFileName == null)
@@ -124,17 +126,6 @@ class Program
                         // The output file name is concatenated as the specified file and a file number to ensure uniqueness.
                         RunAutomation(options, file, options.outputFileName + Array.IndexOf(localFiles, file));
                     }
-                }
-            }
-            else
-            {
-                if (options.outputFileName == null)
-                {
-                    RunAutomation(options, options.input);
-                }
-                else
-                {
-                    RunAutomation(options, options.input, options.outputFileName);
                 }
             }
             #endregion
@@ -153,6 +144,120 @@ class Program
         //Console.ReadKey();
 
         return Environment.ExitCode;
+    }
+
+    private static void RunAutomationCombined(Options options, string[] inputFileNames)
+    {
+        try
+        {
+            // Create the combined metadata structure
+            var combinedMetadata = new JObject();
+            combinedMetadata["dataObjects"] = new JArray();
+            combinedMetadata["dataObjectMappingLists"] = new JArray();
+
+            if (options.verbose)
+            {
+                Console.WriteLine($"Combining {inputFileNames.Length} metadata files...");
+            }
+
+            // Process each file and add to the combined structure
+            foreach (var inputFileName in inputFileNames)
+            {
+                try
+                {
+                    var jsonInput = File.ReadAllText(inputFileName);
+                    var parsedObject = JObject.Parse(jsonInput);
+
+                    if (options.verbose)
+                    {
+                        Console.WriteLine($"Processing {Path.GetFileName(inputFileName)}...");
+                    }
+
+                    // Add dataObjects if present as an array
+                    if (parsedObject["dataObjects"] != null && parsedObject["dataObjects"] is JArray)
+                    {
+                        foreach (var item in parsedObject["dataObjects"])
+                        {
+                            ((JArray)combinedMetadata["dataObjects"]).Add(item);
+                        }
+                    }
+                    // Check if this is a standalone DataObject (has dataItems or other DataObject-specific properties)
+                    else if (parsedObject["dataItems"] != null ||
+                             parsedObject["dataObjectConnection"] != null ||
+                             (parsedObject["name"] != null && parsedObject["dataObjectMappings"] == null))
+                    {
+                        // This appears to be a standalone DataObject, add it directly
+                        ((JArray)combinedMetadata["dataObjects"]).Add(parsedObject);
+                    }
+
+                    // Add dataObjectMappings as a dataObjectMappingList
+                    if (parsedObject["dataObjectMappings"] != null && parsedObject["dataObjectMappings"] is JArray)
+                    {
+                        // Wrap in a dataObjectMappingList structure, preserving all properties
+                        var mappingList = new JObject();
+
+                        // Copy all properties from the original object
+                        foreach (var prop in parsedObject.Properties())
+                        {
+                            mappingList[prop.Name] = prop.Value;
+                        }
+
+                        // Ensure we have a name property - if not, use the filename
+                        if (mappingList["name"] == null)
+                        {
+                            mappingList["name"] = Path.GetFileNameWithoutExtension(inputFileName);
+                        }
+
+                        ((JArray)combinedMetadata["dataObjectMappingLists"]).Add(mappingList);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    if (options.verbose)
+                    {
+                        Console.WriteLine($"Warning: Could not process file {inputFileName}: {ex.Message}");
+                    }
+                }
+            }
+
+            // Spool the combined metadata to disk for review
+            if (options.verbose)
+            {
+                var debugFileName = $"{options.outputDirectory}\\combined_metadata_debug_{DateTime.Now.ToString("yyyyMMddHHmmss")}.json";
+                File.WriteAllText(debugFileName, combinedMetadata.ToString(Newtonsoft.Json.Formatting.Indented));
+                Console.WriteLine($"Debug: Combined metadata written to {debugFileName}");
+            }
+
+            // Process the combined metadata with the template
+            var stringTemplate = File.ReadAllText(options.pattern);
+            var template = Handlebars.Compile(stringTemplate);
+            var result = template(combinedMetadata);
+
+            if (options.verbose)
+            {
+                Console.WriteLine(result);
+            }
+
+            if (options.output)
+            {
+                var outputFileName = options.outputFileName ?? "combined_metadata_" + DateTime.Now.ToString("yyyyMMddHHmmss");
+
+                Console.WriteLine($"Generating {outputFileName}.{options.outputFileExtension} to {options.outputDirectory}.");
+
+                using StreamWriter file = new StreamWriter($"{options.outputDirectory}\\{outputFileName}.{options.outputFileExtension}");
+                file.WriteLine(result);
+            }
+
+            Environment.ExitCode = (int)ExitCode.Success;
+        }
+        catch (Exception ex)
+        {
+            if (options.verbose)
+            {
+                Console.WriteLine($"An error has been encountered: {ex}");
+            }
+            Environment.ExitCode = (int)ExitCode.UnknownError;
+        }
     }
 
     private static void RunAutomation(Options options, string inputFileName, string outputFileName = "")
@@ -177,9 +282,27 @@ class Program
             {
                 if (outputFileName == "")
                 {
+                    // Try to extract the name from the JSON metadata according to the Data Warehouse Automation schema
+                    // The schema supports multiple structures:
+                    // 1. Top-level "name" property (DataObjectMappingList or free-form objects)
+                    // 2. "dataObjectMappings[0].name" property (when top-level name is not present)
                     try
                     {
-                        outputFileName = (string)deserializedMapping["dataObjectMappings"][0]["name"];
+                        // First, try to get the top-level name property
+                        if (deserializedMapping["name"] != null)
+                        {
+                            outputFileName = (string)deserializedMapping["name"];
+                        }
+                        // If no top-level name, try to get the first mapping's name
+                        else if (deserializedMapping["dataObjectMappings"]?[0]?["name"] != null)
+                        {
+                            outputFileName = (string)deserializedMapping["dataObjectMappings"][0]["name"];
+                        }
+                        else
+                        {
+                            // If neither exists, use filename + timestamp
+                            throw new Exception("No name property found");
+                        }
                     }
                     catch
                     {
@@ -187,7 +310,7 @@ class Program
 
                         if (options.verbose)
                         {
-                            Console.WriteLine($"The standard 'mappingName' segment was not found where expected, so the file name has been defaulted to {outputFileName}.");
+                            Console.WriteLine($"The standard 'name' property was not found in the expected locations, so the file name has been defaulted to {outputFileName}.");
                         }
                     }
                 }
@@ -211,36 +334,6 @@ class Program
     }
 
     /// <summary>
-    /// Command line options (arguments, parameters).
-    /// </summary>
-    class Options
-    {
-        // Inputs
-        [Option('i', "input", Required = true, HelpText = "The filename or directory of the (input) Json file(s) containing the automation metadata.")]
-        public string input { get; set; }
-
-        [Option('p', "pattern", Required = true, HelpText = "The filename for the (input) Handlebars pattern.")]
-        public string pattern { get; set; }
-
-        // Outputs
-        [Option('o', "output", Required = false, HelpText = "Enable output to be spooled to disk (enable/disable) - default is disable.")]
-        public bool output { get; set; }
-
-        [Option('d', "outputdirectory", Required = false, HelpText = "The directory where spool files (output) are placed. If not provided, the execution directory will be assumed.")]
-        public string outputDirectory { get; set; }
-
-        [Option('e', "outputextension", Required = false, HelpText = "The extension used for the output file(s). This is defaulted to txt when left empty.")]
-        public string outputFileExtension { get; set; }
-
-        [Option('f', "outputfilename", Required = false, HelpText = "The name of the output file(s). This is defaulted to the mapping name in the metadata object when left empty.")]
-        public string outputFileName { get; set; }
-
-        // Other
-        [Option('v', "verbose", Required = false, HelpText = "Set output to verbose messages.")]
-        public bool verbose { get; set; }
-    }
-
-    /// <summary>
     /// Application exit codes, returned to the command line via the main().
     /// </summary>
     enum ExitCode : int
@@ -251,23 +344,5 @@ class Program
         NoPattern = 3,
         InvalidPattern = 4,
         UnknownError = 10
-    }
-
-    /// <summary>
-    /// Helper class to simplify providing unit-testing parameters/arguments.
-    /// </summary>
-    internal class CommandLineArgumentHelper
-    {
-        internal string[] args;
-
-        public CommandLineArgumentHelper()
-        {
-            this.args = Environment.GetCommandLineArgs();
-        }
-
-        public CommandLineArgumentHelper(string[] testArgs)
-        {
-            this.args = testArgs;
-        }
     }
 }

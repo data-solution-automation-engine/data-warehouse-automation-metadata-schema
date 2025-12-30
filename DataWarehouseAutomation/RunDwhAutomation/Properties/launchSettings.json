@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "RunDwhAutomation": {
+      "commandName": "Project"
+    },
+    "Test": {
+      "commandName": "Project",
+      "commandLineArgs": "-i \"C:\\ADL\\metadata-architecture\\DataObjectMappings;C:\\ADL\\metadata-architecture\\DataObjects\" -p \"C:\\ADL\\metadata-architecture\\Templates\\Other\\Documentation.handlebars\" -o -d \"C:\\ADL\\metadata-architecture\\Output\\Temp\" -e \"md\" -f \"metadata-architectuur\" -r -c"
+    }
+  }
+}
