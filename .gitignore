@@ -357,3 +357,4 @@ MigrationBackup/
 
 ClassLibrary/DataWarehouseAutomation/Test_Project/Test_Project.csproj
 ClassLibrary/DataWarehouseAutomation/DataWarehouseAutomation/obj/Debug/netstandard2.0/DataWarehouseAutomation.csproj.FileListAbsolute.txt
+DataWarehouseAutomation/.claude/settings.local.json
