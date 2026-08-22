@@ -1,10 +1,15 @@
 allowBuilds:
   esbuild: set this to true or false
 overrides:
-  # Force patched fast-uri (fixes CVE-2025-27210 / CVE-2025-59139: host confusion via
-  # literal backslash authority delimiter, and IDN canonicalization). 3.1.2 lives deep
-  # under @astrojs/check -> language-server -> volar-service-yaml -> yaml-language-server -> ajv.
-  fast-uri: ^3.1.4
-  # Force patched yaml (fixes CVE-2024-53908: stack overflow on deeply nested collections).
-  # volar-service-yaml pulls in the vulnerable 2.7.1; vite already ships a safe 2.9.0.
+  # Force patched fast-uri. Covers host confusion via literal backslash authority
+  # delimiter and via failed IDN canonicalization, plus GHSA-7p8r-x3mc-p8w7
+  # (backslash authority introducer, patched in 3.1.5). Pulled in deep under
+  # @astrojs/check -> language-server -> volar-service-yaml -> yaml-language-server -> ajv.
+  fast-uri: ^3.1.5
+  # Force patched yaml (stack overflow on deeply nested collections).
+  # volar-service-yaml pulls in a vulnerable 2.7.1; vite already ships a safe 2.9.x.
   yaml: ^2.8.3
+  # Force patched js-yaml (GHSA-5p4m-2wfm-xmqj: quadratic CPU consumption resolving
+  # !!omap). astro/starlight already resolve 4.3.1, but @astrojs/internal-helpers
+  # still pins 4.3.0; this collapses both onto the fixed release.
+  js-yaml: ^4.3.1
